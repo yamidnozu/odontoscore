@@ -9,6 +9,8 @@ jobs:
   sync-build-deploy:
     name: Sincronizar PA-API, Compilar y Desplegar
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: 📥 Clonar repositorio
         uses: actions/checkout@v4
@@ -47,14 +49,16 @@ jobs:
 
       - name: 💾 Guardar cambios de catálogo y caché en el repositorio
         run: |
-          git config --global user.name "OdontoScore Bot"
-          git config --global user.email "bot@odontoscore.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add datos/productos.json lib/db.js sitemap.xml
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore(sync): auto-actualización catálogo y precios Amazon [skip ci]"
-          git push origin main || echo "No changes to push or branch protected"
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(sync): auto-actualización catálogo y precios [skip ci]" && git push origin main)
 
-      - name: 🚀 Desplegar a Hostinger vía FTP
+      - name: 🚀 Desplegar a Hostinger vía FTP (si FTP_PASS está configurado)
+        if: env.FTP_PASS != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        env:
+          FTP_PASS: ${{ secrets.FTP_PASS }}
         with:
           server: ${{ secrets.FTP_HOST || 'ftp.odontoscore.com' }}
           username: ${{ secrets.FTP_USER || 'u358159530' }}
