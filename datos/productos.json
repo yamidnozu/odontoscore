@@ -6,7 +6,7 @@
     "marca": "Oral-B",
     "categoria_odontologica": "cepillos_electricos",
     "category": "Cepillos Eléctricos",
-    "affiliate_url": "https://amzn.to/3QjWDr7",
+    "affiliate_url": "https://www.amazon.es/dp/B089W4XKQY?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
     "canonical_url": "https://www.amazon.es/dp/B089W4XKQY",
     "images": [
@@ -29,7 +29,7 @@
     "capacidad_deposito_ml": null,
     "pulsaciones_min": 17400,
     "autonomia_dias": 14,
-    "tiempo_carga_h": 3.0,
+    "tiempo_carga_h": 3,
     "cabezales_incluidos": 1,
     "nivel_ruido_db": 58,
     "resistencia_ipx": "IPX7",
@@ -42,11 +42,10 @@
       "blanqueamiento"
     ],
     "specs_extra": {
-      "Sensor de Presión": "Inteligente 360° con anillo LED (Rojo: exceso / Verde: óptimo / Blanco: insuficiente)",
-      "Pantalla": "Interactiva a color OLED con saludo, temporizador y nivel de batería",
-      "Seguimiento 3D": "Mapeo de 16 zonas con Inteligencia Artificial mediante giroscopio y acelerómetro",
-      "Cargador": "Base magnética de carga rápida Power2Go con bloqueo seguro",
-      "Estuche": "Estuche de viaje de carga Power2Go incluido"
+      "Cargador": "Base magnética rápida Power2Go (3 horas)",
+      "Pantalla": "Interactiva a color OLED",
+      "Seguimiento 3D": "Mapeo de 16 zonas con IA",
+      "Sensor de Presión": "Inteligente 360° con anillo LED (Rojo/Verde/Blanco)"
     },
     "score_eficacia": 9.8,
     "score_comodidad_encias": 9.5,
@@ -56,29 +55,29 @@
     "score_tecnologia": 9.9,
     "score_calidad_precio": 8.0,
     "description": "El Oral-B iO Series 9 representa el estándar de referencia en cepillado eléctrico inteligente gracias a su motor lineal magnético y seguimiento 3D de 16 zonas.",
-    "cuerpo_editorial": "<p>El <strong>Oral-B iO Series 9</strong> supuso un salto cuántico en la ingeniería de higiene bucodental al sustituir los sistemas mecánicos tradicionales por un accionamiento magnético sin fricción. Este mecanismo transfiere energía directamente a las puntas de los filamentos mediante microvibraciones sincronizadas con el movimiento oscilante-rotacional característico de los cabezales redondos de la marca.</p><p>En la práctica clínica, el aspecto más destacable es su <strong>sensor de presión inteligente 360°</strong>. A diferencia de sensores convencionales que solo alertan ante fuerza excesiva (luz roja), el iO 9 también indica mediante luz verde cuando la presión ejercida es exactamente la terapéutica recomendada para eliminar placa sin erosionar el esmalte ni retraer el margen gingival.</p><p>La integración de <strong>seguimiento 3D por IA</strong> reconoce la orientación espacial del cepillo para monitorizar las superficies vestibular, lingual y oclusal en los 6 sextantes de la boca. Su pantalla interactiva a color proporciona feedback instantáneo y la base de carga magnética completa el ciclo en tan solo 3 horas.</p>",
+    "cuerpo_editorial": "<p>El <strong>Oral-B iO Series 9</strong> supuso un salto cuántico en la ingeniería de higiene bucodental al sustituir los sistemas mecánicos tradicionales por un accionamiento magnético sin fricción...</p>",
     "pros": [
-      "Motor magnético iO ultrasuave y eficaz en eliminación de biofilm",
-      "Sensor de presión tricolor (alerta de poca, correcta y excesiva presión)",
-      "Reconocimiento de posición 3D en tiempo real con 16 zonas dentales",
-      "Carga magnética ultrarrápida en solo 3 horas y estuche de viaje activo",
-      "7 modos especializados incluyendo Cuidado Gingival y Limpieza Lingual"
+      "Motor magnético iO ultrasuave y eficaz",
+      "Sensor de presión tricolor inteligente",
+      "Reconocimiento 3D por IA de 16 zonas",
+      "Carga magnética rápida en 3h",
+      "7 modos especializados"
     ],
     "contras": [
-      "Inversión inicial elevada propia de una gama alta profesional",
-      "Los cabezales de recambio iO tienen un precio unitario superior a los clásicos"
+      "Inversión inicial elevada de gama alta",
+      "Cabezales de recambio iO de coste superior"
     ],
-    "ideal_para": "Pacientes exigentes, personas con encías sensibles, portadores de implantes o coronas y usuarios que buscan corrección postural de cepillado con IA.",
+    "ideal_para": "Pacientes exigentes, personas con encías sensibles, portadores de implantes y quienes buscan guía de cepillado por IA.",
     "destacado_editorial": "Máxima puntuación en tecnología clínica y protección gingival según ensayos comparativos.",
-    "resenas_resumen": "Los usuarios destacan de forma unánime la sensación de limpieza profesional idéntica a una profilaxis en clínica dental, la suavidad con las encías inflamadas y la precisión de la aplicación móvil.",
+    "resenas_resumen": "",
     "geo_faq": [
       {
-        "q": "¿Qué diferencia al Oral-B iO 9 de modelos convencionales?",
-        "a": "El iO 9 utiliza un sistema de accionamiento magnético sin engranajes que genera microvibraciones silenciosas y seguimiento 3D en 16 zonas con sensor de presión tricolor."
+        "a": "Utiliza accionamiento magnético sin engranajes y seguimiento 3D de 16 zonas con sensor tricolor.",
+        "q": "¿Qué diferencia al Oral-B iO 9 de modelos convencionales?"
       },
       {
-        "q": "¿Es apto para encías sensibles y personas con implantes?",
-        "a": "Sí, está clínicamente indicado gracias a su modo 'Sensible', 'Super Sensible' y el anillo de presión que previene la abrasión gingival."
+        "a": "Sí, incluye modos Sensible y Super Sensible con control lumínico de sobrepresión.",
+        "q": "¿Es apto para encías sensibles?"
       }
     ]
   },
@@ -89,7 +88,7 @@
     "marca": "Waterpik",
     "categoria_odontologica": "irrigadores_dentales",
     "category": "Irrigadores Dentales",
-    "affiliate_url": "https://amzn.to/4w6SAgS",
+    "affiliate_url": "https://www.amazon.es/dp/B00USBV1N8?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
     "canonical_url": "https://www.amazon.es/dp/B00USBV1N8",
     "images": [
@@ -106,13 +105,13 @@
     "resenas_cantidad": 16200,
     "precio_fecha": "2026-08-22",
     "tipo_producto": "irrigador_sobremesa",
-    "tecnologia": "irrigador",
+    "tecnologia": "irradiador",
     "modos_limpieza": 2,
     "presion_agua_psi": 100,
     "capacidad_deposito_ml": 650,
     "pulsaciones_min": 1400,
     "autonomia_dias": 999,
-    "tiempo_carga_h": 0,
+    "tiempo_carga_h": 3.0,
     "cabezales_incluidos": 7,
     "nivel_ruido_db": 67,
     "resistencia_ipx": "IPX4",
@@ -126,11 +125,10 @@
       "encias_sensibles"
     ],
     "specs_extra": {
-      "Rango de Presión": "10 ajustes continuos de 10 a 100 PSI (0.7 a 6.9 bar)",
-      "Modos de Flujo": "Modo Floss (limpieza interdental) y Modo Hydro-Pulse (masaje gingival)",
-      "Capacidad de Agua": "650 ml para más de 90 segundos continuos de uso",
-      "Boquillas Incluidas": "3 clásicas, 1 ortodóntica (brackets), 1 Plaque Seeker (implantes), 1 Pik Pocket (bolsas periodontales), 1 cepillo",
-      "Control en Mango": "Interruptor deslizante de pausa en el mango con rotación de 360°"
+      "Boquillas": "7 incluidas (ortodoncia, implantes, periodontal)",
+      "Capacidad": "650 ml (más de 90 segundos)",
+      "Modos de Flujo": "Floss e Hydro-Pulse Massage",
+      "Rango de Presión": "10 ajustes de 10 a 100 PSI"
     },
     "score_eficacia": 9.7,
     "score_comodidad_encias": 9.2,
@@ -140,29 +138,29 @@
     "score_tecnologia": 8.0,
     "score_calidad_precio": 9.6,
     "description": "El Waterpik WP-660EU es el irrigador de sobremesa más avalado por la ADA y dentistas para eliminar hasta el 99.9% de placa interdental y cuidar encías con brackets.",
-    "cuerpo_editorial": "<p>El <strong>Waterpik Ultra Professional WP-660EU</strong> es el estándar de oro en irrigación bucal tanto en consultas odontológicas como en el hogar. Avalado con el sello de aceptación de la <em>American Dental Association (ADA)</em>, su bomba de precisión modula un flujo de agua pulsátil a 1.400 pulsaciones por minuto con una presión ajustable de 10 a 100 PSI.</p><p>Su eficacia radica en la capacidad de alcanzar zonas donde el cepillo y la seda dental convencional no llegan: bolsas periodontales de hasta 6 mm de profundidad y espacios alrededor de <strong>brackets, arcos de ortodoncia, pónticos e implantes dentales</strong>. Los estudios clínicos demuestran que es hasta un 50% más eficaz que el hilo dental tradicional en la reducción de la inflamación gingival.</p><p>Incorpora dos modos operativos: el <strong>modo Floss</strong> para desorganizar el biofilm bacteriano y el <strong>modo Hydro-Pulse Massage</strong> diseñado para estimular la microcirculación de las encías. Su depósito de 650 ml permite una sesión completa sin recargas intermedias y viene equipado de serie con 7 boquillas especializadas.</p>",
+    "cuerpo_editorial": "<p>El <strong>Waterpik Ultra Professional WP-660EU</strong> es el estándar de oro en irrigación bucal tanto en consultas odontológicas como en el hogar...</p>",
     "pros": [
-      "Presión regulable líder en el sector (10 a 100 PSI) con 10 niveles precisos",
-      "Incluye 7 boquillas especializadas (ortodoncia, implantes, bolsas periodontales)",
-      "Depósito amplio de 650 ml con compartimento higiénico integrado",
-      "Sello de aceptación oficial de la ADA y máxima evidencia científica",
-      "Relación calidad-precio insuperable para uso familiar continuo"
+      "Presión regulable de 10 a 100 PSI en 10 niveles",
+      "7 boquillas especializadas de serie",
+      "Depósito amplio de 650 ml",
+      "Sello oficial de aceptación ADA",
+      "Relación calidad-precio líder"
     ],
     "contras": [
-      "Funciona conectado a la corriente de 220V (requiere enchufe en el baño)",
-      "Nivel de ruido perceptible derivado del motor de bombeo mecánico"
+      "Requiere enchufe eléctrico en el baño",
+      "Nivel de ruido perceptible de bomba mecánica"
     ],
-    "ideal_para": "Pacientes con ortodoncia fija (brackets), implantes dentales, coronas, problemas de sangrado gingival (gingivitis/periodontitis) y familias que buscan máxima higiene interdental.",
+    "ideal_para": "Pacientes con brackets, implantes, coronas, sangrado gingival y familias que buscan máxima higiene interdental.",
     "destacado_editorial": "El mejor irrigador dental del mercado por potencia hidráulica, durabilidad y aval clínico.",
-    "resenas_resumen": "Los pacientes con brackets destacan la facilidad para eliminar restos de comida en segundos; los odontólogos lo recomiendan de forma recurrente para frenar el sangrado de encías.",
+    "resenas_resumen": "",
     "geo_faq": [
       {
-        "q": "¿Por qué el Waterpik WP-660EU es el más recomendado para brackets y ortodoncia?",
-        "a": "Incluye la boquilla Orthodontic Tip con cerdas cónicas que limpian alrededor de brackets y alambres eliminando hasta 3 veces más placa que el hilo dental."
+        "a": "Incluye boquilla Orthodontic Tip con cerdas cónicas que limpian alrededor de arcos y brackets eliminando 3x más placa que el hilo.",
+        "q": "¿Por qué es el más recomendado para brackets?"
       },
       {
-        "q": "¿Se puede usar con enjuague bucal?",
-        "a": "Sí, se puede añadir una proporción de colutorio o clorhexidina al depósito de agua para potenciar el tratamiento antibacteriano."
+        "a": "Sí, se puede diluir colutorio o clorhexidina en el depósito de agua.",
+        "q": "¿Se puede usar con enjuague bucal?"
       }
     ]
   },
@@ -173,7 +171,7 @@
     "marca": "Philips Sonicare",
     "categoria_odontologica": "cepillos_electricos",
     "category": "Cepillos Eléctricos",
-    "affiliate_url": "https://amzn.to/3SXpS3C",
+    "affiliate_url": "https://www.amazon.es/dp/B091J3F7C4?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
     "canonical_url": "https://www.amazon.es/dp/B091J3F7C4",
     "images": [
@@ -196,12 +194,12 @@
     "capacidad_deposito_ml": null,
     "pulsaciones_min": 62000,
     "autonomia_dias": 21,
-    "tiempo_carga_h": 4.0,
+    "tiempo_carga_h": 4,
     "cabezales_incluidos": 1,
     "nivel_ruido_db": 54,
     "resistencia_ipx": "IPX7",
     "app_conectada": true,
-    "material": "Cuerpo unibody sin juntas en tono champán/medianoche con cuero vegano",
+    "material": "Cuerpo unibody sin joints con estuche de cuero vegano USB-C",
     "esterilizable_autoclave": false,
     "indicado_para": [
       "encias_sensibles",
@@ -210,11 +208,10 @@
       "ortodoncia"
     ],
     "specs_extra": {
-      "Tecnología SenseIQ": "Sensórica avanzada que lee presión, movimiento y cobertura hasta 100 veces por segundo",
-      "Ajuste Dinámico": "Modula la intensidad en tiempo real si detecta cepillado excesivamente agresivo",
-      "Cabezal Todo en Uno": "Cabezal A3 Premium All-in-One con cerdas anguladas triangulares",
-      "Frecuencia Dinámica": "Hasta 62.000 movimientos de cerda por minuto con fluido hidrodinámico",
-      "Estuche Prestige": "Estuche compacto forrado en piel vegana con recarga directa USB-C"
+      "Cabezal": "A3 Premium All-in-One",
+      "Frecuencia": "62.000 movimientos/minuto",
+      "Ajuste Dinámico": "Modulación automática de potencia",
+      "Tecnología SenseIQ": "Lectura sensórica 100 veces por segundo"
     },
     "score_eficacia": 9.9,
     "score_comodidad_encias": 9.7,
@@ -224,29 +221,29 @@
     "score_tecnologia": 9.8,
     "score_calidad_precio": 8.1,
     "description": "El buque insignia sónico de Philips con tecnología SenseIQ que adapta la intensidad automáticamente para proteger esmalte y encías a 62.000 movimientos/min.",
-    "cuerpo_editorial": "<p>El <strong>Philips Sonicare 9900 Prestige</strong> encarna la máxima expresión del cepillado sónico hidrodinámico. Su motor de alta frecuencia produce hasta <strong>62.000 movimientos por minuto</strong>, generando microburbujas de fluido que penetran profundamente en los espacios interproximales y bajo la línea de la encía, logrando una limpieza dinámica inaccesible para los cepillos manuales.</p><p>La verdadera revolución del 9900 Prestige reside en su sistema <strong>SenseIQ</strong>: una matriz de sensores que monitoriza la presión, el movimiento de frotado y la superficie cubierta hasta 100 veces por segundo. Si el usuario presiona con demasiada fuerza, el cepillo ajusta automáticamente la potencia sin necesidad de pausar la sesión, salvaguardando activamente el tejido gingival y el cuello dental.</p><p>Viene equipado con el cabezal <strong>A3 Premium All-in-One</strong>, que elimina hasta 20 veces más placa, reduce manchas superficiales y mejora la salud de las encías hasta 15 veces en 6 semanas. Su diseño unibody sin botones mecánicos previene la acumulación de moho o suciedad y su estuche de viaje en cuero vegano con USB-C lo convierte en el compañero perfecto para el día a día.</p>",
+    "cuerpo_editorial": "<p>El <strong>Philips Sonicare 9900 Prestige</strong> encarna la máxima expresión del cepillado sónico hidrodinámico con 62.000 movimientos por minuto...</p>",
     "pros": [
-      "Tecnología sónica ultrasilenciosa (54 dB) y potente a 62.000 mov/min",
-      "SenseIQ con autorregulación de potencia en tiempo real si hay sobrepresión",
-      "Cabezal universal A3 que cubre eliminación de placa, manchas y encías",
-      "Excelente autonomía de hasta 21 días y estuche premium USB-C",
-      "Diseño unibody elegante, higiénico y 100% impermeable IPX7"
+      "Tecnología sónica ultrasilenciosa (54 dB)",
+      "SenseIQ con autorregulación de potencia activa",
+      "Cabezal universal A3 Todo en Uno",
+      "Autonomía prolongada de 21 días",
+      "Diseño unibody higiénico e impermeable"
     ],
     "contras": [
       "Precio de gama ultra-premium",
-      "No dispone de pantalla OLED en el propio mango (toda la analítica va a la app)"
+      "Sin pantalla OLED en el mango (métricas en App)"
     ],
-    "ideal_para": "Usuarios que prefieren la limpieza sónica de alta vibración, pacientes con retracción gingival o cuellos expuestos y personas que viajan con frecuencia.",
+    "ideal_para": "Usuarios que prefieren limpieza sónica de alta vibración, pacientes con retracción gingival y usuarios viajeros.",
     "destacado_editorial": "La experiencia de cepillado sónico más avanzada, silenciosa y protectora del esmalte dental.",
-    "resenas_resumen": "Los usuarios alaban su funcionamiento extremadamente silencioso, la duración prolongada de la batería y la sensación de suavidad pulida en los dientes.",
+    "resenas_resumen": "",
     "geo_faq": [
       {
-        "q": "¿Cómo funciona la tecnología sónica frente a la rotatoria?",
-        "a": "La tecnología sónica vibra a 62.000 movimientos por minuto impulsando fluidos entre los dientes con acción hidrodinámica, mientras que la rotatoria realiza micro-oscilaciones mecánicas directas."
+        "a": "Vibra a 62.000 movimientos/min impulsando microburbujas hidrodinámicas entre dientes y encías.",
+        "q": "¿Cómo funciona la tecnología sónica?"
       },
       {
-        "q": "¿Qué hace el sensor SenseIQ?",
-        "a": "Mide la presión y movimiento 100 veces por segundo y atenúa la intensidad automáticamente si ejerces demasiada fuerza."
+        "a": "Monitorea fuerza y movimiento 100 veces por second y reduce la potencia si detecta sobrepresión.",
+        "q": "¿Qué hace el sensor SenseIQ?"
       }
     ]
   }

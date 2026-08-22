@@ -79,7 +79,7 @@ def get_asin_list():
     # 2. Leer de Supabase
     if supabase_client:
         try:
-            res = supabase_client.table("products").select("asin, id, name, marca, categoria_odontologica, category").execute()
+            res = supabase_client.table("products").select("*").execute()
             for row in res.data:
                 asin = row.get("asin")
                 if asin:
