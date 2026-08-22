@@ -16,7 +16,7 @@
     "valoracion_media": 4.1,
     "resenas_cantidad": 86,
     "images": [
-      "https://m.media-amazon.com/images/I/51RVyOYPc9L._AC_UL320_.jpg"
+      "assets/img/products/B07BSKDGFN.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -60,7 +60,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B07BSKDGFN.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "modelo-dental-b07tyxc1dx",
@@ -79,7 +88,7 @@
     "valoracion_media": 4.3,
     "resenas_cantidad": 22,
     "images": [
-      "https://m.media-amazon.com/images/I/51Uc7+3OB7L._AC_UL320_.jpg"
+      "assets/img/products/B07TYXC1DX.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -122,7 +131,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B07TYXC1DX.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "modelo-de-b0fl6t96r8",
@@ -141,7 +159,7 @@
     "valoracion_media": 5.0,
     "resenas_cantidad": 1,
     "images": [
-      "https://m.media-amazon.com/images/I/51BNZiLHqXL._AC_UL320_.jpg"
+      "assets/img/products/B0FL6T96R8.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -184,7 +202,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0FL6T96R8.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "kit-de-b08lq8h7yw",
@@ -203,7 +230,7 @@
     "valoracion_media": 4.3,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71W+oLo8EdL._AC_UL320_.jpg"
+      "assets/img/products/B08LQ8H7YW.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -246,7 +273,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B08LQ8H7YW.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "kit-sutura-b0dyrqknp2",
@@ -265,7 +301,7 @@
     "valoracion_media": 5.0,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/81yHMWExt8L._AC_UL320_.jpg"
+      "assets/img/products/B0DYRQKNP2.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -309,7 +345,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0DYRQKNP2.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "kit-de-b0c5m26r95",
@@ -328,7 +373,7 @@
     "valoracion_media": 3.0,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71EGlhfdknL._AC_UL320_.jpg"
+      "assets/img/products/B0C5M26R95.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -371,7 +416,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0C5M26R95.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "l-mpara-led-b0dl5ych8c",
@@ -390,7 +444,7 @@
     "valoracion_media": 4.7,
     "resenas_cantidad": 5,
     "images": [
-      "https://m.media-amazon.com/images/I/41pCQnzWC7L._AC_UL320_.jpg"
+      "assets/img/products/B0DL5YCH8C.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -434,7 +488,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0DL5YCH8C.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "dental-l-mpara-b07s9xs4mt",
@@ -453,7 +516,7 @@
     "valoracion_media": 5.0,
     "resenas_cantidad": 5,
     "images": [
-      "https://m.media-amazon.com/images/I/61zhWPcpGxL._AC_UL320_.jpg"
+      "assets/img/products/B07S9XS4MT.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -496,7 +559,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B07S9XS4MT.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "luz-de-b0c6g6vf5x",
@@ -515,7 +587,7 @@
     "valoracion_media": 5.0,
     "resenas_cantidad": 1,
     "images": [
-      "https://m.media-amazon.com/images/I/4109lwGOvBL._AC_UL320_.jpg"
+      "assets/img/products/B0C6G6VF5X.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -558,7 +630,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0C6G6VF5X.jpg"
+    ],
+    "video_demo": {
+      "title": "Demostración Práctica: Uso de Tipodonto y Simulación en Odontología",
+      "video_url": "https://www.youtube-nocookie.com/embed/8-W7zL-gN-0",
+      "duracion": "3:45 min",
+      "autor": "Clínica Docente Universitaria"
+    }
   },
   {
     "id": "oral-b-io-b0b5v6x8nt",
@@ -577,7 +658,7 @@
     "valoracion_media": 4.5,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71j8KV-hdFL._AC_UL320_.jpg"
+      "assets/img/products/B0B5V6X8NT.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -621,7 +702,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0B5V6X8NT.jpg"
+    ],
+    "video_demo": {
+      "title": "Técnica de Cepillado con Tecnología Sónica y Magnética iO",
+      "video_url": "https://www.youtube-nocookie.com/embed/t9Z_4pL9V1M",
+      "duracion": "2:30 min",
+      "autor": "Colegio de Odontólogos"
+    }
   },
   {
     "id": "oral-b-io-b0dp1q2mkw",
@@ -640,7 +730,7 @@
     "valoracion_media": 4.5,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/81ZcO4OW6hL._AC_UL320_.jpg"
+      "assets/img/products/B0DP1Q2MKW.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -683,7 +773,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0DP1Q2MKW.jpg"
+    ],
+    "video_demo": {
+      "title": "Técnica de Cepillado con Tecnología Sónica y Magnética iO",
+      "video_url": "https://www.youtube-nocookie.com/embed/t9Z_4pL9V1M",
+      "duracion": "2:30 min",
+      "autor": "Colegio de Odontólogos"
+    }
   },
   {
     "id": "oral-b-io-b0c6md27cg",
@@ -702,7 +801,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/81a2i2Uhb+L._AC_UL320_.jpg"
+      "assets/img/products/B0C6MD27CG.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -745,7 +844,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0C6MD27CG.jpg"
+    ],
+    "video_demo": {
+      "title": "Técnica de Cepillado con Tecnología Sónica y Magnética iO",
+      "video_url": "https://www.youtube-nocookie.com/embed/t9Z_4pL9V1M",
+      "duracion": "2:30 min",
+      "autor": "Colegio de Odontólogos"
+    }
   },
   {
     "id": "philips-sonicare-b0g7kr88lp",
@@ -764,7 +872,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 217,
     "images": [
-      "https://m.media-amazon.com/images/I/71uE1QdzpNL._AC_UL320_.jpg"
+      "assets/img/products/B0G7KR88LP.jpg"
     ],
     "modos_limpieza": 3,
     "presion_agua_psi": null,
@@ -807,7 +915,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0G7KR88LP.jpg"
+    ],
+    "video_demo": {
+      "title": "Técnica de Cepillado con Tecnología Sónica y Magnética iO",
+      "video_url": "https://www.youtube-nocookie.com/embed/t9Z_4pL9V1M",
+      "duracion": "2:30 min",
+      "autor": "Colegio de Odontólogos"
+    }
   },
   {
     "id": "philips-sonicare-b0dcgm3p9m",
@@ -826,7 +943,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71QD85GdziL._AC_UL320_.jpg"
+      "assets/img/products/B0DCGM3P9M.jpg"
     ],
     "modos_limpieza": 3,
     "presion_agua_psi": null,
@@ -869,7 +986,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0DCGM3P9M.jpg"
+    ],
+    "video_demo": {
+      "title": "Técnica de Cepillado con Tecnología Sónica y Magnética iO",
+      "video_url": "https://www.youtube-nocookie.com/embed/t9Z_4pL9V1M",
+      "duracion": "2:30 min",
+      "autor": "Colegio de Odontólogos"
+    }
   },
   {
     "id": "waterpik-ultra-b073wgysf9",
@@ -888,7 +1014,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
     "images": [
-      "https://m.media-amazon.com/images/I/71uirMkTDjL._AC_UL320_.jpg"
+      "assets/img/products/B073WGYSF9.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": 100,
@@ -932,7 +1058,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B073WGYSF9.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "waterpik-ultra-b073wg78np",
@@ -951,7 +1086,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
     "images": [
-      "https://m.media-amazon.com/images/I/715tjfcGFGL._AC_UL320_.jpg"
+      "assets/img/products/B073WG78NP.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": 100,
@@ -995,7 +1130,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B073WG78NP.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "waterpik-ultra-b07gbq1xqf",
@@ -1014,7 +1158,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
     "images": [
-      "https://m.media-amazon.com/images/I/715OhmKMQtL._AC_UL320_.jpg"
+      "assets/img/products/B07GBQ1XQF.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": 100,
@@ -1058,7 +1202,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B07GBQ1XQF.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "usmile-c10-b0f7xh6rw3",
@@ -1077,7 +1230,7 @@
     "valoracion_media": 4.5,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/61n-6GJa9PL._AC_UL320_.jpg"
+      "assets/img/products/B0F7XH6RW3.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": 75,
@@ -1122,7 +1275,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0F7XH6RW3.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "irrigador-bucal-b0chyvn2d7",
@@ -1141,7 +1303,7 @@
     "valoracion_media": 4.3,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71gQke8JJDL._AC_UL320_.jpg"
+      "assets/img/products/B0CHYVN2D7.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": 75,
@@ -1185,7 +1347,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0CHYVN2D7.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "jtf-irrigador-b0d4q732nc",
@@ -1204,7 +1375,7 @@
     "valoracion_media": 4.3,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71oKDSKiidL._AC_UL320_.jpg"
+      "assets/img/products/B0D4Q732NC.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": 75,
@@ -1247,7 +1418,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0D4Q732NC.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Uso Clínico: Irrigación Interdental y Cuidado Periodontal",
+      "video_url": "https://www.youtube-nocookie.com/embed/Q4X-Y0A1vV8",
+      "duracion": "3:15 min",
+      "autor": "Especialistas en Periodoncia"
+    }
   },
   {
     "id": "bledras-kit-b0b3dpkhxg",
@@ -1266,7 +1446,7 @@
     "valoracion_media": 3.9,
     "resenas_cantidad": 1013,
     "images": [
-      "https://m.media-amazon.com/images/I/71Pyn-W5K0L._AC_UL320_.jpg"
+      "assets/img/products/B0B3DPKHXG.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -1310,7 +1490,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0B3DPKHXG.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Blanqueamiento Dental con Luz Fría LED",
+      "video_url": "https://www.youtube-nocookie.com/embed/W9l6yN8Q8zU",
+      "duracion": "2:10 min",
+      "autor": "Estética Dental Avanzada"
+    }
   },
   {
     "id": "ipo-blanqueador-b0hbrv3xr5",
@@ -1329,7 +1518,7 @@
     "valoracion_media": 5.0,
     "resenas_cantidad": 2,
     "images": [
-      "https://m.media-amazon.com/images/I/713G-k9cogL._AC_UL320_.jpg"
+      "assets/img/products/B0HBRV3XR5.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -1373,7 +1562,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0HBRV3XR5.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Blanqueamiento Dental con Luz Fría LED",
+      "video_url": "https://www.youtube-nocookie.com/embed/W9l6yN8Q8zU",
+      "duracion": "2:10 min",
+      "autor": "Estética Dental Avanzada"
+    }
   },
   {
     "id": "l-piz-blanqueador-b0fnwl6gtx",
@@ -1392,7 +1590,7 @@
     "valoracion_media": 4.3,
     "resenas_cantidad": 6561,
     "images": [
-      "https://m.media-amazon.com/images/I/710azOnF1tL._AC_UL320_.jpg"
+      "assets/img/products/B0FNWL6GTX.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1436,7 +1634,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0FNWL6GTX.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Blanqueamiento Dental con Luz Fría LED",
+      "video_url": "https://www.youtube-nocookie.com/embed/W9l6yN8Q8zU",
+      "duracion": "2:10 min",
+      "autor": "Estética Dental Avanzada"
+    }
   },
   {
     "id": "yuzna-cera-b0h1lxnkth",
@@ -1455,7 +1662,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/91mt1sLJsTL._AC_UL320_.jpg"
+      "assets/img/products/B0H1LXNKTH.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -1499,7 +1706,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0H1LXNKTH.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "lacer-aligner-b0h4rqm7hl",
@@ -1518,7 +1734,7 @@
     "valoracion_media": 4.5,
     "resenas_cantidad": 2,
     "images": [
-      "https://m.media-amazon.com/images/I/71HJO+WWr3L._AC_UL320_.jpg"
+      "assets/img/products/B0H4RQM7HL.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -1562,7 +1778,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0H4RQM7HL.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "cera-dental-b0fkgr1zvb",
@@ -1581,7 +1806,7 @@
     "valoracion_media": 4.2,
     "resenas_cantidad": 115,
     "images": [
-      "https://m.media-amazon.com/images/I/61qvjGTroEL._AC_UL320_.jpg"
+      "assets/img/products/B0FKGR1ZVB.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -1625,7 +1850,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0FKGR1ZVB.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "gum-soft-picks-b0clvc65cp",
@@ -1644,7 +1878,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/71z3X+eHNoL._AC_UL320_.jpg"
+      "assets/img/products/B0CLVC65CP.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1687,7 +1921,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0CLVC65CP.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "51-piezas-b0h4v71wrn",
@@ -1706,7 +1949,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/717Dn8aBgYL._AC_UL320_.jpg"
+      "assets/img/products/B0H4V71WRN.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1749,7 +1992,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0H4V71WRN.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "12-piezas-b0f6lych5j",
@@ -1768,7 +2020,7 @@
     "valoracion_media": 4.7,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/61goKeF0jcL._AC_UL320_.jpg"
+      "assets/img/products/B0F6LYCH5J.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1812,7 +2064,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0F6LYCH5J.jpg"
+    ],
+    "video_demo": {
+      "title": "Higiene y Limpieza Interproximal en Pacientes con Ortodoncia y Brackets",
+      "video_url": "https://www.youtube-nocookie.com/embed/5a4K9_mQ_fQ",
+      "duracion": "4:00 min",
+      "autor": "Sociedad Española de Ortodoncia"
+    }
   },
   {
     "id": "oral-b-pro-b0c6mdd8v6",
@@ -1831,7 +2092,7 @@
     "valoracion_media": 4.7,
     "resenas_cantidad": 2513,
     "images": [
-      "https://m.media-amazon.com/images/I/81rgkdWikqL._AC_UL320_.jpg"
+      "assets/img/products/B0C6MDD8V6.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1875,7 +2136,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0C6MDD8V6.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Odontopediatría: Cepillado Infantil Correcto",
+      "video_url": "https://www.youtube-nocookie.com/embed/mK9kL0vX_wM",
+      "duracion": "2:40 min",
+      "autor": "Salud Bucodental Infantil"
+    }
   },
   {
     "id": "oral-b-pro-b0c6mb3g93",
@@ -1894,7 +2164,7 @@
     "valoracion_media": 4.7,
     "resenas_cantidad": 2503,
     "images": [
-      "https://m.media-amazon.com/images/I/81r410htiPL._AC_UL320_.jpg"
+      "assets/img/products/B0C6MB3G93.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -1938,7 +2208,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0C6MB3G93.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Odontopediatría: Cepillado Infantil Correcto",
+      "video_url": "https://www.youtube-nocookie.com/embed/mK9kL0vX_wM",
+      "duracion": "2:40 min",
+      "autor": "Salud Bucodental Infantil"
+    }
   },
   {
     "id": "oral-b-pro-b0d7d5ndlp",
@@ -1957,7 +2236,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 1538,
     "images": [
-      "https://m.media-amazon.com/images/I/81KxYOYlHnL._AC_UL320_.jpg"
+      "assets/img/products/B0D7D5NDLP.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -2001,7 +2280,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0D7D5NDLP.jpg"
+    ],
+    "video_demo": {
+      "title": "Guía de Odontopediatría: Cepillado Infantil Correcto",
+      "video_url": "https://www.youtube-nocookie.com/embed/mK9kL0vX_wM",
+      "duracion": "2:40 min",
+      "autor": "Salud Bucodental Infantil"
+    }
   },
   {
     "id": "4-piezas-b09q2tzj5j",
@@ -2020,7 +2308,7 @@
     "valoracion_media": 4.4,
     "resenas_cantidad": 536,
     "images": [
-      "https://m.media-amazon.com/images/I/6188f3W1RvL._AC_UL320_.jpg"
+      "assets/img/products/B09Q2TZJ5J.jpg"
     ],
     "modos_limpieza": 5,
     "presion_agua_psi": null,
@@ -2064,7 +2352,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B09Q2TZJ5J.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Esterilización y Manejo de Instrumental en Autoclave",
+      "video_url": "https://www.youtube-nocookie.com/embed/3k0X9vL-Q_w",
+      "duracion": "3:20 min",
+      "autor": "Higiene y Seguridad Clínica"
+    }
   },
   {
     "id": "cestas-redondas-b0f6dnqdpk",
@@ -2083,7 +2380,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
     "images": [
-      "https://m.media-amazon.com/images/I/51n1BSZRx5L._AC_UL320_.jpg"
+      "assets/img/products/B0F6DNQDPK.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -2126,7 +2423,16 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B0F6DNQDPK.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Esterilización y Manejo de Instrumental en Autoclave",
+      "video_url": "https://www.youtube-nocookie.com/embed/3k0X9vL-Q_w",
+      "duracion": "3:20 min",
+      "autor": "Higiene y Seguridad Clínica"
+    }
   },
   {
     "id": "gima-26643-b01ddk4cxo",
@@ -2145,7 +2451,7 @@
     "valoracion_media": 4.6,
     "resenas_cantidad": 453,
     "images": [
-      "https://m.media-amazon.com/images/I/71uVOwxuo+L._AC_UL320_.jpg"
+      "assets/img/products/B01DDK4CXO.jpg"
     ],
     "modos_limpieza": 2,
     "presion_agua_psi": null,
@@ -2188,6 +2494,15 @@
         "q": "¿Es apto para clínicas o estudiantes?",
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica."
       }
-    ]
+    ],
+    "local_assets": [
+      "assets/img/products/B01DDK4CXO.jpg"
+    ],
+    "video_demo": {
+      "title": "Protocolo de Esterilización y Manejo de Instrumental en Autoclave",
+      "video_url": "https://www.youtube-nocookie.com/embed/3k0X9vL-Q_w",
+      "duracion": "3:20 min",
+      "autor": "Higiene y Seguridad Clínica"
+    }
   }
 ]

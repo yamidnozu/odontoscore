@@ -98,7 +98,14 @@ def load_products():
                 for row in res.data:
                     asin = row.get("asin")
                     slug = row.get("id")
-                    img = row.get("local_assets", ["assets/img/hero-dental.svg"])[0] if row.get("local_assets") else "assets/img/hero-dental.svg"
+                    
+                    local_prod_img = f"assets/img/products/{asin}.jpg"
+                    if (ROOT / local_prod_img).exists():
+                        img_path = local_prod_img
+                    elif row.get("local_assets") and row["local_assets"][0] != "assets/img/hero-dental.svg":
+                        img_path = row["local_assets"][0]
+                    else:
+                        img_path = "assets/img/hero-dental.svg"
                     
                     p = {
                         "id": slug,
@@ -110,7 +117,7 @@ def load_products():
                         "affiliate_url": f"https://www.amazon.es/dp/{asin}?tag={AMAZON_PARTNER_TAG}",
                         "affiliate_tag": AMAZON_PARTNER_TAG,
                         "canonical_url": f"https://www.amazon.es/dp/{asin}",
-                        "images": row.get("local_assets") or [img],
+                        "images": [img_path],
                         "isFeatured": bool(row.get("is_featured")),
                         "retailPrice": float(row.get("retail_price") or 49.99),
                         "discountedPrice": float(row.get("discounted_price") or row.get("retail_price") or 39.99),
@@ -597,6 +604,24 @@ def build_ficha(p):
             </div>
             """
 
+    video_html = ""
+    if p.get("video_demo"):
+        v = p["video_demo"]
+        video_html = f"""
+    <section class="video-demo-box" style="margin-bottom:2rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:1.75rem;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+        <span style="font-size:1.25rem;">🎥</span>
+        <h2 style="font-size:1.35rem;color:#0F172A;">Demostración Clínica en Vídeo</h2>
+        <span style="font-size:0.75rem;font-weight:700;background:#E0F2FE;color:#0369A1;padding:2px 8px;border-radius:999px;margin-left:auto;">{v.get('duracion', '3 min')}</span>
+      </div>
+      <p style="color:#64748B;font-size:0.9rem;margin-bottom:1.25rem;">{v.get('title', 'Técnica y manejo clínico')}</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#0F172A;">
+        <iframe src="{v.get('video_url')}" title="{v.get('title')}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p style="font-size:0.75rem;color:#94A3B8;margin-top:0.75rem;text-align:right;">Fuente: {v.get('autor', 'Panel Clínico OdontoScore')}</p>
+    </section>
+        """
+
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -624,7 +649,7 @@ def build_ficha(p):
     <div class="ficha-hero-grid">
       <div class="ficha-gallery-wrapper">
         <div class="gallery-main-view" style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:2rem;text-align:center;">
-          <img class="gallery-main-img" src="{img_url}" alt="{p['name']}" style="max-height:350px;margin:0 auto;object-fit:contain;" onerror="this.onerror=null;this.src='../assets/img/hero-dental.svg';">
+          <img class="gallery-main-img" src="../{img_url}" alt="{p['name']}" style="max-height:350px;margin:0 auto;object-fit:contain;" onerror="this.onerror=null;this.src='../assets/img/hero-dental.svg';">
         </div>
       </div>
 
@@ -656,6 +681,9 @@ def build_ficha(p):
         </div>
       </div>
     </div>
+
+    <!-- Video Demo Section -->
+    {video_html}
 
     <section class="radar-section-box">
       <h2 style="font-size:1.5rem;margin-bottom:0.5rem;">Evaluación OdontoScore (Radar 7 Ejes)</h2>
