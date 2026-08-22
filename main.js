@@ -185,6 +185,108 @@
   }
 
   /**
+   * Interactive Category Filtering on Landing Hub
+   */
+  function initCatalogFilter() {
+    var filterContainer = document.querySelector("[data-catalog-filters]");
+    if (!filterContainer) return;
+
+    var buttons = filterContainer.querySelectorAll(".filter-pill-btn");
+    var cards = document.querySelectorAll(".product-grid .product-card");
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-filter");
+        buttons.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+
+        cards.forEach(function (card) {
+          var cardCat = card.getAttribute("data-category");
+          if (!cat || cat === "all" || cardCat === cat) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  /**
+   * Interactive Quick-View Modal (Ver Ficha Rápida sin salir de la Landing)
+   */
+  function initQuickModal() {
+    var modalBackdrop = document.querySelector("#quickViewModal");
+    if (!modalBackdrop) return;
+
+    var closeBtn = modalBackdrop.querySelector(".quick-modal-close-btn");
+    var titleEl = modalBackdrop.querySelector("#modalTitle");
+    var brandEl = modalBackdrop.querySelector("#modalBrand");
+    var priceEl = modalBackdrop.querySelector("#modalPrice");
+    var imgEl = modalBackdrop.querySelector("#modalImg");
+    var radarCanvas = modalBackdrop.querySelector("#modalRadarCanvas");
+    var specsTable = modalBackdrop.querySelector("#modalSpecsTable tbody");
+    var buyBtn = modalBackdrop.querySelector("#modalBuyBtn");
+    var fullLink = modalBackdrop.querySelector("#modalFullLink");
+
+    function closeModal() {
+      modalBackdrop.classList.remove("open");
+      document.body.style.overflow = "auto";
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", function (e) {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modalBackdrop.classList.contains("open")) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      var trigger = e.target.closest("[data-quick-view]");
+      if (!trigger) return;
+
+      var prodId = trigger.getAttribute("data-quick-view");
+      var db = window.__DB__ || { productos: [] };
+      var p = db.productos.find(function (item) { return item.id === prodId; });
+      if (!p) return;
+
+      e.preventDefault();
+
+      if (titleEl) titleEl.textContent = p.name;
+      if (brandEl) brandEl.textContent = p.marca;
+      if (priceEl) priceEl.textContent = p.discountedPrice + " €";
+      if (imgEl) imgEl.src = p.images[0];
+      if (buyBtn) buyBtn.href = p.affiliate_url;
+      if (fullLink) fullLink.href = "producto/" + p.id + ".html";
+
+      // Draw modal radar
+      if (radarCanvas) {
+        drawRadarSVG(radarCanvas, [p]);
+      }
+
+      // Specs table
+      if (specsTable) {
+        specsTable.innerHTML = "" +
+          "<tr><th>Categoría</th><td>" + p.category + "</td></tr>" +
+          "<tr><th>Tecnología</th><td>" + p.tecnologia.toUpperCase() + "</td></tr>" +
+          "<tr><th>Modos</th><td>" + (p.modos_limpieza || "—") + "</td></tr>" +
+          "<tr><th>Presión / Pulsaciones</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + " mov/min" : "—")) + "</td></tr>" +
+          "<tr><th>Autonomía</th><td>" + (p.autonomia_dias > 365 ? "Red Eléctrica" : p.autonomia_dias + " días") + "</td></tr>" +
+          "<tr><th>Nivel Ruido</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "—") + "</td></tr>" +
+          "<tr><th>App IA</th><td>" + (p.app_conectada ? "✓ Conectada" : "✕ No") + "</td></tr>" +
+          "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + p.valoracion_media + " / 5 ★</strong></td></tr>";
+      }
+
+      modalBackdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  /**
    * Initializes Intra-Category Comparator
    */
   function initComparator() {
@@ -358,7 +460,6 @@
         targets.forEach(function (t) {
           var priceCurrent = t.querySelector(".price-current, .current");
           var priceOld = t.querySelector(".price-old, .old");
-          var ratingEl = t.querySelector(".ficha-rating, .card-rating");
 
           if (priceCurrent && item.discounted_price) {
             priceCurrent.style.transition = "opacity 0.3s ease";
@@ -383,6 +484,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     safe(initGallery, "initGallery");
     safe(initRadars, "initRadars");
+    safe(initCatalogFilter, "initCatalogFilter");
+    safe(initQuickModal, "initQuickModal");
     safe(initComparator, "initComparator");
     safe(refreshLivePrices, "refreshLivePrices");
   });

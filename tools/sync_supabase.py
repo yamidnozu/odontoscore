@@ -48,15 +48,73 @@ AMAZON_HOST = os.getenv("AMAZON_HOST", "webservices.amazon.es").strip()
 AMAZON_REGION = os.getenv("AMAZON_REGION", "eu-west-1").strip()
 RAINFOREST_API_KEY = os.getenv("RAINFOREST_API_KEY", "").strip()
 
-# Inicialización cliente Supabase si hay credenciales
 supabase_client = None
 if SUPABASE_URL and SUPABASE_SERVICE_KEY:
     try:
         from supabase import create_client, Client
-        supabase_client: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
+        supabase_client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
         print(f"[Supabase] Conectado exitosamente a {SUPABASE_URL}")
     except Exception as e:
-        print(f"[Supabase WARN] No se pudo instanciar cliente oficial: {e}")
+        print(f"[Supabase WARN] No se pudo instanciar cliente: {e}")
+
+DENTAL_SEARCH_TERMS = [
+    {"term": "cepillo electrico sonico", "cat": "cepillos_electricos", "name": "Cepillos Eléctricos"},
+    {"term": "irrigador dental sobremesa", "cat": "irrigadores_dentales", "name": "Irrigadores Dentales"},
+    {"term": "kit blanqueamiento dental led", "cat": "blanqueamiento_dental", "name": "Blanqueamiento Dental"},
+    {"term": "limpieza ortodoncia brackets", "cat": "ortodoncia_brackets", "name": "Ortodoncia y Brackets"},
+    {"term": "cepillo electrico infantil suave", "cat": "higiene_infantil", "name": "Higiene Infantil"}
+]
+
+
+def discover_amazon_products(max_per_term=2):
+    """Busca dinámicamente nuevos productos dentales en Amazon.es mediante Rainforest Search API."""
+    if not RAINFOREST_API_KEY:
+        return []
+
+    discovered = []
+    try:
+        import requests
+        for item in DENTAL_SEARCH_TERMS:
+            term = item["term"]
+            cat_key = item["cat"]
+            cat_name = item["name"]
+
+            params = {
+                "api_key": RAINFOREST_API_KEY,
+                "type": "search",
+                "amazon_domain": "amazon.es",
+                "search_term": term
+            }
+            res = requests.get("https://api.rainforestapi.com/request", params=params, timeout=12)
+            if res.status_code == 200:
+                data = res.json()
+                results = data.get("search_results", [])
+                for prod in results[:max_per_term]:
+                    asin = prod.get("asin")
+                    title = prod.get("title")
+                    price_info = prod.get("price", {})
+                    price_val = price_info.get("value")
+                    
+                    if asin and title:
+                        discovered.append({
+                            "asin": asin,
+                            "id": f"prod-{asin.lower()}",
+                            "name": title,
+                            "marca": prod.get("brand") or "Dental",
+                            "categoria_odontologica": cat_key,
+                            "category": cat_name,
+                            "retailPrice": float(price_val) if price_val else 89.99,
+                            "discountedPrice": float(price_val) if price_val else 79.99,
+                            "valoracion_media": float(prod.get("rating", 4.5)),
+                            "resenas_cantidad": int(prod.get("ratings_total", 500)),
+                            "tecnologia": "sonico" if "sonico" in term or "sónico" in term else ("irrigador" if "irrigador" in term else "rotatorio"),
+                            "isFeatured": False
+                        })
+                        print(f"  [Descubrimiento Dinámico]: {asin} - {title[:35]}...")
+    except Exception as e:
+        print(f"[WARN] Auto-descubrimiento falló: {e}")
+
+    return discovered
 
 
 def get_asin_list():
