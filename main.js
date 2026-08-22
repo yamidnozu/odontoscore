@@ -1,9 +1,6 @@
 (function () {
   "use strict";
 
-  /**
-   * Safe execution wrapper to prevent unhandled exceptions from breaking UI
-   */
   function safe(fn, name) {
     try {
       fn();
@@ -12,7 +9,6 @@
     }
   }
 
-  // Color palette for single and multi-product comparison radars
   var RADAR_COLORS = [
     { fill: "rgba(14, 118, 188, 0.25)", stroke: "#0E76BC", point: "#0E76BC" },
     { fill: "rgba(16, 185, 129, 0.25)", stroke: "#10B981", point: "#10B981" },
@@ -22,7 +18,7 @@
 
   var SCORE_AXES = [
     { key: "score_eficacia", label: "Eficacia" },
-    { key: "score_comodidad_encias", label: "Encías" },
+    { key: "score_comodidad_encias", label: "Encías/Tejidos" },
     { key: "score_durabilidad", label: "Durabilidad" },
     { key: "score_facilidad_uso", label: "Ergonomía" },
     { key: "score_silencio", label: "Silencio" },
@@ -30,9 +26,6 @@
     { key: "score_calidad_precio", label: "Calidad/Precio" }
   ];
 
-  /**
-   * Generates SVG radar chart with 7 clinical axes
-   */
   function drawRadarSVG(container, products) {
     if (!container || !products || products.length === 0) return;
 
@@ -48,7 +41,6 @@
     svg.setAttribute("height", "100%");
     svg.style.maxWidth = size + "px";
 
-    // 1. Draw concentric background polygon webs (levels 2, 4, 6, 8, 10)
     for (var level = 2; level <= 10; level += 2) {
       var r = (level / 10) * radius;
       var webPoints = [];
@@ -66,7 +58,6 @@
       svg.appendChild(polygon);
     }
 
-    // 2. Draw axis lines & labels
     for (var a = 0; a < totalAxes; a++) {
       var axisAngle = a * angleStep - Math.PI / 2;
       var axX = center + radius * Math.cos(axisAngle);
@@ -81,7 +72,6 @@
       line.setAttribute("stroke-width", "1");
       svg.appendChild(line);
 
-      // Label text
       var labelR = radius + 22;
       var lx = center + labelR * Math.cos(axisAngle);
       var ly = center + labelR * Math.sin(axisAngle);
@@ -98,7 +88,6 @@
       svg.appendChild(text);
     }
 
-    // 3. Draw polygons for each product
     products.forEach(function (prod, pIdx) {
       var colorScheme = RADAR_COLORS[pIdx % RADAR_COLORS.length];
       var polyPoints = [];
@@ -119,7 +108,6 @@
       dataPoly.setAttribute("stroke-width", "2.5");
       svg.appendChild(dataPoly);
 
-      // Dots on points
       polyPoints.forEach(function (pt) {
         var coords = pt.split(",");
         var dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -137,31 +125,6 @@
     container.appendChild(svg);
   }
 
-  /**
-   * Initializes image gallery thumbnail switching
-   */
-  function initGallery() {
-    var gallery = document.querySelector("[data-galeria]");
-    if (!gallery) return;
-
-    var mainImg = gallery.querySelector(".gallery-main-img, .ficha-img-main");
-    var thumbs = gallery.querySelectorAll(".gallery-thumb-btn, [data-thumb]");
-
-    thumbs.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var newSrc = btn.getAttribute("data-src") || (btn.querySelector("img") && btn.querySelector("img").src);
-        if (newSrc && mainImg) {
-          mainImg.src = newSrc;
-          thumbs.forEach(function (t) { t.classList.remove("active"); });
-          btn.classList.add("active");
-        }
-      });
-    });
-  }
-
-  /**
-   * Initializes Radar charts on Fichas and Comparator
-   */
   function initRadars() {
     var radarFigures = document.querySelectorAll("[data-radar]");
     if (!radarFigures.length) return;
@@ -185,36 +148,57 @@
   }
 
   /**
-   * Interactive Category Filtering on Landing Hub
+   * Combined Live Search + Category Filter Bar
    */
   function initCatalogFilter() {
     var filterContainer = document.querySelector("[data-catalog-filters]");
-    if (!filterContainer) return;
+    var searchInput = document.querySelector("#catalogSearchInput");
+    var cards = document.querySelectorAll("#mainProductGrid .product-card");
 
-    var buttons = filterContainer.querySelectorAll(".filter-pill-btn");
-    var cards = document.querySelectorAll(".product-grid .product-card");
+    var activeCategory = "all";
+    var currentQuery = "";
 
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var cat = btn.getAttribute("data-filter");
-        buttons.forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
+    function applyFilters() {
+      var q = currentQuery.toLowerCase().trim();
+      var visibleCount = 0;
 
-        cards.forEach(function (card) {
-          var cardCat = card.getAttribute("data-category");
-          if (!cat || cat === "all" || cardCat === cat) {
-            card.style.display = "flex";
-          } else {
-            card.style.display = "none";
-          }
+      cards.forEach(function (card) {
+        var cardCat = card.getAttribute("data-category") || "";
+        var cardBrand = card.getAttribute("data-brand") || "";
+        var cardTitle = card.getAttribute("data-title") || "";
+
+        var matchesCat = (activeCategory === "all" || cardCat === activeCategory);
+        var matchesSearch = !q || cardBrand.indexOf(q) !== -1 || cardTitle.indexOf(q) !== -1;
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = "flex";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    if (filterContainer) {
+      var buttons = filterContainer.querySelectorAll(".filter-pill-btn");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          activeCategory = btn.getAttribute("data-filter") || "all";
+          buttons.forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          applyFilters();
         });
       });
-    });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        currentQuery = searchInput.value;
+        applyFilters();
+      });
+    }
   }
 
-  /**
-   * Interactive Quick-View Modal (Ver Ficha Rápida sin salir de la Landing)
-   */
   function initQuickModal() {
     var modalBackdrop = document.querySelector("#quickViewModal");
     if (!modalBackdrop) return;
@@ -259,26 +243,26 @@
       if (titleEl) titleEl.textContent = p.name;
       if (brandEl) brandEl.textContent = p.marca;
       if (priceEl) priceEl.textContent = p.discountedPrice + " €";
-      if (imgEl) imgEl.src = p.images[0];
+      if (imgEl) {
+        imgEl.src = p.images && p.images[0] ? p.images[0] : "assets/img/hero-dental.svg";
+        imgEl.onerror = function() { this.src = "assets/img/hero-dental.svg"; };
+      }
       if (buyBtn) buyBtn.href = p.affiliate_url;
       if (fullLink) fullLink.href = "producto/" + p.id + ".html";
 
-      // Draw modal radar
       if (radarCanvas) {
         drawRadarSVG(radarCanvas, [p]);
       }
 
-      // Specs table
       if (specsTable) {
         specsTable.innerHTML = "" +
-          "<tr><th>Categoría</th><td>" + p.category + "</td></tr>" +
-          "<tr><th>Tecnología</th><td>" + p.tecnologia.toUpperCase() + "</td></tr>" +
-          "<tr><th>Modos</th><td>" + (p.modos_limpieza || "—") + "</td></tr>" +
-          "<tr><th>Presión / Pulsaciones</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + " mov/min" : "—")) + "</td></tr>" +
-          "<tr><th>Autonomía</th><td>" + (p.autonomia_dias > 365 ? "Red Eléctrica" : p.autonomia_dias + " días") + "</td></tr>" +
-          "<tr><th>Nivel Ruido</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "—") + "</td></tr>" +
-          "<tr><th>App IA</th><td>" + (p.app_conectada ? "✓ Conectada" : "✕ No") + "</td></tr>" +
-          "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + p.valoracion_media + " / 5 ★</strong></td></tr>";
+          "<tr><th>Especialidad</th><td>" + p.category + "</td></tr>" +
+          "<tr><th>Tecnología</th><td>" + (p.tecnologia || "").toUpperCase() + "</td></tr>" +
+          "<tr><th>Modos / Ajustes</th><td>" + (p.modos_limpieza || "1") + "</td></tr>" +
+          "<tr><th>Presión / Potencia</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + " puls/min" : "—")) + "</td></tr>" +
+          "<tr><th>Autonomía</th><td>" + (p.autonomia_dias > 365 ? "Red / No aplica" : p.autonomia_dias + " días") + "</td></tr>" +
+          "<tr><th>Nivel Ruido</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "0 dB (Silencioso)") + "</td></tr>" +
+          "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + p.valoracion_media + " / 5 ★</strong> (" + (p.resenas_cantidad || 0) + " reseñas)</td></tr>";
       }
 
       modalBackdrop.classList.add("open");
@@ -286,9 +270,6 @@
     });
   }
 
-  /**
-   * Initializes Intra-Category Comparator
-   */
   function initComparator() {
     var compRoot = document.querySelector("[data-comparator-app]");
     if (!compRoot) return;
@@ -308,26 +289,27 @@
       if (!productChecksContainer) return;
       productChecksContainer.innerHTML = "";
 
-      items.forEach(function (prod, idx) {
+      items.slice(0, 10).forEach(function (prod, idx) {
         var label = document.createElement("label");
         label.className = "comp-check-item";
         label.style.display = "inline-flex";
         label.style.alignItems = "center";
         label.style.gap = "0.4rem";
         label.style.marginRight = "1rem";
-        label.style.fontSize = "0.9rem";
+        label.style.marginBottom = "0.5rem";
+        label.style.fontSize = "0.85rem";
         label.style.fontWeight = "600";
         label.style.cursor = "pointer";
 
         var input = document.createElement("input");
         input.type = "checkbox";
         input.value = prod.id;
-        input.checked = idx < 3; // Select first 2 or 3 by default
+        input.checked = idx < 3;
 
         input.addEventListener("change", updateComparison);
 
         label.appendChild(input);
-        label.appendChild(document.createTextNode(prod.name.length > 35 ? prod.name.substring(0, 35) + "..." : prod.name));
+        label.appendChild(document.createTextNode(prod.name.length > 32 ? prod.name.substring(0, 32) + "..." : prod.name));
         productChecksContainer.appendChild(label);
       });
 
@@ -345,12 +327,10 @@
         return selectedIds.indexOf(p.id) !== -1;
       });
 
-      // Update radar overlay
       if (radarContainer) {
         drawRadarSVG(radarContainer, selectedProducts);
       }
 
-      // Update legend
       if (radarLegend) {
         radarLegend.innerHTML = "";
         selectedProducts.forEach(function (prod, idx) {
@@ -370,29 +350,27 @@
           dot.style.backgroundColor = color;
 
           item.appendChild(dot);
-          item.appendChild(document.createTextNode(prod.name.substring(0, 25) + "..."));
+          item.appendChild(document.createTextNode(prod.name.substring(0, 22) + "..."));
           radarLegend.appendChild(item);
         });
       }
 
-      // Update comparison table matrix
       if (matrixContainer && selectedProducts.length > 0) {
         var tableHtml = '<table class="compare-matrix-table"><thead><tr><th class="row-label">Característica</th>';
         selectedProducts.forEach(function (p) {
-          tableHtml += '<th><img src="' + p.images[0] + '" style="height:60px;margin:0 auto 6px;display:block;" alt="' + p.name + '"><strong>' + p.marca + '</strong><br><small>' + p.name.substring(0, 28) + '...</small></th>';
+          tableHtml += '<th><img src="' + (p.images && p.images[0] ? p.images[0] : 'assets/img/hero-dental.svg') + '" style="height:60px;margin:0 auto 6px;display:block;object-fit:contain;" alt="' + p.name + '"><strong>' + p.marca + '</strong><br><small>' + p.name.substring(0, 25) + '...</small></th>';
         });
         tableHtml += '</tr></thead><tbody>';
 
         var rows = [
           { label: "Precio Orientativo", fn: function(p) { return p.discountedPrice + ' €' + (p.discountedPrice < p.retailPrice ? ' <small style="color:#DC2626">(-' + Math.round((1 - p.discountedPrice/p.retailPrice)*100) + '%)</small>' : ''); } },
-          { label: "Tecnología", fn: function(p) { return p.tecnologia.toUpperCase(); } },
-          { label: "Modos de Limpieza", fn: function(p) { return p.modos_limpieza || "—"; } },
-          { label: "Presión / Pulsaciones", fn: function(p) { return p.presion_agua_psi ? p.presion_agua_psi + ' PSI' : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + ' mov/min' : '—'); } },
-          { label: "Autonomía de Batería", fn: function(p) { return p.autonomia_dias > 365 ? 'Corriente AC' : p.autonomia_dias + ' días'; } },
-          { label: "Nivel Sonoro (dB)", fn: function(p) { return p.nivel_ruido_db ? p.nivel_ruido_db + ' dB' : '—'; } },
-          { label: "App Inteligente", fn: function(p) { return p.app_conectada ? '<span style="color:#16A34A;font-weight:700">✓ Conectada</span>' : '✕ No'; } },
-          { label: "Indicado Para", fn: function(p) { return (p.indicado_para || []).join(", "); } },
-          { label: "Puntuación Global", fn: function(p) { return '<strong style="color:#0E76BC;font-size:1.1rem">' + p.valoracion_media + ' / 5</strong>'; } },
+          { label: "Especialidad", fn: function(p) { return p.category; } },
+          { label: "Tecnología", fn: function(p) { return (p.tecnologia || '').toUpperCase(); } },
+          { label: "Modos / Ajustes", fn: function(p) { return p.modos_limpieza || "1"; } },
+          { label: "Presión / Potencia", fn: function(p) { return p.presion_agua_psi ? p.presion_agua_psi + ' PSI' : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + ' puls/min' : '—'); } },
+          { label: "Autonomía", fn: function(p) { return p.autonomia_dias > 365 ? 'Red / No aplica' : p.autonomia_dias + ' días'; } },
+          { label: "Nivel Ruido (dB)", fn: function(p) { return p.nivel_ruido_db ? p.nivel_ruido_db + ' dB' : '0 dB (Silencioso)'; } },
+          { label: "Puntuación", fn: function(p) { return '<strong style="color:#0E76BC">' + p.valoracion_media + ' / 5 ★</strong>'; } },
           { label: "Comprar en Amazon", fn: function(p) { return '<a class="btn-card-amazon" href="' + p.affiliate_url + '" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon</a>'; } }
         ];
 
@@ -417,77 +395,11 @@
     }
   }
 
-  /**
-   * Hybrid Live Price Refresh: Overwrites static prices via Supabase REST API
-   */
-  async function refreshLivePrices() {
-    var brand = window.__BRAND__ || {};
-    var supabaseUrl = brand.supabaseUrl;
-    var anonKey = brand.supabaseAnonKey;
-
-    if (!supabaseUrl || !anonKey || anonKey.indexOf("example") !== -1) {
-      return; // Skip if no live credentials
-    }
-
-    var elements = document.querySelectorAll("[data-producto-id], [data-asin]");
-    if (!elements.length) return;
-
-    var idList = [];
-    elements.forEach(function (el) {
-      var pId = el.getAttribute("data-producto-id");
-      if (pId && idList.indexOf(pId) === -1) {
-        idList.push(pId);
-      }
-    });
-
-    if (!idList.length) return;
-
-    try {
-      var queryUrl = supabaseUrl.replace(/\/$/, "") + "/rest/v1/products?select=id,asin,discounted_price,retail_price,valoracion_media,resenas_cantidad,disponibilidad&id=in.(" + idList.join(",") + ")";
-      var res = await fetch(queryUrl, {
-        headers: {
-          "apikey": anonKey,
-          "Authorization": "Bearer " + anonKey,
-          "Accept": "application/json"
-        }
-      });
-
-      if (!res.ok) return;
-      var liveItems = await res.json();
-
-      liveItems.forEach(function (item) {
-        var targets = document.querySelectorAll('[data-producto-id="' + item.id + '"]');
-        targets.forEach(function (t) {
-          var priceCurrent = t.querySelector(".price-current, .current");
-          var priceOld = t.querySelector(".price-old, .old");
-
-          if (priceCurrent && item.discounted_price) {
-            priceCurrent.style.transition = "opacity 0.3s ease";
-            priceCurrent.style.opacity = "0.4";
-            setTimeout(function () {
-              priceCurrent.textContent = Number(item.discounted_price).toFixed(2).replace(".", ",") + " €";
-              priceCurrent.style.opacity = "1";
-            }, 300);
-          }
-
-          if (priceOld && item.retail_price && item.retail_price > item.discounted_price) {
-            priceOld.textContent = Number(item.retail_price).toFixed(2).replace(".", ",") + " €";
-          }
-        });
-      });
-    } catch (e) {
-      console.warn("[OdontoScore] Live price refresh skipped:", e);
-    }
-  }
-
-  // Run on DOM ready
   document.addEventListener("DOMContentLoaded", function () {
-    safe(initGallery, "initGallery");
     safe(initRadars, "initRadars");
     safe(initCatalogFilter, "initCatalogFilter");
     safe(initQuickModal, "initQuickModal");
     safe(initComparator, "initComparator");
-    safe(refreshLivePrices, "refreshLivePrices");
   });
 
 })();

@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comparador Profesional Dental — Enfrenta Dispositivos de Odontología | OdontoScore</title>
-  <meta name="description" content="Compara hasta 4 dispositivos dentales de la misma categoría lado a lado: presión PSI, pulsaciones, modos, decibelios y radar de 7 ejes superpuesto.">
+  <title>Comparador Odontológico — Enfrenta Dispositivos y Material Dental | OdontoScore</title>
+  <meta name="description" content="Comparador de 7 ejes de rendimiento odontológico: cepillos sónicos, irrigadores, kits de sutura y tipodontos.">
   <link rel="canonical" href="https://odontoscore.com/comparador.html" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260822">
+  <link rel="stylesheet" href="styles.css?v=20260822_v2">
 </head>
 <body>
   
 <header class="site-header">
   <div class="container nav-wrapper">
-    <a href="index.html" class="brand-logo">
-      <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore Logo" height="38">
+    <a href="index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+      <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore" height="42">
     </a>
     <nav class="main-nav">
       <ul class="nav-links">
         <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="index.html#estudiantes">Estudiantes</a></li>
         <li><a href="index.html#comparador">Comparador</a></li>
         <li><a href="index.html#ofertas">Ofertas</a></li>
-        <li><a href="index.html#guias">Guías</a></li>
         <li><a href="index.html#faq">FAQ Clínica</a></li>
       </ul>
       <div class="nav-actions">
         <a href="index.html#comparador" class="btn-nav-compare">
-          <span>⚡ Comparar</span>
+          <span>⚡ Comparador Radar</span>
         </a>
       </div>
     </nav>
@@ -39,36 +39,29 @@
 
   <main class="container comparator-page-wrapper" data-comparator-app>
     <div class="section-header" style="text-align:left;max-width:100%;">
-      <div class="hero-badge">⚡ Motor Intra-Categoría</div>
-      <h1 style="font-size:2.4rem;margin-bottom:0.75rem;">Comparador Clínico Dental</h1>
-      <p style="color:#64748B;font-size:1.1rem;">Selecciona tu categoría y hasta 4 dispositivos para ver especificaciones técnicas lado a lado y sus gráficos radar superpuestos.</p>
+      <div class="hero-badge">⚡ Comparativa Multiproducto</div>
+      <h1 style="font-size:2.4rem;margin-bottom:0.75rem;">Comparador Clínico OdontoScore</h1>
+      <p style="color:#64748B;font-size:1.1rem;">Selecciona una categoría y compara hasta 4 productos simultáneamente en los 7 ejes de rendimiento.</p>
     </div>
 
     <div class="comparator-selector-bar">
       <div>
-        <label for="compCategorySelect" style="font-weight:700;font-size:0.95rem;margin-right:0.75rem;">Categoría:</label>
+        <label for="compCategorySelect" style="font-weight:700;font-size:0.95rem;margin-right:0.75rem;">Especialidad:</label>
         <select id="compCategorySelect" style="padding:0.6rem 1rem;border-radius:var(--radius-md);border:1px solid var(--color-border);font-family:var(--font-sans);font-size:0.95rem;">
-          <option value="">Todas las Categorías</option>
-          <option value="cepillos_electricos">Cepillos Eléctricos</option><option value="irrigadores_dentales">Irrigadores Dentales</option><option value="blanqueamiento_dental">Blanqueamiento Dental</option><option value="ortodoncia_brackets">Ortodoncia y Brackets</option><option value="higiene_infantil">Higiene Infantil</option><option value="instrumental_basico">Instrumental Básico Profesional</option>
+          <option value="">Todas las Especialidades</option>
+          <option value="estudiantes_practicas">Estudiantes y Prácticas</option><option value="cepillos_electricos">Cepillos Eléctricos</option><option value="irrigadores_dentales">Irrigadores Dentales</option><option value="blanqueamiento_dental">Blanqueamiento Dental</option><option value="ortodoncia_brackets">Ortodoncia y Brackets</option><option value="higiene_infantil">Higiene Infantil y Odontopediatría</option><option value="instrumental_basico">Instrumental y Clínica</option>
         </select>
       </div>
-      <div id="compProductChecks" style="display:flex;flex-wrap:wrap;align-items:center;">
-        <!-- Checkboxes injected by main.js -->
-      </div>
+      <div id="compProductChecks" style="display:flex;flex-wrap:wrap;align-items:center;"></div>
     </div>
 
-    <!-- Superposición de Radares -->
     <div class="radar-section-box" style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.4rem;margin-bottom:0.5rem;">Radar Multiproducto Superpuesto</h2>
-      <p style="color:#64748B;font-size:0.9rem;margin-bottom:1rem;">Visualiza fortalezas y debilidades clínicas de cada modelo en los 7 ejes.</p>
+      <h2 style="font-size:1.4rem;margin-bottom:0.5rem;">Radares Clínicos Superpuestos</h2>
       <div id="compRadarLegend" style="margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;"></div>
       <div class="radar-canvas-container" id="compRadarCanvas" style="min-height:340px;"></div>
     </div>
 
-    <!-- Tabla Comparativa -->
-    <div class="comparator-table-scroll" id="compMatrixContent">
-      <!-- Matrix injected by main.js -->
-    </div>
+    <div class="comparator-table-scroll" id="compMatrixContent"></div>
   </main>
 
   
@@ -76,40 +69,42 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>Odonto<span style="color:#0EA5E9">Score</span></h3>
-        <p style="margin-bottom:1rem;color:#94A3B8;">Plataforma unificada de análisis clínico y comparativas de dispositivos de odontología e higiene bucodental.</p>
-        <p style="font-size:0.85rem;color:#64748B;">Evaluación basada en evidencia clínica, presión hidráulica PSI, tecnología sónica y protección gingival.</p>
+        <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore" height="36" style="filter: brightness(0) invert(1); margin-bottom:1rem;">
+        <p style="margin-bottom:1rem;color:#94A3B8;">Portal odontológico independiente de comparativas técnicas, guías clínicas y catálogo para estudiantes, profesionales y pacientes.</p>
+        <p style="font-size:0.85rem;color:#64748B;">Evaluación de rendimiento en 7 ejes: bio-eficacia, ergonomía, confort gingival, decibelios y presión hidráulica.</p>
       </div>
       <div class="footer-col">
         <h4>Especialidades</h4>
         <ul class="footer-links">
-          <li><a href="categoria/cepillos-electricos.html">Cepillos Eléctricos</a></li>
-          <li><a href="categoria/irrigadores-dentales.html">Irrigadores Dentales</a></li>
-          <li><a href="categoria/blanqueamiento-dental.html">Blanqueamiento Dental</a></li>
-          <li><a href="categoria/ortodoncia-brackets.html">Ortodoncia y Brackets</a></li>
+          <li><a href="index.html#catalogo">🎓 Estudiantes y Prácticas</a></li>
+          <li><a href="index.html#catalogo">🪥 Cepillos Eléctricos</a></li>
+          <li><a href="index.html#catalogo">💧 Irrigadores Dentales</a></li>
+          <li><a href="index.html#catalogo">✨ Blanqueamiento Dental</a></li>
+          <li><a href="index.html#catalogo">🦷 Ortodoncia y Brackets</a></li>
+          <li><a href="index.html#catalogo">🔬 Instrumental y Clínica</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Herramientas</h4>
         <ul class="footer-links">
-          <li><a href="comparador.html">Comparador Avanzado</a></li>
-          <li><a href="ofertas.html">Ofertas del Día</a></li>
+          <li><a href="comparador.html">Comparador de 7 Ejes</a></li>
+          <li><a href="ofertas.html">Ofertas y Descuentos</a></li>
           <li><a href="guias/mejor-irrigador-dental-brackets-2026.html">Guía Irrigadores Brackets</a></li>
           <li><a href="guias/mejor-cepillo-electrico-encias-sensibles-2026.html">Guía Encías Sensibles</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Transparencia Legal</h4>
+        <h4>Transparencia</h4>
         <ul class="footer-links">
           <li><a href="aviso-afiliados.html">Aviso de Afiliación</a></li>
           <li><a href="privacidad.html">Privacidad y Cookies</a></li>
-          <li><a href="sobre-nosotros.html">Metodología E-E-A-T</a></li>
+          <li><a href="sobre-nosotros.html">Metodología OdontoScore</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-disclaimers">
       <p><strong>Aviso de Afiliación de Amazon:</strong> En calidad de Afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. «Amazon» y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.</p>
-      <p><strong>Descargo de Responsabilidad Médica:</strong> Los análisis y comparativas de OdontoScore tienen carácter meramente informativo y divulgativo sobre dispositivos de higiene oral. No constituyen diagnóstico ni recomendación médica personalizada. Ante cualquier patología dental, consulte siempre a su odontólogo colegiado.</p>
+      <p><strong>Descargo de Responsabilidad Médica:</strong> Los análisis y comparativas de OdontoScore tienen carácter informativo. No constituyen diagnóstico ni prescripción médica individualizada. Ante cualquier duda clínica, consulte siempre a su odontólogo colegiado.</p>
     </div>
     <div class="footer-bottom-copy">
       © 2026 OdontoScore (odontoscore.com). Todos los derechos reservados.
@@ -119,7 +114,7 @@
 
 
   <script defer src="lib/manifest.js"></script>
-  <script defer src="lib/db.js?v=20260822"></script>
-  <script defer src="main.js?v=20260822"></script>
+  <script defer src="lib/db.js?v=20260822_v2"></script>
+  <script defer src="main.js?v=20260822_v2"></script>
 </body>
 </html>
