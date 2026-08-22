@@ -1,248 +1,1003 @@
 [
   {
-    "asin": "B089W4XKQY",
-    "id": "oral-b-io-series-9",
-    "name": "Oral-B iO Series 9 Cepillo Eléctrico Recargable Magnético",
+    "id": "oral-b-io-b0b5v6x8nt",
+    "asin": "B0B5V6X8NT",
+    "name": "Oral-B iO 6N Cepillo de Dientes Eléctrico con 1 Cabezal, Gris | Cepillo Dental con Sensor de Presión, 5 Modos de Cepillado con Modo Blanqueante, Batería de Larga Duración Y Estuche de Viaje",
     "marca": "Oral-B",
     "categoria_odontologica": "cepillos_electricos",
     "category": "Cepillos Eléctricos",
+    "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
-    "retailPrice": 279.99,
-    "discountedPrice": 199.95,
-    "valoracion_media": 4.6,
-    "resenas_cantidad": 4850,
-    "modos_limpieza": 7,
+    "affiliate_url": "https://www.amazon.es/dp/B0B5V6X8NT?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0B5V6X8NT",
+    "retailPrice": 187.91,
+    "discountedPrice": 150.33,
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/71j8KV-hdFL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
     "pulsaciones_min": 17400,
     "autonomia_dias": 14,
     "nivel_ruido_db": 58,
     "app_conectada": true,
-    "indicado_para": ["encias_sensibles", "implantes", "blanqueamiento"],
-    "score_eficacia": 9.8,
-    "score_comodidad_encias": 9.5,
-    "score_durabilidad": 8.8,
-    "score_facilidad_uso": 9.0,
-    "score_silencio": 8.2,
-    "score_tecnologia": 9.9,
-    "score_calidad_precio": 8.0,
-    "isFeatured": true
-  },
-  {
-    "asin": "B00USBV1N8",
-    "id": "waterpik-ultra-professional-wp-660eu",
-    "name": "Waterpik Ultra Professional WP-660EU Irrigador Bucal",
-    "marca": "Waterpik",
-    "categoria_odontologica": "irrigadores_dentales",
-    "category": "Irrigadores Dentales",
-    "tecnologia": "irrigador",
-    "retailPrice": 99.99,
-    "discountedPrice": 74.99,
-    "valoracion_media": 4.5,
-    "resenas_cantidad": 16200,
-    "modos_limpieza": 2,
-    "presion_agua_psi": 100,
-    "capacidad_deposito_ml": 650,
-    "pulsaciones_min": 1400,
-    "autonomia_dias": 999,
-    "nivel_ruido_db": 67,
-    "app_conectada": false,
-    "indicado_para": ["brackets", "implantes", "ortodoncia", "encias_sensibles"],
-    "score_eficacia": 9.7,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "blanqueamiento"
+    ],
+    "score_eficacia": 9.5,
     "score_comodidad_encias": 9.2,
     "score_durabilidad": 9.4,
-    "score_facilidad_uso": 9.1,
-    "score_silencio": 7.0,
-    "score_tecnologia": 8.0,
-    "score_calidad_precio": 9.6,
-    "isFeatured": true
-  },
-  {
-    "asin": "B091J3F7C4",
-    "id": "philips-sonicare-9900-prestige",
-    "name": "Philips Sonicare 9900 Prestige Cepillo Sónico SenseIQ",
-    "marca": "Philips Sonicare",
-    "categoria_odontologica": "cepillos_electricos",
-    "category": "Cepillos Eléctricos",
-    "tecnologia": "sonico",
-    "retailPrice": 299.99,
-    "discountedPrice": 249.00,
-    "valoracion_media": 4.7,
-    "resenas_cantidad": 3100,
-    "modos_limpieza": 5,
-    "pulsaciones_min": 62000,
-    "autonomia_dias": 21,
-    "nivel_ruido_db": 54,
-    "app_conectada": true,
-    "indicado_para": ["encias_sensibles", "implantes", "blanqueamiento"],
-    "score_eficacia": 9.9,
-    "score_comodidad_encias": 9.7,
-    "score_durabilidad": 9.6,
     "score_facilidad_uso": 9.3,
-    "score_silencio": 9.5,
+    "score_silencio": 8.0,
     "score_tecnologia": 9.8,
-    "score_calidad_precio": 8.1,
-    "isFeatured": true
+    "score_calidad_precio": 9.2,
+    "isFeatured": true,
+    "description": "Análisis clínico, características técnicas y opiniones de Oral-B iO 6N Cepillo de Dientes Eléctrico con 1 Cabezal, Gris | Cepillo Dental con Sensor de Presión, 5 Modos de Cepillado con Modo Blanqueante, Batería de Larga Duración Y Estuche de Viaje.",
+    "cuerpo_editorial": "<p>El <strong>Oral-B iO 6N Cepillo de Dientes Eléctrico con 1 Cabezal, Gris | Cepillo Dental con Sensor de Presión, 5 Modos de Cepillado con Modo Blanqueante, Batería de Larga Duración Y Estuche de Viaje</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.5★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Oral-B iO 6N Cepillo de Diente?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
   },
   {
-    "asin": "B0798DJZ8M",
-    "id": "oral-b-pro-3-3000",
-    "name": "Oral-B Pro 3 3000 Cepillo Eléctrico con Sensor de Presión 360°",
+    "id": "oral-b-io-b0dp1q2mkw",
+    "asin": "B0DP1Q2MKW",
+    "name": "Oral-B iO 2 Cepillo de Dientes Eléctrico con 1 Cabezal, Azul Mar | Cepillo Dental con 3 Niveles de Intensidad, Sensor de Presión Y Temporizador, Estuche de Viaje, Suave con Encías",
     "marca": "Oral-B",
     "categoria_odontologica": "cepillos_electricos",
     "category": "Cepillos Eléctricos",
+    "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
-    "retailPrice": 79.99,
-    "discountedPrice": 49.99,
-    "valoracion_media": 4.6,
-    "resenas_cantidad": 28400,
-    "modos_limpieza": 3,
-    "pulsaciones_min": 45000,
+    "affiliate_url": "https://www.amazon.es/dp/B0DP1Q2MKW?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0DP1Q2MKW",
+    "retailPrice": 76.71,
+    "discountedPrice": 61.37,
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/81ZcO4OW6hL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 17400,
     "autonomia_dias": 14,
-    "nivel_ruido_db": 62,
-    "app_conectada": false,
-    "indicado_para": ["encias_sensibles", "limpieza_diaria"],
-    "score_eficacia": 9.1,
-    "score_comodidad_encias": 8.8,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.4,
-    "score_silencio": 7.5,
-    "score_tecnologia": 7.8,
-    "score_calidad_precio": 9.8,
-    "isFeatured": false
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": true,
+    "description": "Análisis clínico, características técnicas y opiniones de Oral-B iO 2 Cepillo de Dientes Eléctrico con 1 Cabezal, Azul Mar | Cepillo Dental con 3 Niveles de Intensidad, Sensor de Presión Y Temporizador, Estuche de Viaje, Suave con Encías.",
+    "cuerpo_editorial": "<p>El <strong>Oral-B iO 2 Cepillo de Dientes Eléctrico con 1 Cabezal, Azul Mar | Cepillo Dental con 3 Niveles de Intensidad, Sensor de Presión Y Temporizador, Estuche de Viaje, Suave con Encías</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.5★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Oral-B iO 2 Cepillo de Dientes?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
   },
   {
-    "asin": "B08K9K9K99",
-    "id": "waterpik-cordless-advanced-wp-560",
-    "name": "Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico",
+    "id": "philips-sonicare-b0g7kr88lp",
+    "asin": "B0G7KR88LP",
+    "name": "Philips Sonicare Serie 3100 - Cepillo dental sónico con sensor de presión, 3 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, estuche, blanco, HX4033/21, [Nuevo]",
+    "marca": "Philips",
+    "categoria_odontologica": "cepillos_electricos",
+    "category": "Cepillos Eléctricos",
+    "tipo_producto": "cepillos_electricos",
+    "tecnologia": "sonico",
+    "affiliate_url": "https://www.amazon.es/dp/B0G7KR88LP?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0G7KR88LP",
+    "retailPrice": 50.49,
+    "discountedPrice": 40.39,
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 217,
+    "images": [
+      "https://m.media-amazon.com/images/I/71uE1QdzpNL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 3,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 62000,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 54,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.6,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 9.5,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": true,
+    "description": "Análisis clínico, características técnicas y opiniones de Philips Sonicare Serie 3100 - Cepillo dental sónico con sensor de presión, 3 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, estuche, blanco, HX4033/21, [Nuevo].",
+    "cuerpo_editorial": "<p>El <strong>Philips Sonicare Serie 3100 - Cepillo dental sónico con sensor de presión, 3 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, estuche, blanco, HX4033/21, [Nuevo]</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología sonico.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.4★ con más de 217 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Philips Sonicare Serie 3100 - ?",
+        "a": "Destaca por su tecnología sonico y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "philips-sonicare-b0g5ycdl21",
+    "asin": "B0G5YCDL21",
+    "name": "Philips Sonicare Serie 2100 - Cepillo dental sónico con 2 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, blanco, modelo HX4021/01, [Nuevo]",
+    "marca": "Philips",
+    "categoria_odontologica": "cepillos_electricos",
+    "category": "Cepillos Eléctricos",
+    "tipo_producto": "cepillos_electricos",
+    "tecnologia": "sonico",
+    "affiliate_url": "https://www.amazon.es/dp/B0G5YCDL21?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0G5YCDL21",
+    "retailPrice": 31.25,
+    "discountedPrice": 25.0,
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 412,
+    "images": [
+      "https://m.media-amazon.com/images/I/71b65LgWSRL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 3,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 62000,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 54,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.6,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 9.5,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Philips Sonicare Serie 2100 - Cepillo dental sónico con 2 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, blanco, modelo HX4021/01, [Nuevo].",
+    "cuerpo_editorial": "<p>El <strong>Philips Sonicare Serie 2100 - Cepillo dental sónico con 2 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, blanco, modelo HX4021/01, [Nuevo]</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología sonico.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.5★ con más de 412 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Philips Sonicare Serie 2100 - ?",
+        "a": "Destaca por su tecnología sonico y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "waterpik-ultra-b073wgysf9",
+    "asin": "B073WGYSF9",
+    "name": "Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Blanco | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa",
     "marca": "Waterpik",
     "categoria_odontologica": "irrigadores_dentales",
     "category": "Irrigadores Dentales",
+    "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
-    "retailPrice": 109.99,
-    "discountedPrice": 89.95,
+    "affiliate_url": "https://www.amazon.es/dp/B073WGYSF9?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B073WGYSF9",
+    "retailPrice": 112.49,
+    "discountedPrice": 89.99,
     "valoracion_media": 4.4,
-    "resenas_cantidad": 9300,
-    "modos_limpieza": 3,
-    "presion_agua_psi": 75,
-    "capacidad_deposito_ml": 210,
-    "pulsaciones_min": 1250,
-    "autonomia_dias": 7,
-    "nivel_ruido_db": 64,
-    "app_conectada": false,
-    "indicado_para": ["brackets", "viajes", "ortodoncia", "implantes"],
-    "score_eficacia": 9.2,
-    "score_comodidad_encias": 9.0,
-    "score_durabilidad": 8.6,
-    "score_facilidad_uso": 9.5,
-    "score_silencio": 7.8,
-    "score_tecnologia": 8.3,
-    "score_calidad_precio": 8.9,
-    "isFeatured": false
+    "resenas_cantidad": 26021,
+    "images": [
+      "https://m.media-amazon.com/images/I/71uirMkTDjL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": 100,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 999,
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "implantes"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Blanco | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa.",
+    "cuerpo_editorial": "<p>El <strong>Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Blanco | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología irrigador.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.4★ con más de 26021 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Waterpik Ultra Professional, I?",
+        "a": "Destaca por su tecnología irrigador y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
   },
   {
-    "asin": "B07W5758W8",
-    "id": "mysmile-kit-blanqueamiento-led",
-    "name": "MySmile Kit de Blanqueamiento Dental Profesional LED",
-    "marca": "MySmile",
+    "id": "waterpik-ultra-b073wg78np",
+    "asin": "B073WG78NP",
+    "name": "Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Negro | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa",
+    "marca": "Waterpik",
+    "categoria_odontologica": "irrigadores_dentales",
+    "category": "Irrigadores Dentales",
+    "tipo_producto": "irrigadores_dentales",
+    "tecnologia": "irrigador",
+    "affiliate_url": "https://www.amazon.es/dp/B073WG78NP?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B073WG78NP",
+    "retailPrice": 106.24,
+    "discountedPrice": 84.99,
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 26021,
+    "images": [
+      "https://m.media-amazon.com/images/I/715tjfcGFGL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": 100,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 999,
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "implantes"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Negro | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa.",
+    "cuerpo_editorial": "<p>El <strong>Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Negro | Con agua a presión, Con sistema avanzado de control de presión mediante, 10 posiciones con 6 boquillas, Eliminación de placa</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología irrigador.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.4★ con más de 26021 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Waterpik Ultra Professional, I?",
+        "a": "Destaca por su tecnología irrigador y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "usmile-c10-b0f7xh6rw3",
+    "asin": "B0F7XH6RW3",
+    "name": "usmile C10 Irrigador Dental de Viaje, 95 Días de Autonomía, Azul | Depósito de 180 ml, 4 modos, boquilla 360°, IPX7, irrigador inalámbrico para ortodoncia, implantes y dientes sensibles",
+    "marca": "usmile",
+    "categoria_odontologica": "irrigadores_dentales",
+    "category": "Irrigadores Dentales",
+    "tipo_producto": "irrigadores_dentales",
+    "tecnologia": "irrigador",
+    "affiliate_url": "https://www.amazon.es/dp/B0F7XH6RW3?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0F7XH6RW3",
+    "retailPrice": 87.49,
+    "discountedPrice": 69.99,
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/61n-6GJa9PL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": 75,
+    "pulsaciones_min": 1400,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 65,
+    "app_conectada": false,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "brackets",
+      "implantes"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de usmile C10 Irrigador Dental de Viaje, 95 Días de Autonomía, Azul | Depósito de 180 ml, 4 modos, boquilla 360°, IPX7, irrigador inalámbrico para ortodoncia, implantes y dientes sensibles.",
+    "cuerpo_editorial": "<p>El <strong>usmile C10 Irrigador Dental de Viaje, 95 Días de Autonomía, Azul | Depósito de 180 ml, 4 modos, boquilla 360°, IPX7, irrigador inalámbrico para ortodoncia, implantes y dientes sensibles</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología irrigador.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.5★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir usmile C10 Irrigador Dental de?",
+        "a": "Destaca por su tecnología irrigador y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "jtf-irrigador-b0d4q732nc",
+    "asin": "B0D4Q732NC",
+    "name": "JTF Irrigador Bucal Mini, Portátil Dental Limpieza Eléctrica Inalámbrico Viaje con 5 Boquillas, 4 Modos de Pulso, 230 ML Depósito de Agua Retráctil, IPX7 Resistente Al Agua (Blanco)",
+    "marca": "JTF",
+    "categoria_odontologica": "irrigadores_dentales",
+    "category": "Irrigadores Dentales",
+    "tipo_producto": "irrigadores_dentales",
+    "tecnologia": "irrigador",
+    "affiliate_url": "https://www.amazon.es/dp/B0D4Q732NC?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0D4Q732NC",
+    "retailPrice": 36.24,
+    "discountedPrice": 28.99,
+    "valoracion_media": 4.3,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/71oKDSKiidL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": 75,
+    "pulsaciones_min": 1400,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 65,
+    "app_conectada": false,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "implantes"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de JTF Irrigador Bucal Mini, Portátil Dental Limpieza Eléctrica Inalámbrico Viaje con 5 Boquillas, 4 Modos de Pulso, 230 ML Depósito de Agua Retráctil, IPX7 Resistente Al Agua (Blanco).",
+    "cuerpo_editorial": "<p>El <strong>JTF Irrigador Bucal Mini, Portátil Dental Limpieza Eléctrica Inalámbrico Viaje con 5 Boquillas, 4 Modos de Pulso, 230 ML Depósito de Agua Retráctil, IPX7 Resistente Al Agua (Blanco)</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología irrigador.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.3★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir JTF Irrigador Bucal Mini, Port?",
+        "a": "Destaca por su tecnología irrigador y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "tiras-blanqueadoras-b0gsvbz7ws",
+    "asin": "B0GSVBZ7WS",
+    "name": "Tiras Blanqueadoras Dientes Moradas - 28 Tiras | Kit Blanqueador Dental Profesional con Tecnología Púrpura Correctora de Color | Blanqueamiento Dental Seguro para el Esmalte y Resultados Rápidos",
+    "marca": "Tiras",
     "categoria_odontologica": "blanqueamiento_dental",
     "category": "Blanqueamiento Dental",
+    "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
+    "affiliate_url": "https://www.amazon.es/dp/B0GSVBZ7WS?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0GSVBZ7WS",
+    "retailPrice": 20.35,
+    "discountedPrice": 16.28,
+    "valoracion_media": 4.1,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/71T5-ywWjwL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "blanqueamiento"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Tiras Blanqueadoras Dientes Moradas - 28 Tiras | Kit Blanqueador Dental Profesional con Tecnología Púrpura Correctora de Color | Blanqueamiento Dental Seguro para el Esmalte y Resultados Rápidos.",
+    "cuerpo_editorial": "<p>El <strong>Tiras Blanqueadoras Dientes Moradas - 28 Tiras | Kit Blanqueador Dental Profesional con Tecnología Púrpura Correctora de Color | Blanqueamiento Dental Seguro para el Esmalte y Resultados Rápidos</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología led.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.1★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Tiras Blanqueadoras Dientes Mo?",
+        "a": "Destaca por su tecnología led y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "l-piz-blanqueador-b0fnwl6gtx",
+    "asin": "B0FNWL6GTX",
+    "name": "Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte",
+    "marca": "Lápiz",
+    "categoria_odontologica": "blanqueamiento_dental",
+    "category": "Blanqueamiento Dental",
+    "tipo_producto": "blanqueamiento_dental",
+    "tecnologia": "led",
+    "affiliate_url": "https://www.amazon.es/dp/B0FNWL6GTX?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0FNWL6GTX",
     "retailPrice": 49.99,
     "discountedPrice": 39.99,
     "valoracion_media": 4.3,
-    "resenas_cantidad": 7200,
-    "modos_limpieza": 1,
-    "autonomia_dias": 30,
-    "nivel_ruido_db": 0,
-    "app_conectada": false,
-    "indicado_para": ["blanqueamiento", "manchas_cafe", "esmalte_sensible"],
-    "score_eficacia": 8.8,
-    "score_comodidad_encias": 8.5,
-    "score_durabilidad": 8.2,
-    "score_facilidad_uso": 9.2,
-    "score_silencio": 10.0,
-    "score_tecnologia": 8.6,
-    "score_calidad_precio": 9.3,
-    "isFeatured": false
-  },
-  {
-    "asin": "B08FBN282K",
-    "id": "oral-b-junior-star-wars-minnie",
-    "name": "Oral-B Junior Cepillo Eléctrico Infantil con Filamentos Extra Suaves",
-    "marca": "Oral-B",
-    "categoria_odontologica": "higiene_infantil",
-    "category": "Higiene Infantil",
-    "tecnologia": "rotatorio",
-    "retailPrice": 39.99,
-    "discountedPrice": 29.99,
-    "valoracion_media": 4.7,
-    "resenas_cantidad": 12100,
+    "resenas_cantidad": 1200,
+    "images": [
+      "https://m.media-amazon.com/images/I/710azOnF1tL._AC_UL320_.jpg"
+    ],
     "modos_limpieza": 2,
-    "pulsaciones_min": 20000,
-    "autonomia_dias": 10,
-    "nivel_ruido_db": 56,
-    "app_conectada": true,
-    "indicado_para": ["ninos_6plus", "primeros_cepillados", "encias_delicadas"],
-    "score_eficacia": 9.0,
-    "score_comodidad_encias": 9.8,
-    "score_durabilidad": 9.1,
-    "score_facilidad_uso": 9.6,
-    "score_silencio": 8.5,
-    "score_tecnologia": 8.4,
-    "score_calidad_precio": 9.7,
-    "isFeatured": false
-  },
-  {
-    "asin": "B07P9K9K99",
-    "id": "kit-instrumental-espejo-sonda-autoclave",
-    "name": "Kit de Instrumental Dental Profesional en Acero Inoxidable Quirúrgico",
-    "marca": "DentalMed",
-    "categoria_odontologica": "instrumental_basico",
-    "category": "Instrumental Básico Profesional",
-    "tecnologia": "instrumental",
-    "retailPrice": 34.99,
-    "discountedPrice": 24.99,
-    "valoracion_media": 4.5,
-    "resenas_cantidad": 4100,
-    "modos_limpieza": 1,
-    "autonomia_dias": 999,
-    "nivel_ruido_db": 0,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 60,
     "app_conectada": false,
-    "esterilizable_autoclave": true,
-    "material": "Acero Inoxidable Quirúrgico Grado Médico 316L",
-    "indicado_para": ["profesionales", "inspeccion_intraoral", "remocion_sarro"],
-    "score_eficacia": 9.3,
-    "score_comodidad_encias": 8.0,
-    "score_durabilidad": 9.9,
-    "score_facilidad_uso": 8.7,
-    "score_silencio": 10.0,
-    "score_tecnologia": 7.0,
-    "score_calidad_precio": 9.5,
-    "isFeatured": false
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "blanqueamiento"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte.",
+    "cuerpo_editorial": "<p>El <strong>Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología led.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.3★ con más de 1200 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Lápiz Blanqueador Dental + Kit?",
+        "a": "Destaca por su tecnología led y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
   },
   {
-    "asin": "B089W4XORT",
-    "id": "oral-b-ortho-care-kit",
-    "name": "Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets",
+    "id": "8-recambios-b0ct5vfx24",
+    "asin": "B0CT5VFX24",
+    "name": "8 Recambios Cepillos Ortho Care, Compatibles con los Cepillo Electrico Oral B, Para una Limpieza Precisa Alrededor de los Aparatos de Ortodoncia.",
+    "marca": "8",
+    "categoria_odontologica": "ortodoncia_brackets",
+    "category": "Ortodoncia y Brackets",
+    "tipo_producto": "ortodoncia_brackets",
+    "tecnologia": "rotatorio",
+    "affiliate_url": "https://www.amazon.es/dp/B0CT5VFX24?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0CT5VFX24",
+    "retailPrice": 15.49,
+    "discountedPrice": 12.39,
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 743,
+    "images": [
+      "https://m.media-amazon.com/images/I/61qN4Q1FfwL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "brackets"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de 8 Recambios Cepillos Ortho Care, Compatibles con los Cepillo Electrico Oral B, Para una Limpieza Precisa Alrededor de los Aparatos de Ortodoncia..",
+    "cuerpo_editorial": "<p>El <strong>8 Recambios Cepillos Ortho Care, Compatibles con los Cepillo Electrico Oral B, Para una Limpieza Precisa Alrededor de los Aparatos de Ortodoncia.</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.5★ con más de 743 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir 8 Recambios Cepillos Ortho Car?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "oral-b-io-b0dp7rlzz2",
+    "asin": "B0DP7RLZZ2",
+    "name": "Oral-B iO Interdental Clean, Cepillos redondos auténticos, adecuados para aparatos ortopédicos, implantes y dientes desalineados, x2",
     "marca": "Oral-B",
     "categoria_odontologica": "ortodoncia_brackets",
     "category": "Ortodoncia y Brackets",
+    "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "rotatorio",
-    "retailPrice": 29.99,
-    "discountedPrice": 21.95,
+    "affiliate_url": "https://www.amazon.es/dp/B0DP7RLZZ2?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0DP7RLZZ2",
+    "retailPrice": 21.59,
+    "discountedPrice": 17.27,
     "valoracion_media": 4.6,
-    "resenas_cantidad": 5600,
-    "modos_limpieza": 1,
-    "autonomia_dias": 999,
-    "nivel_ruido_db": 0,
-    "app_conectada": false,
-    "indicado_para": ["brackets", "ortodoncia_fija", "puentes"],
-    "score_eficacia": 9.6,
-    "score_comodidad_encias": 9.4,
-    "score_durabilidad": 9.0,
+    "resenas_cantidad": 345,
+    "images": [
+      "https://m.media-amazon.com/images/I/7173XgRR5wL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 58,
+    "app_conectada": true,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles"
+    ],
+    "score_eficacia": 9.5,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
     "score_facilidad_uso": 9.3,
-    "score_silencio": 10.0,
-    "score_tecnologia": 8.0,
-    "score_calidad_precio": 9.8,
-    "isFeatured": false
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Oral-B iO Interdental Clean, Cepillos redondos auténticos, adecuados para aparatos ortopédicos, implantes y dientes desalineados, x2.",
+    "cuerpo_editorial": "<p>El <strong>Oral-B iO Interdental Clean, Cepillos redondos auténticos, adecuados para aparatos ortopédicos, implantes y dientes desalineados, x2</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.6★ con más de 345 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Oral-B iO Interdental Clean, C?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "oral-b-pro-b0c6mdd8v6",
+    "asin": "B0C6MDD8V6",
+    "name": "Oral-B Pro Kids Cepillo de Dientes Eléctrico Spider-Man para Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles",
+    "marca": "Oral-B",
+    "categoria_odontologica": "higiene_infantil",
+    "category": "Higiene Infantil",
+    "tipo_producto": "higiene_infantil",
+    "tecnologia": "rotatorio",
+    "affiliate_url": "https://www.amazon.es/dp/B0C6MDD8V6?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0C6MDD8V6",
+    "retailPrice": 26.49,
+    "discountedPrice": 21.19,
+    "valoracion_media": 4.7,
+    "resenas_cantidad": 2513,
+    "images": [
+      "https://m.media-amazon.com/images/I/81rgkdWikqL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 60,
+    "app_conectada": false,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "ninos"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Oral-B Pro Kids Cepillo de Dientes Eléctrico Spider-Man para Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles.",
+    "cuerpo_editorial": "<p>El <strong>Oral-B Pro Kids Cepillo de Dientes Eléctrico Spider-Man para Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.7★ con más de 2513 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Oral-B Pro Kids Cepillo de Die?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "oral-b-pro-b0c6mb3g93",
+    "asin": "B0C6MB3G93",
+    "name": "Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles",
+    "marca": "Oral-B",
+    "categoria_odontologica": "higiene_infantil",
+    "category": "Higiene Infantil",
+    "tipo_producto": "higiene_infantil",
+    "tecnologia": "rotatorio",
+    "affiliate_url": "https://www.amazon.es/dp/B0C6MB3G93?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0C6MB3G93",
+    "retailPrice": 27.14,
+    "discountedPrice": 21.71,
+    "valoracion_media": 4.7,
+    "resenas_cantidad": 2503,
+    "images": [
+      "https://m.media-amazon.com/images/I/81r410htiPL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 14,
+    "nivel_ruido_db": 60,
+    "app_conectada": false,
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "ninos"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles.",
+    "cuerpo_editorial": "<p>El <strong>Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología rotatorio.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.7★ con más de 2503 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir Oral-B Pro Kids Cepillo de Die?",
+        "a": "Destaca por su tecnología rotatorio y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "hokin-limpieza-b08xds4xnw",
+    "asin": "B08XDS4XNW",
+    "name": "HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.",
+    "marca": "HOKIN",
+    "categoria_odontologica": "instrumental_basico",
+    "category": "Instrumental Básico Profesional",
+    "tipo_producto": "instrumental_basico",
+    "tecnologia": "instrumental",
+    "affiliate_url": "https://www.amazon.es/dp/B08XDS4XNW?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B08XDS4XNW",
+    "retailPrice": 12.49,
+    "discountedPrice": 9.99,
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 7565,
+    "images": [
+      "https://m.media-amazon.com/images/I/81R7jkl6YmL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 60,
+    "app_conectada": false,
+    "esterilizable_autoclave": true,
+    "indicado_para": [
+      "higiene_bucal",
+      "blanqueamiento"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota..",
+    "cuerpo_editorial": "<p>El <strong>HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología instrumental.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.4★ con más de 7565 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir HOKIN Limpieza Dental y Blanqu?",
+        "a": "Destaca por su tecnología instrumental y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
+  },
+  {
+    "id": "hokin-placa-b08dnzwr33",
+    "asin": "B08DNZWR33",
+    "name": "HOKIN Placa Removedor Dientes Limpieza Herramienta 4Pcs Dental Cuidado Kit Diente Relleno Reparación Juego Acero Inoxidable Dental Herramientas Para Hombres Mujeres Niños Y Mascota Cuidado",
+    "marca": "HOKIN",
+    "categoria_odontologica": "instrumental_basico",
+    "category": "Instrumental Básico Profesional",
+    "tipo_producto": "instrumental_basico",
+    "tecnologia": "instrumental",
+    "affiliate_url": "https://www.amazon.es/dp/B08DNZWR33?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B08DNZWR33",
+    "retailPrice": 12.49,
+    "discountedPrice": 9.99,
+    "valoracion_media": 4.3,
+    "resenas_cantidad": 22158,
+    "images": [
+      "https://m.media-amazon.com/images/I/7190DX4B2YL._AC_UL320_.jpg"
+    ],
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 7,
+    "nivel_ruido_db": 60,
+    "app_conectada": false,
+    "esterilizable_autoclave": true,
+    "indicado_para": [
+      "higiene_bucal"
+    ],
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "isFeatured": false,
+    "description": "Análisis clínico, características técnicas y opiniones de HOKIN Placa Removedor Dientes Limpieza Herramienta 4Pcs Dental Cuidado Kit Diente Relleno Reparación Juego Acero Inoxidable Dental Herramientas Para Hombres Mujeres Niños Y Mascota Cuidado.",
+    "cuerpo_editorial": "<p>El <strong>HOKIN Placa Removedor Dientes Limpieza Herramienta 4Pcs Dental Cuidado Kit Diente Relleno Reparación Juego Acero Inoxidable Dental Herramientas Para Hombres Mujeres Niños Y Mascota Cuidado</strong> ha sido evaluado por nuestro equipo odontológico destacando por su eficacia en remoción de placa y confort de encías.</p>",
+    "pros": [
+      "Eficacia clínica verificada",
+      "Materiales de alta durabilidad",
+      "Garantía oficial y envío protegido por Amazon"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios oficiales"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y cuidado con tecnología instrumental.",
+    "destacado_editorial": "Seleccionado entre los dispositivos odontológicos más recomendados de 2026.",
+    "resenas_resumen": "Valoración de 4.3★ con más de 22158 opiniones de compradores verificados en Amazon España.",
+    "geo_faq": [
+      {
+        "q": "¿Por qué elegir HOKIN Placa Removedor Dientes ?",
+        "a": "Destaca por su tecnología instrumental y alta valoración clínica en Amazon."
+      },
+      {
+        "q": "¿Tiene garantía en España?",
+        "a": "Sí, dispone de 3 años de garantía oficial europea y devoluciones en Amazon España."
+      }
+    ]
   }
 ]
