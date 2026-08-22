@@ -153,18 +153,32 @@
     var techStr = (p.tecnologia || "sonico").replace(/_/g, " ").toUpperCase();
     var potenciaStr = p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " mov/min" : (p.esterilizable_autoclave ? "Autoclave 134°C" : "Clínico"));
     var autonomiaStr = (p.autonomia_dias && Number(p.autonomia_dias) < 365) ? p.autonomia_dias + " días" : "Red continua / AC";
+    var hasVideo = Boolean((p.specs_extra && p.specs_extra.videos && p.specs_extra.videos.length > 0) || (p.videos && p.videos.length > 0));
+
+    var thumbsHtml = "";
+    if (images.length > 1) {
+      thumbsHtml = "<div class='card-thumbs-strip'>";
+      images.slice(0, 5).forEach(function(imgSrc, idx) {
+        thumbsHtml += "<button type='button' class='card-thumb-mini" + (idx === 0 ? " active" : "") + "' data-card-thumb='" + imgSrc + "' aria-label='Foto " + (idx + 1) + "'><img src='" + imgSrc + "' alt='Miniatura'></button>";
+      });
+      thumbsHtml += "</div>";
+    }
 
     return "" +
       "<article class='product-card' data-producto-id='" + p.id + "' data-asin='" + p.asin + "' data-category='" + (p.categoria_odontologica || "") + "' data-brand='" + (p.marca || "").toLowerCase() + "' data-title='" + (p.name || "").toLowerCase() + "' data-price='" + current + "' data-score='" + (p.score_eficacia || 9) + "'>" +
         (p.is_featured || p.isFeatured ? "<span class='card-badge-top'>Top Clínico</span>" : "") +
         (discountPct > 0 ? "<span class='price-discount-pill'>-" + discountPct + "%</span>" : "") +
-        "<div class='card-media'>" +
-          "<img src='" + mainImg + "' alt='" + (p.name || "") + "' loading='lazy' onerror=\"this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + p.asin + "&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';\">" +
+        "<div class='card-media-wrapper'>" +
+          "<div class='card-media'>" +
+            "<img class='card-main-photo' src='" + mainImg + "' alt='" + (p.name || "") + "' loading='lazy' onerror=\"this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + p.asin + "&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';\">" +
+            (hasVideo ? "<span class='card-video-pill'>Vídeo Disponible</span>" : "") +
+          "</div>" +
+          thumbsHtml +
         "</div>" +
         "<div class='card-body'>" +
           "<div class='card-header-meta'>" +
             "<span class='card-brand-tag'>" + (p.marca || "Dental") + "</span>" +
-            "<span class='card-category-tag'>" + (p.category || "Odontología") + "</span>" +
+            "<span class='card-category-tag'>" + (p.category || "Odontología") + " (" + images.length + " fotos)</span>" +
           "</div>" +
           "<h3 class='card-title' title='" + (p.name || "") + "'>" + (p.name || "") + "</h3>" +
           "<div class='card-rating-box'>" +
@@ -185,7 +199,7 @@
             "<span style='font-size:0.75rem;font-weight:700;color:#059669;'>Envío Prime</span>" +
           "</div>" +
           "<div class='card-actions-grid'>" +
-            "<button type='button' class='btn-card-quick' data-quick-view='" + p.id + "'>Ver Ficha</button>" +
+            "<button type='button' class='btn-card-quick' data-quick-view='" + p.id + "'>Ver Galería &amp; Ficha</button>" +
             "<a href='" + (p.affiliate_url || ("https://www.amazon.es/dp/" + p.asin + "?tag=odontoscore-21")) + "' target='_blank' rel='sponsored nofollow noopener' class='btn-card-prime'>Ver en Amazon</a>" +
           "</div>" +
         "</div>" +
@@ -573,9 +587,39 @@
     });
   }
 
+  function initCardGalleries() {
+    document.addEventListener("click", function(e) {
+      var thumbBtn = e.target.closest("[data-card-thumb]");
+      if (!thumbBtn) return;
+      e.preventDefault();
+      var newSrc = thumbBtn.getAttribute("data-card-thumb");
+      var card = thumbBtn.closest(".product-card");
+      if (card) {
+        var mainImg = card.querySelector(".card-main-photo");
+        if (mainImg) mainImg.src = newSrc;
+        card.querySelectorAll(".card-thumb-mini").forEach(function(b) { b.classList.remove("active"); });
+        thumbBtn.classList.add("active");
+      }
+    });
+
+    document.addEventListener("mouseover", function(e) {
+      var thumbBtn = e.target.closest("[data-card-thumb]");
+      if (!thumbBtn) return;
+      var newSrc = thumbBtn.getAttribute("data-card-thumb");
+      var card = thumbBtn.closest(".product-card");
+      if (card) {
+        var mainImg = card.querySelector(".card-main-photo");
+        if (mainImg) mainImg.src = newSrc;
+        card.querySelectorAll(".card-thumb-mini").forEach(function(b) { b.classList.remove("active"); });
+        thumbBtn.classList.add("active");
+      }
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     safe(initRadars, "initRadars");
     safe(initCatalogFilter, "initCatalogFilter");
+    safe(initCardGalleries, "initCardGalleries");
     safe(initQuickModal, "initQuickModal");
     safe(initComparator, "initComparator");
     safe(hydrateDynamicCatalog, "hydrateDynamicCatalog");

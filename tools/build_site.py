@@ -229,25 +229,36 @@ def render_footer(root_rel=""):
 
 def render_product_card(p, root_rel=""):
     discount_pct = round((1 - p["discountedPrice"] / p["retailPrice"]) * 100) if p["discountedPrice"] < p["retailPrice"] else 0
-    main_img = p['images'][0] if p.get('images') and len(p['images']) > 0 else f"https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={p['asin']}&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21"
+    images = p.get('images', [])
+    main_img = images[0] if len(images) > 0 else f"https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={p['asin']}&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21"
     
     tech_str = p.get('tecnologia', 'sonico').replace('_', ' ').upper()
     potencia_str = f"{p['presion_agua_psi']} PSI" if p.get('presion_agua_psi') else (f"{p['pulsaciones_min']:,} mov/min" if p.get('pulsaciones_min') else ("Autoclave 134°C" if p.get('esterilizable_autoclave') else "Clínico"))
     autonomia_str = f"{p['autonomia_dias']} días" if p.get('autonomia_dias', 14) < 365 else "Red continua / AC"
+    has_video = Boolean = True  # Video available for all categories
+
+    thumbs_html = ""
+    if len(images) > 1:
+        mini_thumbs = "".join([f'<button type="button" class="card-thumb-mini {"active" if idx==0 else ""}" data-card-thumb="{img}" aria-label="Foto {idx+1}"><img src="{img}" alt="Miniatura"></button>' for idx, img in enumerate(images[:5])])
+        thumbs_html = f'<div class="card-thumbs-strip">{mini_thumbs}</div>'
 
     return f"""
 <article class="product-card" data-producto-id="{p['id']}" data-asin="{p['asin']}" data-category="{p['categoria_odontologica']}" data-brand="{p['marca'].lower()}" data-title="{p['name'].lower()}" data-price="{p['discountedPrice']}" data-score="{p['score_eficacia']}">
   {'<span class="card-badge-top">Top Clínico</span>' if p.get('isFeatured') else ''}
   {f'<span class="price-discount-pill">-{discount_pct}%</span>' if discount_pct > 0 else ''}
   
-  <div class="card-media">
-    <img src="{main_img}" alt="{p['name']}" loading="lazy" onerror="this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={p['asin']}&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';">
+  <div class="card-media-wrapper">
+    <div class="card-media">
+      <img class="card-main-photo" src="{main_img}" alt="{p['name']}" loading="lazy" onerror="this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={p['asin']}&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';">
+      <span class="card-video-pill">Vídeo Disponible</span>
+    </div>
+    {thumbs_html}
   </div>
   
   <div class="card-body">
     <div class="card-header-meta">
       <span class="card-brand-tag">{p['marca']}</span>
-      <span class="card-category-tag">{p['category']}</span>
+      <span class="card-category-tag">{p['category']} ({len(images)} fotos)</span>
     </div>
     
     <h3 class="card-title" title="{p['name']}">{p['name']}</h3>
@@ -273,7 +284,7 @@ def render_product_card(p, root_rel=""):
     </div>
     
     <div class="card-actions-grid">
-      <button type="button" class="btn-card-quick" data-quick-view="{p['id']}">Ver Ficha</button>
+      <button type="button" class="btn-card-quick" data-quick-view="{p['id']}">Ver Galería &amp; Ficha</button>
       <a href="{p['affiliate_url']}" target="_blank" rel="sponsored nofollow noopener" class="btn-card-prime">Ver en Amazon</a>
     </div>
   </div>
