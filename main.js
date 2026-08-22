@@ -10,10 +10,10 @@
   }
 
   var RADAR_COLORS = [
-    { fill: "rgba(14, 118, 188, 0.25)", stroke: "#0E76BC", point: "#0E76BC" },
-    { fill: "rgba(16, 185, 129, 0.25)", stroke: "#10B981", point: "#10B981" },
-    { fill: "rgba(245, 158, 11, 0.25)", stroke: "#F59E0B", point: "#F59E0B" },
-    { fill: "rgba(139, 92, 246, 0.25)", stroke: "#8B5CF6", point: "#8B5CF6" }
+    { fill: "rgba(14, 118, 188, 0.22)", stroke: "#0E76BC", point: "#0E76BC" },
+    { fill: "rgba(5, 150, 105, 0.22)", stroke: "#059669", point: "#059669" },
+    { fill: "rgba(217, 119, 6, 0.22)", stroke: "#D97706", point: "#D97706" },
+    { fill: "rgba(109, 40, 217, 0.22)", stroke: "#6D28D9", point: "#6D28D9" }
   ];
 
   var SCORE_AXES = [
@@ -29,9 +29,9 @@
   function drawRadarSVG(container, products) {
     if (!container || !products || products.length === 0) return;
 
-    var size = 320;
+    var size = 300;
     var center = size / 2;
-    var radius = size * 0.38;
+    var radius = size * 0.36;
     var totalAxes = SCORE_AXES.length;
     var angleStep = (Math.PI * 2) / totalAxes;
 
@@ -72,7 +72,7 @@
       line.setAttribute("stroke-width", "1");
       svg.appendChild(line);
 
-      var labelR = radius + 22;
+      var labelR = radius + 20;
       var lx = center + labelR * Math.cos(axisAngle);
       var ly = center + labelR * Math.sin(axisAngle);
 
@@ -83,7 +83,7 @@
       text.setAttribute("font-family", "Inter, sans-serif");
       text.setAttribute("font-size", "10");
       text.setAttribute("font-weight", "600");
-      text.setAttribute("fill", "#475569");
+      text.setAttribute("fill", "#64748B");
       text.textContent = SCORE_AXES[a].label;
       svg.appendChild(text);
     }
@@ -105,7 +105,7 @@
       dataPoly.setAttribute("points", polyPoints.join(" "));
       dataPoly.setAttribute("fill", colorScheme.fill);
       dataPoly.setAttribute("stroke", colorScheme.stroke);
-      dataPoly.setAttribute("stroke-width", "2.5");
+      dataPoly.setAttribute("stroke-width", "2");
       svg.appendChild(dataPoly);
 
       polyPoints.forEach(function (pt) {
@@ -113,7 +113,7 @@
         var dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         dot.setAttribute("cx", coords[0]);
         dot.setAttribute("cy", coords[1]);
-        dot.setAttribute("r", "4");
+        dot.setAttribute("r", "3.5");
         dot.setAttribute("fill", colorScheme.point);
         dot.setAttribute("stroke", "#FFFFFF");
         dot.setAttribute("stroke-width", "1.5");
@@ -125,11 +125,19 @@
     container.appendChild(svg);
   }
 
-  function getProductImage(p) {
-    if (p.specs_extra && p.specs_extra.image_url) return p.specs_extra.image_url;
-    if (p.local_assets && p.local_assets[0] && p.local_assets[0] !== "assets/img/hero-dental.svg") return p.local_assets[0];
-    if (p.images && p.images[0] && p.images[0] !== "assets/img/hero-dental.svg") return p.images[0];
-    return "https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + (p.asin || "") + "&Format=_SL800_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21";
+  function getProductImages(p) {
+    var list = [];
+    if (p.specs_extra && Array.isArray(p.specs_extra.images) && p.specs_extra.images.length > 0) {
+      list = p.specs_extra.images;
+    } else if (Array.isArray(p.local_assets) && p.local_assets.length > 0 && p.local_assets[0] !== "assets/img/hero-dental.svg") {
+      list = p.local_assets;
+    } else if (Array.isArray(p.images) && p.images.length > 0) {
+      list = p.images;
+    }
+    if (!list.length) {
+      list = ["https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + (p.asin || "") + "&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21"];
+    }
+    return list;
   }
 
   function renderDynamicCard(p) {
@@ -140,22 +148,23 @@
       discountPct = Math.round((1 - current / retail) * 100);
     }
 
-    var imgUrl = getProductImage(p);
+    var images = getProductImages(p);
+    var mainImg = images[0];
     var techStr = (p.tecnologia || "sonico").replace(/_/g, " ").toUpperCase();
-    var potenciaStr = p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " puls/min" : (p.esterilizable_autoclave ? "Autoclave 134°C" : "Clínico"));
-    var autonomiaStr = (p.autonomia_dias && Number(p.autonomia_dias) < 365) ? p.autonomia_dias + " días" : "Red Eléctrica / AC";
+    var potenciaStr = p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " mov/min" : (p.esterilizable_autoclave ? "Autoclave 134°C" : "Clínico"));
+    var autonomiaStr = (p.autonomia_dias && Number(p.autonomia_dias) < 365) ? p.autonomia_dias + " días" : "Red continua / AC";
 
     return "" +
       "<article class='product-card' data-producto-id='" + p.id + "' data-asin='" + p.asin + "' data-category='" + (p.categoria_odontologica || "") + "' data-brand='" + (p.marca || "").toLowerCase() + "' data-title='" + (p.name || "").toLowerCase() + "' data-price='" + current + "' data-score='" + (p.score_eficacia || 9) + "'>" +
-        (p.is_featured || p.isFeatured ? "<span class='card-badge-top' style='position:absolute;top:1rem;left:1rem;z-index:10;background:#0F172A;color:#FFF;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:999px;'>★ Top Recomendado</span>" : "") +
-        (discountPct > 0 ? "<span class='price-discount-pill' style='position:absolute;top:1rem;right:1rem;z-index:10;'>-" + discountPct + "%</span>" : "") +
+        (p.is_featured || p.isFeatured ? "<span class='card-badge-top'>Top Clínico</span>" : "") +
+        (discountPct > 0 ? "<span class='price-discount-pill'>-" + discountPct + "%</span>" : "") +
         "<div class='card-media'>" +
-          "<img src='" + imgUrl + "' alt='" + (p.name || "") + "' loading='lazy' onerror=\"this.onerror=null;this.src='assets/img/hero-dental.svg';\">" +
+          "<img src='" + mainImg + "' alt='" + (p.name || "") + "' loading='lazy' onerror=\"this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + p.asin + "&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';\">" +
         "</div>" +
         "<div class='card-body'>" +
-          "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;'>" +
-            "<span style='font-size:0.75rem;font-weight:800;color:#0E76BC;letter-spacing:0.05em;text-transform:uppercase;'>" + (p.marca || "Dental") + "</span>" +
-            "<span style='font-size:0.7rem;color:#475569;font-weight:700;background:#F1F5F9;padding:2px 8px;border-radius:999px;'>" + (p.category || "Odontología") + "</span>" +
+          "<div class='card-header-meta'>" +
+            "<span class='card-brand-tag'>" + (p.marca || "Dental") + "</span>" +
+            "<span class='card-category-tag'>" + (p.category || "Odontología") + "</span>" +
           "</div>" +
           "<h3 class='card-title' title='" + (p.name || "") + "'>" + (p.name || "") + "</h3>" +
           "<div class='card-rating-box'>" +
@@ -163,38 +172,28 @@
             "<span style='font-size:0.8rem;color:#64748B;'>(" + Number(p.resenas_cantidad || 500).toLocaleString() + " valoraciones)</span>" +
           "</div>" +
           "<div class='card-specs-matrix'>" +
-            "<div class='spec-cell'>⚙️ <strong>" + techStr + "</strong></div>" +
-            "<div class='spec-cell'>🎛️ <strong>" + (p.modos_limpieza || 1) + " Modos</strong></div>" +
-            "<div class='spec-cell'>⚡ <strong>" + potenciaStr + "</strong></div>" +
-            "<div class='spec-cell'>🔋 <strong>" + autonomiaStr + "</strong></div>" +
+            "<div class='spec-cell'>Tecnología: <strong>" + techStr + "</strong></div>" +
+            "<div class='spec-cell'>Modos: <strong>" + (p.modos_limpieza || 1) + "</strong></div>" +
+            "<div class='spec-cell'>Potencia: <strong>" + potenciaStr + "</strong></div>" +
+            "<div class='spec-cell'>Autonomía: <strong>" + autonomiaStr + "</strong></div>" +
           "</div>" +
           "<div class='card-price-row'>" +
             "<div>" +
               "<span class='price-main-val'>" + current.toFixed(2).replace(".", ",") + " €</span>" +
               (discountPct > 0 ? "<span class='price-strike-val'>" + retail.toFixed(2).replace(".", ",") + " €</span>" : "") +
             "</div>" +
-            "<span style='font-size:0.75rem;font-weight:700;color:#16A34A;display:flex;align-items:center;gap:0.25rem;'>✓ Prime 24/48h</span>" +
+            "<span style='font-size:0.75rem;font-weight:700;color:#059669;'>Envío Prime</span>" +
           "</div>" +
           "<div class='card-actions-grid'>" +
-            "<button type='button' class='btn-card-quick' data-quick-view='" + p.id + "'>" +
-              "<span>⚡ Ficha &amp; Radar</span>" +
-            "</button>" +
-            "<a href='" + (p.affiliate_url || ("https://www.amazon.es/dp/" + p.asin + "?tag=odontoscore-21")) + "' target='_blank' rel='sponsored nofollow noopener' class='btn-card-prime'>" +
-              "<span>🛒 Ver en Amazon</span>" +
-            "</a>" +
-          "</div>" +
-          "<div style='margin-top:0.75rem;padding-top:0.5rem;border-top:1px dashed #E2E8F0;display:flex;align-items:center;justify-content:center;'>" +
-            "<label style='font-size:0.8rem;font-weight:600;color:#64748B;cursor:pointer;display:inline-flex;align-items:center;gap:0.35rem;'>" +
-              "<input type='checkbox' class='product-compare-checkbox' value='" + p.id + "' data-name='" + (p.name ? p.name.substring(0, 25) : "") + "...'>" +
-              "<span>⚖️ Añadir al Comparador</span>" +
-            "</label>" +
+            "<button type='button' class='btn-card-quick' data-quick-view='" + p.id + "'>Ver Ficha</button>" +
+            "<a href='" + (p.affiliate_url || ("https://www.amazon.es/dp/" + p.asin + "?tag=odontoscore-21")) + "' target='_blank' rel='sponsored nofollow noopener' class='btn-card-prime'>Ver en Amazon</a>" +
           "</div>" +
         "</div>" +
       "</article>";
   }
 
   /**
-   * Dynamic Catalog Hydration directly from Supabase REST API
+   * Dynamic Hydration from Supabase REST API
    */
   async function hydrateDynamicCatalog() {
     var brand = window.__BRAND__ || {};
@@ -219,18 +218,15 @@
           window.__DYNAMIC_PRODUCTS__ = products;
           window.__DB__ = { productos: products };
 
-          // Re-render grid dynamically
           gridEl.innerHTML = products.map(renderDynamicCard).join("");
 
-          // Re-bind events
           initCatalogFilter();
-          initFloatingDock();
           initComparator();
           initRadars();
         }
       }
     } catch (err) {
-      console.warn("[OdontoScore] Dynamic fetch fallback to static cache:", err);
+      console.warn("[OdontoScore] Dynamic fetch fallback:", err);
     }
   }
 
@@ -323,30 +319,6 @@
     }
   }
 
-  function initFloatingDock() {
-    var dock = document.querySelector("#floatingCompareDock");
-    var countText = document.querySelector("#floatingCompareCountText");
-    var checkboxes = document.querySelectorAll(".product-compare-checkbox");
-
-    function updateDock() {
-      var checked = document.querySelectorAll(".product-compare-checkbox:checked");
-      var count = checked.length;
-
-      if (count > 0 && dock) {
-        dock.classList.add("visible");
-        if (countText) {
-          countText.textContent = count + (count === 1 ? " producto seleccionado" : " productos seleccionados");
-        }
-      } else if (dock) {
-        dock.classList.remove("visible");
-      }
-    }
-
-    checkboxes.forEach(function (chk) {
-      chk.addEventListener("change", updateDock);
-    });
-  }
-
   function initQuickModal() {
     var modalBackdrop = document.querySelector("#quickViewModal");
     if (!modalBackdrop) return;
@@ -356,14 +328,17 @@
     var brandEl = modalBackdrop.querySelector("#modalBrand");
     var priceEl = modalBackdrop.querySelector("#modalPrice");
     var imgEl = modalBackdrop.querySelector("#modalImg");
+    var thumbsContainer = modalBackdrop.querySelector("#modalThumbsRow");
     var radarCanvas = modalBackdrop.querySelector("#modalRadarCanvas");
     var specsTable = modalBackdrop.querySelector("#modalSpecsTable tbody");
     var buyBtn = modalBackdrop.querySelector("#modalBuyBtn");
     var fullLink = modalBackdrop.querySelector("#modalFullLink");
+    var videoContainer = modalBackdrop.querySelector("#modalVideoWrapper");
 
     function closeModal() {
       modalBackdrop.classList.remove("open");
       document.body.style.overflow = "auto";
+      if (videoContainer) videoContainer.innerHTML = "";
     }
 
     if (closeBtn) closeBtn.addEventListener("click", closeModal);
@@ -389,15 +364,45 @@
       e.preventDefault();
 
       var priceVal = Number(p.discounted_price || p.discountedPrice || p.retail_price || p.retailPrice || 0);
-      var imgUrl = getProductImage(p);
+      var images = getProductImages(p);
 
       if (titleEl) titleEl.textContent = p.name;
       if (brandEl) brandEl.textContent = p.marca;
       if (priceEl) priceEl.textContent = priceVal.toFixed(2).replace(".", ",") + " €";
       if (imgEl) {
-        imgEl.src = imgUrl;
-        imgEl.onerror = function() { this.src = "assets/img/hero-dental.svg"; };
+        imgEl.src = images[0];
+        imgEl.onerror = function() { this.src = "https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=" + p.asin + "&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21"; };
       }
+
+      // Populate multi-image thumbnails
+      if (thumbsContainer) {
+        thumbsContainer.innerHTML = "";
+        images.slice(0, 8).forEach(function (thumbSrc, tIdx) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "modal-thumb-btn" + (tIdx === 0 ? " active" : "");
+          btn.innerHTML = "<img src='" + thumbSrc + "' alt='Miniatura " + (tIdx + 1) + "'>";
+          btn.addEventListener("click", function () {
+            if (imgEl) imgEl.src = thumbSrc;
+            thumbsContainer.querySelectorAll(".modal-thumb-btn").forEach(function (b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+          });
+          thumbsContainer.appendChild(btn);
+        });
+      }
+
+      // Check for real Amazon video
+      if (videoContainer) {
+        var videos = (p.specs_extra && p.specs_extra.videos) || p.videos || [];
+        if (videos.length > 0 && videos[0].url) {
+          videoContainer.style.display = "block";
+          videoContainer.innerHTML = "<h4 style='font-size:0.95rem;margin-bottom:0.5rem;'>Vídeo Oficial de Amazon</h4><video controls style='width:100%;border-radius:8px;max-height:240px;background:#000;' src='" + videos[0].url + "' poster='" + (videos[0].thumbnail || images[0]) + "'></video>";
+        } else {
+          videoContainer.style.display = "none";
+          videoContainer.innerHTML = "";
+        }
+      }
+
       if (buyBtn) buyBtn.href = p.affiliate_url || ("https://www.amazon.es/dp/" + p.asin + "?tag=odontoscore-21");
       if (fullLink) fullLink.href = "producto/" + p.id + ".html";
 
@@ -409,11 +414,11 @@
         specsTable.innerHTML = "" +
           "<tr><th>Especialidad</th><td>" + (p.category || "Odontología") + "</td></tr>" +
           "<tr><th>Tecnología</th><td>" + (p.tecnologia || "").toUpperCase() + "</td></tr>" +
-          "<tr><th>Modos / Ajustes</th><td>" + (p.modos_limpieza || "1") + "</td></tr>" +
-          "<tr><th>Presión / Potencia</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " puls/min" : "—")) + "</td></tr>" +
+          "<tr><th>Modos</th><td>" + (p.modos_limpieza || "1") + " programas</td></tr>" +
+          "<tr><th>Potencia / Presión</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " mov/min" : "—")) + "</td></tr>" +
           "<tr><th>Autonomía</th><td>" + (p.autonomia_dias && Number(p.autonomia_dias) > 365 ? "Red / AC" : (p.autonomia_dias || 14) + " días") + "</td></tr>" +
-          "<tr><th>Nivel Ruido</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "0 dB (Silencioso)") + "</td></tr>" +
-          "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + (p.valoracion_media || "4.5") + " / 5 ★</strong> (" + Number(p.resenas_cantidad || 500).toLocaleString() + " reseñas)</td></tr>";
+          "<tr><th>Nivel Sonoro</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "Silencioso") + "</td></tr>" +
+          "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + (p.valoracion_media || "4.5") + " / 5 ★</strong> (" + Number(p.resenas_cantidad || 500).toLocaleString() + " opiniones)</td></tr>";
       }
 
       modalBackdrop.classList.add("open");
@@ -495,8 +500,8 @@
           item.style.fontWeight = "700";
 
           var dot = document.createElement("span");
-          dot.style.width = "10px";
-          dot.style.height = "10px";
+          dot.style.width = "8px";
+          dot.style.height = "8px";
           dot.style.borderRadius = "50%";
           dot.style.backgroundColor = color;
 
@@ -507,29 +512,28 @@
       }
 
       if (matrixContainer && selectedProducts.length > 0) {
-        var tableHtml = '<table class="compare-matrix-table"><thead><tr><th class="row-label">Característica</th>';
+        var tableHtml = '<table class="specs-table" style="background:#FFFFFF;border-radius:12px;padding:1rem;"><thead><tr><th style="padding:1rem;">Característica</th>';
         selectedProducts.forEach(function (p) {
-          var imgUrl = getProductImage(p);
-          tableHtml += '<th><img src="' + imgUrl + '" style="height:60px;margin:0 auto 6px;display:block;object-fit:contain;" alt="' + (p.name || "") + '"><strong>' + (p.marca || "") + '</strong><br><small>' + (p.name && p.name.length > 25 ? p.name.substring(0, 25) + "..." : (p.name || "")) + '</small></th>';
+          var imgs = getProductImages(p);
+          tableHtml += '<th style="padding:1rem;text-align:center;"><img src="' + imgs[0] + '" style="height:70px;margin:0 auto 6px;display:block;object-fit:contain;" alt="' + (p.name || "") + '"><strong>' + (p.marca || "") + '</strong><br><small style="font-weight:normal;color:#64748B;">' + (p.name && p.name.length > 22 ? p.name.substring(0, 22) + "..." : (p.name || "")) + '</small></th>';
         });
         tableHtml += '</tr></thead><tbody>';
 
         var rows = [
-          { label: "Precio Orientativo", fn: function(p) { var cur = Number(p.discounted_price || p.discountedPrice || 0); var ret = Number(p.retail_price || p.retailPrice || cur); return cur.toFixed(2).replace(".", ",") + ' €' + (cur < ret ? ' <small style="color:#DC2626">(-' + Math.round((1 - cur/ret)*100) + '%)</small>' : ''); } },
+          { label: "Precio", fn: function(p) { var cur = Number(p.discounted_price || p.discountedPrice || 0); return cur.toFixed(2).replace(".", ",") + ' €'; } },
           { label: "Especialidad", fn: function(p) { return p.category || "Odontología"; } },
           { label: "Tecnología", fn: function(p) { return (p.tecnologia || '').toUpperCase(); } },
-          { label: "Modos / Ajustes", fn: function(p) { return p.modos_limpieza || "1"; } },
-          { label: "Presión / Potencia", fn: function(p) { return p.presion_agua_psi ? p.presion_agua_psi + ' PSI' : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + ' puls/min' : '—'); } },
-          { label: "Autonomía", fn: function(p) { return p.autonomia_dias && Number(p.autonomia_dias) > 365 ? 'Red / AC' : (p.autonomia_dias || 14) + ' días'; } },
-          { label: "Nivel Ruido (dB)", fn: function(p) { return p.nivel_ruido_db ? p.nivel_ruido_db + ' dB' : '0 dB (Silencioso)'; } },
+          { label: "Modos", fn: function(p) { return p.modos_limpieza || "1"; } },
+          { label: "Potencia / Presión", fn: function(p) { return p.presion_agua_psi ? p.presion_agua_psi + ' PSI' : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + ' mov/min' : '—'); } },
+          { label: "Autonomía", fn: function(p) { return p.autonomia_dias && Number(p.autonomia_dias) > 365 ? 'Red continua' : (p.autonomia_dias || 14) + ' días'; } },
           { label: "Puntuación", fn: function(p) { return '<strong style="color:#0E76BC">' + (p.valoracion_media || 4.5) + ' / 5 ★</strong>'; } },
-          { label: "Comprar en Amazon", fn: function(p) { return '<a class="btn-card-prime" style="padding:0.5rem;" href="' + (p.affiliate_url || ('https://www.amazon.es/dp/' + p.asin + '?tag=odontoscore-21')) + '" target="_blank" rel="sponsored nofollow noopener">🛒 Ver en Amazon</a>'; } }
+          { label: "Amazon", fn: function(p) { return '<a class="btn-card-prime" style="padding:0.4rem 0.8rem;font-size:0.8rem;" href="' + (p.affiliate_url || ('https://www.amazon.es/dp/' + p.asin + '?tag=odontoscore-21')) + '" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon</a>'; } }
         ];
 
         rows.forEach(function (r) {
-          tableHtml += '<tr><th class="row-label">' + r.label + '</th>';
+          tableHtml += '<tr><th style="padding:0.75rem 1rem;">' + r.label + '</th>';
           selectedProducts.forEach(function (p) {
-            tableHtml += '<td>' + r.fn(p) + '</td>';
+            tableHtml += '<td style="padding:0.75rem 1rem;text-align:center;">' + r.fn(p) + '</td>';
           });
           tableHtml += '</tr>';
         });
@@ -547,10 +551,31 @@
     }
   }
 
+  function initRadars() {
+    var radarFigures = document.querySelectorAll("[data-radar]");
+    if (!radarFigures.length) return;
+
+    var db = window.__DYNAMIC_PRODUCTS__ || (window.__DB__ && window.__DB__.productos) || [];
+
+    radarFigures.forEach(function (fig) {
+      var prodId = fig.getAttribute("data-radar-id");
+      if (!prodId) {
+        var ficha = fig.closest("[data-producto-id]");
+        if (ficha) prodId = ficha.getAttribute("data-producto-id");
+      }
+
+      if (prodId) {
+        var item = db.find(function (p) { return p.id === prodId; });
+        if (item) {
+          drawRadarSVG(fig, [item]);
+        }
+      }
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     safe(initRadars, "initRadars");
     safe(initCatalogFilter, "initCatalogFilter");
-    safe(initFloatingDock, "initFloatingDock");
     safe(initQuickModal, "initQuickModal");
     safe(initComparator, "initComparator");
     safe(hydrateDynamicCatalog, "hydrateDynamicCatalog");
