@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <defs>
+    <linearGradient id="gradLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E76BC"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="15" width="70" height="70" rx="18" fill="url(#gradLogo)"/>
+  <path d="M45 28C36 28 30 35 30 44C30 55 37 66 41 72C43 75 47 75 49 72C53 66 60 55 60 44C60 35 54 28 45 28ZM45 38C48.3 38 51 40.7 51 44C51 47.3 48.3 50 45 50C41.7 50 39 47.3 39 44C39 40.7 41.7 38 45 38Z" fill="#FFFFFF"/>
+  <text x="96" y="52" font-family="Sora, Inter, sans-serif" font-size="28" font-weight="800" fill="#0F172A">Odonto<tspan fill="#0E76BC">Score</tspan></text>
+  <text x="98" y="72" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#64748B" letter-spacing="1.5">COMPARADOR CLÍNICO DENTAL</text>
+</svg>

@@ -68,7 +68,7 @@ class Report:
 
 # -------- Checks ------------------------------------------------------------
 
-def find_files(root, patterns, exclude_dirs=("node_modules", ".git", "scripts", "tools")):
+def find_files(root, patterns, exclude_dirs=("node_modules", ".git", "scripts", "tools", "templates")):
     """Find files matching any of the glob patterns, excluding certain dirs."""
     results = []
     for pattern in patterns:

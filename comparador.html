@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador Profesional Dental — Enfrenta Dispositivos de Odontología | OdontoScore</title>
+  <meta name="description" content="Compara hasta 4 dispositivos dentales de la misma categoría lado a lado: presión PSI, pulsaciones, modos, decibelios y radar de 7 ejes superpuesto.">
+  <link rel="canonical" href="https://odontoscore.com/comparador.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260822">
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container nav-wrapper">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore Logo" height="38">
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Inicio</a></li>
+        <li><a href="categoria/cepillos-electricos.html" class="">Cepillos</a></li>
+        <li><a href="categoria/irrigadores-dentales.html" class="">Irrigadores</a></li>
+        <li><a href="guias/mejor-irrigador-dental-brackets-2026.html" class="">Guías Clínicas</a></li>
+        <li><a href="ofertas.html" class="">Ofertas</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <a href="index.html" class="active">ES</a>
+          <a href="index.html">EN</a>
+        </div>
+        <a href="comparador.html" class="btn-nav-compare">
+          <span>⚡ Comparador</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="container comparator-page-wrapper" data-comparator-app>
+    <div class="section-header" style="text-align:left;max-width:100%;">
+      <div class="hero-badge">⚡ Motor Intra-Categoría</div>
+      <h1 style="font-size:2.4rem;margin-bottom:0.75rem;">Comparador Clínico Dental</h1>
+      <p style="color:#64748B;font-size:1.1rem;">Selecciona tu categoría y hasta 4 dispositivos para ver especificaciones técnicas lado a lado y sus gráficos radar superpuestos.</p>
+    </div>
+
+    <div class="comparator-selector-bar">
+      <div>
+        <label for="compCategorySelect" style="font-weight:700;font-size:0.95rem;margin-right:0.75rem;">Categoría:</label>
+        <select id="compCategorySelect" style="padding:0.6rem 1rem;border-radius:var(--radius-md);border:1px solid var(--color-border);font-family:var(--font-sans);font-size:0.95rem;">
+          <option value="">Todas las Categorías</option>
+          <option value="cepillos_electricos">Cepillos Eléctricos</option><option value="irrigadores_dentales">Irrigadores Dentales</option><option value="blanqueamiento_dental">Blanqueamiento Dental</option><option value="ortodoncia_brackets">Ortodoncia y Brackets</option><option value="higiene_infantil">Higiene Infantil</option><option value="instrumental_basico">Instrumental Básico Profesional</option>
+        </select>
+      </div>
+      <div id="compProductChecks" style="display:flex;flex-wrap:wrap;align-items:center;">
+        <!-- Checkboxes injected by main.js -->
+      </div>
+    </div>
+
+    <!-- Superposición de Radares -->
+    <div class="radar-section-box" style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.4rem;margin-bottom:0.5rem;">Radar Multiproducto Superpuesto</h2>
+      <p style="color:#64748B;font-size:0.9rem;margin-bottom:1rem;">Visualiza fortalezas y debilidades clínicas de cada modelo en los 7 ejes.</p>
+      <div id="compRadarLegend" style="margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;"></div>
+      <div class="radar-canvas-container" id="compRadarCanvas" style="min-height:340px;"></div>
+    </div>
+
+    <!-- Tabla Comparativa -->
+    <div class="comparator-table-scroll" id="compMatrixContent">
+      <!-- Matrix injected by main.js -->
+    </div>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Odonto<span style="color:#0EA5E9">Score</span></h3>
+        <p style="margin-bottom:1rem;color:#94A3B8;">Plataforma independiente de análisis técnico y comparativas clínicas de productos de higiene bucodental.</p>
+        <p style="font-size:0.85rem;color:#64748B;">Evaluación basada en evidencia, presión hidráulica, tecnología sónica y salud gingival.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="categoria/cepillos-electricos.html">Cepillos Eléctricos</a></li>
+          <li><a href="categoria/irrigadores-dentales.html">Irrigadores Dentales</a></li>
+          <li><a href="categoria/blanqueamiento-dental.html">Blanqueamiento</a></li>
+          <li><a href="categoria/ortodoncia-brackets.html">Ortodoncia y Brackets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guías y Utilidades</h4>
+        <ul class="footer-links">
+          <li><a href="comparador.html">Comparador Clínico</a></li>
+          <li><a href="guias/mejor-irrigador-dental-brackets-2026.html">Mejor Irrigador Brackets</a></li>
+          <li><a href="guias/mejor-cepillo-electrico-encias-sensibles-2026.html">Mejor Cepillo Encías</a></li>
+          <li><a href="ofertas.html">Ofertas Destacadas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información Legal</h4>
+        <ul class="footer-links">
+          <li><a href="aviso-afiliados.html">Aviso de Afiliados</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+          <li><a href="sobre-nosotros.html">Metodología E-E-A-T</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimers">
+      <p><strong>Aviso de Afiliación de Amazon:</strong> En calidad de Afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. «Amazon» y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.</p>
+      <p><strong>Descargo de Responsabilidad Médica:</strong> Los análisis y comparativas de OdontoScore tienen carácter meramente informativo y divulgativo sobre dispositivos de higiene oral. No constituyen diagnóstico ni recomendación médica personalizada. Ante cualquier patología dental, consulte siempre a su odontólogo colegiado.</p>
+    </div>
+    <div class="footer-bottom-copy">
+      © 2026 OdontoScore (dentarank.global / odontoscore.com). Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+
+  <script defer src="lib/manifest.js"></script>
+  <script defer src="lib/db.js?v=20260822"></script>
+  <script defer src="main.js?v=20260822"></script>
+</body>
+</html>

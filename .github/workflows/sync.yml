@@ -1,0 +1,75 @@
+name: OdontoScore Sync & Deploy Pipeline
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Cada 6 horas automáticamente
+  workflow_dispatch:      # Ejecución manual bajo demanda
+
+jobs:
+  sync-build-deploy:
+    name: Sincronizar PA-API, Compilar y Desplegar
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔄 Sincronizar Precios y Stock desde Amazon PA-API / Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
+          AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG || 'odontoscore-21' }}
+          AMAZON_HOST: ${{ secrets.AMAZON_HOST || 'webservices.amazon.es' }}
+          AMAZON_REGION: ${{ secrets.AMAZON_REGION || 'eu-west-1' }}
+          RAINFOREST_API_KEY: ${{ secrets.RAINFOREST_API_KEY }}
+        run: |
+          python tools/sync_supabase.py --force
+
+      - name: 🏗️ Compilar Sitio Estático (HTML + SEO + JSON-LD)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG || 'odontoscore-21' }}
+        run: |
+          python tools/build_site.py
+
+      - name: 💾 Guardar cambios de catálogo y caché en el repositorio
+        run: |
+          git config --global user.name "OdontoScore Bot"
+          git config --global user.email "bot@odontoscore.com"
+          git add datos/productos.json lib/db.js sitemap.xml
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore(sync): auto-actualización catálogo y precios Amazon [skip ci]"
+          git push origin main || echo "No changes to push or branch protected"
+
+      - name: 🚀 Desplegar a Hostinger vía FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST || 'ftp.odontoscore.com' }}
+          username: ${{ secrets.FTP_USER || 'u358159530' }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: './'
+          server-dir: 'public_html/'
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/tools/**
+            **/scripts/**
+            **/reference/**
+            **/templates/**
+            **/supabase/**
+            **/.env*
+            **/requirements.txt
+            **/asins.json
+            **/*.zip

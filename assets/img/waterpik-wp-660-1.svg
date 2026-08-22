@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgWp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="tankWp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="24" fill="url(#bgWp)"/>
+  <!-- Main Unit Base -->
+  <rect x="180" y="240" width="240" height="260" rx="20" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="3"/>
+  <!-- Water Tank -->
+  <rect x="195" y="140" width="130" height="130" rx="12" fill="url(#tankWp)" opacity="0.85" stroke="#0284C7" stroke-width="2"/>
+  <rect x="195" y="130" width="130" height="15" rx="4" fill="#0369A1"/>
+  <text x="260" y="210" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#0369A1" text-anchor="middle">650 ml</text>
+  <!-- Pressure Dial -->
+  <circle cx="260" cy="350" r="35" fill="#F1F5F9" stroke="#94A3B8" stroke-width="3"/>
+  <line x1="260" y1="350" x2="280" y2="330" stroke="#0E76BC" stroke-width="4" stroke-linecap="round"/>
+  <text x="260" y="410" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">10-100 PSI</text>
+  <!-- Flosser Handle & Hose -->
+  <rect x="345" y="260" width="45" height="180" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+  <path d="M367 190 L367 260" stroke="#0E76BC" stroke-width="4" stroke-linecap="round"/>
+  <path d="M367 190 Q367 165 355 160" stroke="#0E76BC" stroke-width="3" fill="none"/>
+  <!-- Coiled Hose -->
+  <path d="M367 440 Q390 480 340 480 Q290 480 300 500" stroke="#94A3B8" stroke-width="4" fill="none"/>
+  <!-- Badges -->
+  <rect x="40" y="40" width="200" height="36" rx="18" fill="#0E76BC"/>
+  <text x="140" y="63" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">Waterpik WP-660EU</text>
+  <rect x="40" y="85" width="140" height="28" rx="14" fill="#DCFCE7"/>
+  <text x="110" y="104" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">Sello ADA Aprobado</text>
+</svg>

@@ -1,0 +1,26 @@
+[
+  {
+    "asin": "B089W4XKQY",
+    "id": "oral-b-io-series-9",
+    "name": "Oral-B iO Series 9 Cepillo Eléctrico Recargable con Tecnología Magnética",
+    "marca": "Oral-B",
+    "categoria_odontologica": "cepillos_electricos",
+    "category": "Cepillos Eléctricos"
+  },
+  {
+    "asin": "B00USBV1N8",
+    "id": "waterpik-ultra-professional-wp-660eu",
+    "name": "Waterpik Ultra Professional WP-660EU Irrigador Bucal de Sobremesa",
+    "marca": "Waterpik",
+    "categoria_odontologica": "irrigadores_dentales",
+    "category": "Irrigadores Dentales"
+  },
+  {
+    "asin": "B091J3F7C4",
+    "id": "philips-sonicare-9900-prestige",
+    "name": "Philips Sonicare 9900 Prestige Cepillo Eléctrico Sónico con SenseIQ",
+    "marca": "Philips Sonicare",
+    "categoria_odontologica": "cepillos_electricos",
+    "category": "Cepillos Eléctricos"
+  }
+]
