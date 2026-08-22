@@ -148,21 +148,28 @@
   }
 
   /**
-   * Combined Live Search + Category Filter Bar
+   * Advanced Interactive Catalog Toolbar: Search + Categories + Sorting + View Toggle
    */
   function initCatalogFilter() {
     var filterContainer = document.querySelector("[data-catalog-filters]");
     var searchInput = document.querySelector("#catalogSearchInput");
-    var cards = document.querySelectorAll("#mainProductGrid .product-card");
+    var sortSelect = document.querySelector("#catalogSortSelect");
+    var gridEl = document.querySelector("#mainProductGrid");
+    var btnGrid = document.querySelector("#btnViewGrid");
+    var btnList = document.querySelector("#btnViewList");
 
+    if (!gridEl) return;
+
+    var cards = Array.from(gridEl.querySelectorAll(".product-card"));
     var activeCategory = "all";
     var currentQuery = "";
 
-    function applyFilters() {
+    function applyFiltersAndSort() {
       var q = currentQuery.toLowerCase().trim();
-      var visibleCount = 0;
+      var sortMode = sortSelect ? sortSelect.value : "featured";
 
-      cards.forEach(function (card) {
+      // 1. Filter
+      var visibleCards = cards.filter(function (card) {
         var cardCat = card.getAttribute("data-category") || "";
         var cardBrand = card.getAttribute("data-brand") || "";
         var cardTitle = card.getAttribute("data-title") || "";
@@ -172,10 +179,28 @@
 
         if (matchesCat && matchesSearch) {
           card.style.display = "flex";
-          visibleCount++;
+          return true;
         } else {
           card.style.display = "none";
+          return false;
         }
+      });
+
+      // 2. Sort visible cards
+      visibleCards.sort(function (a, b) {
+        var priceA = parseFloat(a.getAttribute("data-price")) || 0;
+        var priceB = parseFloat(b.getAttribute("data-price")) || 0;
+        var scoreA = parseFloat(a.getAttribute("data-score")) || 0;
+        var scoreB = parseFloat(b.getAttribute("data-score")) || 0;
+
+        if (sortMode === "price-asc") return priceA - priceB;
+        if (sortMode === "price-desc") return priceB - priceA;
+        if (sortMode === "score") return scoreB - scoreA;
+        return 0;
+      });
+
+      visibleCards.forEach(function (card) {
+        gridEl.appendChild(card);
       });
     }
 
@@ -186,7 +211,7 @@
           activeCategory = btn.getAttribute("data-filter") || "all";
           buttons.forEach(function (b) { b.classList.remove("active"); });
           btn.classList.add("active");
-          applyFilters();
+          applyFiltersAndSort();
         });
       });
     }
@@ -194,9 +219,53 @@
     if (searchInput) {
       searchInput.addEventListener("input", function () {
         currentQuery = searchInput.value;
-        applyFilters();
+        applyFiltersAndSort();
       });
     }
+
+    if (sortSelect) {
+      sortSelect.addEventListener("change", applyFiltersAndSort);
+    }
+
+    if (btnGrid && btnList) {
+      btnGrid.addEventListener("click", function () {
+        gridEl.classList.remove("view-list");
+        btnGrid.classList.add("active");
+        btnList.classList.remove("active");
+      });
+      btnList.addEventListener("click", function () {
+        gridEl.classList.add("view-list");
+        btnList.classList.add("active");
+        btnGrid.classList.remove("active");
+      });
+    }
+  }
+
+  /**
+   * Floating Comparison Dock & Checkboxes
+   */
+  function initFloatingDock() {
+    var dock = document.querySelector("#floatingCompareDock");
+    var countText = document.querySelector("#floatingCompareCountText");
+    var checkboxes = document.querySelectorAll(".product-compare-checkbox");
+
+    function updateDock() {
+      var checked = document.querySelectorAll(".product-compare-checkbox:checked");
+      var count = checked.length;
+
+      if (count > 0 && dock) {
+        dock.classList.add("visible");
+        if (countText) {
+          countText.textContent = count + (count === 1 ? " producto seleccionado" : " productos seleccionados");
+        }
+      } else if (dock) {
+        dock.classList.remove("visible");
+      }
+    }
+
+    checkboxes.forEach(function (chk) {
+      chk.addEventListener("change", updateDock);
+    });
   }
 
   function initQuickModal() {
@@ -260,7 +329,7 @@
           "<tr><th>Tecnología</th><td>" + (p.tecnologia || "").toUpperCase() + "</td></tr>" +
           "<tr><th>Modos / Ajustes</th><td>" + (p.modos_limpieza || "1") + "</td></tr>" +
           "<tr><th>Presión / Potencia</th><td>" + (p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + " puls/min" : "—")) + "</td></tr>" +
-          "<tr><th>Autonomía</th><td>" + (p.autonomia_dias > 365 ? "Red / No aplica" : p.autonomia_dias + " días") + "</td></tr>" +
+          "<tr><th>Autonomía</th><td>" + (p.autonomia_dias > 365 ? "Red / AC" : p.autonomia_dias + " días") + "</td></tr>" +
           "<tr><th>Nivel Ruido</th><td>" + (p.nivel_ruido_db ? p.nivel_ruido_db + " dB" : "0 dB (Silencioso)") + "</td></tr>" +
           "<tr><th>Puntuación</th><td><strong style='color:#0E76BC'>" + p.valoracion_media + " / 5 ★</strong> (" + (p.resenas_cantidad || 0) + " reseñas)</td></tr>";
       }
@@ -368,10 +437,10 @@
           { label: "Tecnología", fn: function(p) { return (p.tecnologia || '').toUpperCase(); } },
           { label: "Modos / Ajustes", fn: function(p) { return p.modos_limpieza || "1"; } },
           { label: "Presión / Potencia", fn: function(p) { return p.presion_agua_psi ? p.presion_agua_psi + ' PSI' : (p.pulsaciones_min ? p.pulsaciones_min.toLocaleString() + ' puls/min' : '—'); } },
-          { label: "Autonomía", fn: function(p) { return p.autonomia_dias > 365 ? 'Red / No aplica' : p.autonomia_dias + ' días'; } },
+          { label: "Autonomía", fn: function(p) { return p.autonomia_dias > 365 ? 'Red / AC' : p.autonomia_dias + ' días'; } },
           { label: "Nivel Ruido (dB)", fn: function(p) { return p.nivel_ruido_db ? p.nivel_ruido_db + ' dB' : '0 dB (Silencioso)'; } },
           { label: "Puntuación", fn: function(p) { return '<strong style="color:#0E76BC">' + p.valoracion_media + ' / 5 ★</strong>'; } },
-          { label: "Comprar en Amazon", fn: function(p) { return '<a class="btn-card-amazon" href="' + p.affiliate_url + '" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon</a>'; } }
+          { label: "Comprar en Amazon", fn: function(p) { return '<a class="btn-card-prime" style="padding:0.5rem;" href="' + p.affiliate_url + '" target="_blank" rel="sponsored nofollow noopener">🛒 Ver en Amazon</a>'; } }
         ];
 
         rows.forEach(function (r) {
@@ -398,6 +467,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     safe(initRadars, "initRadars");
     safe(initCatalogFilter, "initCatalogFilter");
+    safe(initFloatingDock, "initFloatingDock");
     safe(initQuickModal, "initQuickModal");
     safe(initComparator, "initComparator");
   });

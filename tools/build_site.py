@@ -3,7 +3,7 @@
 """
 OdontoScore Static Site Generator (tools/build_site.py)
 Generates high-converting clinical landing with 7 segmented categories (including Students),
-live search, high-res Amazon images, and interactive quick modal.
+live search, high-res Amazon images, dual grid/list view, rich specs matrix, and interactive quick modal.
 """
 
 import json
@@ -26,7 +26,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 DATOS_DIR = ROOT / "datos"
 DATOS_FILE = DATOS_DIR / "productos.json"
-VER = "20260822_v2"
+VER = "20260822_v3"
 BASE_URL = "https://odontoscore.com"
 AMAZON_PARTNER_TAG = os.getenv("AMAZON_PARTNER_TAG", "odontoscore-21").strip()
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip()
@@ -37,7 +37,7 @@ CATEGORIES = [
         "id": "estudiantes_practicas",
         "slug": "estudiantes-odontologia",
         "name": "Estudiantes y Prácticas",
-        "desc": "Tipodontos de estudio, kits de entrenamiento de sutura oral, lámparas LED y modelos anatómicos.",
+        "desc": "Tipodontos anatómicos con dientes atornillables, kits de sutura oral, lámparas LED y modelos de simulación.",
         "icon": "🎓"
     },
     {
@@ -165,14 +165,14 @@ def render_header(active_nav="", root_rel=""):
     <nav class="main-nav">
       <ul class="nav-links">
         <li><a href="{root_rel}index.html#catalogo">Catálogo</a></li>
-        <li><a href="{root_rel}index.html#estudiantes">Estudiantes</a></li>
-        <li><a href="{root_rel}index.html#comparador">Comparador</a></li>
+        <li><a href="{root_rel}index.html#estudiantes">Zona Estudiantes</a></li>
+        <li><a href="{root_rel}index.html#comparador">Comparador Radar</a></li>
         <li><a href="{root_rel}index.html#ofertas">Ofertas</a></li>
         <li><a href="{root_rel}index.html#faq">FAQ Clínica</a></li>
       </ul>
       <div class="nav-actions">
         <a href="{root_rel}index.html#comparador" class="btn-nav-compare">
-          <span>⚡ Comparador Radar</span>
+          <span>⚡ Comparar Modelos</span>
         </a>
       </div>
     </nav>
@@ -187,7 +187,7 @@ def render_footer(root_rel=""):
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{root_rel}assets/img/logo-odontoscore.svg" alt="OdontoScore" height="36" style="filter: brightness(0) invert(1); margin-bottom:1rem;">
+        <img src="{root_rel}assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38" style="filter: brightness(0) invert(1); margin-bottom:1rem;">
         <p style="margin-bottom:1rem;color:#94A3B8;">Portal odontológico independiente de comparativas técnicas, guías clínicas y catálogo para estudiantes, profesionales y pacientes.</p>
         <p style="font-size:0.85rem;color:#64748B;">Evaluación de rendimiento en 7 ejes: bio-eficacia, ergonomía, confort gingival, decibelios y presión hidráulica.</p>
       </div>
@@ -236,38 +236,65 @@ def render_product_card(p, root_rel=""):
     discount_pct = round((1 - p["discountedPrice"] / p["retailPrice"]) * 100) if p["discountedPrice"] < p["retailPrice"] else 0
     img_url = p['images'][0] if p.get('images') else f"{root_rel}assets/img/hero-dental.svg"
     
+    # Tech and specs details
+    tech_str = p.get('tecnologia', 'sonico').replace('_', ' ').upper()
+    potencia_str = f"{p['presion_agua_psi']} PSI" if p.get('presion_agua_psi') else (f"{p['pulsaciones_min']:,} puls/min" if p.get('pulsaciones_min') else ("Autoclave 134°C" if p.get('esterilizable_autoclave') else "Clínico"))
+    autonomia_str = f"{p['autonomia_dias']} días" if p.get('autonomia_dias', 14) < 365 else "Red Eléctrica / AC"
+    ruido_str = f"{p['nivel_ruido_db']} dB" if p.get('nivel_ruido_db') and p.get('nivel_ruido_db') > 0 else "Silencioso"
+
     return f"""
-<article class="product-card" data-producto-id="{p['id']}" data-asin="{p['asin']}" data-category="{p['categoria_odontologica']}" data-brand="{p['marca'].lower()}" data-title="{p['name'].lower()}">
-  {'<span class="card-badge-top">Top Clínico</span>' if p.get('isFeatured') else ''}
-  {f'<span class="card-badge-offer">-{discount_pct}%</span>' if discount_pct > 0 else ''}
+<article class="product-card" data-producto-id="{p['id']}" data-asin="{p['asin']}" data-category="{p['categoria_odontologica']}" data-brand="{p['marca'].lower()}" data-title="{p['name'].lower()}" data-price="{p['discountedPrice']}" data-score="{p['score_eficacia']}">
+  {'<span class="card-badge-top" style="position:absolute;top:1rem;left:1rem;z-index:10;background:#0F172A;color:#FFF;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:999px;">★ Top Recomendado</span>' if p.get('isFeatured') else ''}
+  {f'<span class="price-discount-pill" style="position:absolute;top:1rem;right:1rem;z-index:10;">-{discount_pct}%</span>' if discount_pct > 0 else ''}
+  
   <div class="card-media">
     <img src="{img_url}" alt="{p['name']}" loading="lazy" onerror="this.onerror=null;this.src='{root_rel}assets/img/hero-dental.svg';">
   </div>
+  
   <div class="card-body">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem;">
-      <span class="card-brand">{p['marca']}</span>
-      <span style="font-size:0.75rem;color:#0E76BC;font-weight:700;background:#E0F2FE;padding:2px 8px;border-radius:999px;">{p['category']}</span>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+      <span style="font-size:0.75rem;font-weight:800;color:#0E76BC;letter-spacing:0.05em;text-transform:uppercase;">{p['marca']}</span>
+      <span style="font-size:0.7rem;color:#475569;font-weight:700;background:#F1F5F9;padding:2px 8px;border-radius:999px;">{p['category']}</span>
     </div>
+    
     <h3 class="card-title" title="{p['name']}">{p['name']}</h3>
-    <div class="card-rating">
-      <span class="rating-stars">★ {p['valoracion_media']}</span>
-      <span class="review-count">({p['resenas_cantidad']:,} valoraciones)</span>
+    
+    <div class="card-rating-box">
+      <span class="rating-badge">★ {p['valoracion_media']}</span>
+      <span style="font-size:0.8rem;color:#64748B;">({p['resenas_cantidad']:,} valoraciones)</span>
     </div>
-    <div class="card-specs-mini">
-      <span class="spec-pill">{p['tecnologia'].replace('_', ' ').upper()}</span>
-      <span class="spec-pill">{p['modos_limpieza']} Modos</span>
-      <span class="spec-pill">{'App IA' if p['app_conectada'] else (f"{p['presion_agua_psi']} PSI" if p.get('presion_agua_psi') else ('Autoclave' if p.get('esterilizable_autoclave') else 'Clínico'))}</span>
+    
+    <!-- Rich Clinical Specs Matrix -->
+    <div class="card-specs-matrix">
+      <div class="spec-cell">⚙️ <strong>{tech_str}</strong></div>
+      <div class="spec-cell">🎛️ <strong>{p['modos_limpieza']} Modos</strong></div>
+      <div class="spec-cell">⚡ <strong>{potencia_str}</strong></div>
+      <div class="spec-cell">🔋 <strong>{autonomia_str}</strong></div>
     </div>
-    <div class="card-price-box">
+    
+    <div class="card-price-row">
       <div>
-        <span class="price-current">{p['discountedPrice']} €</span>
-        {f'<span class="price-old">{p["retailPrice"]} €</span>' if discount_pct > 0 else ''}
+        <span class="price-main-val">{p['discountedPrice']} €</span>
+        {f'<span class="price-strike-val">{p["retailPrice"]} €</span>' if discount_pct > 0 else ''}
       </div>
-      <small class="price-date" style="color:#64748B;font-size:0.75rem;">Amazon Prime</small>
+      <span style="font-size:0.75rem;font-weight:700;color:#16A34A;display:flex;align-items:center;gap:0.25rem;">✓ Prime 24/48h</span>
     </div>
-    <div class="card-cta-group">
-      <button type="button" class="btn-card-ficha" data-quick-view="{p['id']}">⚡ Ficha Rápida</button>
-      <a href="{p['affiliate_url']}" target="_blank" rel="sponsored nofollow noopener" class="btn-card-amazon">Ver en Amazon</a>
+    
+    <div class="card-actions-grid">
+      <button type="button" class="btn-card-quick" data-quick-view="{p['id']}">
+        <span>⚡ Ficha &amp; Radar</span>
+      </button>
+      <a href="{p['affiliate_url']}" target="_blank" rel="sponsored nofollow noopener" class="btn-card-prime">
+        <span>🛒 Ver en Amazon</span>
+      </a>
+    </div>
+
+    <!-- Intra-Page Compare Checkbox -->
+    <div style="margin-top:0.75rem;padding-top:0.5rem;border-top:1px dashed #E2E8F0;display:flex;align-items:center;justify-content:center;">
+      <label style="font-size:0.8rem;font-weight:600;color:#64748B;cursor:pointer;display:inline-flex;align-items:center;gap:0.35rem;">
+        <input type="checkbox" class="product-compare-checkbox" value="{p['id']}" data-name="{p['name'][:25]}...">
+        <span>⚖️ Añadir al Comparador</span>
+      </label>
     </div>
   </div>
 </article>
@@ -292,8 +319,8 @@ def build_home(products):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OdontoScore — Portal Odontológico: Catálogo Clínico, Estudiantes y Comparador 2026</title>
-  <meta name="description" content="Portal integral de odontología: tipodontos y kits para estudiantes, cepillos sónicos, irrigadores bucales, blanqueamiento e instrumental con comparador radar de 7 ejes.">
+  <title>OdontoScore — Portal Odontológico Integral: Catálogo Clínico, Estudiantes y Comparador 2026</title>
+  <meta name="description" content="Catálogo completo de odontología: tipodontos anatómicos, kits de sutura para estudiantes, cepillos sónicos y rotatorios, irrigadores y material de clínica con comparador de 7 ejes.">
   <link rel="canonical" href="{BASE_URL}/" />
   <link rel="alternate" hreflang="es" href="{BASE_URL}/" />
   <link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />
@@ -311,18 +338,18 @@ def build_home(products):
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">
-          <span>🩺 OdontoScore 2026 · Portal Clínico &amp; Académico</span>
+          <span>🩺 OdontoScore 2026 · Portal Clínico, Académico &amp; Pacientes</span>
         </div>
         <h1 class="hero-title">El Catálogo Odontológico más <span>Completo y Riguroso</span></h1>
-        <p class="hero-subtitle">Equipamiento para estudiantes de odontología, clínicas y pacientes: tipodontos, kits de sutura, lámparas de fotocurado, cepillos iO, irrigadores y comparativas técnicas.</p>
+        <p class="hero-subtitle">Material docente para estudiantes universitarios, equipamiento de clínica y dispositivos de higiene oral: tipodontos, kits de sutura, lámparas LED, cepillos iO e irrigadores con análisis técnico normalizado.</p>
         <div class="hero-actions">
-          <a href="#catalogo" class="btn-primary">🔍 Explorar Catálogo ({len(products)} Productos)</a>
-          <a href="#estudiantes" class="btn-secondary">🎓 Sección Estudiantes</a>
+          <a href="#catalogo" class="btn-primary">🔍 Ver Catálogo Completo ({len(products)} Productos)</a>
+          <a href="#estudiantes" class="btn-secondary">🎓 Material para Estudiantes</a>
         </div>
         <div class="hero-trust-bullets">
-          <span>✓ Enlaces Verificados Amazon</span>
-          <span>✓ Radar de Rendimiento 7 Ejes</span>
-          <span>✓ Sin saltos de página</span>
+          <span>✓ Enlaces Verificados Amazon Prime</span>
+          <span>✓ Radar Clínico de 7 Ejes</span>
+          <span>✓ Sincronización Automática</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -331,60 +358,100 @@ def build_home(products):
     </div>
   </section>
 
-  <!-- 1. Interactive Catalog with Search & Filter Bar -->
+  <!-- 1. Interactive Catalog with Advanced Toolbar -->
   <section id="catalogo" class="section-block">
     <div class="container">
       <div class="section-header">
         <div class="hero-badge">📦 Catálogo Clínico &amp; Universitario</div>
-        <h2 class="section-title">Todos los Productos Odontológicos</h2>
-        <p class="section-desc">Filtra por especialidad, busca por palabra clave o pulsa en <strong>⚡ Ficha Rápida</strong> para abrir el análisis instantáneo.</p>
+        <h2 class="section-title">Explora Todos los Dispositivos y Materiales</h2>
+        <p class="section-desc">Filtra por especialidad, busca en tiempo real o abre la <strong>⚡ Ficha Rápida</strong> para ver el radar de 7 ejes.</p>
       </div>
 
-      <!-- Live Search Box -->
-      <div style="max-width:550px;margin:0 auto 1.75rem;">
-        <input type="text" id="catalogSearchInput" placeholder="🔎 Buscar por producto, marca o indicación (ej. tipodonto, Oral-B, sutura)..." style="width:100%;padding:0.85rem 1.25rem;border-radius:999px;border:2px solid var(--color-border);font-size:1rem;font-family:var(--font-sans);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--color-primary)'" onblur="this.style.borderColor='var(--color-border)'">
+      <!-- Advanced Catalog Toolbar -->
+      <div class="catalog-toolbar-wrapper">
+        <div class="catalog-search-row">
+          <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="🔎 Buscar por producto, marca o palabra clave (ej: tipodonto, Oral-B, sutura, Waterpik, LED)...">
+          
+          <select id="catalogSortSelect" class="catalog-sort-select" aria-label="Ordenar productos">
+            <option value="featured">Ordenar: Más Recomendados</option>
+            <option value="price-asc">Precio: Menor a Mayor</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+            <option value="score">Mayor Puntuación Clínica</option>
+          </select>
+
+          <div class="view-toggle-group">
+            <button type="button" class="view-toggle-btn active" id="btnViewGrid" title="Vista Cuadrícula">⊞ Cuadrícula</button>
+            <button type="button" class="view-toggle-btn" id="btnViewList" title="Vista Lista">☰ Lista</button>
+          </div>
+        </div>
+
+        <!-- Category Pills Bar -->
+        <div class="filter-pills-bar" data-catalog-filters style="margin-bottom:0;">
+          <button type="button" class="filter-pill-btn active" data-filter="all">Todos ({len(products)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="estudiantes_practicas">🎓 Estudiantes ({cat_counts.get('estudiantes_practicas', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="cepillos_electricos">🪥 Cepillos ({cat_counts.get('cepillos_electricos', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="irrigadores_dentales">💧 Irrigadores ({cat_counts.get('irrigadores_dentales', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="blanqueamiento_dental">✨ Blanqueamiento ({cat_counts.get('blanqueamiento_dental', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="ortodoncia_brackets">🦷 Ortodoncia ({cat_counts.get('ortodoncia_brackets', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="higiene_infantil">🧸 Infantil ({cat_counts.get('higiene_infantil', 0)})</button>
+          <button type="button" class="filter-pill-btn" data-filter="instrumental_basico">🔬 Instrumental ({cat_counts.get('instrumental_basico', 0)})</button>
+        </div>
       </div>
 
-      <!-- Category Filter Pills -->
-      <div class="filter-pills-bar" data-catalog-filters>
-        <button type="button" class="filter-pill-btn active" data-filter="all">Todos ({len(products)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="estudiantes_practicas">🎓 Estudiantes ({cat_counts.get('estudiantes_practicas', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="cepillos_electricos">🪥 Cepillos ({cat_counts.get('cepillos_electricos', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="irrigadores_dentales">💧 Irrigadores ({cat_counts.get('irrigadores_dentales', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="blanqueamiento_dental">✨ Blanqueamiento ({cat_counts.get('blanqueamiento_dental', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="ortodoncia_brackets">🦷 Ortodoncia ({cat_counts.get('ortodoncia_brackets', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="higiene_infantil">🧸 Infantil ({cat_counts.get('higiene_infantil', 0)})</button>
-        <button type="button" class="filter-pill-btn" data-filter="instrumental_basico">🔬 Instrumental ({cat_counts.get('instrumental_basico', 0)})</button>
-      </div>
-
+      <!-- Main Product Grid -->
       <div class="product-grid" id="mainProductGrid">
         {cards_html}
       </div>
     </div>
   </section>
 
-  <!-- 2. Specialized Student Section -->
+  <!-- 2. Specialized University Student Zone -->
   <section id="estudiantes" class="section-block" style="background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%);">
     <div class="container">
       <div class="section-header">
         <div class="hero-badge">🎓 Prácticas Universitarias &amp; Laboratorio</div>
         <h2 class="section-title">Zona Estudiantes de Odontología</h2>
-        <p class="section-desc">Material didáctico para prácticas de anatomía dental, periodoncia, cirugía menor y simulación clínica.</p>
+        <p class="section-desc">Guía de material didáctico imprescindible para prácticas de grado en odontología, preclínica y simulación.</p>
+      </div>
+
+      <!-- University Essentials Banner -->
+      <div style="background:#FFFFFF;border:1px solid #BFDBFE;border-radius:16px;padding:1.75rem;margin-bottom:2.5rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:1.5rem;">
+        <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <span style="font-size:2rem;">🦷</span>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:0.25rem;">Tipodontos Anatómicos</h4>
+            <p style="font-size:0.85rem;color:#64748B;">Modelos de 28/32 dientes con encía blanda de silicona para prácticas de operatoria y prótesis fija.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <span style="font-size:2rem;">🪡</span>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:0.25rem;">Kits de Sutura Oral</h4>
+            <p style="font-size:0.85rem;color:#64748B;">Almohadillas multicapa con encías y dientes simulados para prácticas de cirugía bucal.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <span style="font-size:2rem;">💡</span>
+          <div>
+            <h4 style="font-size:1.05rem;margin-bottom:0.25rem;">Lámparas LED Polimerización</h4>
+            <p style="font-size:0.85rem;color:#64748B;">Fotocurado de composites de 36W con longitud de onda calibrada para clínica docente.</p>
+          </div>
+        </div>
       </div>
 
       <div class="product-grid">
-        {students_cards if students_cards else '<p style="text-align:center;grid-column:1/-1;">Cargando material de estudiantes...</p>'}
+        {students_cards if students_cards else '<p style="text-align:center;grid-column:1/-1;">Cargando material docente...</p>'}
       </div>
     </div>
   </section>
 
-  <!-- 3. Integrated Clinical Comparator -->
+  <!-- 3. Integrated Multi-Product Radar Comparator -->
   <section id="comparador" class="section-block">
     <div class="container" data-comparator-app>
       <div class="section-header">
         <div class="hero-badge">⚡ Enfrentamiento Lado a Lado</div>
-        <h2 class="section-title">Comparador Clínico Integrado</h2>
-        <p class="section-desc">Selecciona hasta 4 modelos para ver especificaciones y superposición de radares sin salir de la página.</p>
+        <h2 class="section-title">Comparador Clínico OdontoScore (7 Ejes)</h2>
+        <p class="section-desc">Selecciona hasta 4 modelos para ver especificaciones y superposición de polígonos de radar sin salir de la página.</p>
       </div>
 
       <div class="comparator-selector-bar" style="background:#FFFFFF;box-shadow:var(--shadow-sm);border:1px solid var(--color-border);">
@@ -408,13 +475,13 @@ def build_home(products):
     </div>
   </section>
 
-  <!-- 4. Deals Section -->
+  <!-- 4. Deals & Offers Section -->
   <section id="ofertas" class="section-block" style="background-color: var(--color-surface);">
     <div class="container">
       <div class="section-header">
         <div class="hero-badge">🏷️ Descuentos Verificados</div>
-        <h2 class="section-title">Ofertas Activas en Cuidado Dental</h2>
-        <p class="section-desc">Productos odontológicos con precio rebajado en Amazon España.</p>
+        <h2 class="section-title">Ofertas Activas en Cuidado Bucal</h2>
+        <p class="section-desc">Dispositivos y materiales odontológicos con precio rebajado en Amazon España.</p>
       </div>
       <div class="product-grid">
         {deal_cards_html}
@@ -450,6 +517,15 @@ def build_home(products):
 
   {render_footer('')}
 
+  <!-- Floating Comparison Dock -->
+  <div class="floating-compare-dock" id="floatingCompareDock">
+    <div class="floating-compare-count">
+      <span>⚖️</span>
+      <span id="floatingCompareCountText">0 productos seleccionados</span>
+    </div>
+    <a href="#comparador" class="btn-floating-action" id="btnFloatingCompareNow">Ver Comparativa →</a>
+  </div>
+
   <!-- Interactive Quick-View Modal -->
   <div class="quick-modal-backdrop" id="quickViewModal">
     <div class="quick-modal-box">
@@ -466,7 +542,7 @@ def build_home(products):
           <div class="radar-canvas-container" id="modalRadarCanvas" style="min-height:240px;"></div>
         </div>
         <div>
-          <h4 style="margin-bottom:0.5rem;">Ficha Técnica Rápida</h4>
+          <h4 style="margin-bottom:0.5rem;">Ficha Técnica de Laboratorio</h4>
           <table class="specs-table" id="modalSpecsTable" style="margin-bottom:1.5rem;">
             <tbody></tbody>
           </table>
@@ -821,7 +897,7 @@ def build_sitemaps_and_robots(products):
 
 
 def main():
-    print("=== OdontoScore Unified Portal & Student Edition Builder ===")
+    print("=== OdontoScore Ultra-Rich UI/UX Builder ===")
     products = load_products()
     print(f"Loaded {len(products)} products for compilation")
 
