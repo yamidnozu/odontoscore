@@ -1,0 +1,126 @@
+<!--
+  ficha.example.html — ESTRUCTURA de referencia de una página de producto dental (DentaRank Global).
+  El script generador (tools/build_site.py) hornea los datos fijos en HTML estático
+  para SEO/GEO y carga instantánea sin JS; main.js (IIFE) inicializa el radar 0-10,
+  el comparador interactivo y la galería desde window.__DB__.
+-->
+<article class="ficha" data-producto-id="dent-001" data-categoria="cepillos_electricos">
+
+  <!-- 1. Galería de Imágenes WebP -->
+  <section class="ficha-galeria" data-galeria>
+    <img class="ficha-img-main" src="assets/img/dent-001-1.webp" alt="Oral-B iO Series 9 Cepillo Eléctrico Recargable" fetchpriority="high">
+    <ul class="ficha-thumbs" data-thumbs><!-- thumbnails locales desde images[] --></ul>
+  </section>
+
+  <!-- 2. Cabecera + Caja de Compra -->
+  <header class="ficha-head">
+    <div class="ficha-badge-categoria" data-campo="categoria_odontologica">Cepillos Eléctricos</div>
+    <p class="ficha-marca" data-campo="marca">Oral-B</p>
+    <h1 class="ficha-nombre" data-campo="name">Oral-B iO Series 9 Cepillo Eléctrico Recargable</h1>
+    <div class="ficha-rating" data-rating><!-- valoracion_media estrellas + resenas_cantidad --></div>
+    <div class="ficha-precio">
+      <span class="precio-actual" data-campo="discountedPrice">199,95 €</span>
+      <span class="precio-antes" data-campo="retailPrice">279,99 €</span>
+      <span class="precio-nota">Precio orientativo · Captura: <time data-campo="precio_fecha">2026-08-22</time> · Consultar oferta en Amazon</span>
+    </div>
+    <!-- Botón de compra sagrado con affiliate_url del usuario -->
+    <a class="btn-comprar" data-campo="affiliate_url" href="https://amzn.to/4gDental1" target="_blank" rel="sponsored nofollow noopener">Ver precio en Amazon</a>
+  </header>
+
+  <!-- 3. Radar Clínico de 7 Ejes (0-10) -->
+  <section class="ficha-radar">
+    <h2>Evaluación Clínica DentaRank</h2>
+    <figure data-radar aria-label="Gráfico de 7 ejes de evaluación dental"></figure>
+    <p class="nota">Puntuaciones editoriales y técnicas de 0 a 10 (Eficacia, Comodidad de Encías, Durabilidad, Facilidad de Uso, Silencio, Tecnología, Calidad/Precio).</p>
+  </section>
+
+  <!-- 4. Tabla de Especificaciones Técnicas Dentales (Grupo C) -->
+  <section class="ficha-specs">
+    <h2>Ficha Técnica y Clínica</h2>
+    <table data-specs>
+      <!-- Filas: tecnología, modos_limpieza, pulsaciones_min, presion_agua_psi, autonomia_dias, ruido_db, resistencia_ipx, app_conectada, material, esterilizable_autoclave, etc. -->
+    </table>
+    <details class="specs-extra"><summary>Especificaciones adicionales</summary><div data-specs-extra></div></details>
+  </section>
+
+  <!-- 5. Análisis Editorial Clínico (~300 palabras) + Pros/Contras + Indicaciones -->
+  <section class="ficha-editorial">
+    <h2>Análisis del Especialista</h2>
+    <div class="editorial-cuerpo" data-campo="cuerpo_editorial"><!-- Párrafos con criterio clínico y experiencia de uso --></div>
+    <div class="pros-contras">
+      <div class="col-pros">
+        <h3>Ventajas Clave</h3>
+        <ul class="pros" data-campo="pros"></ul>
+      </div>
+      <div class="col-contras">
+        <h3>A tener en cuenta</h3>
+        <ul class="contras" data-campo="contras"></ul>
+      </div>
+    </div>
+    <div class="indicaciones-clinicas">
+      <p class="ideal-para"><strong>Indicado para:</strong> <span data-campo="ideal_para"></span></p>
+      <div class="tags-indicado" data-campo="indicado_para"><!-- Badges: brackets, implantes, encias_sensibles... --></div>
+    </div>
+  </section>
+
+  <!-- 6. Bloque GEO: Preguntas Estructuradas para IA y Pacientes -->
+  <section class="ficha-geo-block" data-geo-block>
+    <h2>Preguntas frecuentes sobre este modelo</h2>
+    <div class="qa-item">
+      <strong>¿Es adecuado para personas con encías sensibles o gingivitis?</strong>
+      <p>Sí, cuenta con sensor de presión inteligente que alerta visualmente ante sobrepresión y modos específicos ultrasensibles para proteger el tejido periodontal.</p>
+    </div>
+    <div class="qa-item">
+      <strong>¿Qué recambios de cabezal utiliza?</strong>
+      <p>Utiliza exclusivamente cabezales de la serie Oral-B iO (Ultimate Clean, Gentle Care y Radiant White).</p>
+    </div>
+  </section>
+
+  <!-- 7. Resumen de Experiencias y Reseñas de Compradores -->
+  <section class="ficha-resenas">
+    <h2>Opiniones de Usuarios en Amazon</h2>
+    <p class="resenas-resumen" data-campo="resenas_resumen"></p>
+    <ul data-resenas><!-- autor, valoración, comentario verificado --></ul>
+    <p class="nota">Reseñas públicas verificadas en Amazon en la fecha de captura.</p>
+  </section>
+
+  <!-- 8. Comparador Intra-Categoría + Productos Relacionados -->
+  <section class="ficha-comparar">
+    <button class="btn-comparar" data-add-comparador="dent-001">Comparar con otros cepillos eléctricos</button>
+    <div class="similares" data-similares><!-- productos de la misma categoria_odontologica --></div>
+  </section>
+
+  <!-- Repetición de CTA final -->
+  <div class="ficha-cta-bottom">
+    <a class="btn-comprar" data-campo="affiliate_url" href="https://amzn.to/4gDental1" target="_blank" rel="sponsored nofollow noopener">Ver precio en Amazon</a>
+  </div>
+
+  <!-- 9. Aviso Legal de Afiliación y Descargo Médico (Obligatorio) -->
+  <footer class="ficha-legal-notes">
+    <p class="aviso-afiliados">En calidad de Afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. «Amazon» y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.</p>
+    <p class="descargo-medico"><strong>Aviso informativo de salud:</strong> Las comparativas técnicas y contenidos de DentaRank tienen finalidad informativa y de divulgación de productos de higiene bucodental. No constituyen consejo médico, diagnóstico ni tratamiento odontológico profesional.</p>
+  </footer>
+
+  <!-- JSON-LD Estructurado: Product + FAQPage -->
+  <script type="application/ld+json" data-jsonld-product>
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Oral-B iO Series 9 Cepillo Eléctrico Recargable",
+    "brand": { "@type": "Brand", "name": "Oral-B" },
+    "image": ["assets/img/dent-001-1.webp"],
+    "offers": {
+      "@type": "Offer",
+      "price": "199.95",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "4520"
+    }
+  }
+  </script>
+</article>

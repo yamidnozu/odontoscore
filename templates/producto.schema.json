@@ -1,0 +1,73 @@
+{
+  "_comment": "Contrato de datos de un producto de afiliados para el nicho de Odontología y Cuidado Bucodental (DentaRank Global). El scraper mapea a este esquema, las páginas y comparadores renderizan desde él.",
+  "nicho": "productos-odontologia",
+  "grupos": {
+    "A_identidad_afiliado": {
+      "id":                     { "type": "string", "required": true, "desc": "slug estable kebab-case (ej. dent-001)" },
+      "asin":                   { "type": "string", "required": true, "source": "scrape" },
+      "name":                   { "type": "string", "required": true, "source": "scrape" },
+      "marca":                  { "type": "string", "source": "scrape" },
+      "categoria_odontologica": { "type": "enum", "values": ["cepillos_electricos", "irrigadores_dentales", "blanqueamiento_dental", "ortodoncia_brackets", "higiene_infantil", "instrumental_basico"], "required": true },
+      "affiliate_url":          { "type": "string", "required": true, "source": "link", "nota": "VERBATIM, nunca reescribir" },
+      "affiliate_tag":          { "type": "string", "required": true, "source": "link" },
+      "canonical_url":          { "type": "string", "source": "link" },
+      "images":                 { "type": "array<string>", "source": "scrape+webp", "nota": "rutas locales assets/img/<id>-N.webp" },
+      "category":               { "type": "string", "desc": "Nombre legible de categoría para UI" },
+      "isFeatured":             { "type": "bool", "default": false },
+      "showInTopMenu":          { "type": "bool", "default": false }
+    },
+    "B_comercial": {
+      "retailPrice":      { "type": "number", "unit": "EUR", "source": "scrape" },
+      "discountedPrice":  { "type": "number", "unit": "EUR", "source": "scrape" },
+      "rango_precio":     { "type": "enum", "values": ["economico", "medio", "alto", "premium"], "source": "computed" },
+      "valoracion_media": { "type": "number", "unit": "estrellas", "source": "scrape" },
+      "resenas_cantidad": { "type": "int", "source": "scrape" },
+      "precio_fecha":     { "type": "date", "source": "computed", "nota": "fecha de captura; el precio es orientativo" }
+    },
+    "C_specs_tecnicas": {
+      "categoria_odontologica":   { "type": "enum", "values": ["cepillos_electricos", "irrigadores_dentales", "blanqueamiento_dental", "ortodoncia_brackets", "higiene_infantil", "instrumental_basico"] },
+      "tipo_producto":            { "type": "string", "desc": "subtipo específico (ej. cepillo_sonico, irrigador_sobremesa, kit_led)" },
+      "tecnologia":               { "type": "enum", "values": ["sonico", "rotatorio", "irrigador", "led"] },
+      "modos_limpieza":           { "type": "int", "desc": "número de programas o modos seleccionables" },
+      "presion_agua_psi":         { "type": "number", "unit": "PSI", "desc": "presión de chorro de agua para irrigadores" },
+      "capacidad_deposito_ml":    { "type": "int", "unit": "ml", "desc": "volumen de agua del depósito" },
+      "pulsaciones_min":          { "type": "int", "unit": "puls/min", "desc": "oscilaciones, pulsos de agua o microvibraciones por minuto" },
+      "autonomia_dias":           { "type": "int", "unit": "días", "desc": "duración típica de la batería con uso estándar" },
+      "tiempo_carga_h":           { "type": "number", "unit": "h", "desc": "tiempo para carga del 0 al 100%" },
+      "cabezales_incluidos":      { "type": "int", "desc": "número de recambios, cabezales o boquillas incluidas" },
+      "nivel_ruido_db":           { "type": "int", "unit": "dB", "desc": "decibelios en funcionamiento", "mejor": "min" },
+      "resistencia_ipx":          { "type": "string", "desc": "certificación impermeable (ej. IPX7)" },
+      "app_conectada":            { "type": "bool", "desc": "conectividad Bluetooth / app con seguimiento y sensores" },
+      "material":                 { "type": "string", "desc": "composición y acabados (ej. polímero grado médico libre de BPA)" },
+      "esterilizable_autoclave":  { "type": "bool", "desc": "apto para esterilización clínica en autoclave" },
+      "indicado_para":            { "type": "array<string>", "values": ["brackets", "implantes", "encias_sensibles", "ninios", "ortodoncia", "blanqueamiento", "gingivitis"] },
+      "specs_extra":              { "type": "object", "desc": "escape hatch: {label: value} de características adicionales no normalizadas" }
+    },
+    "D_scores_0_10": {
+      "_nota": "Scores clínicos y editoriales calculados de los specs sobre el min/max intra-categoría. Recalcular TODOS al actualizar el catálogo.",
+      "score_eficacia":          { "from": "pulsaciones_min + presion_agua_psi + tecnologia + modos_limpieza" },
+      "score_comodidad_encias":  { "from": "sensor presion + modos suaves + boquillas periodontales" },
+      "score_durabilidad":       { "from": "resistencia_ipx + material + garantia + bateria" },
+      "score_facilidad_uso":     { "from": "autonomia_dias + tiempo_carga_h + ergonomia + recarga" },
+      "score_silencio":          { "from": "nivel_ruido_db (menor dB => mayor score)" },
+      "score_tecnologia":        { "from": "app_conectada + sensores + pantalla + microvibracion" },
+      "score_calidad_precio":    { "from": "specs clinicas y accesorios vs precio de venta" }
+    },
+    "E_editorial": {
+      "description":         { "type": "string", "desc": "Resumen técnico-clínico de 2-4 frases" },
+      "cuerpo_editorial":    { "type": "html", "desc": "Análisis editorial profundo de ~300 palabras en HTML con tono de autoridad dental" },
+      "pros":                { "type": "array<string>", "desc": "Puntos fuertes clínicos y prácticos basados en evidencia y reviews" },
+      "contras":             { "type": "array<string>", "desc": "Limitaciones reales del producto" },
+      "ideal_para":          { "type": "string", "desc": "Perfil claro de paciente / usuario al que va dirigido" },
+      "destacado_editorial": { "type": "string", "desc": "Titular de veredicto experto" },
+      "resenas_resumen":     { "type": "string", "desc": "Resumen consolidado de experiencias reales de compradores en Amazon" }
+    }
+  },
+  "reglas": [
+    "Todo dato no obtenido => null (la UI muestra '—'). Nunca inventar especificaciones médicas ni técnicas.",
+    "Los scores son editoriales, relativos a la categoría odontológica correspondiente; recalcular al cambiar el catálogo.",
+    "affiliate_url y affiliate_tag se preservan de forma sagrada; cada botón de compra usa exactamente el enlace del usuario.",
+    "El precio es una instantánea con precio_fecha; se etiqueta siempre como orientativo con la fecha de consulta.",
+    "Specs no mapeables van a specs_extra como pares clave/valor, jamás forzadas a campos numéricos incorrectos."
+  ]
+}

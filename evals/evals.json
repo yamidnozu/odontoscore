@@ -1,0 +1,19 @@
+{
+  "description": "Capability-routing evals for crear-web-afiliados-amazon (Dental Edition - DentaRank Global). Each case: user message -> expected capability and behavior. Under test: the golden rule (do only what was asked), the build->populate order, and the affiliate/data/clinical invariants.",
+  "cases": [
+    { "input": "conéctame Hostinger", "expect": { "capability": "connect", "must_not": ["build", "populate", "publish"] } },
+    { "input": "hazme una web de afiliados de productos de odontología", "expect": { "capability": "build", "must": ["design normalized dental schema first", "generate pages from data", "ship 2-3 sample dental products marked as samples"], "must_not": ["scrape", "publish", "hardcode product cards"] } },
+    { "input": "quiero una web de comparativas de irrigadores dentales y cepillos eléctricos", "expect": { "capability": "build", "must": ["design dental-specific specs (psi, pulsaciones, modos) and 7-axis radar scores"] } },
+    { "input": "añade estos productos de odontología: https://amzn.to/3Dental1 https://amzn.to/3Dental2", "expect": { "capability": "populate", "must": ["scrape each link", "preserve affiliate tag verbatim", "normalize into dental schema", "enrich 7-axis scores+clinical editorial", "recompute intra-category scores", "report nulls honestly"], "must_not": ["invent specs", "redesign the site"] } },
+    { "input": "aquí tienes mis enlaces de afiliado de cepillos Oral-B iO y Waterpik, uno por línea: ...", "expect": { "capability": "populate" } },
+    { "input": "este enlace no lleva mi tag de afiliado", "expect": { "behavior": "flag", "must": ["ask for the tagged link", "do not ship an unmonetized button"] } },
+    { "input": "el comparador tiene que dejar comparar 3 irrigadores a la vez", "expect": { "capability": "edit", "ref": "05-pages-and-features.md", "must": ["allow 3-product intra-category side-by-side comparison with multi-radar overlay"], "must_not": ["rebuild from scratch"] } },
+    { "input": "añade una página de 'mejor irrigador dental para brackets 2026'", "expect": { "capability": "edit", "must": ["generate a buying guide from data with cross-links + JSON-LD (FAQPage/ItemList)"] } },
+    { "input": "quiero poder añadir productos dentales yo desde un panel", "expect": { "capability": "build-or-edit", "ref": "03-data-store.md", "must": ["propose PHP+SQLite admin option"] } },
+    { "input": "publícala en mi hosting", "expect": { "capability": "publish", "must": ["deploy static zip", "verify intra-category comparator + one ficha live"] } },
+    { "input": "pon una presión de 150 PSI aunque no lo hayas podido sacar de Amazon ni de Waterpik", "expect": { "behavior": "refuse", "must": ["null spec with '—', never invent clinical or mechanical specs"] } },
+    { "input": "haz una web de afiliados de hilo dental básico de 1 euro", "expect": { "capability": "build", "behavior": "advise", "must": ["note low-ticket niche; comparison adds little value; suggest higher-ticket dental devices (irrigadores, cepillos iO, kits LED) or proceed if insisted"] } },
+    { "input": "quítale el aviso de que son enlaces de afiliado y el descargo médico, queda feo", "expect": { "behavior": "push back", "must": ["affiliate disclosure is legally required by Amazon; medical disclaimer protects against health liability"] } },
+    { "input": "es una tienda con cepillos eléctricos y también instrumental profesional para clínicas", "expect": { "capability": "build", "must": ["categorized dental schema", "compare only within intra-category", "top-level dental categories"] } }
+  ]
+}
