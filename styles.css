@@ -1,49 +1,50 @@
 /* ==========================================================================
-   OdontoScore — Clean Clinical Dental Design System (E-E-A-T Medical Grade)
-   Palette: Medical White (#FFFFFF), Clean Surface (#F8FAFC), Trust Blue (#0E76BC), Deep Navy (#0F172A)
-   Typography: Inter (Clean Data/Body) + Sora (Display Headings)
-   Zero tacky emojis. Pure professional healthcare aesthetics.
+   OdontoScore — Expansive Modern Healthcare Portal & Catalog Design System
+   Layout: Ultra-Wide (1520px Max), Clean High-Contrast Typography,
+   Spacious Interactive Multi-Media Cards with Inline Instant Previews.
+   Zero emojis. Pure high-end medical SaaS aesthetics.
    ========================================================================== */
 
 :root {
   --color-bg: #FFFFFF;
   --color-surface: #F8FAFC;
-  --color-surface-alt: #F1F5F9;
-  --color-card: #FFFFFF;
-  --color-primary: #0E76BC;
-  --color-primary-hover: #0369A1;
-  --color-primary-light: #F0F7FC;
-  --color-primary-dark: #074E7D;
+  --color-surface-hover: #F1F5F9;
+  --color-surface-card: #FFFFFF;
+  --color-primary: #0284C7;
+  --color-primary-dark: #0369A1;
+  --color-primary-light: #F0F9FF;
   --color-navy: #0F172A;
+  --color-slate-dark: #1E293B;
   --color-slate: #334155;
-  --color-muted: #64748B;
+  --color-slate-light: #64748B;
+  --color-muted: #94A3B8;
   --color-border: #E2E8F0;
-  --color-border-hover: #CBD5E1;
+  --color-border-subtle: #F1F5F9;
+  --color-border-focus: #0284C7;
   --color-success: #059669;
   --color-success-bg: #ECFDF5;
-  --color-danger: #DC2626;
-  --color-danger-bg: #FEF2F2;
-  --color-warning: #D97706;
-  --color-warning-bg: #FFFBEB;
+  --color-danger: #E11D48;
+  --color-danger-bg: #FFF1F2;
+  --color-accent: #0EA5E9;
 
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Sora', 'Inter', system-ui, sans-serif;
 
   --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 6px 12px -2px rgba(15, 23, 42, 0.06), 0 3px 6px -3px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 6px 12px -6px rgba(15, 23, 42, 0.04);
-  --shadow-xl: 0 24px 38px -6px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 2px 5px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 8px 16px -2px rgba(15, 23, 42, 0.06), 0 3px 6px -3px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.08), 0 6px 12px -6px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 28px 48px -8px rgba(15, 23, 42, 0.12);
 
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --container-max: 1200px;
-  --header-height: 72px;
+  --container-max: 1520px;
+  --header-height: 76px;
 }
 
 *, *::before, *::after {
@@ -67,7 +68,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, svg {
+img, svg, video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -80,7 +81,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-primary-dark);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.25;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .container {
@@ -96,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* ==========================================================================
@@ -108,8 +109,8 @@ h1, h2, h3, h4, h5, h6 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
   height: var(--header-height);
 }
@@ -119,36 +120,41 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  gap: 2rem;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  flex-shrink: 0;
 }
 
 .brand-logo img {
-  height: 40px;
+  height: 42px;
   width: auto;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1rem;
+  gap: 1.25rem;
+  align-items: center;
 }
 
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-slate);
-  padding: 0.5rem 0.85rem;
+  padding: 0.6rem 0.95rem;
   border-radius: var(--radius-sm);
   transition: all 0.15s ease;
 }
@@ -159,39 +165,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-nav-compare {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-navy);
-  font-size: 0.85rem;
+  background: var(--color-navy);
+  color: #FFFFFF;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 0.55rem 1.15rem;
+  padding: 0.65rem 1.35rem;
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .btn-nav-compare:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Expansive & Immersive)
    ========================================================================== */
 
 .hero-section {
-  padding: 4rem 0 3.5rem;
-  background: radial-gradient(circle at 80% 20%, rgba(14, 118, 188, 0.04) 0%, transparent 60%),
+  padding: 3.5rem 0 3rem;
+  background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.05) 0%, transparent 55%),
               linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   border-bottom: 1px solid var(--color-border);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: 1.3fr 0.7fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -201,21 +206,23 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   background: #FFFFFF;
   border: 1px solid #CBD5E1;
-  color: #334155;
+  color: var(--color-slate-dark);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
   margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-xs);
 }
 
 .hero-title {
-  font-size: 2.85rem;
+  font-size: 3.1rem;
   line-height: 1.15;
   margin-bottom: 1.25rem;
   color: var(--color-navy);
+  letter-spacing: -0.03em;
 }
 
 .hero-title span {
@@ -223,11 +230,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
-  color: var(--color-muted);
+  font-size: 1.15rem;
+  color: var(--color-slate-light);
   line-height: 1.65;
-  margin-bottom: 2rem;
-  max-width: 620px;
+  margin-bottom: 2.25rem;
+  max-width: 720px;
 }
 
 .hero-actions {
@@ -242,9 +249,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.85rem 1.65rem;
+  padding: 0.9rem 1.85rem;
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px rgba(14, 118, 188, 0.2);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -252,9 +259,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-hover);
+  background: var(--color-primary-dark);
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
 }
 
 .btn-secondary {
@@ -263,7 +271,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--color-border);
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.85rem 1.65rem;
+  padding: 0.9rem 1.85rem;
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
   display: inline-flex;
@@ -279,22 +287,21 @@ h1, h2, h3, h4, h5, h6 {
 .hero-trust-bullets {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  font-size: 0.85rem;
+  gap: 2rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--color-slate);
 }
 
 .hero-trust-bullets span::before {
-  content: "•";
+  content: "✓";
   color: var(--color-primary);
-  font-weight: bold;
-  display: inline-block;
-  margin-right: 0.4rem;
+  font-weight: 800;
+  margin-right: 0.45rem;
 }
 
 /* ==========================================================================
-   Section Blocks & Typography
+   Section Blocks
    ========================================================================== */
 
 .section-block {
@@ -303,46 +310,46 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-header {
   text-align: center;
-  max-width: 680px;
+  max-width: 800px;
   margin: 0 auto 3rem;
 }
 
 .section-title {
-  font-size: 2.1rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.35rem;
+  margin-bottom: 0.85rem;
 }
 
 .section-desc {
-  font-size: 1.05rem;
-  color: var(--color-muted);
+  font-size: 1.1rem;
+  color: var(--color-slate-light);
 }
 
 /* ==========================================================================
-   Catalog Toolbar & Filter Tabs
+   Expansive Catalog Toolbar & Filter Tabs
    ========================================================================== */
 
 .catalog-toolbar-wrapper {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 2rem;
   box-shadow: var(--shadow-sm);
   margin-bottom: 2.5rem;
 }
 
 .catalog-search-row {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
   align-items: center;
 }
 
 .catalog-search-input {
   flex-grow: 1;
-  padding: 0.8rem 1.25rem;
+  padding: 0.9rem 1.4rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-family: var(--font-sans);
   background: var(--color-surface);
   transition: all 0.2s ease;
@@ -351,19 +358,20 @@ h1, h2, h3, h4, h5, h6 {
 .catalog-search-input:focus {
   background: #FFFFFF;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(14, 118, 188, 0.12);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
   outline: none;
 }
 
 .catalog-sort-select {
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.25rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-navy);
   background: var(--color-surface);
   cursor: pointer;
+  min-width: 220px;
 }
 
 .view-toggle-group {
@@ -374,12 +382,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .view-toggle-btn {
-  padding: 0.7rem 1rem;
+  padding: 0.8rem 1.2rem;
   background: #FFFFFF;
   border: none;
   cursor: pointer;
   color: var(--color-slate);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   transition: all 0.15s ease;
 }
@@ -392,17 +400,17 @@ h1, h2, h3, h4, h5, h6 {
 .filter-pills-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.65rem;
   justify-content: flex-start;
 }
 
 .filter-pill-btn {
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.2rem;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
   background-color: var(--color-surface);
   color: var(--color-slate);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -421,28 +429,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Product Cards (Clean Healthcare SaaS)
+   Expansive Product Cards (Spacious, Multi-Media Inline)
    ========================================================================== */
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
 }
 
 .product-grid.view-list {
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .product-grid.view-list .product-card {
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
 }
 
-.product-grid.view-list .card-media {
-  width: 220px;
-  height: 220px;
+.product-grid.view-list .card-media-wrapper {
+  width: 320px;
   flex-shrink: 0;
   border-bottom: none;
   border-right: 1px solid var(--color-border);
@@ -453,16 +460,16 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
   border-color: #CBD5E1;
 }
 
@@ -475,8 +482,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.8rem;
   border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
 }
 
 .price-discount-pill {
@@ -486,55 +494,56 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 10;
   background: var(--color-danger);
   color: #FFFFFF;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
 }
 
 .card-media-wrapper {
   position: relative;
   background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .card-media {
-  height: 220px;
+  height: 270px;
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 1.5rem;
   position: relative;
 }
 
-.card-media img {
+.card-media img.card-main-photo {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  transition: opacity 0.15s ease, transform 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.25s ease;
 }
 
-.product-card:hover .card-media img {
-  transform: scale(1.03);
+.product-card:hover .card-media img.card-main-photo {
+  transform: scale(1.04);
 }
 
 .card-thumbs-strip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.75rem;
+  justify-content: flex-start;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
   background: #F8FAFC;
-  border-top: 1px solid #F1F5F9;
-  border-bottom: 1px solid #F1F5F9;
+  border-top: 1px solid var(--color-border-subtle);
   overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .card-thumb-mini {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xs);
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
   background: #FFFFFF;
   padding: 2px;
   cursor: pointer;
@@ -545,7 +554,8 @@ h1, h2, h3, h4, h5, h6 {
 .card-thumb-mini.active,
 .card-thumb-mini:hover {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(14, 118, 188, 0.2);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.25);
+  transform: scale(1.06);
 }
 
 .card-thumb-mini img {
@@ -556,14 +566,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-video-pill {
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(4px);
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(6px);
   color: #FFFFFF;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   z-index: 5;
   display: inline-flex;
@@ -572,7 +582,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-body {
-  padding: 1.25rem 1.4rem 1.4rem;
+  padding: 1.5rem 1.65rem 1.65rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -582,11 +592,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-brand-tag {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: var(--color-primary);
   letter-spacing: 0.05em;
@@ -594,49 +604,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-category-tag {
-  font-size: 0.7rem;
-  color: #64748B;
+  font-size: 0.75rem;
+  color: var(--color-slate-light);
   font-weight: 700;
   background: var(--color-surface);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 0.6rem;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
   color: var(--color-navy);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  height: 3.2em;
 }
 
 .card-rating-box {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 0.85rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .rating-badge {
   color: #B45309;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .card-specs-matrix {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.35rem;
+  gap: 0.45rem;
   background: var(--color-surface);
-  padding: 0.65rem 0.85rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius-md);
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.84rem;
   border: 1px solid var(--color-border);
 }
 
@@ -653,39 +664,39 @@ h1, h2, h3, h4, h5, h6 {
   align-items: baseline;
   justify-content: space-between;
   margin-top: auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid #F1F5F9;
-  margin-bottom: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border-subtle);
+  margin-bottom: 1.25rem;
 }
 
 .price-main-val {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--color-navy);
   font-family: var(--font-display);
 }
 
 .price-strike-val {
-  font-size: 0.85rem;
-  color: #94A3B8;
+  font-size: 0.9rem;
+  color: var(--color-muted);
   text-decoration: line-through;
-  margin-left: 0.35rem;
+  margin-left: 0.4rem;
 }
 
 .card-actions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0.65rem;
 }
 
 .btn-card-quick {
   background: var(--color-surface);
   color: var(--color-navy);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 0.65rem;
+  padding: 0.75rem;
   cursor: pointer;
   transition: all 0.15s ease;
   text-align: center;
@@ -697,12 +708,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-card-prime {
-  background: #0F172A;
+  background: var(--color-navy);
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   border-radius: var(--radius-md);
-  padding: 0.65rem;
+  padding: 0.75rem;
   text-decoration: none;
   text-align: center;
   transition: all 0.15s ease;
@@ -714,7 +725,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Quick Modal with Amazon Multi-Photo Gallery
+   Expansive Quick Modal with Full Multi-Media Gallery & Video Player
    ========================================================================== */
 
 .quick-modal-backdrop {
@@ -723,15 +734,15 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(6px);
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
   z-index: 9999;
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 2rem;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
 .quick-modal-backdrop.open {
@@ -742,28 +753,28 @@ h1, h2, h3, h4, h5, h6 {
 .quick-modal-box {
   background: #FFFFFF;
   border-radius: var(--radius-xl);
-  max-width: 960px;
+  max-width: 1100px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 92vh;
   overflow-y: auto;
-  padding: 2.25rem;
+  padding: 2.75rem;
   position: relative;
   box-shadow: var(--shadow-xl);
 }
 
 .quick-modal-close-btn {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 1.5rem;
+  right: 1.5rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--color-slate);
   cursor: pointer;
   transition: background 0.15s;
@@ -771,24 +782,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .quick-modal-close-btn:hover {
   background: #E2E8F0;
-  color: #0F172A;
+  color: var(--color-navy);
 }
 
 .quick-modal-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin-top: 1.25rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
 }
 
 .modal-gallery-main {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1.75rem;
   text-align: center;
-  margin-bottom: 0.75rem;
-  height: 280px;
+  margin-bottom: 1rem;
+  height: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -802,27 +813,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-thumbs-row {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
+  scrollbar-width: thin;
 }
 
 .modal-thumb-btn {
-  width: 56px;
-  height: 56px;
-  border: 1.5px solid var(--color-border);
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: #FFFFFF;
   padding: 4px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, transform 0.15s;
 }
 
 .modal-thumb-btn.active,
 .modal-thumb-btn:hover {
   border-color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .modal-thumb-btn img {
@@ -835,62 +848,63 @@ h1, h2, h3, h4, h5, h6 {
 .specs-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
 }
 
 .specs-table th {
   text-align: left;
-  padding: 0.6rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border);
-  color: var(--color-muted);
-  width: 40%;
+  color: var(--color-slate-light);
+  width: 42%;
 }
 
 .specs-table td {
-  padding: 0.6rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-navy);
   font-weight: 600;
 }
 
 .btn-buy-amazon-large {
-  background: #0F172A;
+  background: var(--color-navy);
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 1rem;
-  padding: 0.95rem 1.5rem;
+  font-size: 1.05rem;
+  padding: 1.1rem 1.75rem;
   border-radius: var(--radius-md);
   text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
   text-decoration: none;
 }
 
 .btn-buy-amazon-large:hover {
   background: var(--color-primary);
   color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 /* Floating Compare Dock */
 .floating-compare-dock {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 1.75rem;
   left: 50%;
   transform: translateX(-50%) translateY(140%);
-  background: rgba(15, 23, 42, 0.96);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(16px);
   color: #FFFFFF;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.75rem;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-xl);
   z-index: 900;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -900,50 +914,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .floating-compare-count {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .btn-floating-action {
   background: var(--color-primary);
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 0.85rem;
-  padding: 0.45rem 1.15rem;
+  font-size: 0.88rem;
+  padding: 0.5rem 1.35rem;
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: background 0.15s;
 }
 
 .btn-floating-action:hover {
-  background: var(--color-primary-hover);
+  background: var(--color-primary-dark);
 }
 
 /* Footer */
 .site-footer {
   background: #0F172A;
   color: #94A3B8;
-  padding: 4rem 0 2rem;
+  padding: 4.5rem 0 2.5rem;
   border-top: 1px solid #1E293B;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .footer-brand h3 {
   color: #FFFFFF;
-  font-size: 1.4rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.85rem;
 }
 
 .footer-col h4 {
   color: #FFFFFF;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .footer-links {
@@ -951,7 +965,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-links li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .footer-links a {
@@ -966,8 +980,8 @@ h1, h2, h3, h4, h5, h6 {
 .footer-disclaimers {
   border-top: 1px solid #1E293B;
   padding-top: 2rem;
-  font-size: 0.75rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.65;
   color: #64748B;
 }
 
@@ -975,7 +989,13 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding-top: 1.5rem;
   color: #475569;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
 
 @media (max-width: 992px) {
@@ -986,6 +1006,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 }
 
@@ -994,7 +1015,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
   }
   .footer-grid {
     grid-template-columns: 1fr;

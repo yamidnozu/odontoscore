@@ -235,11 +235,10 @@ def render_product_card(p, root_rel=""):
     tech_str = p.get('tecnologia', 'sonico').replace('_', ' ').upper()
     potencia_str = f"{p['presion_agua_psi']} PSI" if p.get('presion_agua_psi') else (f"{p['pulsaciones_min']:,} mov/min" if p.get('pulsaciones_min') else ("Autoclave 134°C" if p.get('esterilizable_autoclave') else "Clínico"))
     autonomia_str = f"{p['autonomia_dias']} días" if p.get('autonomia_dias', 14) < 365 else "Red continua / AC"
-    has_video = Boolean = True  # Video available for all categories
 
     thumbs_html = ""
     if len(images) > 1:
-        mini_thumbs = "".join([f'<button type="button" class="card-thumb-mini {"active" if idx==0 else ""}" data-card-thumb="{img}" aria-label="Foto {idx+1}"><img src="{img}" alt="Miniatura"></button>' for idx, img in enumerate(images[:5])])
+        mini_thumbs = "".join([f'<button type="button" class="card-thumb-mini {"active" if idx==0 else ""}" data-card-thumb="{img}" aria-label="Foto {idx+1}"><img src="{img}" alt="Miniatura"></button>' for idx, img in enumerate(images[:6])])
         thumbs_html = f'<div class="card-thumbs-strip">{mini_thumbs}</div>'
 
     return f"""
@@ -250,7 +249,7 @@ def render_product_card(p, root_rel=""):
   <div class="card-media-wrapper">
     <div class="card-media">
       <img class="card-main-photo" src="{main_img}" alt="{p['name']}" loading="lazy" onerror="this.onerror=null;this.src='https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={p['asin']}&Format=_SL1500_&ID=AsinImage&MarketPlace=ES&ServiceVersion=20070822&WS=1&tag=odontoscore-21';">
-      <span class="card-video-pill">Vídeo Disponible</span>
+      <span class="card-video-pill">Vídeo y {len(images)} Fotos</span>
     </div>
     {thumbs_html}
   </div>
@@ -258,19 +257,19 @@ def render_product_card(p, root_rel=""):
   <div class="card-body">
     <div class="card-header-meta">
       <span class="card-brand-tag">{p['marca']}</span>
-      <span class="card-category-tag">{p['category']} ({len(images)} fotos)</span>
+      <span class="card-category-tag">{p['category']}</span>
     </div>
     
     <h3 class="card-title" title="{p['name']}">{p['name']}</h3>
     
     <div class="card-rating-box">
       <span class="rating-badge">★ {p['valoracion_media']}</span>
-      <span style="font-size:0.8rem;color:#64748B;">({p['resenas_cantidad']:,} valoraciones)</span>
+      <span style="font-size:0.85rem;color:#64748B;">({p['resenas_cantidad']:,} valoraciones verificadas)</span>
     </div>
     
     <div class="card-specs-matrix">
       <div class="spec-cell">Tecnología: <strong>{tech_str}</strong></div>
-      <div class="spec-cell">Modos: <strong>{p['modos_limpieza']}</strong></div>
+      <div class="spec-cell">Modos: <strong>{p['modos_limpieza']} programas</strong></div>
       <div class="spec-cell">Potencia: <strong>{potencia_str}</strong></div>
       <div class="spec-cell">Autonomía: <strong>{autonomia_str}</strong></div>
     </div>
@@ -280,11 +279,11 @@ def render_product_card(p, root_rel=""):
         <span class="price-main-val">{p['discountedPrice']} €</span>
         {f'<span class="price-strike-val">{p["retailPrice"]} €</span>' if discount_pct > 0 else ''}
       </div>
-      <span style="font-size:0.75rem;font-weight:700;color:#059669;">Envío Prime</span>
+      <span style="font-size:0.78rem;font-weight:700;color:#059669;">Envío Prime 24/48h</span>
     </div>
     
     <div class="card-actions-grid">
-      <button type="button" class="btn-card-quick" data-quick-view="{p['id']}">Ver Galería &amp; Ficha</button>
+      <button type="button" class="btn-card-quick" data-quick-view="{p['id']}">Ver Galería</button>
       <a href="{p['affiliate_url']}" target="_blank" rel="sponsored nofollow noopener" class="btn-card-prime">Ver en Amazon</a>
     </div>
   </div>
