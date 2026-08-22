@@ -204,18 +204,20 @@ def fetch_rainforest_fallback(asin):
             price_val = price_info.get("value")
             orig_price_val = product.get("rrp", {}).get("value") or price_val
 
-            return {
-                "source": "Rainforest API (Fallback)",
-                "asin": asin,
-                "title": product.get("title"),
-                "brand": product.get("brand"),
-                "discounted_price": float(price_val) if price_val else None,
-                "retail_price": float(orig_price_val) if orig_price_val else None,
-                "valoracion_media": float(product.get("rating", 4.5)),
-                "resenas_cantidad": int(product.get("ratings_total", 0)),
-                "disponibilidad": "InStock" if product.get("buybox_winner", {}).get("is_in_stock", True) else "OutOfStock",
-                "currency": "EUR"
-            }
+            if price_val:
+                return {
+                    "source": "Rainforest API (Fallback)",
+                    "asin": asin,
+                    "title": product.get("title"),
+                    "brand": product.get("brand"),
+                    "discounted_price": float(price_val),
+                    "retail_price": float(orig_price_val) if orig_price_val else float(price_val),
+                    "valoracion_media": float(product.get("rating", 4.5)),
+                    "resenas_cantidad": int(product.get("ratings_total", 0)),
+                    "disponibilidad": "InStock" if product.get("buybox_winner", {}).get("is_in_stock", True) else "OutOfStock",
+                    "currency": "EUR"
+                }
+            return None
     except Exception as e:
         print(f"  [Rainforest Fallback Fallo para {asin}]: {e}")
         return None
@@ -231,15 +233,15 @@ def sync_product(asin_data, dry_run=False, force=False):
     if not fresh_data:
         fresh_data = fetch_rainforest_fallback(asin)
 
-    if not fresh_data:
-        print(f"  [INFO] Sin respuesta de APIs externas para {asin}. Manteniendo datos existentes.")
+    if not fresh_data or not fresh_data.get("discounted_price"):
+        print(f"  [INFO] Manteniendo datos clínicos y de catálogo existentes para {asin}.")
         fresh_data = {
-            "source": "Local Seed / DB Cache",
+            "source": "Supabase / Seed Cache",
             "asin": asin,
-            "discounted_price": asin_data.get("discountedPrice") or asin_data.get("discounted_price", 99.99),
-            "retail_price": asin_data.get("retailPrice") or asin_data.get("retail_price", 99.99),
-            "valoracion_media": asin_data.get("valoracion_media", 4.5),
-            "resenas_cantidad": asin_data.get("resenas_cantidad", 1000),
+            "discounted_price": float(asin_data.get("discounted_price") or asin_data.get("discountedPrice") or 99.99),
+            "retail_price": float(asin_data.get("retail_price") or asin_data.get("retailPrice") or 99.99),
+            "valoracion_media": float(asin_data.get("valoracion_media") or 4.5),
+            "resenas_cantidad": int(asin_data.get("resenas_cantidad") or 1000),
             "disponibilidad": asin_data.get("disponibilidad", "InStock"),
             "currency": "EUR"
         }
