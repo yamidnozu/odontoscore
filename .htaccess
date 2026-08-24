@@ -26,6 +26,14 @@
   <FilesMatch "\.(html|json)$">
     Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
   </FilesMatch>
+  <FilesMatch "sitemap\.xml$">
+    Header set Content-Type "application/xml; charset=utf-8"
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "robots\.txt$">
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+  </FilesMatch>
   <FilesMatch "\.(css|js|webp|svg|png|jpg)$">
     Header set Cache-Control "max-age=2592000, public"
   </FilesMatch>
