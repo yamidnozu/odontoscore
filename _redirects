@@ -1,0 +1,6 @@
+# OdontoScore Redirects (Netlify/Vercel compatible)
+/catalogo       /index.html#catalogo       200
+/estudiantes    /index.html#estudiantes    200
+/comparador     /index.html#comparador     200
+/ofertas        /index.html#ofertas        200
+/faq            /index.html#faq            200
