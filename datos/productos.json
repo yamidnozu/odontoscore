@@ -23,7 +23,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.7,
     "resenas_cantidad": 12100,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "higiene_infantil",
     "tecnologia": "rotatorio",
     "modos_limpieza": 2,
@@ -108,7 +108,7 @@
     "rango_precio": "medio",
     "valoracion_media": 5.0,
     "resenas_cantidad": 20,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "quirurgico",
     "modos_limpieza": 2,
@@ -178,6 +178,99 @@
     ]
   },
   {
+    "id": "waterpik-cordless-advanced-wp-560",
+    "asin": "B08K9K9K99",
+    "name": "Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico",
+    "marca": "Waterpik",
+    "categoria_odontologica": "irrigadores_dentales",
+    "category": "Irrigadores Dentales",
+    "affiliate_url": "https://www.amazon.es/dp/B08K9K9K99?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B08K9K9K99",
+    "images": [
+      "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 109.99,
+    "discountedPrice": 89.95,
+    "rango_precio": "medio",
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 9300,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "irrigadores_dentales",
+    "tecnologia": "irrigador",
+    "modos_limpieza": 3,
+    "presion_agua_psi": 75,
+    "capacidad_deposito_ml": 210,
+    "pulsaciones_min": 1250,
+    "autonomia_dias": 7,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 64,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": false,
+    "material": "Material médico",
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "brackets",
+      "viajes",
+      "ortodoncia",
+      "implantes"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/embed/l02dBOdOxtU",
+          "title": "How to Use Waterpik® Cordless Advanced (WP-560)",
+          "author": "Waterpik Oficial",
+          "thumbnail": "https://img.youtube.com/vi/l02dBOdOxtU/hqdefault.jpg"
+        }
+      ]
+    },
+    "score_eficacia": 9.2,
+    "score_comodidad_encias": 9.0,
+    "score_durabilidad": 8.6,
+    "score_facilidad_uso": 9.5,
+    "score_silencio": 7.8,
+    "score_tecnologia": 8.3,
+    "score_calidad_precio": 8.9,
+    "description": "Análisis clínico y especificaciones técnicas completas de Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico.",
+    "cuerpo_editorial": "<p>El dispositivo <strong>Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología irrigador.</p>",
+    "pros": [
+      "Eficacia clínica probada",
+      "Excelente relación calidad-precio",
+      "Ergonomía optimizada"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
+    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Está especialmente diseñado para brackets, viajes, ortodoncia, implantes.",
+        "q": "¿Para qué está indicado Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico?"
+      },
+      {
+        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
+        "q": "¿Tiene garantía oficial?"
+      }
+    ]
+  },
+  {
     "id": "irrigador-bucal-b0chyvn2d7",
     "asin": "B0CHYVN2D7",
     "name": "Irrigador Bucal Portatil, Vimmk Irrigador Dental Inalámbrico Profesional 8 Boquillas 5 Modos, IPX7 Impermeable 300ML USB-C Recargable Para Limpieza Dientes, Para el Hogar y los Viajes (Blanco)",
@@ -203,7 +296,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 7642,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 5,
@@ -297,7 +390,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.1,
     "resenas_cantidad": 1529,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
     "modos_limpieza": 5,
@@ -366,95 +459,94 @@
     ]
   },
   {
-    "id": "waterpik-cordless-advanced-wp-560",
-    "asin": "B08K9K9K99",
-    "name": "Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico",
-    "marca": "Waterpik",
-    "categoria_odontologica": "irrigadores_dentales",
-    "category": "Irrigadores Dentales",
-    "affiliate_url": "https://www.amazon.es/dp/B08K9K9K99?tag=odontoscore-21",
+    "id": "oral-b-pro-b0c6mb3g93",
+    "asin": "B0C6MB3G93",
+    "name": "Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles",
+    "marca": "Oral-B",
+    "categoria_odontologica": "higiene_infantil",
+    "category": "Higiene Infantil",
+    "affiliate_url": "https://www.amazon.es/dp/B0C6MB3G93?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B08K9K9K99",
+    "canonical_url": "https://www.amazon.es/dp/B0C6MB3G93",
     "images": [
-      "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+      "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
     ],
     "isFeatured": false,
     "showInTopMenu": false,
-    "retailPrice": 109.99,
-    "discountedPrice": 89.95,
+    "retailPrice": 27.14,
+    "discountedPrice": 21.71,
     "rango_precio": "medio",
-    "valoracion_media": 4.4,
-    "resenas_cantidad": 9300,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "irrigadores_dentales",
-    "tecnologia": "irrigador",
-    "modos_limpieza": 3,
-    "presion_agua_psi": 75,
-    "capacidad_deposito_ml": 210,
-    "pulsaciones_min": 1250,
-    "autonomia_dias": 7,
+    "valoracion_media": 4.7,
+    "resenas_cantidad": 2503,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "higiene_infantil",
+    "tecnologia": "rotatorio",
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": null,
+    "autonomia_dias": 14,
     "tiempo_carga_h": 3.0,
     "cabezales_incluidos": 1,
-    "nivel_ruido_db": 64,
+    "nivel_ruido_db": 60,
     "resistencia_ipx": "IPX7",
     "app_conectada": false,
     "material": "Material médico",
     "esterilizable_autoclave": false,
     "indicado_para": [
-      "brackets",
-      "viajes",
-      "ortodoncia",
-      "implantes"
+      "higiene_bucal",
+      "encias_sensibles",
+      "ninos"
     ],
     "specs_extra": {
       "images": [
-        "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+        "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
       ],
       "videos": [
         {
-          "url": "https://www.youtube.com/embed/l02dBOdOxtU",
-          "title": "How to Use Waterpik® Cordless Advanced (WP-560)",
-          "author": "Waterpik Oficial",
-          "thumbnail": "https://img.youtube.com/vi/l02dBOdOxtU/hqdefault.jpg"
+          "url": "https://www.youtube.com/embed/vaRZfX0wJ6Y",
+          "title": "Oral-B Pro Kids™ Demostración y Protección Gingival",
+          "author": "Oral-B Kids",
+          "thumbnail": "https://img.youtube.com/vi/vaRZfX0wJ6Y/hqdefault.jpg"
         }
       ]
     },
-    "score_eficacia": 9.2,
-    "score_comodidad_encias": 9.0,
-    "score_durabilidad": 8.6,
-    "score_facilidad_uso": 9.5,
-    "score_silencio": 7.8,
-    "score_tecnologia": 8.3,
-    "score_calidad_precio": 8.9,
-    "description": "Análisis clínico y especificaciones técnicas completas de Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico.",
-    "cuerpo_editorial": "<p>El dispositivo <strong>Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología irrigador.</p>",
+    "score_eficacia": 9.1,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.0,
+    "score_facilidad_uso": 9.4,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.9,
+    "score_calidad_precio": 9.3,
+    "description": "Análisis técnico y especificaciones de Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles.",
+    "cuerpo_editorial": "<p>El producto <strong>Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles</strong> cuenta con excelentes valoraciones y adecuación técnica para higiene infantil.</p>",
     "pros": [
-      "Eficacia clínica probada",
+      "Calidad de fabricación certificada",
       "Excelente relación calidad-precio",
-      "Ergonomía optimizada"
+      "Envío protegido por Amazon Prime"
     ],
     "contras": [
-      "Consultar disponibilidad de recambios"
+      "Consultar compatibilidad específica"
     ],
-    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
-    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
+    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en higiene infantil.",
+    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
     "resenas_resumen": "",
     "geo_faq": [
       {
-        "a": "Está especialmente diseñado para brackets, viajes, ortodoncia, implantes.",
-        "q": "¿Para qué está indicado Waterpik Cordless Advanced WP-560 Irrigador Portátil Inalámbrico?"
+        "a": "Especialmente indicado para Higiene Infantil con tecnología rotatorio.",
+        "q": "¿Para qué se recomienda Oral-B Pro Kids Cepillo de Dientes ?"
       },
       {
-        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
-        "q": "¿Tiene garantía oficial?"
+        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
+        "q": "¿Es apto para clínicas o estudiantes?"
       }
     ]
   },
@@ -482,7 +574,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "cuidado_ortodontico",
     "modos_limpieza": 5,
@@ -574,7 +666,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 28400,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
     "modos_limpieza": 3,
@@ -667,7 +759,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 3,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "interdental",
     "modos_limpieza": 2,
@@ -760,7 +852,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 22,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "anatomico",
     "modos_limpieza": 2,
@@ -828,98 +920,6 @@
     ]
   },
   {
-    "id": "lacer-aligner-b0h4rqm7hl",
-    "asin": "B0H4RQM7HL",
-    "name": "LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro",
-    "marca": "LACER",
-    "categoria_odontologica": "ortodoncia_brackets",
-    "category": "Ortodoncia y Brackets",
-    "affiliate_url": "https://www.amazon.es/dp/B0H4RQM7HL?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0H4RQM7HL",
-    "images": [
-      "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 11.06,
-    "discountedPrice": 8.85,
-    "rango_precio": "medio",
-    "valoracion_media": 4.5,
-    "resenas_cantidad": 2,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "ortodoncia_brackets",
-    "tecnologia": "cuidado_ortodontico",
-    "modos_limpieza": 5,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": 17400,
-    "autonomia_dias": 7,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 58,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": true,
-    "material": "Material médico",
-    "esterilizable_autoclave": false,
-    "indicado_para": [
-      "higiene_bucal",
-      "encias_sensibles",
-      "brackets"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/embed/svTG_jDhqdI",
-          "title": "Cómo Aplicar Cera de Ortodoncia para Alivio de Brackets",
-          "author": "Especialidad Ortodoncia",
-          "thumbnail": "https://img.youtube.com/vi/svTG_jDhqdI/hqdefault.jpg"
-        }
-      ]
-    },
-    "score_eficacia": 9.6,
-    "score_comodidad_encias": 9.2,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.4,
-    "score_silencio": 10.0,
-    "score_tecnologia": 9.8,
-    "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro.",
-    "cuerpo_editorial": "<p>El producto <strong>LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro</strong> cuenta con excelentes valoraciones y adecuación técnica para ortodoncia y brackets.</p>",
-    "pros": [
-      "Calidad de fabricación certificada",
-      "Excelente relación calidad-precio",
-      "Envío protegido por Amazon Prime"
-    ],
-    "contras": [
-      "Consultar compatibilidad específica"
-    ],
-    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en ortodoncia y brackets.",
-    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Especialmente indicado para Ortodoncia y Brackets con tecnología cuidado_ortodontico.",
-        "q": "¿Para qué se recomienda LACER ALIGNER - Cera para Brackets ?"
-      },
-      {
-        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
-        "q": "¿Es apto para clínicas o estudiantes?"
-      }
-    ]
-  },
-  {
     "id": "luz-de-b0c6g6vf5x",
     "asin": "B0C6G6VF5X",
     "name": "Luz de fotografía Dental Flash, lámpara de llenado Oral LED, Equipo de ortodoncia de Video fotográfico de odontología para iluminación de Tratamiento de Dentista",
@@ -946,7 +946,7 @@
     "rango_precio": "medio",
     "valoracion_media": 5.0,
     "resenas_cantidad": 1,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "led",
     "modos_limpieza": 2,
@@ -1017,6 +1017,98 @@
     ]
   },
   {
+    "id": "lacer-aligner-b0h4rqm7hl",
+    "asin": "B0H4RQM7HL",
+    "name": "LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro",
+    "marca": "LACER",
+    "categoria_odontologica": "ortodoncia_brackets",
+    "category": "Ortodoncia y Brackets",
+    "affiliate_url": "https://www.amazon.es/dp/B0H4RQM7HL?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0H4RQM7HL",
+    "images": [
+      "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 11.06,
+    "discountedPrice": 8.85,
+    "rango_precio": "medio",
+    "valoracion_media": 4.5,
+    "resenas_cantidad": 2,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "ortodoncia_brackets",
+    "tecnologia": "cuidado_ortodontico",
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 7,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 58,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": true,
+    "material": "Material médico",
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "brackets"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/embed/svTG_jDhqdI",
+          "title": "Cómo Aplicar Cera de Ortodoncia para Alivio de Brackets",
+          "author": "Especialidad Ortodoncia",
+          "thumbnail": "https://img.youtube.com/vi/svTG_jDhqdI/hqdefault.jpg"
+        }
+      ]
+    },
+    "score_eficacia": 9.6,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.0,
+    "score_facilidad_uso": 9.4,
+    "score_silencio": 10.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.3,
+    "description": "Análisis técnico y especificaciones de LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro.",
+    "cuerpo_editorial": "<p>El producto <strong>LACER ALIGNER - Cera para Brackets Ortodoncia Pack 14 Barras - Protección contra Rozaduras - Alivio de Irritaciones en Encías, Lengua y Mucosa Oral - Fácil Aplicación - Uso Diario Seguro</strong> cuenta con excelentes valoraciones y adecuación técnica para ortodoncia y brackets.</p>",
+    "pros": [
+      "Calidad de fabricación certificada",
+      "Excelente relación calidad-precio",
+      "Envío protegido por Amazon Prime"
+    ],
+    "contras": [
+      "Consultar compatibilidad específica"
+    ],
+    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en ortodoncia y brackets.",
+    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Especialmente indicado para Ortodoncia y Brackets con tecnología cuidado_ortodontico.",
+        "q": "¿Para qué se recomienda LACER ALIGNER - Cera para Brackets ?"
+      },
+      {
+        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
+        "q": "¿Es apto para clínicas o estudiantes?"
+      }
+    ]
+  },
+  {
     "id": "oral-b-io-b0dp1q2mkw",
     "asin": "B0DP1Q2MKW",
     "name": "Oral-B iO 2 Cepillo de Dientes Eléctrico con 1 Cabezal, Azul Mar",
@@ -1050,7 +1142,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 1314,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
     "modos_limpieza": 5,
@@ -1151,7 +1243,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 16200,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 2,
@@ -1256,7 +1348,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 5,
@@ -1358,7 +1450,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 5,
@@ -1455,7 +1547,7 @@
     "rango_precio": "premium",
     "valoracion_media": 4.7,
     "resenas_cantidad": 3100,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "sonico",
     "modos_limpieza": 5,
@@ -1531,117 +1623,6 @@
     ]
   },
   {
-    "id": "oral-b-io-b0c6md27cg",
-    "asin": "B0C6MD27CG",
-    "name": "Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro",
-    "marca": "Oral-B",
-    "categoria_odontologica": "cepillos_electricos",
-    "category": "Cepillos Eléctricos",
-    "affiliate_url": "https://www.amazon.es/dp/B0C6MD27CG?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0C6MD27CG",
-    "images": [
-      "https://m.media-amazon.com/images/I/71BmSXqiB7L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81jKOKSEy4L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81XPKJ156gL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71V5ShSzjWL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71LuAGbNN0L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81u4sHtpQtL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71jw-Eq4jjL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71b0OXI0WkL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81Xd7guIFVL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81tw+EMquBL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/817IAa06mSL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81gqG6m957L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81BTSqbDs5L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81wwEo7OX9L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71jw8x4ZibL._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 99.95,
-    "discountedPrice": 84.8,
-    "rango_precio": "medio",
-    "valoracion_media": 4.4,
-    "resenas_cantidad": 1853,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "cepillos_electricos",
-    "tecnologia": "rotatorio",
-    "modos_limpieza": 5,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": 17400,
-    "autonomia_dias": 14,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 58,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": true,
-    "material": "Material médico",
-    "esterilizable_autoclave": false,
-    "indicado_para": [
-      "higiene_bucal",
-      "encias_sensibles"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/71BmSXqiB7L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81jKOKSEy4L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81XPKJ156gL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71V5ShSzjWL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71LuAGbNN0L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81u4sHtpQtL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71jw-Eq4jjL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71b0OXI0WkL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81Xd7guIFVL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81tw+EMquBL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/817IAa06mSL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81gqG6m957L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81BTSqbDs5L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81wwEo7OX9L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71jw8x4ZibL._AC_SL1500_.jpg"
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/embed/Dp3VvvsAzd8",
-          "title": "Oral-B iO™ Official Technology & Micro-Vibrations Demo",
-          "author": "Oral-B Oficial",
-          "thumbnail": "https://img.youtube.com/vi/Dp3VvvsAzd8/hqdefault.jpg"
-        }
-      ]
-    },
-    "score_eficacia": 9.6,
-    "score_comodidad_encias": 9.2,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.4,
-    "score_silencio": 8.0,
-    "score_tecnologia": 9.8,
-    "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro | Cepillo Dental con Sensor de Presión, 3 Modos de Cepillado con Modo Blaqueante, Temporizador y Soporte para Cabezales.",
-    "cuerpo_editorial": "<p>El producto <strong>Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro | Cepillo Dental con Sensor de Presión, 3 Modos de Cepillado con Modo Blaqueante, Temporizador y Soporte para Cabezales</strong> cuenta con excelentes valoraciones y adecuación técnica para cepillos eléctricos.</p>",
-    "pros": [
-      "Calidad de fabricación certificada",
-      "Excelente relación calidad-precio",
-      "Envío protegido por Amazon Prime"
-    ],
-    "contras": [
-      "Consultar compatibilidad específica"
-    ],
-    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en cepillos eléctricos.",
-    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Especialmente indicado para Cepillos Eléctricos con tecnología rotatorio.",
-        "q": "¿Para qué se recomienda Oral-B iO 3N Cepillo de Dientes Elé?"
-      },
-      {
-        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
-        "q": "¿Es apto para clínicas o estudiantes?"
-      }
-    ]
-  },
-  {
     "id": "philips-sonicare-b0g7kr88lp",
     "asin": "B0G7KR88LP",
     "name": "Philips Sonicare Serie 3100 - Cepillo dental sónico con sensor de presión, 3 niveles de intensidad, función EasyStart, SmarTimer, autonomía de 14 días, estuche, blanco, HX4033/21, [Nuevo] Blanco, [Nueva generación]",
@@ -1670,7 +1651,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 217,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "sonico",
     "modos_limpieza": 3,
@@ -1772,7 +1753,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 4452,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
     "modos_limpieza": 5,
@@ -1847,6 +1828,117 @@
     ]
   },
   {
+    "id": "oral-b-io-b0c6md27cg",
+    "asin": "B0C6MD27CG",
+    "name": "Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro",
+    "marca": "Oral-B",
+    "categoria_odontologica": "cepillos_electricos",
+    "category": "Cepillos Eléctricos",
+    "affiliate_url": "https://www.amazon.es/dp/B0C6MD27CG?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0C6MD27CG",
+    "images": [
+      "https://m.media-amazon.com/images/I/71BmSXqiB7L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81jKOKSEy4L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81XPKJ156gL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71V5ShSzjWL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71LuAGbNN0L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81u4sHtpQtL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71jw-Eq4jjL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71b0OXI0WkL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81Xd7guIFVL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81tw+EMquBL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/817IAa06mSL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81gqG6m957L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81BTSqbDs5L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81wwEo7OX9L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71jw8x4ZibL._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 99.95,
+    "discountedPrice": 84.8,
+    "rango_precio": "medio",
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 1853,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "cepillos_electricos",
+    "tecnologia": "rotatorio",
+    "modos_limpieza": 5,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": 17400,
+    "autonomia_dias": 14,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 58,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": true,
+    "material": "Material médico",
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/71BmSXqiB7L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81jKOKSEy4L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81XPKJ156gL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71V5ShSzjWL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71LuAGbNN0L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81u4sHtpQtL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71jw-Eq4jjL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71b0OXI0WkL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81Xd7guIFVL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81tw+EMquBL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/817IAa06mSL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81gqG6m957L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81BTSqbDs5L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81wwEo7OX9L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71jw8x4ZibL._AC_SL1500_.jpg"
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/embed/Dp3VvvsAzd8",
+          "title": "Oral-B iO™ Official Technology & Micro-Vibrations Demo",
+          "author": "Oral-B Oficial",
+          "thumbnail": "https://img.youtube.com/vi/Dp3VvvsAzd8/hqdefault.jpg"
+        }
+      ]
+    },
+    "score_eficacia": 9.6,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.0,
+    "score_facilidad_uso": 9.4,
+    "score_silencio": 8.0,
+    "score_tecnologia": 9.8,
+    "score_calidad_precio": 9.3,
+    "description": "Análisis técnico y especificaciones de Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro | Cepillo Dental con Sensor de Presión, 3 Modos de Cepillado con Modo Blaqueante, Temporizador y Soporte para Cabezales.",
+    "cuerpo_editorial": "<p>El producto <strong>Oral-B iO 3N Cepillo de Dientes Eléctrico con 1 Cabezal, Negro | Cepillo Dental con Sensor de Presión, 3 Modos de Cepillado con Modo Blaqueante, Temporizador y Soporte para Cabezales</strong> cuenta con excelentes valoraciones y adecuación técnica para cepillos eléctricos.</p>",
+    "pros": [
+      "Calidad de fabricación certificada",
+      "Excelente relación calidad-precio",
+      "Envío protegido por Amazon Prime"
+    ],
+    "contras": [
+      "Consultar compatibilidad específica"
+    ],
+    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en cepillos eléctricos.",
+    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Especialmente indicado para Cepillos Eléctricos con tecnología rotatorio.",
+        "q": "¿Para qué se recomienda Oral-B iO 3N Cepillo de Dientes Elé?"
+      },
+      {
+        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
+        "q": "¿Es apto para clínicas o estudiantes?"
+      }
+    ]
+  },
+  {
     "id": "cera-dental-b0fkgr1zvb",
     "asin": "B0FKGR1ZVB",
     "name": "Cera dental ortodóntica para ortodoncia - 3 unidades/15 tiras de cera dental para brackets, cera para brackets, cera dental para portadores de brackets para aliviar irritaciones y dolores",
@@ -1869,7 +1961,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.2,
     "resenas_cantidad": 115,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "cuidado_ortodontico",
     "modos_limpieza": 5,
@@ -1961,7 +2053,7 @@
     "rango_precio": "medio",
     "valoracion_media": 5.0,
     "resenas_cantidad": 3,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
     "modos_limpieza": 5,
@@ -2054,7 +2146,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 4100,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "instrumental_basico",
     "tecnologia": "instrumental",
     "modos_limpieza": 1,
@@ -2141,7 +2233,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.7,
     "resenas_cantidad": 5,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "led",
     "modos_limpieza": 5,
@@ -2213,45 +2305,43 @@
     ]
   },
   {
-    "id": "l-piz-blanqueador-b0fnwl6gtx",
-    "asin": "B0FNWL6GTX",
-    "name": "Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte 15 ml (Paquete de 1)",
-    "marca": "Lápiz",
+    "id": "bledras-kit-b0b3dpkhxg",
+    "asin": "B0B3DPKHXG",
+    "name": "Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro",
+    "marca": "Bledras",
     "categoria_odontologica": "blanqueamiento_dental",
     "category": "Blanqueamiento Dental",
-    "affiliate_url": "https://www.amazon.es/dp/B0FNWL6GTX?tag=odontoscore-21",
+    "affiliate_url": "https://www.amazon.es/dp/B0B3DPKHXG?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0FNWL6GTX",
+    "canonical_url": "https://www.amazon.es/dp/B0B3DPKHXG",
     "images": [
-      "https://m.media-amazon.com/images/I/71Cv+MlJYyL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71mOypy7haL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71e-yANY6ZL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71y7tLTVwOL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/710uUXd4fKL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71muioOGVNL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71auYLe1EVL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71tYTGQVRlL._AC_SL1500_.jpg"
+      "https://m.media-amazon.com/images/I/71FHe4r3IYL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81sf+Ly63wL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71OdeSPa-5L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71KOtRoypBL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71rK7GirT7L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71ZW462JxNL._AC_SL1500_.jpg"
     ],
     "isFeatured": false,
     "showInTopMenu": false,
-    "retailPrice": 49.99,
-    "discountedPrice": 39.99,
+    "retailPrice": 21.99,
+    "discountedPrice": 18.86,
     "rango_precio": "medio",
-    "valoracion_media": 4.3,
-    "resenas_cantidad": 6561,
-    "precio_fecha": "2026-08-26",
+    "valoracion_media": 3.9,
+    "resenas_cantidad": 1013,
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
-    "modos_limpieza": 2,
+    "modos_limpieza": 5,
     "presion_agua_psi": null,
     "capacidad_deposito_ml": null,
-    "pulsaciones_min": null,
+    "pulsaciones_min": 17400,
     "autonomia_dias": 7,
     "tiempo_carga_h": 3.0,
     "cabezales_incluidos": 1,
-    "nivel_ruido_db": 60,
+    "nivel_ruido_db": 58,
     "resistencia_ipx": "IPX7",
-    "app_conectada": false,
+    "app_conectada": true,
     "material": "Material médico",
     "esterilizable_autoclave": false,
     "indicado_para": [
@@ -2261,14 +2351,12 @@
     ],
     "specs_extra": {
       "images": [
-        "https://m.media-amazon.com/images/I/71Cv+MlJYyL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71mOypy7haL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71e-yANY6ZL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71y7tLTVwOL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/710uUXd4fKL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71muioOGVNL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71auYLe1EVL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71tYTGQVRlL._AC_SL1500_.jpg"
+        "https://m.media-amazon.com/images/I/71FHe4r3IYL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81sf+Ly63wL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71OdeSPa-5L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71KOtRoypBL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71rK7GirT7L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ZW462JxNL._AC_SL1500_.jpg"
       ],
       "videos": [
         {
@@ -2279,15 +2367,15 @@
         }
       ]
     },
-    "score_eficacia": 9.1,
+    "score_eficacia": 9.6,
     "score_comodidad_encias": 9.2,
     "score_durabilidad": 9.0,
     "score_facilidad_uso": 9.4,
     "score_silencio": 8.0,
-    "score_tecnologia": 8.9,
+    "score_tecnologia": 9.8,
     "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte.",
-    "cuerpo_editorial": "<p>El producto <strong>Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte</strong> cuenta con excelentes valoraciones y adecuación técnica para blanqueamiento dental.</p>",
+    "description": "Análisis técnico y especificaciones de Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro.",
+    "cuerpo_editorial": "<p>El producto <strong>Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro</strong> cuenta con excelentes valoraciones y adecuación técnica para blanqueamiento dental.</p>",
     "pros": [
       "Calidad de fabricación certificada",
       "Excelente relación calidad-precio",
@@ -2302,7 +2390,7 @@
     "geo_faq": [
       {
         "a": "Especialmente indicado para Blanqueamiento Dental con tecnología led.",
-        "q": "¿Para qué se recomienda Lápiz Blanqueador Dental + Kit de B?"
+        "q": "¿Para qué se recomienda Bledras Kit Blanqueamiento Profesio?"
       },
       {
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
@@ -2337,7 +2425,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 1519,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 2,
@@ -2410,43 +2498,45 @@
     ]
   },
   {
-    "id": "bledras-kit-b0b3dpkhxg",
-    "asin": "B0B3DPKHXG",
-    "name": "Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro",
-    "marca": "Bledras",
+    "id": "l-piz-blanqueador-b0fnwl6gtx",
+    "asin": "B0FNWL6GTX",
+    "name": "Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte 15 ml (Paquete de 1)",
+    "marca": "Lápiz",
     "categoria_odontologica": "blanqueamiento_dental",
     "category": "Blanqueamiento Dental",
-    "affiliate_url": "https://www.amazon.es/dp/B0B3DPKHXG?tag=odontoscore-21",
+    "affiliate_url": "https://www.amazon.es/dp/B0FNWL6GTX?tag=odontoscore-21",
     "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0B3DPKHXG",
+    "canonical_url": "https://www.amazon.es/dp/B0FNWL6GTX",
     "images": [
-      "https://m.media-amazon.com/images/I/71FHe4r3IYL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81sf+Ly63wL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71OdeSPa-5L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71KOtRoypBL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71rK7GirT7L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71ZW462JxNL._AC_SL1500_.jpg"
+      "https://m.media-amazon.com/images/I/71Cv+MlJYyL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71mOypy7haL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71e-yANY6ZL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71y7tLTVwOL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/710uUXd4fKL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71muioOGVNL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71auYLe1EVL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71tYTGQVRlL._AC_SL1500_.jpg"
     ],
     "isFeatured": false,
     "showInTopMenu": false,
-    "retailPrice": 21.99,
-    "discountedPrice": 18.86,
+    "retailPrice": 49.99,
+    "discountedPrice": 39.99,
     "rango_precio": "medio",
-    "valoracion_media": 3.9,
-    "resenas_cantidad": 1013,
-    "precio_fecha": "2026-08-26",
+    "valoracion_media": 4.3,
+    "resenas_cantidad": 6561,
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
-    "modos_limpieza": 5,
+    "modos_limpieza": 2,
     "presion_agua_psi": null,
     "capacidad_deposito_ml": null,
-    "pulsaciones_min": 17400,
+    "pulsaciones_min": null,
     "autonomia_dias": 7,
     "tiempo_carga_h": 3.0,
     "cabezales_incluidos": 1,
-    "nivel_ruido_db": 58,
+    "nivel_ruido_db": 60,
     "resistencia_ipx": "IPX7",
-    "app_conectada": true,
+    "app_conectada": false,
     "material": "Material médico",
     "esterilizable_autoclave": false,
     "indicado_para": [
@@ -2456,12 +2546,14 @@
     ],
     "specs_extra": {
       "images": [
-        "https://m.media-amazon.com/images/I/71FHe4r3IYL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81sf+Ly63wL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71OdeSPa-5L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71KOtRoypBL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71rK7GirT7L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71ZW462JxNL._AC_SL1500_.jpg"
+        "https://m.media-amazon.com/images/I/71Cv+MlJYyL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71mOypy7haL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71e-yANY6ZL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71y7tLTVwOL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/710uUXd4fKL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71muioOGVNL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71auYLe1EVL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71tYTGQVRlL._AC_SL1500_.jpg"
       ],
       "videos": [
         {
@@ -2472,15 +2564,15 @@
         }
       ]
     },
-    "score_eficacia": 9.6,
+    "score_eficacia": 9.1,
     "score_comodidad_encias": 9.2,
     "score_durabilidad": 9.0,
     "score_facilidad_uso": 9.4,
     "score_silencio": 8.0,
-    "score_tecnologia": 9.8,
+    "score_tecnologia": 8.9,
     "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro.",
-    "cuerpo_editorial": "<p>El producto <strong>Bledras Kit Blanqueamiento Profesional con 12*Gel Blanqueamientos,3*Gel Calmante,Hilo Dental,15 Mins Blanqueamiento Rápido, para Limpieza y Eliminacion de Sarro</strong> cuenta con excelentes valoraciones y adecuación técnica para blanqueamiento dental.</p>",
+    "description": "Análisis técnico y especificaciones de Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte.",
+    "cuerpo_editorial": "<p>El producto <strong>Lápiz Blanqueador Dental + Kit de Blanqueamiento con Férulas Inalámbricas - Eliminación Eficaz de Manchas de Café/Té - 5 Lápices Anti-sensibilidad - Teeth Whitening sin Dolor y Seguro para el Esmalte</strong> cuenta con excelentes valoraciones y adecuación técnica para blanqueamiento dental.</p>",
     "pros": [
       "Calidad de fabricación certificada",
       "Excelente relación calidad-precio",
@@ -2495,7 +2587,99 @@
     "geo_faq": [
       {
         "a": "Especialmente indicado para Blanqueamiento Dental con tecnología led.",
-        "q": "¿Para qué se recomienda Bledras Kit Blanqueamiento Profesio?"
+        "q": "¿Para qué se recomienda Lápiz Blanqueador Dental + Kit de B?"
+      },
+      {
+        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
+        "q": "¿Es apto para clínicas o estudiantes?"
+      }
+    ]
+  },
+  {
+    "id": "12-piezas-b0f6lych5j",
+    "asin": "B0F6LYCH5J",
+    "name": "12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores)",
+    "marca": "12",
+    "categoria_odontologica": "ortodoncia_brackets",
+    "category": "Ortodoncia y Brackets",
+    "affiliate_url": "https://www.amazon.es/dp/B0F6LYCH5J?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B0F6LYCH5J",
+    "images": [
+      "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 11.99,
+    "discountedPrice": 9.59,
+    "rango_precio": "medio",
+    "valoracion_media": 4.7,
+    "resenas_cantidad": 850,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "ortodoncia_brackets",
+    "tecnologia": "interdental",
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": null,
+    "autonomia_dias": 14,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 60,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": false,
+    "material": "Material médico",
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "higiene_bucal",
+      "encias_sensibles",
+      "brackets"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/embed/svTG_jDhqdI",
+          "title": "Cómo Aplicar Cera de Ortodoncia para Alivio de Brackets",
+          "author": "Especialidad Ortodoncia",
+          "thumbnail": "https://img.youtube.com/vi/svTG_jDhqdI/hqdefault.jpg"
+        }
+      ]
+    },
+    "score_eficacia": 9.1,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.0,
+    "score_facilidad_uso": 9.4,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.9,
+    "score_calidad_precio": 9.3,
+    "description": "Análisis técnico y especificaciones de 12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores).",
+    "cuerpo_editorial": "<p>El producto <strong>12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores)</strong> cuenta con excelentes valoraciones y adecuación técnica para ortodoncia y brackets.</p>",
+    "pros": [
+      "Calidad de fabricación certificada",
+      "Excelente relación calidad-precio",
+      "Envío protegido por Amazon Prime"
+    ],
+    "contras": [
+      "Consultar compatibilidad específica"
+    ],
+    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en ortodoncia y brackets.",
+    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Especialmente indicado para Ortodoncia y Brackets con tecnología interdental.",
+        "q": "¿Para qué se recomienda 12 Piezas Cepillo Ortodoncia Bracke?"
       },
       {
         "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
@@ -2530,7 +2714,7 @@
     "rango_precio": "medio",
     "valoracion_media": 3.0,
     "resenas_cantidad": 1,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "quirurgico",
     "modos_limpieza": 2,
@@ -2624,7 +2808,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 743,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "rotatorio",
     "modos_limpieza": 5,
@@ -2685,98 +2869,6 @@
     ]
   },
   {
-    "id": "12-piezas-b0f6lych5j",
-    "asin": "B0F6LYCH5J",
-    "name": "12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores)",
-    "marca": "12",
-    "categoria_odontologica": "ortodoncia_brackets",
-    "category": "Ortodoncia y Brackets",
-    "affiliate_url": "https://www.amazon.es/dp/B0F6LYCH5J?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0F6LYCH5J",
-    "images": [
-      "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 11.99,
-    "discountedPrice": 9.59,
-    "rango_precio": "medio",
-    "valoracion_media": 4.7,
-    "resenas_cantidad": 850,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "ortodoncia_brackets",
-    "tecnologia": "interdental",
-    "modos_limpieza": 2,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": null,
-    "autonomia_dias": 14,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 60,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": false,
-    "material": "Material médico",
-    "esterilizable_autoclave": false,
-    "indicado_para": [
-      "higiene_bucal",
-      "encias_sensibles",
-      "brackets"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/81lV8EPapUL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81FG5-i2OlL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81f8oeIi8ZL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/818C6IxNE8L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/915+kI90jYL._AC_SL1500_.jpg"
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/embed/svTG_jDhqdI",
-          "title": "Cómo Aplicar Cera de Ortodoncia para Alivio de Brackets",
-          "author": "Especialidad Ortodoncia",
-          "thumbnail": "https://img.youtube.com/vi/svTG_jDhqdI/hqdefault.jpg"
-        }
-      ]
-    },
-    "score_eficacia": 9.1,
-    "score_comodidad_encias": 9.2,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.4,
-    "score_silencio": 8.0,
-    "score_tecnologia": 8.9,
-    "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de 12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores).",
-    "cuerpo_editorial": "<p>El producto <strong>12 Piezas Cepillo Ortodoncia Brackets, Cepillos Interdentales Lacer, Interspace Tuft Cepillo de Dientes Manual Suave,para Gap Ortodoncia Brackets Encías Sensibles Limpieza Profunda(4 colores)</strong> cuenta con excelentes valoraciones y adecuación técnica para ortodoncia y brackets.</p>",
-    "pros": [
-      "Calidad de fabricación certificada",
-      "Excelente relación calidad-precio",
-      "Envío protegido por Amazon Prime"
-    ],
-    "contras": [
-      "Consultar compatibilidad específica"
-    ],
-    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en ortodoncia y brackets.",
-    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Especialmente indicado para Ortodoncia y Brackets con tecnología interdental.",
-        "q": "¿Para qué se recomienda 12 Piezas Cepillo Ortodoncia Bracke?"
-      },
-      {
-        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
-        "q": "¿Es apto para clínicas o estudiantes?"
-      }
-    ]
-  },
-  {
     "id": "dental-l-mpara-b07s9xs4mt",
     "asin": "B07S9XS4MT",
     "name": "Dental Lámpara LED Blanqueamiento, Dental Blanqueamiento Light, Teeth Acelerador Whitening MD666, Dientes Móvil Acelera Stand",
@@ -2803,7 +2895,7 @@
     "rango_precio": "medio",
     "valoracion_media": 5.0,
     "resenas_cantidad": 5,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "led",
     "modos_limpieza": 2,
@@ -2898,7 +2990,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 1654,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 2,
@@ -2994,7 +3086,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 402,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "sonico",
     "modos_limpieza": 3,
@@ -3090,7 +3182,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 174,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "quirurgico",
     "modos_limpieza": 2,
@@ -3185,7 +3277,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.1,
     "resenas_cantidad": 86,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "anatomico",
     "modos_limpieza": 5,
@@ -3280,7 +3372,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 1484,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "interdental",
     "modos_limpieza": 2,
@@ -3371,7 +3463,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 850,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "instrumental_basico",
     "tecnologia": "instrumental",
     "modos_limpieza": 2,
@@ -3462,7 +3554,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.5,
     "resenas_cantidad": 412,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "sonico",
     "modos_limpieza": 3,
@@ -3554,7 +3646,7 @@
     "rango_precio": "medio",
     "valoracion_media": 5.0,
     "resenas_cantidad": 1,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "estudiantes_practicas",
     "tecnologia": "anatomico",
     "modos_limpieza": 2,
@@ -3646,7 +3738,7 @@
     "rango_precio": "premium",
     "valoracion_media": 4.6,
     "resenas_cantidad": 4850,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "cepillos_electricos",
     "tecnologia": "rotatorio",
     "modos_limpieza": 7,
@@ -3745,7 +3837,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 453,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "instrumental_basico",
     "tecnologia": "instrumental",
     "modos_limpieza": 2,
@@ -3836,7 +3928,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 345,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "ortodoncia_brackets",
     "tecnologia": "rotatorio",
     "modos_limpieza": 5,
@@ -3927,7 +4019,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 7200,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "blanqueamiento_dental",
     "tecnologia": "led",
     "modos_limpieza": 1,
@@ -3996,98 +4088,6 @@
     ]
   },
   {
-    "id": "oral-b-pro-b0c6mb3g93",
-    "asin": "B0C6MB3G93",
-    "name": "Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles",
-    "marca": "Oral-B",
-    "categoria_odontologica": "higiene_infantil",
-    "category": "Higiene Infantil",
-    "affiliate_url": "https://www.amazon.es/dp/B0C6MB3G93?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B0C6MB3G93",
-    "images": [
-      "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 27.14,
-    "discountedPrice": 21.71,
-    "rango_precio": "medio",
-    "valoracion_media": 4.7,
-    "resenas_cantidad": 2503,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "higiene_infantil",
-    "tecnologia": "rotatorio",
-    "modos_limpieza": 2,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": null,
-    "autonomia_dias": 14,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 60,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": false,
-    "material": "Material médico",
-    "esterilizable_autoclave": false,
-    "indicado_para": [
-      "higiene_bucal",
-      "encias_sensibles",
-      "ninos"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/embed/vaRZfX0wJ6Y",
-          "title": "Oral-B Pro Kids™ Demostración y Protección Gingival",
-          "author": "Oral-B Kids",
-          "thumbnail": "https://img.youtube.com/vi/vaRZfX0wJ6Y/hqdefault.jpg"
-        }
-      ]
-    },
-    "score_eficacia": 9.1,
-    "score_comodidad_encias": 9.2,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.4,
-    "score_silencio": 8.0,
-    "score_tecnologia": 8.9,
-    "score_calidad_precio": 9.3,
-    "description": "Análisis técnico y especificaciones de Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles.",
-    "cuerpo_editorial": "<p>El producto <strong>Oral-B Pro Kids Cepillo de Dientes Eléctrico Disney Frozen, Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles</strong> cuenta con excelentes valoraciones y adecuación técnica para higiene infantil.</p>",
-    "pros": [
-      "Calidad de fabricación certificada",
-      "Excelente relación calidad-precio",
-      "Envío protegido por Amazon Prime"
-    ],
-    "contras": [
-      "Consultar compatibilidad específica"
-    ],
-    "ideal_para": "Usuarios y profesionales que buscan soluciones contrastadas en higiene infantil.",
-    "destacado_editorial": "Seleccionado en el catálogo dinámico OdontoScore 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Especialmente indicado para Higiene Infantil con tecnología rotatorio.",
-        "q": "¿Para qué se recomienda Oral-B Pro Kids Cepillo de Dientes ?"
-      },
-      {
-        "a": "Sí, cumple con los estándares de calidad de materiales y resistencia clínica.",
-        "q": "¿Es apto para clínicas o estudiantes?"
-      }
-    ]
-  },
-  {
     "id": "4-piezas-b09q2tzj5j",
     "asin": "B09Q2TZJ5J",
     "name": "4 Piezas Bandejas de Instrumentos, Bandejas Rectangulares de Acero Inoxidable, Bandeja de Laboratorio para Dental Platos de Laboratorio - 22,5x11,5x1,6 cm",
@@ -4111,7 +4111,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 536,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "instrumental_basico",
     "tecnologia": "instrumental",
     "modos_limpieza": 5,
@@ -4203,7 +4203,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.6,
     "resenas_cantidad": 1538,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "higiene_infantil",
     "tecnologia": "rotatorio",
     "modos_limpieza": 2,
@@ -4272,6 +4272,90 @@
     ]
   },
   {
+    "id": "oral-b-ortho-care-kit",
+    "asin": "B089W4XORT",
+    "name": "Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets",
+    "marca": "Oral-B",
+    "categoria_odontologica": "ortodoncia_brackets",
+    "category": "Ortodoncia y Brackets",
+    "affiliate_url": "https://www.amazon.es/dp/B089W4XORT?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B089W4XORT",
+    "images": [
+      "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 29.99,
+    "discountedPrice": 21.95,
+    "rango_precio": "medio",
+    "valoracion_media": 4.6,
+    "resenas_cantidad": 5600,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "ortodoncia_brackets",
+    "tecnologia": "rotatorio",
+    "modos_limpieza": 1,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": null,
+    "autonomia_dias": 999,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 60,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": false,
+    "material": "Material médico",
+    "esterilizable_autoclave": false,
+    "indicado_para": [
+      "brackets",
+      "ortodoncia_fija",
+      "puentes"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
+      ]
+    },
+    "score_eficacia": 9.6,
+    "score_comodidad_encias": 9.4,
+    "score_durabilidad": 9.0,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 10.0,
+    "score_tecnologia": 8.0,
+    "score_calidad_precio": 9.8,
+    "description": "Análisis clínico y especificaciones técnicas completas de Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets.",
+    "cuerpo_editorial": "<p>El dispositivo <strong>Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología rotatorio.</p>",
+    "pros": [
+      "Eficacia clínica probada",
+      "Excelente relación calidad-precio",
+      "Ergonomía optimizada"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
+    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Está especialmente diseñado para brackets, ortodoncia_fija, puentes.",
+        "q": "¿Para qué está indicado Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets?"
+      },
+      {
+        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
+        "q": "¿Tiene garantía oficial?"
+      }
+    ]
+  },
+  {
     "id": "waterpik-ultra-b073wgysf9",
     "asin": "B073WGYSF9",
     "name": "Waterpik Ultra Professional, Irrigador Dental de Sobremesa, Blanco",
@@ -4300,7 +4384,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.4,
     "resenas_cantidad": 26021,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "irrigadores_dentales",
     "tecnologia": "irrigador",
     "modos_limpieza": 5,
@@ -4374,181 +4458,6 @@
     ]
   },
   {
-    "id": "oral-b-ortho-care-kit",
-    "asin": "B089W4XORT",
-    "name": "Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets",
-    "marca": "Oral-B",
-    "categoria_odontologica": "ortodoncia_brackets",
-    "category": "Ortodoncia y Brackets",
-    "affiliate_url": "https://www.amazon.es/dp/B089W4XORT?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B089W4XORT",
-    "images": [
-      "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 29.99,
-    "discountedPrice": 21.95,
-    "rango_precio": "medio",
-    "valoracion_media": 4.6,
-    "resenas_cantidad": 5600,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "ortodoncia_brackets",
-    "tecnologia": "rotatorio",
-    "modos_limpieza": 1,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": null,
-    "autonomia_dias": 999,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 60,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": false,
-    "material": "Material médico",
-    "esterilizable_autoclave": false,
-    "indicado_para": [
-      "brackets",
-      "ortodoncia_fija",
-      "puentes"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/81rZ+386yLL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/811m+0nfPaL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/818jKkgg5HL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71MP8uc8X4L._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/81QsgbtRIoL._AC_SL1500_.jpg"
-      ]
-    },
-    "score_eficacia": 9.6,
-    "score_comodidad_encias": 9.4,
-    "score_durabilidad": 9.0,
-    "score_facilidad_uso": 9.3,
-    "score_silencio": 10.0,
-    "score_tecnologia": 8.0,
-    "score_calidad_precio": 9.8,
-    "description": "Análisis clínico y especificaciones técnicas completas de Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets.",
-    "cuerpo_editorial": "<p>El dispositivo <strong>Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología rotatorio.</p>",
-    "pros": [
-      "Eficacia clínica probada",
-      "Excelente relación calidad-precio",
-      "Ergonomía optimizada"
-    ],
-    "contras": [
-      "Consultar disponibilidad de recambios"
-    ],
-    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
-    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Está especialmente diseñado para brackets, ortodoncia_fija, puentes.",
-        "q": "¿Para qué está indicado Oral-B Ortho Care Kit de Limpieza Especial para Pacientes con Brackets?"
-      },
-      {
-        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
-        "q": "¿Tiene garantía oficial?"
-      }
-    ]
-  },
-  {
-    "id": "hokin-limpieza-b08xds4xnw",
-    "asin": "B08XDS4XNW",
-    "name": "HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.",
-    "marca": "HOKIN",
-    "categoria_odontologica": "instrumental_basico",
-    "category": "Instrumental Básico Profesional",
-    "affiliate_url": "https://www.amazon.es/dp/B08XDS4XNW?tag=odontoscore-21",
-    "affiliate_tag": "odontoscore-21",
-    "canonical_url": "https://www.amazon.es/dp/B08XDS4XNW",
-    "images": [
-      "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
-    ],
-    "isFeatured": false,
-    "showInTopMenu": false,
-    "retailPrice": 9.99,
-    "discountedPrice": 9.99,
-    "rango_precio": "medio",
-    "valoracion_media": 4.4,
-    "resenas_cantidad": 7565,
-    "precio_fecha": "2026-08-26",
-    "tipo_producto": "instrumental_basico",
-    "tecnologia": "instrumental",
-    "modos_limpieza": 2,
-    "presion_agua_psi": null,
-    "capacidad_deposito_ml": null,
-    "pulsaciones_min": 40000,
-    "autonomia_dias": 7,
-    "tiempo_carga_h": 3.0,
-    "cabezales_incluidos": 1,
-    "nivel_ruido_db": 60,
-    "resistencia_ipx": "IPX7",
-    "app_conectada": false,
-    "material": "Material médico",
-    "esterilizable_autoclave": true,
-    "indicado_para": [
-      "higiene_bucal",
-      "blanqueamiento"
-    ],
-    "specs_extra": {
-      "images": [
-        "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
-        "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/embed/i8RiaUmmIj4",
-          "title": "Guía Clínica: Tratamiento Blanqueador con Luz LED",
-          "author": "Guía Odontológica",
-          "thumbnail": "https://img.youtube.com/vi/i8RiaUmmIj4/hqdefault.jpg"
-        }
-      ]
-    },
-    "score_eficacia": 9.0,
-    "score_comodidad_encias": 9.2,
-    "score_durabilidad": 9.4,
-    "score_facilidad_uso": 9.3,
-    "score_silencio": 8.0,
-    "score_tecnologia": 8.8,
-    "score_calidad_precio": 9.2,
-    "description": "Análisis clínico y especificaciones técnicas completas de HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota..",
-    "cuerpo_editorial": "<p>El dispositivo <strong>HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología instrumental.</p>",
-    "pros": [
-      "Eficacia clínica probada",
-      "Excelente relación calidad-precio",
-      "Ergonomía optimizada"
-    ],
-    "contras": [
-      "Consultar disponibilidad de recambios"
-    ],
-    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
-    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
-    "resenas_resumen": "",
-    "geo_faq": [
-      {
-        "a": "Está especialmente diseñado para higiene_bucal, blanqueamiento.",
-        "q": "¿Para qué está indicado HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.?"
-      },
-      {
-        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
-        "q": "¿Tiene garantía oficial?"
-      }
-    ]
-  },
-  {
     "id": "oral-b-pro-b0c6mdd8v6",
     "asin": "B0C6MDD8V6",
     "name": "Oral-B Pro Kids Cepillo de Dientes Eléctrico Spider-Man para Niños +3 Años | Cepillo Dental Infantil con 1 Cabezal, 2 Modos de Cepillado, Filamentos Extrasuaves para Encías Sensibles",
@@ -4572,7 +4481,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.7,
     "resenas_cantidad": 2513,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "higiene_infantil",
     "tecnologia": "rotatorio",
     "modos_limpieza": 2,
@@ -4664,7 +4573,7 @@
     "rango_precio": "medio",
     "valoracion_media": 4.3,
     "resenas_cantidad": 22158,
-    "precio_fecha": "2026-08-26",
+    "precio_fecha": "2026-08-27",
     "tipo_producto": "instrumental_basico",
     "tecnologia": "instrumental",
     "modos_limpieza": 2,
@@ -4715,6 +4624,97 @@
       {
         "a": "Está especialmente diseñado para higiene_bucal.",
         "q": "¿Para qué está indicado HOKIN Placa Removedor Dientes Limpieza Herramienta 4Pcs Dental Cuidado Kit Diente Relleno Reparación Juego Acero Inoxidable Dental Herramientas Para Hombres Mujeres Niños Y Mascota Cuidado?"
+      },
+      {
+        "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
+        "q": "¿Tiene garantía oficial?"
+      }
+    ]
+  },
+  {
+    "id": "hokin-limpieza-b08xds4xnw",
+    "asin": "B08XDS4XNW",
+    "name": "HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.",
+    "marca": "HOKIN",
+    "categoria_odontologica": "instrumental_basico",
+    "category": "Instrumental Básico Profesional",
+    "affiliate_url": "https://www.amazon.es/dp/B08XDS4XNW?tag=odontoscore-21",
+    "affiliate_tag": "odontoscore-21",
+    "canonical_url": "https://www.amazon.es/dp/B08XDS4XNW",
+    "images": [
+      "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+    ],
+    "isFeatured": false,
+    "showInTopMenu": false,
+    "retailPrice": 9.99,
+    "discountedPrice": 9.99,
+    "rango_precio": "medio",
+    "valoracion_media": 4.4,
+    "resenas_cantidad": 7565,
+    "precio_fecha": "2026-08-27",
+    "tipo_producto": "instrumental_basico",
+    "tecnologia": "instrumental",
+    "modos_limpieza": 2,
+    "presion_agua_psi": null,
+    "capacidad_deposito_ml": null,
+    "pulsaciones_min": 40000,
+    "autonomia_dias": 7,
+    "tiempo_carga_h": 3.0,
+    "cabezales_incluidos": 1,
+    "nivel_ruido_db": 60,
+    "resistencia_ipx": "IPX7",
+    "app_conectada": false,
+    "material": "Material médico",
+    "esterilizable_autoclave": true,
+    "indicado_para": [
+      "higiene_bucal",
+      "blanqueamiento"
+    ],
+    "specs_extra": {
+      "images": [
+        "https://m.media-amazon.com/images/I/71rdvHZVXoL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/712kDUjA5TL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71HLmrcOXDL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71qALnRqizL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71xe8tLn19L._AC_SL1500_.jpg"
+      ],
+      "videos": [
+        {
+          "url": "https://www.youtube.com/embed/i8RiaUmmIj4",
+          "title": "Guía Clínica: Tratamiento Blanqueador con Luz LED",
+          "author": "Guía Odontológica",
+          "thumbnail": "https://img.youtube.com/vi/i8RiaUmmIj4/hqdefault.jpg"
+        }
+      ]
+    },
+    "score_eficacia": 9.0,
+    "score_comodidad_encias": 9.2,
+    "score_durabilidad": 9.4,
+    "score_facilidad_uso": 9.3,
+    "score_silencio": 8.0,
+    "score_tecnologia": 8.8,
+    "score_calidad_precio": 9.2,
+    "description": "Análisis clínico y especificaciones técnicas completas de HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota..",
+    "cuerpo_editorial": "<p>El dispositivo <strong>HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.</strong> ofrece una respuesta técnica excelente para la higiene bucal diaria con tecnología instrumental.</p>",
+    "pros": [
+      "Eficacia clínica probada",
+      "Excelente relación calidad-precio",
+      "Ergonomía optimizada"
+    ],
+    "contras": [
+      "Consultar disponibilidad de recambios"
+    ],
+    "ideal_para": "Pacientes que buscan máxima higiene interdental y protección gingival.",
+    "destacado_editorial": "Recomendado por nuestro panel odontológico 2026.",
+    "resenas_resumen": "",
+    "geo_faq": [
+      {
+        "a": "Está especialmente diseñado para higiene_bucal, blanqueamiento.",
+        "q": "¿Para qué está indicado HOKIN Limpieza Dental y Blanqueamiento, 5 Piezas de Acero Inoxidable, Para Hombres, Mujeres, Niños y Mascota.?"
       },
       {
         "a": "Sí, cuenta con garantía directa de fabricante y envío protegido por Amazon Prime.",
