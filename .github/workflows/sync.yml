@@ -55,10 +55,8 @@ jobs:
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore(sync): auto-actualización catálogo y precios [skip ci]" && git push origin main)
 
       - name: 🚀 Desplegar a Hostinger vía FTP (si FTP_PASS está configurado)
-        if: env.FTP_PASS != ''
+        if: ${{ secrets.FTP_PASS != '' }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        env:
-          FTP_PASS: ${{ secrets.FTP_PASS }}
         with:
           server: ${{ secrets.FTP_HOST || 'ftp.odontoscore.com' }}
           username: ${{ secrets.FTP_USER || 'u358159530' }}
