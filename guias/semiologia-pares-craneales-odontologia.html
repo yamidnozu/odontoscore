@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semiología de los 12 Pares Craneales en Odontología — Guía Clínica y Diagnóstica 2026</title>
-  <meta name="description" content="Guía médica y semiológica completa de los 12 pares craneales para odontología: neuroanatomía clínica, homúnculo de Penfield, exploración paso a paso, banderas rojas y casos de estudio.">
+  <title>Semiología de los 12 Pares Craneales en Odontología — Guía Clínica por Capas 2026</title>
+  <meta name="description" content="Atlas neuroanatómico y guía semiológica por capas de los 12 pares craneales para odontología: Homúnculo de Penfield, tallo cerebral, base de cráneo, forámenes óseos, exploración en consulta dental y casos clínicos reales.">
   <link rel="canonical" href="https://odontoscore.com/guias/semiologia-pares-craneales-odontologia.html" />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260903_v60">
+  <link rel="stylesheet" href="../styles.css?v=20260903_v62">
 
   <!-- Schema.org MedicalWebPage & Article -->
   <script type="application/ld+json">
@@ -19,10 +19,10 @@
     "@type": "MedicalWebPage",
     "name": "Semiología de los 12 Pares Craneales en la Práctica Odontológica",
     "url": "https://odontoscore.com/guias/semiologia-pares-craneales-odontologia.html",
-    "description": "Compendio clínico y neuroanatómico de los doce pares craneales adaptado a la consulta estomatológica y preclínica odontológica.",
+    "description": "Compendio clínico, neuroanatómico y semiológico interactivo de los doce pares craneales adaptado a la consulta estomatológica y preclínica odontológica.",
     "about": [
       { "@type": "MedicalCondition", "name": "Neuralgia del Trigémino" },
-      { "@type": "MedicalCondition", "name": "Parálisis Facial Periférica" },
+      { "@type": "MedicalCondition", "name": "Parálisis Facial de Bell" },
       { "@type": "MedicalCondition", "name": "Disfagia Neurogénica" }
     ],
     "author": {
@@ -77,7 +77,6 @@
   </script>
 
   <style>
-    /* Estilos de alta precisión médica para la sección de Academia */
     .academy-header-badge {
       display: inline-flex;
       align-items: center;
@@ -101,7 +100,7 @@
       background: #FFFFFF;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      margin: 1.5rem 0 2.5rem;
+      margin: 1.5rem 0 2rem;
       font-size: 0.85rem;
       color: var(--color-slate-light);
     }
@@ -122,8 +121,8 @@
       background: #FFFFFF;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin-bottom: 2rem;
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -146,7 +145,7 @@
     }
     .nerve-table-wrapper {
       overflow-x: auto;
-      margin: 2rem 0;
+      margin: 1.5rem 0;
       border-radius: var(--radius-md);
       border: 1px solid var(--color-border);
       background: #FFFFFF;
@@ -170,13 +169,17 @@
       padding: 1rem;
       border-bottom: 1px solid var(--color-border-subtle);
       vertical-align: top;
+      transition: background 0.2s;
+    }
+    .nerve-table tr.hidden-row {
+      display: none;
     }
     .nerve-table tr:hover td {
       background: #F8FAFC;
     }
     .nerve-tag {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       padding: 0.2rem 0.5rem;
       border-radius: var(--radius-xs);
@@ -197,7 +200,7 @@
     }
     .sim-select {
       width: 100%;
-      padding: 0.9rem 1.25rem;
+      padding: 0.95rem 1.25rem;
       font-size: 1rem;
       border-radius: var(--radius-md);
       border: 1px solid rgba(255,255,255,0.2);
@@ -294,29 +297,29 @@
       </ul>
       <div class="nav-actions">
         <a href="../index.html#catalogo" class="btn-nav-compare">
-          <span>🔬 Ver Instrumental Clínico</span>
+          <span>🔬 Instrumental Clínico</span>
         </a>
       </div>
     </nav>
   </div>
 </header>
 
-<main class="container section-block" style="max-width:1120px;padding-top:2.5rem;">
+<main class="container section-block" style="max-width:1160px;padding-top:2.5rem;">
   
   <!-- Breadcrumbs -->
   <nav aria-label="Breadcrumbs" style="font-size:0.85rem;color:var(--color-slate-light);margin-bottom:1.5rem;">
     <a href="../index.html">Inicio</a> &gt; 
     <a href="../index.html#academia">Academia Clínica</a> &gt; 
-    <span style="color:var(--color-navy);font-weight:600;">Semiología de Pares Craneales</span>
+    <span style="color:var(--color-navy);font-weight:600;">Semiología de Pares Craneales por Capas</span>
   </nav>
 
   <!-- Hero de la Guía -->
-  <span class="academy-header-badge">🧠 Academia Clínica OdontoScore · Neuroanatomía y Diagnóstico</span>
-  <h1 style="font-size:2.8rem;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--color-navy);line-height:1.15;">
-    Semiología de los 12 Pares Craneales en Odontología: Guía de Exploración Clínica y Correlaciones Diagnósticas
+  <span class="academy-header-badge">🧠 Academia Clínica OdontoScore · Atlas Interactivo por Capas</span>
+  <h1 style="font-size:2.85rem;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--color-navy);line-height:1.15;">
+    Semiología de los 12 Pares Craneales en Odontología: Exploración Clínica, Topografía y Diagnóstico
   </h1>
-  <p style="font-size:1.2rem;color:var(--color-slate);max-width:920px;line-height:1.6;">
-    El puente indispensable entre la teoría anatómica y la práctica clínica en el sillón dental. Cómo inspeccionar sistemáticamente el tallo cerebral, reconocer banderas rojas y evitar diagnósticos catastróficos antes de cualquier procedimiento invasivo.
+  <p style="font-size:1.2rem;color:var(--color-slate);max-width:960px;line-height:1.6;">
+    El puente indispensable entre la teoría anatómica y la práctica clínica en el sillón dental. Inspección sistemática del tallo cerebral, reconocimiento de banderas rojas, forámenes de la base del cráneo y atlas visual interactivo en cinco capas.
   </p>
 
   <!-- Author Strip -->
@@ -328,15 +331,220 @@
     </div>
   </div>
 
+  <!-- Figura 1: Exploración Orofacial Hero -->
+  <figure class="medical-figure">
+    <img src="../assets/img/exploracion-orofacial-dental.jpg" alt="Exploración Clínica Orofacial en Sillón Dental" width="1200" height="675" loading="eager" fetchpriority="high">
+    <figcaption>
+      <strong>Figura 1:</strong> Exploración clínica orofacial y semiológica de los pares craneales en el sillón dental. Evaluación minuciosa de la movilidad lingual (XII), elevación simétrica del velo palatino (X) y reflejos orofaríngeos protectores (IX).
+    </figcaption>
+  </figure>
+
+  <!-- ====================================================================
+       MODULO ULTRA-INTERACTIVO: EXPLORADOR ANATÓMICO Y CLÍNICO POR CAPAS
+       ==================================================================== -->
+  <section class="layer-explorer-container" id="explorador-capas">
+    <div style="padding:1.5rem 2rem;background:#0B1426;color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <span style="font-size:0.75rem;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.08em;">HERRAMIENTA CLÍNICA INTERACTIVA</span>
+      <h2 style="font-size:1.6rem;color:#FFFFFF;margin:0.25rem 0 0.5rem;">Explorador Anatómico y Semiológico por Capas</h2>
+      <p style="font-size:0.95rem;color:#94A3B8;margin:0;">
+        Haz clic en cada capa para navegar dinámicamente desde los centros de control cortical hasta la base del cráneo, la inervación orofacial periférica y los signos clínicos de alerta.
+      </p>
+    </div>
+
+    <!-- Pestañas de Capas -->
+    <div class="layer-nav-tabs" role="tablist">
+      <button type="button" class="layer-tab-btn active" data-layer-target="layer-1" role="tab" aria-selected="true">
+        <span class="layer-num-badge">1</span>
+        <span>Capa Cortical & Tálamo</span>
+      </button>
+      <button type="button" class="layer-tab-btn" data-layer-target="layer-2" role="tab" aria-selected="false">
+        <span class="layer-num-badge">2</span>
+        <span>Capa Tallo Cerebral</span>
+      </button>
+      <button type="button" class="layer-tab-btn" data-layer-target="layer-3" role="tab" aria-selected="false">
+        <span class="layer-num-badge">3</span>
+        <span>Capa Base del Cráneo</span>
+      </button>
+      <button type="button" class="layer-tab-btn" data-layer-target="layer-4" role="tab" aria-selected="false">
+        <span class="layer-num-badge">4</span>
+        <span>Capa Inervación Facial & V</span>
+      </button>
+      <button type="button" class="layer-tab-btn" data-layer-target="layer-5" role="tab" aria-selected="false">
+        <span class="layer-num-badge">5</span>
+        <span>Capa Signos & Patología</span>
+      </button>
+    </div>
+
+    <!-- Panel Capa 1 -->
+    <div class="layer-content-panel active" id="layer-1" role="tabpanel">
+      <div class="layer-grid">
+        <div>
+          <figure class="medical-figure" style="margin:0;">
+            <img src="../assets/img/homunculo-penfield-neuroanatomia.jpg" alt="Homúnculo de Penfield y Corteza Cerebral" width="1200" height="675" loading="lazy">
+            <figcaption>
+              <strong>Capa 1:</strong> Corteza cerebral y Homúnculo de Penfield. Destaca la enorme densidad de representación cortical asignada al macizo orofacial (lengua, labios, dientes, mandíbula) y a las manos.
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 1 · Centros Superiores</span>
+          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Homúnculo de Penfield, Decusación y Tálamo</h3>
+          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
+            El cerebro organiza sus funciones motoras y sensitivas mediante distribución topográfica estricta. El <strong>Homúnculo de Penfield</strong> evidencia que la boca y las manos dominan la corteza para permitir la masticación, el habla articulada y la destreza manual clínica.
+          </p>
+          <ul class="layer-keypoints">
+            <li class="layer-keypoint-item">
+              <strong>Contralateralidad:</strong> Las señales sensitivomotoras se cruzan; el hemisferio izquierdo comanda y siente el lado derecho y viceversa.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Cápsula Interna:</strong> Embudo de sustancia blanca donde convergen las fibras descendentes. Su infarto genera hemiplejía contralateral y parálisis facial central.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>El Tálamo:</strong> Portería y filtro sensorial central que procesa toda la aferencia orofacial antes de llegar a la consciencia.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Capa 2 -->
+    <div class="layer-content-panel" id="layer-2" role="tabpanel">
+      <div class="layer-grid">
+        <div>
+          <figure class="medical-figure" style="margin:0;">
+            <img src="../assets/img/tallo-cerebral-pares-craneales.jpg" alt="Vista Ventral del Tallo Cerebral y Emergencia de los Pares Craneales" width="1200" height="675" loading="lazy">
+            <figcaption>
+              <strong>Capa 2:</strong> Vista ventral del tallo cerebral humano (mesencéfalo, puente y bulbo raquídeo). Origen real de los pares craneales III al XII con pirámides y olivas bulbares.
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 2 · Estación Central</span>
+          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Topografía del Tallo Encefálico (3 Niveles)</h3>
+          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
+            El tallo cerebral concentra los núcleos motores, sensoriales y vegetativos que el odontólogo explora directa o indirectamente en la consulta estomatológica.
+          </p>
+          <ul class="layer-keypoints">
+            <li class="layer-keypoint-item">
+              <strong>1. Mesencéfalo (Pares III y IV):</strong> Contiene el Acueducto de Silvio. Si se bloquea por cisticercosis o tumores, genera hidrocefalia aguda, ptosis y midriasis fija.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>2. Protuberancia / Puente (Pares V, VI, VII, VIII):</strong> Núcleo del ángulo pontocerebeloso. Causa hemi-anestesia facial, debilidad maseterina, estrabismo interno y vértigo.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>3. Bulbo Raquídeo (Pares IX, X, XI, XII):</strong> Gobierna deglución y fonación. Lesiones causan disfagia con riesgo de broncoaspiración, voz ronca y desviación lingual.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Capa 3 -->
+    <div class="layer-content-panel" id="layer-3" role="tabpanel">
+      <div class="layer-grid">
+        <div>
+          <figure class="medical-figure" style="margin:0;">
+            <img src="../assets/img/base-craneo-foramenes-pares.jpg" alt="Base del Cráneo y Forámenes de Salida de los Pares Craneales" width="1200" height="675" loading="lazy">
+            <figcaption>
+              <strong>Capa 3:</strong> Vista endocraneal de la base del cráneo. Fosas anterior, media y posterior con los orificios anatómicos exactos de salida de cada uno de los doce pares craneales.
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 3 · Trayectos Óseos</span>
+          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Forámenes de Salida en la Base del Cráneo</h3>
+          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
+            Cada par craneal abandona el estuche óseo a través de forámenes o fisuras específicas. Los traumatismos faciales o fracturas de base craneal lesionan selectivamente estos canales:
+          </p>
+          <ul class="layer-keypoints">
+            <li class="layer-keypoint-item">
+              <strong>Fosa Anterior:</strong> Lámina cribosa del etmoides (I Par Olfatorio).
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Fosa Media:</strong> Agujero óptico (II), Hendidura esfenoidal (III, IV, V1, VI), Agujero redondo (V2) y Agujero oval (V3).
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Fosa Posterior:</strong> Meato acústico interno (VII, VIII), Agujero rasgado posterior / Foramen yugular (IX, X, XI) y Agujero condíleo anterior / conducto hipogloso (XII).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Capa 4 -->
+    <div class="layer-content-panel" id="layer-4" role="tabpanel">
+      <div class="layer-grid">
+        <div>
+          <figure class="medical-figure" style="margin:0;">
+            <img src="../assets/img/trigemino-facial-odontologia.jpg" alt="Inervación Facial, Trigémino V1-V2-V3, Músculo Masetero y C2" width="1200" height="675" loading="lazy">
+            <figcaption>
+              <strong>Capa 4:</strong> Inervación orofacial clínica. Ramas del trigémino (V1, V2, V3), foramen estilomastoideo del facial (VII), músculo masetero y dermatoma cervical C2 en el ángulo mandibular.
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 4 · Inervación Periférica</span>
+          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Trigémino (V), Facial (VII) y Alerta C2</h3>
+          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
+            El territorio operativo directo del odontólogo. Aquí convergen la anestesia local odontológica, el reflejo masticatorio y la mímica facial:
+          </p>
+          <ul class="layer-keypoints">
+            <li class="layer-keypoint-item">
+              <strong>"Striptease" Sensitivo del V:</strong> V1 oftálmico (vértice a frente), V2 maxilar (labio superior y maxilar) y V3 mandibular (labio inferior y mandíbula).
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Ángulo Mandibular (C2):</strong> No inervado por V3 sino por la raíz cervical C2. Dolor aquí puede corresponder a infarto agudo de miocardio referido vía nervio frénico.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Protección Acústica frente a Turbina Dental:</strong> El músculo tensor del tímpano (inervado por V3) y el músculo del estribo/estapedio (inervado por VII) amortiguan el ruido de la pieza de mano.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Capa 5 -->
+    <div class="layer-content-panel" id="layer-5" role="tabpanel">
+      <div class="layer-grid">
+        <div>
+          <figure class="medical-figure" style="margin:0;">
+            <img src="../assets/img/signos-clinicos-semiologia.jpg" alt="Signos Clínicos Dentales y Neurológicos: Dientes de Hutchinson y Parálisis Facial" width="1200" height="675" loading="lazy">
+            <figcaption>
+              <strong>Capa 5:</strong> Correlaciones patológicas orofaciales. Incisivos en destornillador de Hutchinson (sífilis congénita/Tabes dorsal), asimetría motora del nervio facial y prueba de desviación lingual del XII par.
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 5 · Patología y Semiología</span>
+          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Estigmas Dentales y Banderas Rojas</h3>
+          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
+            Hallazgos bucales y extraorales que salvan vidas al orientar patologías neurológicas y sistémicas antes de iniciar maniobras invasivas:
+          </p>
+          <ul class="layer-keypoints">
+            <li class="layer-keypoint-item">
+              <strong>Dientes de Hutchinson:</strong> Incisivos centrales con muesca semilunar que delatan sífilis congénita y predicen futura neurosífilis (Tabes dorsal con Romberg+).
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Parálisis de Bell vs Central:</strong> La lesión periférica compromete toda la hemicara y provoca ojo seco; la central preserva el movimiento de la frente.
+            </li>
+            <li class="layer-keypoint-item">
+              <strong>Desviación Lingual:</strong> Al protruir la lengua, la punta apunta hacia el lado de la lesión por acción del músculo geniogloso sano opuesto.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Tabla de Contenidos -->
   <div class="toc-container">
-    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Índice Temático de la Guía</h3>
+    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Índice Detallado de la Guía</h3>
     <ul class="toc-list">
       <li><a href="#analogia-mecanico">1. La Analogía del Mecánico</a></li>
       <li><a href="#neuroanatomia-corteza">2. Neuroanatomía y Homúnculo</a></li>
       <li><a href="#arteria-cerebral-media">3. Arteria Cerebral Media (ACM)</a></li>
       <li><a href="#tallo-cerebral">4. Tallo Cerebral y Topografía</a></li>
-      <li><a href="#mapeo-pares">5. Mapeo de los 12 Pares Craneales</a></li>
+      <li><a href="#mapeo-pares">5. Atlas de los 12 Pares Craneales</a></li>
       <li><a href="#perlas-clinicas">6. Perlas Clínicas en Consultorio</a></li>
       <li><a href="#simulador-diagnostico">7. Simulador Interactivo de Lesión</a></li>
       <li><a href="#casos-clinicos">8. Casos y Correlaciones Clínicas</a></li>
@@ -499,10 +707,10 @@
 
   <!-- SECCIÓN 5: MAPEO COMPLETO DE LOS 12 PARES CRANEALES -->
   <section id="mapeo-pares" class="clinical-card">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
       <div>
         <h2 style="font-size:1.85rem;margin-bottom:0.25rem;">5. Atlas Clínico de los 12 Pares Craneales</h2>
-        <p style="color:var(--color-slate-light);font-size:0.95rem;">Protocolo de exploración, tipo funcional, agujeros de salida craneal y hallazgos patológicos.</p>
+        <p style="color:var(--color-slate-light);font-size:0.95rem;">Filtra interactivamente por tipo funcional o nivel del tallo encefálico.</p>
       </div>
       <div>
         <span class="nerve-tag tag-sensorial">Sensorial</span>
@@ -512,8 +720,20 @@
       </div>
     </div>
 
+    <!-- Barra de Filtros Interactivos -->
+    <div class="nerve-filter-bar">
+      <span style="font-size:0.82rem;font-weight:700;color:var(--color-navy);align-self:center;margin-right:0.5rem;">Filtrar por:</span>
+      <button type="button" class="nerve-filter-btn active" data-filter="all">Todos (12 Pares)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="sensorial">Sensoriales (I, II, VIII)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="motor">Motores (III, IV, VI, XI, XII)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="mixto">Mixtos / PS (V, VII, IX, X)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="mesencefalo">Nivel Mesencéfalo (III, IV)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="puente">Nivel Puente (V, VI, VII, VIII)</button>
+      <button type="button" class="nerve-filter-btn" data-filter="bulbo">Nivel Bulbo (IX, X, XI, XII)</button>
+    </div>
+
     <div class="nerve-table-wrapper">
-      <table class="nerve-table">
+      <table class="nerve-table" id="tableParesCraneales">
         <thead>
           <tr>
             <th style="width:18%;">Par Craneal</th>
@@ -524,35 +744,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-tipo="sensorial" data-nivel="cerebro">
             <td><strong>I. Nervio Olfatorio</strong></td>
             <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Mucosa olfatoria nasal</small></td>
             <td>Lámina cribosa del hueso etmoides</td>
             <td>Ocluir una narina y presentar sustancias no irritantes familiares (café molido, jabón neutro, vainilla). Repetir contralateralmente.</td>
             <td><strong>Anosmia</strong> (pérdida total del olfato), hiposmia o <strong>cacosmia</strong> (percepción de olores pútridos inexistentes, signo de fosa anterior).</td>
           </tr>
-          <tr>
+          <tr data-tipo="sensorial" data-nivel="cerebro">
             <td><strong>II. Nervio Óptico</strong></td>
             <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Células ganglionares de la retina</small></td>
             <td>Agujero óptico (conducto óptico)</td>
             <td>Agudeza visual con cartilla de Snellen reducida (1.5 m), campimetría por confrontación, exploración del reflejo rojo pupilar y uso de cuchara de Biopío*.</td>
             <td>Amaurosis (ceguera), hemianopsias y <strong>leucocoria</strong> (reflejo pupilar blanquecino en odontopediatría: signo de alerta máxima de <em>retinoblastoma</em>).</td>
           </tr>
-          <tr>
+          <tr data-tipo="motor" data-nivel="mesencefalo">
             <td><strong>III. Nervio Oculomotor</strong></td>
             <td><span class="nerve-tag tag-motor">Motor</span> <span class="nerve-tag tag-ps">PS</span><br><small>Mesencéfalo (núcleos somatomotor y de Edinger-Westphal)</small></td>
             <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
             <td>Evaluación del reflejo fotomotor directo y consensual (linterna médica), miosis a la acomodación y motilidad ocular (rectos superior, medial, inferior y oblicuo menor).</td>
             <td><strong>Ptosis palpebral</strong> severa, ojo desviado hacia afuera y abajo ("down and out") y <strong>midriasis fija arreactiva</strong> (signo cardinal de compresión uncal).</td>
           </tr>
-          <tr>
+          <tr data-tipo="motor" data-nivel="mesencefalo">
             <td><strong>IV. Nervio Troclear (Patético)</strong></td>
             <td><span class="nerve-tag tag-motor">Motor</span><br><small>Mesencéfalo posterior (único par con salida dorsal)</small></td>
             <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
             <td>Músculo oblicuo superior: pedir al paciente que mire hacia la punta de la nariz o hacia abajo y adentro (hacia los pies).</td>
             <td><strong>Diplopía vertical al bajar escaleras</strong> o leer; inclinación compensatoria de la cabeza hacia el lado opuesto (tortícolis ocular).</td>
           </tr>
-          <tr>
+          <tr data-tipo="mixto" data-nivel="puente">
             <td><strong>V. Nervio Trigémino</strong></td>
             <td><span class="nerve-tag tag-mixto">Mixto</span><br><small>Protuberancia (Ganglio sensitivo de Gasser y núcleo motor masticatorio)</small></td>
             <td>
@@ -566,14 +786,14 @@
             </td>
             <td>Hemi-anestesia orofacial, neuralgia del trigémino (dolor lancinante paroxístico en gatillo), debilidad masticatoria y desviación mandibular hacia el lado paralizado al abrir la boca.</td>
           </tr>
-          <tr>
+          <tr data-tipo="motor" data-nivel="puente">
             <td><strong>VI. Nervio Abducens (Motor Ocular Externo)</strong></td>
             <td><span class="nerve-tag tag-motor">Motor</span><br><small>Surco bulboprotuberancial</small></td>
             <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
             <td>Músculo recto lateral: solicitar al paciente que siga un punto fijo hacia el extremo lateral (abducción pura del ojo).</td>
             <td><strong>Estrabismo convergente</strong> (el ojo afectado se desvía medialmente hacia la nariz; incapacidad de mirar hacia afuera) con diplopía horizontal.</td>
           </tr>
-          <tr>
+          <tr data-tipo="mixto" data-nivel="puente">
             <td><strong>VII. Nervio Facial</strong></td>
             <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Ángulo pontocerebeloso</small></td>
             <td>Conducto auditivo interno → Agujero estilomastoideo</td>
@@ -587,7 +807,7 @@
               <strong>Parálisis central:</strong> respeta la frente (inervación supranuclear bilateral). Ojo seco y ageusia anterior.
             </td>
           </tr>
-          <tr>
+          <tr data-tipo="sensorial" data-nivel="puente">
             <td><strong>VIII. Nervio Vestibulococlear</strong></td>
             <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Receptores del oído interno (cóclea y conductos semicirculares)</small></td>
             <td>Meato acústico interno</td>
@@ -597,21 +817,21 @@
             </td>
             <td>Hipoacusia neurosensorial, tinitus (acúfenos), <strong>vértigo rotatorio</strong>, nistagmo espontáneo y caída postural en Romberg hacia el lado dañado.</td>
           </tr>
-          <tr>
+          <tr data-tipo="mixto" data-nivel="bulbo">
             <td><strong>IX. Nervio Glosofaríngeo</strong></td>
             <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Surco retro-olivar del bulbo</small></td>
             <td>Agujero rasgado posterior (foramen yugular)</td>
             <td>Estimulación suave de la pared faríngea posterior con espejo bucal para desencadenar el <strong>reflejo nauseoso</strong>. Sabor amargo en 1/3 posterior de la lengua. Secreción parotídea.</td>
             <td>Abolición del reflejo nauseoso, disfagia alta, neuralgia glosofaríngea (dolor lancinante en base lingual y amígdala) y pérdida gustativa posterior.</td>
           </tr>
-          <tr>
+          <tr data-tipo="mixto" data-nivel="bulbo">
             <td><strong>X. Nervio Vago (Neumogástrico)</strong></td>
             <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Surco retro-olivar del bulbo</small></td>
             <td>Agujero rasgado posterior (foramen yugular)</td>
             <td>Solicitar al paciente pronunciar un tono sostenido: <strong>"¡Aaa!"</strong> mientras se visualiza directamente el paladar blando con luz dental.</td>
             <td>Asimetría del velo del paladar: <strong>la úvula se desvía hacia el lado sano</strong> (signo de la cortina de Vernet). Disfonía con voz bitonal o nasal y riesgo crítico de regurgitación nasal de líquidos.</td>
           </tr>
-          <tr>
+          <tr data-tipo="motor" data-nivel="bulbo">
             <td><strong>XI. Nervio Accesorio (Espinal)</strong></td>
             <td><span class="nerve-tag tag-motor">Motor</span><br><small>Bulbo raquídeo y raíces espinales C1-C5</small></td>
             <td>Agujero rasgado posterior (foramen yugular)</td>
@@ -621,7 +841,7 @@
             </td>
             <td>Hombro caído unilateral con debilidad para elevar el brazo por encima de la horizontal e incapacidad para girar con fuerza la barbilla hacia el hombro opuesto.</td>
           </tr>
-          <tr>
+          <tr data-tipo="motor" data-nivel="bulbo">
             <td><strong>XII. Nervio Hipogloso</strong></td>
             <td><span class="nerve-tag tag-motor">Motor</span><br><small>Surco pre-olivar del bulbo</small></td>
             <td>Agujero condíleo anterior (conducto del hipogloso)</td>
@@ -635,6 +855,13 @@
     <div style="background:#F8FAFC;border:1px solid var(--color-border);padding:1rem 1.5rem;border-radius:var(--radius-md);margin-top:1rem;font-size:0.85rem;color:var(--color-slate);">
       <strong>*Regla de Oro en Exploración Instrumental:</strong> Todo instrumento médico utilizado en la exploración de la cavidad oral o facial (como la cuchara de Biopío, espejos o pinzas) debe ser retirado de su empaque estéril, limpiado con gasa estéril y manipulado siempre frente a la vista del paciente. Esta conducta transmite máxima rigurosidad y profesionalismo clínico.
     </div>
+
+    <figure class="medical-figure" style="margin-top:1.5rem;">
+      <img src="../assets/img/exploracion-orofacial-dental.jpg" alt="Exploración Clínica Estomatológica de Pares Craneales en Sillón Odontológico" width="1200" height="675" loading="lazy">
+      <figcaption>
+        <strong>Protocolo en Sillón Dental:</strong> Exploración sistemática de pares craneales en la práctica odontológica. Inspección minuciosa de la mímica facial (VII), motilidad de la lengua (XII), elevación del velo palatino al fonar (X) y sensibilidad orofacial (V) aplicando asepsia rigurosa frente al paciente.
+      </figcaption>
+    </figure>
   </section>
 
   <!-- SECCIÓN 6: PERLAS CLÍNICAS EN EL CONSULTORIO DENTAL -->
@@ -708,7 +935,7 @@
 
   <!-- SECCIÓN 8: CASOS Y CORRELACIONES CLÍNICAS -->
   <section id="casos-clinicos" class="clinical-card">
-    <h2 style="font-size:1.85rem;margin-bottom:0.5rem;">7. Casos y Correlaciones Clínicas Reales</h2>
+    <h2 style="font-size:1.85rem;margin-bottom:0.5rem;">8. Casos y Correlaciones Clínicas Reales</h2>
     <p style="color:var(--color-slate-light);margin-bottom:1.5rem;">
       Ejemplos verídicos donde la semiología estomatológica marca la frontera entre un procedimiento seguro y una negligencia diagnóstica.
     </p>
@@ -849,9 +1076,73 @@
   </div>
 </footer>
 
-<!-- Script del Simulador Clínico -->
+<!-- JavaScript: Capas Interactivas, Filtro de Pares Craneales y Simulador Clínico -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  
+  // ── 1. Visor de Capas Interactivas ──
+  var layerTabs = document.querySelectorAll(".layer-tab-btn");
+  var layerPanels = document.querySelectorAll(".layer-content-panel");
+
+  layerTabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var targetId = this.getAttribute("data-layer-target");
+
+      layerTabs.forEach(function (t) {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      layerPanels.forEach(function (p) {
+        p.classList.remove("active");
+      });
+
+      this.classList.add("active");
+      this.setAttribute("aria-selected", "true");
+
+      var targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+    });
+  });
+
+  // ── 2. Filtro Interactivo de la Tabla de Pares Craneales ──
+  var filterButtons = document.querySelectorAll(".nerve-filter-btn");
+  var tableRows = document.querySelectorAll("#tableParesCraneales tbody tr");
+
+  filterButtons.forEach(function (fBtn) {
+    fBtn.addEventListener("click", function () {
+      var filterValue = this.getAttribute("data-filter");
+
+      filterButtons.forEach(function (b) { b.classList.remove("active"); });
+      this.classList.add("active");
+
+      tableRows.forEach(function (row) {
+        var rowTipo = row.getAttribute("data-tipo") || "";
+        var rowNivel = row.getAttribute("data-nivel") || "";
+
+        if (filterValue === "all") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "sensorial" && rowTipo === "sensorial") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "motor" && rowTipo === "motor") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "mixto" && rowTipo === "mixto") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "mesencefalo" && rowNivel === "mesencefalo") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "puente" && rowNivel === "puente") {
+          row.classList.remove("hidden-row");
+        } else if (filterValue === "bulbo" && rowNivel === "bulbo") {
+          row.classList.remove("hidden-row");
+        } else {
+          row.classList.add("hidden-row");
+        }
+      });
+    });
+  });
+
+  // ── 3. Simulador Diagnóstico Clínico ──
   var selector = document.getElementById("symptomSelector");
   var container = document.getElementById("simResultContainer");
 

@@ -1467,6 +1467,188 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--color-border);
 }
 
+/* Medical Figures & Anatomical Illustrations */
+.medical-figure {
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.medical-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.medical-figure:hover img {
+  transform: scale(1.008);
+}
+
+.medical-figure figcaption {
+  padding: 0.95rem 1.35rem;
+  font-size: 0.88rem;
+  color: var(--color-slate-light);
+  background: #F8FAFC;
+  border-top: 1px solid var(--color-border-subtle);
+  line-height: 1.5;
+}
+
+.medical-figure figcaption strong {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+/* Interactive Layered Anatomical Explorer */
+.layer-explorer-container {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin: 2.5rem 0;
+}
+
+.layer-nav-tabs {
+  display: flex;
+  background: #0B1426;
+  padding: 0.5rem 0.75rem 0;
+  gap: 0.5rem;
+  overflow-x: auto;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.layer-tab-btn {
+  background: transparent;
+  color: #94A3B8;
+  border: none;
+  padding: 0.9rem 1.4rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.layer-tab-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.layer-tab-btn.active {
+  background: #FFFFFF;
+  color: #0B1426;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.layer-tab-btn .layer-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.layer-tab-btn.active .layer-num-badge {
+  background: #0C7FD4;
+  color: #FFFFFF;
+}
+
+.layer-content-panel {
+  display: none;
+  padding: 2.5rem;
+  animation: fadeInLayer 0.3s ease;
+}
+
+.layer-content-panel.active {
+  display: block;
+}
+
+@keyframes fadeInLayer {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.layer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.layer-keypoints {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.layer-keypoint-item {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.layer-keypoint-item strong {
+  color: var(--color-navy);
+}
+
+/* Filter Bar for Cranial Nerves */
+.nerve-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #F8FAFC;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.nerve-filter-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-slate);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nerve-filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.nerve-filter-btn.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 992px) {
+  .layer-grid { grid-template-columns: 1fr; }
+  .layer-content-panel { padding: 1.5rem; }
+}
+
 .academy-featured-card {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
