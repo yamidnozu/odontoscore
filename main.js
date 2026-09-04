@@ -25,14 +25,14 @@
   var ACTIVE_CURRENCY = "EUR";
 
   var CURRENCY_CONFIG = {
-    EUR: { symbol: "€", name: "Euros (España / UE)", position: "after", decimals: 2, flag: "🇪🇸" },
-    COP: { symbol: "$", name: "Pesos Colombianos (COP)", position: "before", decimals: 0, flag: "🇨🇴" },
-    MXN: { symbol: "$", name: "Pesos Mexicanos (MXN)", position: "before", decimals: 2, flag: "🇲🇽" },
-    USD: { symbol: "$", name: "Dólares USA (USD)", position: "before", decimals: 2, flag: "🇺🇸" },
-    PEN: { symbol: "S/.", name: "Soles Peruanos (PEN)", position: "before", decimals: 2, flag: "🇵🇪" },
-    ARS: { symbol: "$", name: "Pesos Argentinos (ARS)", position: "before", decimals: 0, flag: "🇦🇷" },
-    CLP: { symbol: "$", name: "Pesos Chilenos (CLP)", position: "before", decimals: 0, flag: "🇨🇱" },
-    GBP: { symbol: "£", name: "Libras Esterlinas (GBP)", position: "before", decimals: 2, flag: "🇬🇧" }
+    EUR: { symbol: "€", name: "Euros (EUR)", position: "after", decimals: 2, flag: "EUR" },
+    COP: { symbol: "$", name: "Pesos Colombianos (COP)", position: "before", decimals: 0, flag: "COP" },
+    MXN: { symbol: "$", name: "Pesos Mexicanos (MXN)", position: "before", decimals: 2, flag: "MXN" },
+    USD: { symbol: "$", name: "Dólares USA (USD)", position: "before", decimals: 2, flag: "USD" },
+    PEN: { symbol: "S/.", name: "Soles Peruanos (PEN)", position: "before", decimals: 2, flag: "PEN" },
+    ARS: { symbol: "$", name: "Pesos Argentinos (ARS)", position: "before", decimals: 0, flag: "ARS" },
+    CLP: { symbol: "$", name: "Pesos Chilenos (CLP)", position: "before", decimals: 0, flag: "CLP" },
+    GBP: { symbol: "£", name: "Libras Esterlinas (GBP)", position: "before", decimals: 2, flag: "GBP" }
   };
 
   var RADAR_COLORS = [
@@ -440,7 +440,7 @@
             '<span class="price-shipping">Envío Prime</span>' +
           '</div>' +
           '<div class="card-actions-grid">' +
-            '<button type="button" class="btn-card-quick" data-quick-view="' + esc(p.id) + '">' + (videoAvail ? '🎬 Vídeo & Tiendas' : 'Comparar Tiendas') + '</button>' +
+            '<button type="button" class="btn-card-quick" data-quick-view="' + esc(p.id) + '">' + (videoAvail ? 'Vídeo y Tiendas' : 'Comparar Tiendas') + '</button>' +
             '<a href="' + esc(p.affiliate_url || ('https://www.amazon.es/dp/' + p.asin + '?tag=odontoscore-21')) + '" target="_blank" rel="sponsored nofollow noopener" class="btn-card-prime">Ver en Amazon</a>' +
           '</div>' +
         '</div>' +
@@ -545,7 +545,7 @@
 
     var html = '<button type="button" class="filter-pill-btn active" data-filter="all">Todos (' + products.length + ')</button>';
     if (videoCount > 0) {
-      html += '<button type="button" class="filter-pill-btn" data-filter="video" style="background:#0F172A;color:#38BDF8;border-color:#0C7FD4;">🎬 Con Vídeo (' + videoCount + ')</button>';
+      html += '<button type="button" class="filter-pill-btn" data-filter="video" style="background:#0F172A;color:#38BDF8;border-color:#0C7FD4;"> Con Vídeo (' + videoCount + ')</button>';
     }
     Object.keys(CATEGORY_LABELS).forEach(function (key) {
       if (counts[key]) {
@@ -839,7 +839,7 @@
         input.addEventListener("change", updateComparison);
 
         label.appendChild(input);
-        label.appendChild(document.createTextNode((hasVideo(prod) ? "🎬 " : "") + (prod.name && prod.name.length > 28 ? prod.name.substring(0, 28) + "…" : (prod.name || ""))));
+        label.appendChild(document.createTextNode((hasVideo(prod) ? "▶ " : "") + (prod.name && prod.name.length > 28 ? prod.name.substring(0, 28) + "…" : (prod.name || ""))));
         checksContainer.appendChild(label);
       });
 
@@ -862,7 +862,7 @@
           var dot = document.createElement("span");
           dot.style.cssText = "width:8px;height:8px;border-radius:50%;background:" + color + ";flex-shrink:0;";
           item.appendChild(dot);
-          item.appendChild(document.createTextNode((hasVideo(prod) ? "🎬 " : "") + (prod.name && prod.name.length > 20 ? prod.name.substring(0, 20) + "…" : (prod.name || ""))));
+          item.appendChild(document.createTextNode((hasVideo(prod) ? "▶ " : "") + (prod.name && prod.name.length > 20 ? prod.name.substring(0, 20) + "…" : (prod.name || ""))));
           radarLegend.appendChild(item);
         });
       }
@@ -884,7 +884,7 @@
           { l: "Potencia", fn: function (p) { return p.presion_agua_psi ? p.presion_agua_psi + " PSI" : (p.pulsaciones_min ? Number(p.pulsaciones_min).toLocaleString() + " mov/min" : "—"); } },
           { l: "Autonomía", fn: function (p) { return p.autonomia_dias && Number(p.autonomia_dias) > 365 ? "Red continua" : (p.autonomia_dias || 14) + " días"; } },
           { l: "Puntuación", fn: function (p) { return '<strong style="color:#0C7FD4">' + (p.valoracion_media || 4.5) + " / 5 ★</strong>"; } },
-          { l: "Tiendas y Vídeo", fn: function (p) { return '<button type="button" class="btn-card-quick" style="padding:0.35rem 0.65rem;font-size:0.75rem;" data-quick-view="' + esc(p.id) + '">' + (hasVideo(p) ? '🎬 Ver Vídeo & Tiendas' : 'Comparar Tiendas') + '</button>'; } }
+          { l: "Tiendas y Vídeo", fn: function (p) { return '<button type="button" class="btn-card-quick" style="padding:0.35rem 0.65rem;font-size:0.75rem;" data-quick-view="' + esc(p.id) + '">' + (hasVideo(p) ? 'Ver Vídeo y Tiendas' : 'Comparar Tiendas') + '</button>'; } }
         ];
         rows.forEach(function (r) {
           html += '<tr><th style="padding:0.65rem 0.75rem;">' + r.l + '</th>';
