@@ -1195,7 +1195,45 @@
       <ul class="nav-links">
         <li><a href="#catalogo" data-nav="catalogo">Catálogo</a></li>
         <li><a href="#estudiantes" data-nav="estudiantes">Estudiantes</a></li>
-        <li><a href="#academia" data-nav="academia">Academia</a></li>
+        <li class="nav-item-dropdown">
+          <a href="#academia" class="nav-link-dropdown" data-nav="academia" aria-haspopup="true" aria-expanded="false">
+            Academia
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="guias/anatomia-dental-3d-por-capas.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Atlas Anatómico Dental 360°</span>
+                <span class="dropdown-item-badge">Interactivo</span>
+              </div>
+              <div class="dropdown-item-desc">Visor de 8 ángulos (0° a 315°), cortes sagitales y atlas histológico.</div>
+            </a>
+            <a href="guias/semiologia-pares-craneales-odontologia.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Semiología y Pares Craneales</span>
+                <span class="dropdown-item-badge">Clínico</span>
+              </div>
+              <div class="dropdown-item-desc">Neuroanatomía orofacial, 5 capas de disección y casos clínicos.</div>
+            </a>
+            <a href="guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Guía: Encías Sensibles</span>
+              </div>
+              <div class="dropdown-item-desc">Protocolos periodontales y control atraumático de biopelícula.</div>
+            </a>
+            <a href="guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Guía: Higiene en Ortodoncia</span>
+              </div>
+              <div class="dropdown-item-desc">Mantenimiento de aparatología e irrigación subgingival.</div>
+            </a>
+            <div class="dropdown-footer-link">
+              <a href="#academia">Ver todo el catálogo de formación clínica →</a>
+            </div>
+          </div>
+        </li>
         <li><a href="#comparador" data-nav="comparador">Comparador</a></li>
         <li><a href="#ofertas" data-nav="ofertas">Ofertas</a></li>
         <li><a href="#faq" data-nav="faq">FAQ</a></li>
@@ -1203,14 +1241,14 @@
       <div class="nav-actions">
         <div class="currency-selector-wrapper">
           <select id="globalCurrencySelect" class="currency-select" aria-label="Seleccionar País y Moneda">
-            <option value="EUR" data-symbol="€" data-flag="🇪🇸">🇪🇸 EUR (€)</option>
-            <option value="COP" data-symbol="$" data-flag="🇨🇴">🇨🇴 COP ($)</option>
-            <option value="MXN" data-symbol="$" data-flag="🇲🇽">🇲🇽 MXN ($)</option>
-            <option value="USD" data-symbol="$" data-flag="🇺🇸">🇺🇸 USD ($)</option>
-            <option value="PEN" data-symbol="S/." data-flag="🇵🇪">🇵🇪 PEN (S/.)</option>
-            <option value="ARS" data-symbol="$" data-flag="🇦🇷">🇦🇷 ARS ($)</option>
-            <option value="CLP" data-symbol="$" data-flag="🇨🇱">🇨🇱 CLP ($)</option>
-            <option value="GBP" data-symbol="£" data-flag="🇬🇧">🇬🇧 GBP (£)</option>
+            <option value="EUR" data-symbol="€">EUR (€) · España</option>
+            <option value="COP" data-symbol="$">COP ($) · Colombia</option>
+            <option value="MXN" data-symbol="$">MXN ($) · México</option>
+            <option value="USD" data-symbol="$">USD ($) · Estados Unidos</option>
+            <option value="PEN" data-symbol="S/.">PEN (S/.) · Perú</option>
+            <option value="ARS" data-symbol="$">ARS ($) · Argentina</option>
+            <option value="CLP" data-symbol="$">CLP ($) · Chile</option>
+            <option value="GBP" data-symbol="£">GBP (£) · Reino Unido</option>
           </select>
         </div>
         <a href="#comparador" class="btn-nav-compare">
@@ -1257,7 +1295,7 @@
       <div class="catalog-search-row">
         <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Buscar por producto, marca o especificación (ej: tipodonto, Oral-B, sutura, Waterpik)...">
         <select id="catalogSortSelect" class="catalog-sort-select" aria-label="Ordenar productos">
-          <option value="has-video">🎬 Con Vídeo Primero</option>
+          <option value="has-video">Con vídeo primero</option>
           <option value="featured">Ordenar: Más Recomendados</option>
           <option value="price-asc">Precio: Menor a Mayor</option>
           <option value="price-desc">Precio: Mayor a Menor</option>
@@ -1647,7 +1685,7 @@
         </div>
         <div>
           <a href="guias/semiologia-pares-craneales-odontologia.html#explorador-capas" style="color:#38BDF8;font-size:0.88rem;font-weight:700;display:inline-flex;align-items:center;gap:0.35rem;">
-            ⚡ Abrir Explorador por Capas →
+            Abrir explorador por capas →
           </a>
         </div>
       </div>
@@ -1666,12 +1704,12 @@
 
       <div class="academy-subcard" style="border:2px solid #0EA5E9;box-shadow:var(--shadow-md);">
         <div>
-          <span class="academy-status-badge status-active" style="background:#E0F2FE;color:#0369A1;">⚡ 3D WebGL Interactivo</span>
-          <h4>Anatomía Dental en 3D por Capas</h4>
-          <p>Visor 3D en tiempo real: rota en 360°, haz zoom, pela capa a capa (esmalte, dentina, pulpa, periodonto y hueso) o conmuta al implante de titanio osteointegrado con corte sagital y despiece.</p>
+          <span class="academy-status-badge status-active" style="background:#E0F2FE;color:#0369A1;">Atlas Interactivo 360°</span>
+          <h4>Anatomía Dental 360° e Histología</h4>
+          <p>Visor orbital en 8 ángulos continuos (0° a 315°): cortes sagitales de la cámara pulpar y conductos radiculares, morfología coronal 3D y atlas histológico maestro de 11 partes con modo rayos X.</p>
         </div>
         <a href="guias/anatomia-dental-3d-por-capas.html" style="font-weight:700;color:var(--color-primary);font-size:0.88rem;display:inline-flex;align-items:center;gap:0.3rem;">
-          Abrir Visor 3D Interactivo →
+          Abrir Visor 360° →
         </a>
       </div>
 

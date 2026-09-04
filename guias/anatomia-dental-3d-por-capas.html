@@ -514,17 +514,66 @@
 <body>
 
   <!-- Top Header -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="../index.html" class="logo" aria-label="OdontoScore Inicio">
-        <span class="logo-icon">🦷</span>
-        <span class="logo-text">Odonto<span class="logo-accent">Score</span></span>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="../index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+        <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38">
       </a>
-      <nav class="nav-links">
-        <a href="../index.html#academia" class="nav-link">🎓 Academia</a>
-        <a href="../guias/semiologia-pares-craneales-odontologia.html" class="nav-link">Pares Craneales</a>
-        <a href="../comparador.html" class="nav-link">Comparador</a>
-        <a href="../ofertas.html" class="nav-link">Ofertas</a>
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-links">
+          <li><a href="../index.html#catalogo">Catálogo</a></li>
+          <li><a href="../index.html#estudiantes">Estudiantes</a></li>
+          <li class="nav-item-dropdown">
+            <a href="../index.html#academia" class="nav-link-dropdown" aria-haspopup="true" aria-expanded="false">
+              Academia
+              <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="../guias/anatomia-dental-3d-por-capas.html" class="dropdown-item">
+                <div class="dropdown-item-title">
+                  <span>Atlas Anatómico Dental 360°</span>
+                  <span class="dropdown-item-badge">Activo</span>
+                </div>
+                <div class="dropdown-item-desc">Visor orbital en 8 planos, cortes sagitales y atlas histológico.</div>
+              </a>
+              <a href="../guias/semiologia-pares-craneales-odontologia.html" class="dropdown-item">
+                <div class="dropdown-item-title">
+                  <span>Semiología y Pares Craneales</span>
+                  <span class="dropdown-item-badge">Clínico</span>
+                </div>
+                <div class="dropdown-item-desc">Neuroanatomía orofacial, 5 capas de disección y casos clínicos.</div>
+              </a>
+              <a href="../guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-item">
+                <div class="dropdown-item-title">
+                  <span>Guía: Encías Sensibles</span>
+                </div>
+                <div class="dropdown-item-desc">Protocolos periodontales y control atraumático de placa.</div>
+              </a>
+              <a href="../guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-item">
+                <div class="dropdown-item-title">
+                  <span>Guía: Higiene en Ortodoncia</span>
+                </div>
+                <div class="dropdown-item-desc">Mantenimiento de aparatología e irrigación subgingival.</div>
+              </a>
+              <div class="dropdown-footer-link">
+                <a href="../index.html#academia">Ver todo el catálogo de Academia →</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="../comparador.html">Comparador</a></li>
+          <li><a href="../ofertas.html">Ofertas</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="../comparador.html" class="btn-nav-compare">
+            <span>Comparar Modelos</span>
+          </a>
+        </div>
       </nav>
     </div>
   </header>
@@ -540,7 +589,7 @@
     <!-- Encabezado Clínico -->
     <header style="max-width: 880px; margin-bottom: 1.5rem;">
       <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(12,127,212,0.1); color:#0C7FD4; padding:0.35rem 0.85rem; border-radius:var(--radius-full); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.75rem;">
-        <span>🔄 GIRO 360° INTERACTIVO</span> · <span>8 ÁNGULOS EN SECUENCIA COHERENTE</span>
+        <span> GIRO 360° INTERACTIVO</span> · <span>8 ÁNGULOS EN SECUENCIA COHERENTE</span>
       </div>
       <h1 style="font-size: clamp(2rem, 3.8vw, 2.75rem); color: var(--color-navy); line-height: 1.2; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Secuencia Anatómica Dental 360°: De la Superficie al Foramen Apical
@@ -558,10 +607,10 @@
       <!-- Pestañas Superiores de Modo -->
       <div class="mode-nav-tabs" role="tablist">
         <button type="button" class="mode-tab-btn active" id="tabBtnSequence" role="tab" aria-selected="true">
-          <span>🔄 1. Giro 360° en 8 Ángulos Secuenciales (0° a 315°)</span>
+          <span> 1. Giro 360° en 8 Ángulos Secuenciales (0° a 315°)</span>
         </button>
         <button type="button" class="mode-tab-btn" id="tabBtnHistology" role="tab" aria-selected="false">
-          <span>🔬 2. Atlas Histológico Maestro con 11 Partes Señaladas</span>
+          <span> 2. Atlas Histológico Maestro con 11 Partes Señaladas</span>
         </button>
       </div>
 
@@ -586,7 +635,7 @@
           <!-- Slider de Control Continuo 360° -->
           <div class="slider-container">
             <div class="slider-header">
-              <span>🎚️ Desliza para rotar el diente en 360°:</span>
+              <span>️ Desliza para rotar el diente en 360°:</span>
               <strong id="sliderAngleReadout">0° Frontal</strong>
             </div>
             <input type="range" min="0" max="7" value="0" step="1" class="turntable-slider" id="turntableSlider" aria-label="Control deslizante de ángulo de giro 360">
@@ -676,20 +725,20 @@
             </div>
             <div class="btn-stepper-actions">
               <button type="button" class="btn-step-act" id="btnPrevStep">
-                <span>◀ Ángulo Anterior</span>
+                <span>Ángulo Anterior</span>
               </button>
               <button type="button" class="btn-step-act primary" id="btnNextStep">
-                <span>Ángulo Siguiente ▶</span>
+                <span>Ángulo Siguiente</span>
               </button>
               <button type="button" class="btn-step-act" id="btnPlaySequence">
-                <span>▶ Rotación Continua 360°</span>
+                <span>Rotación Continua 360°</span>
               </button>
             </div>
           </div>
 
           <!-- Ficha Clínica de la Fase Activa -->
           <div class="step-clinical-card" id="stepCard">
-            <span class="step-type-chip type-cut" id="stepTypeChip">🔬 Corte Anatómico Sagital</span>
+            <span class="step-type-chip type-cut" id="stepTypeChip"> Corte Anatómico Sagital</span>
             <div class="step-card-title" id="stepTitle">
               <span>Ángulo 0° · Corte Sagital Frontal (Cámara y Conductos)</span>
             </div>
@@ -749,9 +798,9 @@
           </div>
 
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; font-size:0.78rem; color:#94A3B8;">
-            <span>💡 Haz clic en cualquier número del corte para inspeccionar su microscopía.</span>
+            <span> Haz clic en cualquier número del corte para inspeccionar su microscopía.</span>
             <button type="button" id="btnToggleRayosX" style="background:none; border:none; color:#38BDF8; font-size:0.78rem; cursor:pointer; font-weight:700;">
-              🩻 Alternar Filtro Rayos X (Negativo)
+              Filtro Radiográfico Rayos X
             </button>
           </div>
         </div>
@@ -765,7 +814,7 @@
 
           <div class="step-clinical-card" id="partCard">
             <div class="step-card-title" id="partTitle">
-              <span>🔬 Vista General del Órgano Dentario</span>
+              <span> Vista General del Órgano Dentario</span>
             </div>
             <div class="step-card-desc" id="partDesc">
               El diente es una estructura especializada compuesta por tres tejidos duros calcificados (esmalte, dentina, cemento) que protegen un tejido blando sensitivo central (la pulpa dental), suspendido en el lecho alveolar mediante el ligamento periodontal.
@@ -895,42 +944,42 @@
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">💎 Esmalte Dental</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Esmalte Dental</td>
               <td style="padding:1rem;"><strong>96% Inorgánico</strong> (Hidroxiapatita)<br><small>4% agua y proteínas (amelogeninas)</small></td>
               <td style="padding:1rem;">Ameloblastos (se pierden en la erupción)</td>
               <td style="padding:1rem;"><span style="color:#DC2626; font-weight:700;">Nula</span> (acelular). Solo remineralización iónica con Flúor.</td>
               <td style="padding:1rem;">Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore).</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">🟡 Dentina</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Dentina</td>
               <td style="padding:1rem;"><strong>70% Inorgánico</strong><br><small>20% colágeno Tipo I, 10% agua</small></td>
               <td style="padding:1rem;">Odontoblastos (en la periferia pulpar)</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Sí</span> (Dentina terciaria/reaccional frente a caries o fresado).</td>
               <td style="padding:1rem;">Hipersensibilidad dentinaria por flujo en túbulos (Brännström). Adhesión mediante capa híbrida.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">🩸 Pulpa Dental</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Pulpa Dental</td>
               <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Tejido conectivo laxo altamente vascularizado)</td>
               <td style="padding:1rem;">Fibroblastos, odontoblastos y células madre mesenquimales</td>
               <td style="padding:1rem;"><span style="color:#CA8A04; font-weight:700;">Limitada</span> por estar enclaustrada en paredes rígidas inextensibles.</td>
               <td style="padding:1rem;">Si el edema inflamatorio colapsa las vénulas apicales, sobreviene necrosis pulpar con flemón periapical.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">🛡️ Cemento Radicular</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">️ Cemento Radicular</td>
               <td style="padding:1rem;"><strong>50% Inorgánico</strong><br><small>50% colágeno y agua</small></td>
               <td style="padding:1rem;">Cementoblastos y cementocitos</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> a lo largo de toda la vida en el tercio apical.</td>
               <td style="padding:1rem;">Ancla las fibras de Sharpey. El raspado radicular excesivo lo elimina, exponiendo dentina hipersensible.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">🌸 Ligamento Periodontal</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Ligamento Periodontal</td>
               <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Colágeno I y III, sustancia fundamental y células)</td>
               <td style="padding:1rem;">Fibroblastos periodontales de alto recambio</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Alta</span> (células madre pluripotenciales del ligamento).</td>
               <td style="padding:1rem;">Amortiguador viscoelástico de fuerzas oclusales y propiocepción mecanorreceptora (10 a 20 µm).</td>
             </tr>
             <tr>
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">🦴 Hueso Alveolar</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Hueso Alveolar</td>
               <td style="padding:1rem;"><strong>65% Inorgánico</strong><br><small>35% matriz orgánica y células óseas</small></td>
               <td style="padding:1rem;">Osteoblastos y osteocitos</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> mediante remodelación acoplada a la carga (Leyes de Wolff).</td>
@@ -947,10 +996,7 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-col">
-        <a href="../index.html" class="logo" style="margin-bottom: 0.5rem; display: inline-flex;">
-          <span class="logo-icon">🦷</span>
-          <span class="logo-text" style="color: #FFFFFF;">Odonto<span class="logo-accent">Score</span></span>
-        </a>
+        <a href="../index.html" class="brand-logo" style="margin-bottom:0.75rem;display:inline-flex;"><img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" height="34" style="filter: brightness(0) invert(1);"></a>
         <p class="footer-desc">
           Plataforma odontológica con tecnología interactiva y guías clínicas basadas en evidencia científica.
         </p>
@@ -1227,7 +1273,7 @@
         renderStep(currentStep + 1);
       }, 1200);
       btnPlaySequence.classList.add("primary");
-      btnPlaySequence.innerHTML = "<span>⏸ Pausar Rotación</span>";
+      btnPlaySequence.innerHTML = "<span>Pausar Rotación</span>";
     }
 
     function stopAutoPlay() {
@@ -1236,7 +1282,7 @@
         playTimer = null;
       }
       btnPlaySequence.classList.remove("primary");
-      btnPlaySequence.innerHTML = "<span>▶ Rotación Continua 360°</span>";
+      btnPlaySequence.innerHTML = "<span>Rotación Continua 360°</span>";
     }
 
     btnPlaySequence.addEventListener("click", function () {
@@ -1257,57 +1303,57 @@
 
     var HISTOLOGY_PARTS = {
       "enamel": {
-        title: "💎 1. Esmalte Dental (Enamel)",
+        title: " 1. Esmalte Dental (Enamel)",
         desc: "96% mineral hidroxiapatita cálcica pura, 4% agua y matriz orgánica. Formado por millones de prismas orientados perpendicularmente a la unión amelodentinaria (UAD). Es acelular y no regenerable.",
         pearl: "Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore). A pH salival menor de 5.5 se desmineraliza provocando caries incipiente."
       },
       "dentin": {
-        title: "🟡 2. Dentina (Dentin)",
+        title: " 2. Dentina (Dentin)",
         desc: "70% hidroxiapatita, 20% colágeno tipo I, 10% agua. Tejido vivo elástico atravesado por 30.000 a 50.000 túbulos dentinarios por mm² que albergan líquido y prolongaciones de odontoblastos.",
         pearl: "Teoría Hidrodinámica de Brännström: Los cambios térmicos mueven el líquido dentro de los túbulos, activando mecano-receptores pulpares y causando la típica hipersensibilidad al frío."
       },
       "pulp_chamber": {
-        title: "🩸 3. Cámara Pulpar Coronaria",
+        title: " 3. Cámara Pulpar Coronaria",
         desc: "Cavidad anatómica central en la corona que contiene tejido conectivo laxo, abundantes capilares y nervios. Proyecta cuernos pulpares hacia cada cúspide oclusal.",
         pearl: "En pacientes jóvenes los cuernos pulpares son muy prominentes; una preparación cavitaria descuidada puede causar exposición pulpar y requerir recubrimiento directo o pulpotomía."
       },
       "root_canal": {
-        title: "🔬 4. Conducto Radicular (Root Canal)",
+        title: " 4. Conducto Radicular (Root Canal)",
         desc: "Canal endodóntico longitudinal que recorre la raíz transportando el paquete vasculonervioso desde el piso cameral hasta el foramen apical.",
         pearl: "La instrumentación rotatoria con limas de níquel-titanio (NiTi) y la irrigación con hipoclorito de sodio al 5.25% logran desinfectar el conducto antes de la obturación con gutapercha."
       },
       "cementum": {
-        title: "🛡️ 5. Cemento Radicular (Cementum)",
+        title: "️ 5. Cemento Radicular (Cementum)",
         desc: "Tejido conectivo mineralizado avascular (50% hidroxiapatita) que sella y protege la dentina de toda la superficie radicular anatómica.",
         pearl: "Ancla los haces colágenos del ligamento periodontal. El raspado y alisado radicular excesivo lo desgasta, exponiendo dentina hipersensible al cuello dental."
       },
       "ligament": {
-        title: "🌸 6. Ligamento Periodontal (Fibras de Sharpey)",
+        title: " 6. Ligamento Periodontal (Fibras de Sharpey)",
         desc: "Estructura viscoelástica de 0.2 mm compuesta por haces de colágeno I y III que suspenden el diente dentro del alvéolo, disipando cargas de hasta 80 kg/cm².",
         pearl: "Propiocepción Mecanorreceptora: Detecta partículas de hasta 15 micras entre las cúspides, disparando el reflejo de apertura protector para evitar fracturas dentales."
       },
       "sulcus": {
-        title: "📍 7. Surco Gingival y Encía Libre",
+        title: " 7. Surco Gingival y Encía Libre",
         desc: "Espacio virtual fisiológico de 1 a 3 mm entre la superficie dental y la encía libre marginal festoneada.",
         pearl: "Profundidad al sondaje > 3 mm con sangrado al tacto suave (0.25 N) indica pérdida de inserción conectiva y presencia de una bolsa periodontal patológica."
       },
       "attached_gingiva": {
-        title: "📍 8. Encía Adherida (Puntillado Clínico)",
+        title: " 8. Encía Adherida (Puntillado Clínico)",
         desc: "Banda de mucosa queratinizada firmemente unida al periostio óseo. Muestra pequeñas depresiones que recuerdan a la piel de una naranja.",
         pearl: "Indispensable para sellar el periodonto y evitar que la tracción de los frenillos o el roce de los alimentos cause retracción de la encía y exposición radicular."
       },
       "bone": {
-        title: "🦴 9. Hueso Alveolar Trabecular y Lámina Dura",
+        title: " 9. Hueso Alveolar Trabecular y Lámina Dura",
         desc: "Apófisis ósea que rodea y aloja el alvéolo dentario. Presenta hueso esponjoso con espacios medulares hematopoyéticos y una delgada lámina cribosa (lámina dura).",
         pearl: "Es un tejido diente-dependiente: tras una exodoncia sin preservación alveolar, el reborde óseo pierde entre el 40% y el 60% de su anchura en los primeros 6 meses."
       },
       "apex": {
-        title: "📍 10. Foramen Apical y Límite CDC",
+        title: " 10. Foramen Apical y Límite CDC",
         desc: "Apertura apical en la punta de la raíz por donde penetran las arteriolas y filetes nerviosos al interior del diente.",
         pearl: "La constricción apical anatómica (unión cemento-dentina-conducto o CDC) es el punto milimétrico exacto donde debe detenerse la conformación y obturación endodóntica."
       },
       "neurovascular": {
-        title: "🚨 11. Paquete Vasculonervioso Mandibular",
+        title: " 11. Paquete Vasculonervioso Mandibular",
         desc: "Arteria, vena y nervio alveolar inferior (rama sensitiva de V3 mandibular) discurriendo por el conducto dentario inferior.",
         pearl: "En cirugía de terceros molares incluidos o colocación de implantes, debe dejarse un margen de seguridad de al menos 2 mm para evitar daño o parestesia permanente del labio inferior."
       }
@@ -1345,13 +1391,20 @@
     btnToggleRayosX.addEventListener("click", function () {
       histologyViewport.classList.toggle("xray-mode");
       if (histologyViewport.classList.contains("xray-mode")) {
-        btnToggleRayosX.textContent = "☀️ Modo Histológico Realista";
+        btnToggleRayosX.textContent = "Modo Histológico Realista";
       } else {
-        btnToggleRayosX.textContent = "🩻 Alternar Filtro Rayos X (Negativo)";
+        btnToggleRayosX.textContent = "Filtro Radiográfico Rayos X";
       }
     });
 
     // Iniciar con el Ángulo 0°
+    var mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    var mainNav = document.getElementById("mainNav");
+    if (mobileMenuBtn && mainNav) {
+      mobileMenuBtn.addEventListener("click", function() {
+        mainNav.classList.toggle("open");
+      });
+    }
     renderStep(0);
 
   });

@@ -281,23 +281,64 @@
 <body>
 
 <!-- Header Principal -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="container nav-wrapper">
     <a href="../index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
       <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore Logo" height="38">
     </a>
-    <nav class="main-nav">
+    <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
       <ul class="nav-links">
         <li><a href="../index.html#catalogo">Catálogo</a></li>
         <li><a href="../index.html#estudiantes">Estudiantes</a></li>
-        <li><a href="../index.html#academia" style="color:var(--color-primary);font-weight:700;">Academia</a></li>
-        <li><a href="../index.html#comparador">Comparador</a></li>
-        <li><a href="../index.html#ofertas">Ofertas</a></li>
+        <li class="nav-item-dropdown">
+          <a href="../index.html#academia" class="nav-link-dropdown" aria-haspopup="true" aria-expanded="false" style="color:var(--color-primary);font-weight:700;">
+            Academia
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="../guias/anatomia-dental-3d-por-capas.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Atlas Anatómico Dental 360°</span>
+                <span class="dropdown-item-badge">Activo</span>
+              </div>
+              <div class="dropdown-item-desc">Visor orbital en 8 planos, cortes sagitales y atlas histológico.</div>
+            </a>
+            <a href="../guias/semiologia-pares-craneales-odontologia.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Semiología y Pares Craneales</span>
+                <span class="dropdown-item-badge">Clínico</span>
+              </div>
+              <div class="dropdown-item-desc">Neuroanatomía orofacial, 5 capas de disección y casos clínicos.</div>
+            </a>
+            <a href="../guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Guía: Encías Sensibles</span>
+              </div>
+              <div class="dropdown-item-desc">Protocolos periodontales y control atraumático de placa.</div>
+            </a>
+            <a href="../guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-item">
+              <div class="dropdown-item-title">
+                <span>Guía: Higiene en Ortodoncia</span>
+              </div>
+              <div class="dropdown-item-desc">Mantenimiento de aparatología e irrigación subgingival.</div>
+            </a>
+            <div class="dropdown-footer-link">
+              <a href="../index.html#academia">Ver todo el catálogo de Academia →</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="../comparador.html">Comparador</a></li>
+        <li><a href="../ofertas.html">Ofertas</a></li>
         <li><a href="../index.html#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
         <a href="../index.html#catalogo" class="btn-nav-compare">
-          <span>🔬 Instrumental Clínico</span>
+          <span>Instrumental Clínico</span>
         </a>
       </div>
     </nav>
@@ -314,7 +355,7 @@
   </nav>
 
   <!-- Hero de la Guía -->
-  <span class="academy-header-badge">🧠 Academia Clínica OdontoScore · Atlas Interactivo por Capas</span>
+  <span class="academy-header-badge">Academia Clínica OdontoScore · Atlas Interactivo por Capas</span>
   <h1 style="font-size:2.85rem;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--color-navy);line-height:1.15;">
     Semiología de los 12 Pares Craneales en Odontología: Exploración Clínica, Topografía y Diagnóstico
   </h1>
@@ -388,7 +429,7 @@
           </div>
 
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;font-size:0.78rem;color:#94A3B8;">
-            <span>💡 Haz clic en los números del visor para inspeccionar estructuras clave.</span>
+            <span> Haz clic en los números del visor para inspeccionar estructuras clave.</span>
             <span>Perspectiva lateral oblicua 3D</span>
           </div>
         </div>
@@ -402,16 +443,16 @@
             </div>
             <div class="dissection-actions-bar">
               <button type="button" class="dissect-action-btn btn-accent" id="btnPeelLayer">
-                ➖ Eliminar Capa (Pelar)
+                Remover Capa
               </button>
               <button type="button" class="dissect-action-btn" id="btnAddLayer">
-                ➕ Reponer Capa
+                Restaurar Capa
               </button>
               <button type="button" class="dissect-action-btn" id="btnResetAll" title="Ver todas las 5 capas">
-                🔄 Todas (5)
+                Todas (5)
               </button>
               <button type="button" class="dissect-action-btn" id="btnBoneOnly" title="Aislar plano óseo puro">
-                💀 Solo Hueso (1)
+                 Solo Hueso (1)
               </button>
             </div>
           </div>
@@ -474,7 +515,7 @@
           <!-- Tarjeta de Información Dinámica Sincronizada -->
           <div class="dissection-live-card" id="dissectionLiveCard">
             <div class="dissection-live-title" id="liveCardTitle">
-              <span>🩺 Capa 5 · Patología y Banderas Rojas</span>
+              <span> Capa 5 · Patología y Banderas Rojas</span>
             </div>
             <div class="dissection-live-desc" id="liveCardDesc">
               Visualización de marcadores patológicos críticos: zonas desencadenantes (trigger) de neuralgia del trigémino en V2/V3, signo de Bell en foramen estilomastoideo, desviación de lengua por parálisis del XII par y alerta roja de dolor referido cardíaco en C2.
@@ -975,7 +1016,7 @@
       </div>
       <div>
         <a href="../index.html#estudiantes" class="btn-store-go" style="background:#0B1426;color:white;padding:0.85rem 1.5rem;border-radius:var(--radius-md);font-weight:700;display:inline-flex;align-items:center;gap:0.5rem;">
-          <span>🎓 Ver Material para Estudiantes</span>
+          <span> Ver Material para Estudiantes</span>
         </a>
       </div>
     </div>
@@ -1052,31 +1093,31 @@ document.addEventListener("DOMContentLoaded", function () {
   var LAYER_DATA = {
     1: {
       badge: "Capa 1: Base Cráneo & Forámenes Óseos",
-      title: "🦴 Capa 1 · Estuche Óseo y Agujeros de Salida",
+      title: " Capa 1 · Estuche Óseo y Agujeros de Salida",
       desc: "Visualización límpida del cráneo óseo, maxilar y mandíbula con ventana de corte transversal. Observa los forámenes: lámina cribosa (I), agujero óptico (II), hendidura esfenoidal (III, IV, V1, VI), agujero redondo para V2 maxilar, agujero oval para V3 mandibular, foramen yugular (IX, X, XI) y conducto hipogloso (XII).",
       relevance: "En fracturas maxilofaciales (Le Fort I, II, III) o traumatismos mandibulares por impacto, las espículas óseas comprimen o seccionan estos forámenes, generando parálisis o anestesia irreversible si no se descompresionan a tiempo."
     },
     2: {
       badge: "Capa 2: Encéfalo & Tallo Cerebral",
-      title: "🧠 Capa 2 · Homúnculo de Penfield y Tallo Encefálico",
+      title: " Capa 2 · Homúnculo de Penfield y Tallo Encefálico",
       desc: "Estructuras centrales integradas: la corteza cerebral con el Homúnculo de Penfield (dominancia sensitivomotora masiva de lengua, labios y manos) y los tres niveles del tallo cerebral: Mesencéfalo (pares III y IV), Puente (núcleo del ángulo pontocerebeloso con pares V, VI, VII y VIII) y Bulbo Raquídeo (pares IX, X, XI y XII).",
       relevance: "La desproporción cortical explica por qué una micro-lesión pulpar o una discrepancia oclusal de 50 micras desata tanta angustia o dolor en el paciente dental frente a otras partes del cuerpo."
     },
     3: {
       badge: "Capa 3: Troncos de Pares Craneales III-XII",
-      title: "⚡ Capa 3 · Origen Real y Salida de Pares Craneales",
+      title: " Capa 3 · Origen Real y Salida de Pares Craneales",
       desc: "Estructuras nerviosas en amarillo brillante emergiendo del tallo hacia los forámenes de la base del cráneo: Ganglio de Gasser (Trigémino V), nervio facial (VII) adentrándose al meato acústico interno, nervio glosofaríngeo (IX), vago (X), espinal (XI) y cordón del hipogloso (XII).",
       relevance: "Tumores como los neurinomas del acústico o meningiomas de fosa posterior comprimen secuencialmente los pares V, VII y VIII, manifestándose en la consulta dental como hipoestesia de mejilla y pérdida del reflejo corneal antes de que aparezca sordera."
     },
     4: {
       badge: "Capa 4: Inervación Dental Alveolar y C2",
-      title: "🦷 Capa 4 · Red Dental Alveolar y Alerta C2",
+      title: " Capa 4 · Red Dental Alveolar y Alerta C2",
       desc: "Distribución maxilofacial periférica: nervios alveolares superiores (ramas de V2) inervando premolares y molares superiores; nervio dentario inferior / alveolar inferior (rama de V3) viajando por el conducto mandibular hasta el nervio mentoniano; ramas motoras del facial (VII) y delimitación en violeta del ángulo mandibular (C2).",
       relevance: "Dianas de la anestesia odontológica cotidiana. Revela que el ángulo mandibular está inervado por la raíz cervical C2 y no por V3, lo que explica por qué el bloqueo mandibular nunca anestesia este ángulo."
     },
     5: {
       badge: "Capa 5: Patología Clínica & Banderas Rojas",
-      title: "🩺 Capa 5 · Patología y Banderas Rojas",
+      title: " Capa 5 · Patología y Banderas Rojas",
       desc: "Marcadores clínicos críticos: zonas gatillo de descargas de neuralgia del trigémino en V2/V3 (signo del relámpago lancinante), lesión en foramen estilomastoideo (parálisis periférica de Bell con lagoftalmos), desviación lingual por parálisis del XII par y la señal roja de dolor referido miocárdico en C2.",
       relevance: "Si un paciente refiere dolor opresivo irradiado al ángulo mandibular acompañado de diaforesis, palidez o disnea, ¡NO es una odontalgia! Es un infarto agudo de miocardio referido a través del plexo cervical (C2)."
     }
@@ -1085,37 +1126,37 @@ document.addEventListener("DOMContentLoaded", function () {
   var HOTSPOT_DATA = {
     "homunculo": {
       depth: 2,
-      title: "🧠 Hotspot 1: Homúnculo Sensitivo y Motor de Penfield",
+      title: " Hotspot 1: Homúnculo Sensitivo y Motor de Penfield",
       desc: "Mapeo cortical superpuesto. La corteza motora primaria y sensitiva dedican más del 60% de su área al territorio orofacial (lengua, labios, dientes, mucosa bucal) y manos.",
       relevance: "Cualquier alteración pulpar oclusal satura los circuitos corticales, provocando odontalgias de intensidad desmedida."
     },
     "tallo": {
       depth: 2,
-      title: "🧬 Hotspot 2: Tallo Cerebral y Núcleos de Origen",
+      title: " Hotspot 2: Tallo Cerebral y Núcleos de Origen",
       desc: "Mesencéfalo (Acueducto de Silvio, cisticercosis, ptosis), Puente (ángulo pontocerebeloso, V, VII, VIII) y Bulbo (núcleo ambiguo, deglución, úvula simétrica).",
       relevance: "Distingue odinofagia local (dolor al tragar) de disfagia bulbar motora (urgencia médica con riesgo de broncoaspiración)."
     },
     "gasser": {
       depth: 3,
-      title: "⚡ Hotspot 3: Ganglio de Gasser (Trigémino V)",
+      title: " Hotspot 3: Ganglio de Gasser (Trigémino V)",
       desc: "Ubicado en el cavum de Meckel en la fosa craneal media. De él emergen las tres divisiones: V1 (oftálmico), V2 (maxilar) y V3 (mandibular).",
       relevance: "Asiento primario de la Neuralgia del Trigémino. Pacientes describen dolores comparables a descargas eléctricas de alto voltaje desatadas al lavarse los dientes o afeitarse."
     },
     "dental": {
       depth: 4,
-      title: "🦷 Hotspot 4: Nervios Dentarios Alveolares (V2 y V3)",
+      title: " Hotspot 4: Nervios Dentarios Alveolares (V2 y V3)",
       desc: "Ramas terminales orofaciales que penetran los ápices radiculares a través del foramen apical. Vía de conducción de la propiocepción periodontal y dolor pulpar.",
       relevance: "Ruta de la técnica anestésica troncular mandibular. Requiere depositar el anestésico en la espina de Spix antes de su entrada al conducto dentario."
     },
     "c2": {
       depth: 5,
-      title: "🚨 Hotspot 5: Ángulo Mandibular (Dermatoma C2) - Alerta de Infarto",
+      title: " Hotspot 5: Ángulo Mandibular (Dermatoma C2) - Alerta de Infarto",
       desc: "Punto semiológico crítico: El ángulo de la mandíbula recibe inervación somática de la raíz espinal cervical C2 a través del nervio auricular mayor, NO del trigémino V3.",
       relevance: "¡Bandera roja máxima! El dolor referido de isquemia coronaria asciende por fibras del nervio frénico y plexo cervical hacia C2, simulando una afección de molares inferiores."
     },
     "bell": {
       depth: 5,
-      title: "⚠️ Hotspot 6: Foramen Estilomastoideo / Facial VII (Signo de Bell)",
+      title: "️ Hotspot 6: Foramen Estilomastoideo / Facial VII (Signo de Bell)",
       desc: "Punto de emergencia externa del VII par craneal entre la apófisis estiloides y mastoides antes de ramificarse dentro de la glándula parótida.",
       relevance: "Su compresión vírica o inflamatoria produce parálisis facial periférica completa de la hemicara con imposibilidad de cerrar el ojo (lagoftalmos) y riesgo de úlcera de córnea."
     }
