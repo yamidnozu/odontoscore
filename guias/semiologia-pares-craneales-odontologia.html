@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semiología de los 12 Pares Craneales en Odontología — Guía Clínica y Diagnóstica 2026</title>
+  <meta name="description" content="Guía médica y semiológica completa de los 12 pares craneales para odontología: neuroanatomía clínica, homúnculo de Penfield, exploración paso a paso, banderas rojas y casos de estudio.">
+  <link rel="canonical" href="https://odontoscore.com/guias/semiologia-pares-craneales-odontologia.html" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260903_v60">
+
+  <!-- Schema.org MedicalWebPage & Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Semiología de los 12 Pares Craneales en la Práctica Odontológica",
+    "url": "https://odontoscore.com/guias/semiologia-pares-craneales-odontologia.html",
+    "description": "Compendio clínico y neuroanatómico de los doce pares craneales adaptado a la consulta estomatológica y preclínica odontológica.",
+    "about": [
+      { "@type": "MedicalCondition", "name": "Neuralgia del Trigémino" },
+      { "@type": "MedicalCondition", "name": "Parálisis Facial Periférica" },
+      { "@type": "MedicalCondition", "name": "Disfagia Neurogénica" }
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "Comité Clínico OdontoScore & Daniela Guauña Guauña"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "OdontoScore",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://odontoscore.com/assets/img/logo-odontoscore.svg"
+      }
+    },
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03"
+  }
+  </script>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Por qué el odontólogo debe explorar los pares craneales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Porque la región orofacial concentra la inervación sensorial y motora de los pares V, VII, IX, X y XII. Detectar alteraciones tempranas permite diagnosticar tumores de fosa posterior, accidentes cerebrovasculares o neuropatías sistémicas antes de procedimientos invasivos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre odinofagia y disfagia en la consulta dental?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La odinofagia es dolor al tragar de origen inflamatorio o infeccioso (molares incluidos, abscesos, amigdalitis). La disfagia es la dificultad o imposibilidad neuromuscular para tragar debido a lesión de los pares craneales bulbares (IX, X o XII), constituyendo una bandera roja neurológica."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Por qué el dolor en el ángulo mandibular puede alertar de un infarto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El ángulo mandibular no está inervado por el nervio trigémino sino por la raíz cervical C2. Debido a la convergencia medular con el nervio frénico, las fibras nociceptivas cardíacas pueden referir dolor al ángulo de la mandíbula y cuello durante un síndrome coronario agudo."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Estilos de alta precisión médica para la sección de Academia */
+    .academy-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #EBF5FF;
+      color: #0C7FD4;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(12, 127, 212, 0.2);
+    }
+    .guide-author-strip {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin: 1.5rem 0 2.5rem;
+      font-size: 0.85rem;
+      color: var(--color-slate-light);
+    }
+    .author-avatar-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #0C7FD4, #0EA5E9);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .clinical-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .clinical-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .pearl-box {
+      background: linear-gradient(145deg, #F8FAFC, #F1F5F9);
+      border-left: 4px solid var(--color-primary);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 1.5rem 0;
+    }
+    .alert-neuro {
+      background: #FFF0F3;
+      border-left: 4px solid var(--color-danger);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 1.5rem 0;
+    }
+    .nerve-table-wrapper {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: #FFFFFF;
+    }
+    .nerve-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .nerve-table th {
+      background: #0B1426;
+      color: #FFFFFF;
+      padding: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+    .nerve-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--color-border-subtle);
+      vertical-align: top;
+    }
+    .nerve-table tr:hover td {
+      background: #F8FAFC;
+    }
+    .nerve-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-xs);
+      text-transform: uppercase;
+    }
+    .tag-sensorial { background: #E0F2FE; color: #0369A1; }
+    .tag-motor { background: #DCFCE7; color: #15803D; }
+    .tag-mixto { background: #FEF3C7; color: #B45309; }
+    .tag-ps { background: #F3E8FF; color: #7E22CE; }
+
+    .interactive-simulator-box {
+      background: linear-gradient(135deg, #0B1426 0%, #1A2740 100%);
+      color: #FFFFFF;
+      padding: 2.5rem;
+      border-radius: var(--radius-xl);
+      margin: 3rem 0;
+      box-shadow: var(--shadow-xl);
+    }
+    .sim-select {
+      width: 100%;
+      padding: 0.9rem 1.25rem;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: #FFFFFF;
+      margin: 1.25rem 0;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .sim-select:focus {
+      border-color: #38BDF8;
+      background: rgba(255,255,255,0.15);
+    }
+    .sim-select option {
+      background: #0B1426;
+      color: #FFFFFF;
+    }
+    .sim-result-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    .case-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .case-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-xs);
+    }
+    .case-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+    }
+    .toc-container {
+      background: #F8FAFC;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .toc-list a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-slate);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toc-list a:hover {
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header Principal -->
+<header class="site-header">
+  <div class="container nav-wrapper">
+    <a href="../index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+      <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore Logo" height="38">
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="../index.html#catalogo">Catálogo</a></li>
+        <li><a href="../index.html#estudiantes">Estudiantes</a></li>
+        <li><a href="../index.html#academia" style="color:var(--color-primary);font-weight:700;">Academia</a></li>
+        <li><a href="../index.html#comparador">Comparador</a></li>
+        <li><a href="../index.html#ofertas">Ofertas</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="../index.html#catalogo" class="btn-nav-compare">
+          <span>🔬 Ver Instrumental Clínico</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container section-block" style="max-width:1120px;padding-top:2.5rem;">
+  
+  <!-- Breadcrumbs -->
+  <nav aria-label="Breadcrumbs" style="font-size:0.85rem;color:var(--color-slate-light);margin-bottom:1.5rem;">
+    <a href="../index.html">Inicio</a> &gt; 
+    <a href="../index.html#academia">Academia Clínica</a> &gt; 
+    <span style="color:var(--color-navy);font-weight:600;">Semiología de Pares Craneales</span>
+  </nav>
+
+  <!-- Hero de la Guía -->
+  <span class="academy-header-badge">🧠 Academia Clínica OdontoScore · Neuroanatomía y Diagnóstico</span>
+  <h1 style="font-size:2.8rem;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--color-navy);line-height:1.15;">
+    Semiología de los 12 Pares Craneales en Odontología: Guía de Exploración Clínica y Correlaciones Diagnósticas
+  </h1>
+  <p style="font-size:1.2rem;color:var(--color-slate);max-width:920px;line-height:1.6;">
+    El puente indispensable entre la teoría anatómica y la práctica clínica en el sillón dental. Cómo inspeccionar sistemáticamente el tallo cerebral, reconocer banderas rojas y evitar diagnósticos catastróficos antes de cualquier procedimiento invasivo.
+  </p>
+
+  <!-- Author Strip -->
+  <div class="guide-author-strip">
+    <div class="author-avatar-badge">DG</div>
+    <div>
+      <div style="font-weight:700;color:var(--color-navy);">Autoría & Sistematización Clínica: Daniela Guauña Guauña</div>
+      <div>Revisión y Estructuración Editorial: Comité de Neuroanatomía & Semiología OdontoScore · Actualizado Septiembre 2026</div>
+    </div>
+  </div>
+
+  <!-- Tabla de Contenidos -->
+  <div class="toc-container">
+    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Índice Temático de la Guía</h3>
+    <ul class="toc-list">
+      <li><a href="#analogia-mecanico">1. La Analogía del Mecánico</a></li>
+      <li><a href="#neuroanatomia-corteza">2. Neuroanatomía y Homúnculo</a></li>
+      <li><a href="#arteria-cerebral-media">3. Arteria Cerebral Media (ACM)</a></li>
+      <li><a href="#tallo-cerebral">4. Tallo Cerebral y Topografía</a></li>
+      <li><a href="#mapeo-pares">5. Mapeo de los 12 Pares Craneales</a></li>
+      <li><a href="#perlas-clinicas">6. Perlas Clínicas en Consultorio</a></li>
+      <li><a href="#simulador-diagnostico">7. Simulador Interactivo de Lesión</a></li>
+      <li><a href="#casos-clinicos">8. Casos y Correlaciones Clínicas</a></li>
+    </ul>
+  </div>
+
+  <!-- SECCIÓN 1: INTRODUCCIÓN Y ANALOGÍA -->
+  <section id="analogia-mecanico" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:1rem;">1. La Semiología como Puente: La Analogía del Mecánico</h2>
+    <p style="margin-bottom:1rem;">
+      En odontología, la semiología no es un conjunto aislado de maniobras teóricas: es el <strong>puente operativo directo</strong> entre la neuroanatomía descriptiva y la seguridad del paciente. 
+    </p>
+    <div class="pearl-box">
+      <strong>La analogía clínica:</strong> Para un mecánico automotriz es imposible diagnosticar por qué un motor pierde potencia si primero no comprende con exactitud cómo fluye el combustible y cómo chispea el pistón en un motor sano. De idéntica manera, el odontólogo no puede detectar una asimetría facial patológica, una diplopía o una paresia lingual si desconoce la <em>ruta lógica del estímulo</em>:
+      <ul style="margin:0.5rem 0 0 1.5rem;">
+        <li><strong>El receptor</strong> que capta el estímulo físico o químico.</li>
+        <li><strong>El trayecto axonal</strong> hacia los núcleos del tallo encefálico o la corteza.</li>
+        <li><strong>La respuesta motora o secretora</strong> evaluable objetivamente en la consulta.</li>
+      </ul>
+    </div>
+    <p>
+      La cavidad bucal y el macizo facial constituyen el territorio biológico más ricamente inervado del cuerpo humano. Comprender esta arquitectura permite predecir con exactitud milimétrica la ubicación de una lesión neurológica antes de ordenar cualquier estudio de resonancia o tomografía.
+    </p>
+  </section>
+
+  <!-- SECCIÓN 2: NEUROANATOMÍA CLÍNICA Y CORTEZA -->
+  <section id="neuroanatomia-corteza" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:1rem;">2. Fundamentos de Neuroanatomía: Corteza y Homúnculo de Penfield</h2>
+    <p style="margin-bottom:1rem;">
+      El cerebro humano organiza sus funciones motoras y sensoriales mediante una rigurosa distribución topográfica. La corteza frontal alberga el <strong>área motora primaria</strong> (giro precentral), mientras que la corteza parietal alberga el <strong>área sensitiva primaria</strong> (giro poscentral).
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1.5rem;margin:1.5rem 0;">
+      <div style="background:#F8FAFC;border:1px solid var(--color-border);padding:1.25rem;border-radius:var(--radius-md);">
+        <h4 style="color:var(--color-primary);margin-bottom:0.5rem;">Homúnculo de Penfield</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);">
+          La representación cortical de la <strong>cara, los labios, la lengua y las manos</strong> es desproporcionadamente gigantesca en comparación con el resto del tronco. Esto responde a la densidad extrema de mecanorreceptores y al refinamiento neuromuscular imprescindible para el habla, la deglución, la masticación y la destreza manual del odontólogo.
+        </p>
+      </div>
+      <div style="background:#F8FAFC;border:1px solid var(--color-border);padding:1.25rem;border-radius:var(--radius-md);">
+        <h4 style="color:var(--color-primary);margin-bottom:0.5rem;">Decusación y Vía Piramidal</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);">
+          Las señales sensitivomotoras en el cerebro son <strong>contralaterales</strong>: el hemisferio izquierdo comanda y percibe el hemicuerpo derecho, y viceversa. Bajo la corteza, la sustancia blanca forma la <em>corona radiada</em>, que converge en forma de abanico descendente hacia la <em>cápsula interna</em>.
+        </p>
+      </div>
+      <div style="background:#F8FAFC;border:1px solid var(--color-border);padding:1.25rem;border-radius:var(--radius-md);">
+        <h4 style="color:var(--color-primary);margin-bottom:0.5rem;">El Tálamo: La Portería Central</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);">
+          Situado inmediatamente medial a la cápsula interna, el <strong>tálamo</strong> actúa como la gran estación de relevo o "filtro de portería". Salvo la olfación primaria, toda la información sensitiva orofacial debe hacer sinapsis talámica antes de alcanzar la corteza consciente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: ACM Y MANIFESTACIONES POR LÓBULO -->
+  <section id="arteria-cerebral-media" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:1rem;">3. Arteria Cerebral Media (ACM) y Manifestaciones por Lóbulo</h2>
+    <p style="margin-bottom:1rem;">
+      La <strong>Arteria Cerebral Media (ACM)</strong> nace de la carótida interna, transcurre profundamente por la cisura de Silvio y distribuye ramas corticales por toda la superficie lateral de los lóbulos frontal, parietal y temporal, además de ramas perforantes profundas (lenticuloestriadas) dirigidas a la cápsula interna y los ganglios basales.
+    </p>
+
+    <div class="alert-neuro">
+      <strong>Relevancia de Urgencia en el Consultorio Dental:</strong> Si la ACM se ocluye o sufre rotura hemorrágica por una crisis hipertensiva en el sillón dental, el paciente presenta un ACV isquémico/hemorrágico con pérdida súbita del habla (afasia), pérdida de fuerza motora o hemianestesia del lado opuesto del cuerpo.
+    </div>
+
+    <div class="nerve-table-wrapper">
+      <table class="nerve-table">
+        <thead>
+          <tr>
+            <th style="width:25%;">Estructura / Lóbulo</th>
+            <th style="width:40%;">Función Clave</th>
+            <th style="width:35%;">Manifestación Clínica de Lesión</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lóbulo Frontal</strong></td>
+            <td>Área motora primaria y Centro del Lenguaje Motor (Área de Broca).</td>
+            <td><strong>Afasia de Broca</strong> (el paciente comprende perfectamente pero no puede articular palabras) y parálisis motora contralateral.</td>
+          </tr>
+          <tr>
+            <td><strong>Lóbulo Parietal</strong></td>
+            <td>Área sensitiva primaria orofacial y somatosensorial.</td>
+            <td><strong>Hemianestesia contralateral</strong> (pérdida sensorial táctil, térmica y dolorosa del hemicuerpo opuesto).</td>
+          </tr>
+          <tr>
+            <td><strong>Lóbulo Occipital</strong></td>
+            <td>Corteza visual primaria y asociación visual.</td>
+            <td><strong>Hemianopsia homónima contralateral</strong> (ceguera en la mitad del campo visual del lado opuesto a la lesión).</td>
+          </tr>
+          <tr>
+            <td><strong>Lóbulo Temporal</strong></td>
+            <td>Comprensión del lenguaje (Wernicke), audición y memoria (Hipocampo).</td>
+            <td><strong>Afasia de Wernicke</strong> (habla fluida pero carente de sentido; no comprende órdenes) y amnesia anterógrada.</td>
+          </tr>
+          <tr>
+            <td><strong>Cápsula Interna</strong></td>
+            <td>Embudo concentrador de todas las fibras descendentes corticoespinales y corticonucleares.</td>
+            <td><strong>Hemiplejía contralateral densa</strong> (brazo y pierna) y <strong>parálisis facial central</strong> (frente respetada por inervación cortical bilateral).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: TALLO CEREBRAL Y TOPOGRAFÍA -->
+  <section id="tallo-cerebral" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:1rem;">4. Tallo Cerebral y Topografía de Lesión</h2>
+    <p style="margin-bottom:1rem;">
+      Bajo el comando de la corteza, el tallo cerebral se erige como la <strong>estación central de origen real</strong> de los pares craneales III al XII. Se subdivide topográficamente en tres niveles anatómicos:
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin:1.5rem 0;">
+      <div style="background:#FFFFFF;border:2px solid #E2E8F0;border-top:4px solid #0C7FD4;padding:1.5rem;border-radius:var(--radius-md);">
+        <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#0B1426;">Nivel 1: Mesencéfalo</h4>
+        <p style="font-size:0.85rem;font-weight:700;color:#0C7FD4;margin-bottom:0.75rem;">Aloja los núcleos de los Pares III (Oculomotor) y IV (Troclear)</p>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.5;">
+          Por su centro corre el estrecho <em>Acueducto de Silvio</em>. Si se obstruye (por tumores de la glándula pineal o por enquistamiento de <strong>larvas de cisticercosis</strong> tras consumir carne porcina cruda), se interrumpe el drenaje de LCR, desatando <strong>hidrocefalia aguda</strong> con hipertensión intracraneal severa.
+        </p>
+        <div style="margin-top:1rem;font-size:0.85rem;background:#F1F5F9;padding:0.75rem;border-radius:var(--radius-xs);">
+          <strong>Semiología:</strong> Ptosis palpebral, pupila midriática fija no reactiva (signo cardinal de compromiso uncal / muerte cerebral), diplopía y estrabismo divergente.
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF;border:2px solid #E2E8F0;border-top:4px solid #0EA5E9;padding:1.5rem;border-radius:var(--radius-md);">
+        <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#0B1426;">Nivel 2: Protuberancia (Puente)</h4>
+        <p style="font-size:0.85rem;font-weight:700;color:#0EA5E9;margin-bottom:0.75rem;">Aloja núcleos de Pares V (Trigémino), VI (Abducens), VII (Facial) y VIII (Vestibulococlear)</p>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.5;">
+          Constituye el núcleo del ángulo pontocerebeloso, área de alta susceptibilidad tumoral (neurinomas del acústico y meningiomas).
+        </p>
+        <div style="margin-top:1rem;font-size:0.85rem;background:#F1F5F9;padding:0.75rem;border-radius:var(--radius-xs);">
+          <strong>Semiología:</strong> Hemi-anestesia facial, debilidad masticatoria de maseteros, estrabismo convergente (ojo hacia adentro por VI par), parálisis facial completa periférica, vértigo objetivo, nistagmo y acúfenos/hipoacusia.
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF;border:2px solid #E2E8F0;border-top:4px solid #0A9B6A;padding:1.5rem;border-radius:var(--radius-md);">
+        <h4 style="font-size:1.2rem;margin-bottom:0.5rem;color:#0B1426;">Nivel 3: Bulbo Raquídeo</h4>
+        <p style="font-size:0.85rem;font-weight:700;color:#0A9B6A;margin-bottom:0.75rem;">Aloja núcleos de Pares IX (Glosofaríngeo), X (Vago), XI (Accesorio) y XII (Hipogloso)</p>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.5;">
+          Gobierna los centros reflejos cardiorrespiratorios vitales y la compleja secuencia orofaríngea de la deglución y fonación.
+        </p>
+        <div style="margin-top:1rem;font-size:0.85rem;background:#F1F5F9;padding:0.75rem;border-radius:var(--radius-xs);">
+          <strong>Semiología:</strong> Disfagia neurológica, disartria con voz ronca o "traposa", abolición del reflejo nauseoso, paresia para elevar hombros (trapecio) y desviación ipsilateral de la lengua.
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciación clave -->
+    <div class="pearl-box">
+      <h4 style="color:#0B1426;margin-bottom:0.5rem;">Distinción Semiológica Vital en el Sillón Dental: Odinofagia vs. Disfagia</h4>
+      <p style="margin-bottom:0.5rem;">
+        Confundir estos dos términos representa un error diagnóstico común que retrasa la atención neurológica urgente:
+      </p>
+      <ul style="margin-left:1.5rem;line-height:1.6;">
+        <li><strong>Odinofagia:</strong> Es el dolor al tragar. Es de etiología inflamatoria o infecciosa local periférica (pericoronaritis de tercer molar, flemón periamigdalino, faringitis o aftas en pilares anteriores). El mecanismo neuromuscular está íntegro, pero duele.</li>
+        <li><strong>Disfagia:</strong> Es la dificultad motora objetiva o imposibilidad física para coordinar la deglución. El paciente desea deglutir pero los músculos faríngeos no responden debido a una desconexión o denervación de los pares craneales bulbares (IX y X). Es una <strong>emergencia neurológica</strong> que expone al paciente a broncoaspiración fatal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: MAPEO COMPLETO DE LOS 12 PARES CRANEALES -->
+  <section id="mapeo-pares" class="clinical-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-size:1.85rem;margin-bottom:0.25rem;">5. Atlas Clínico de los 12 Pares Craneales</h2>
+        <p style="color:var(--color-slate-light);font-size:0.95rem;">Protocolo de exploración, tipo funcional, agujeros de salida craneal y hallazgos patológicos.</p>
+      </div>
+      <div>
+        <span class="nerve-tag tag-sensorial">Sensorial</span>
+        <span class="nerve-tag tag-motor">Motor</span>
+        <span class="nerve-tag tag-mixto">Mixto</span>
+        <span class="nerve-tag tag-ps">Parasimpático</span>
+      </div>
+    </div>
+
+    <div class="nerve-table-wrapper">
+      <table class="nerve-table">
+        <thead>
+          <tr>
+            <th style="width:18%;">Par Craneal</th>
+            <th style="width:16%;">Tipo & Origen Real</th>
+            <th style="width:16%;">Recorrido / Salida</th>
+            <th style="width:25%;">Examen Clínico en Consulta</th>
+            <th style="width:25%;">Hallazgo Semiológico de Lesión</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>I. Nervio Olfatorio</strong></td>
+            <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Mucosa olfatoria nasal</small></td>
+            <td>Lámina cribosa del hueso etmoides</td>
+            <td>Ocluir una narina y presentar sustancias no irritantes familiares (café molido, jabón neutro, vainilla). Repetir contralateralmente.</td>
+            <td><strong>Anosmia</strong> (pérdida total del olfato), hiposmia o <strong>cacosmia</strong> (percepción de olores pútridos inexistentes, signo de fosa anterior).</td>
+          </tr>
+          <tr>
+            <td><strong>II. Nervio Óptico</strong></td>
+            <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Células ganglionares de la retina</small></td>
+            <td>Agujero óptico (conducto óptico)</td>
+            <td>Agudeza visual con cartilla de Snellen reducida (1.5 m), campimetría por confrontación, exploración del reflejo rojo pupilar y uso de cuchara de Biopío*.</td>
+            <td>Amaurosis (ceguera), hemianopsias y <strong>leucocoria</strong> (reflejo pupilar blanquecino en odontopediatría: signo de alerta máxima de <em>retinoblastoma</em>).</td>
+          </tr>
+          <tr>
+            <td><strong>III. Nervio Oculomotor</strong></td>
+            <td><span class="nerve-tag tag-motor">Motor</span> <span class="nerve-tag tag-ps">PS</span><br><small>Mesencéfalo (núcleos somatomotor y de Edinger-Westphal)</small></td>
+            <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
+            <td>Evaluación del reflejo fotomotor directo y consensual (linterna médica), miosis a la acomodación y motilidad ocular (rectos superior, medial, inferior y oblicuo menor).</td>
+            <td><strong>Ptosis palpebral</strong> severa, ojo desviado hacia afuera y abajo ("down and out") y <strong>midriasis fija arreactiva</strong> (signo cardinal de compresión uncal).</td>
+          </tr>
+          <tr>
+            <td><strong>IV. Nervio Troclear (Patético)</strong></td>
+            <td><span class="nerve-tag tag-motor">Motor</span><br><small>Mesencéfalo posterior (único par con salida dorsal)</small></td>
+            <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
+            <td>Músculo oblicuo superior: pedir al paciente que mire hacia la punta de la nariz o hacia abajo y adentro (hacia los pies).</td>
+            <td><strong>Diplopía vertical al bajar escaleras</strong> o leer; inclinación compensatoria de la cabeza hacia el lado opuesto (tortícolis ocular).</td>
+          </tr>
+          <tr>
+            <td><strong>V. Nervio Trigémino</strong></td>
+            <td><span class="nerve-tag tag-mixto">Mixto</span><br><small>Protuberancia (Ganglio sensitivo de Gasser y núcleo motor masticatorio)</small></td>
+            <td>
+              <strong>V1:</strong> Hendidura esfenoidal<br>
+              <strong>V2:</strong> Agujero redondo<br>
+              <strong>V3:</strong> Agujero oval
+            </td>
+            <td>
+              <strong>Sensitivo ("Striptease facial"):</strong> hisopo de algodón en frente (V1), mejilla/labio sup. (V2) y mentón (V3).<br>
+              <strong>Motor:</strong> palpación de maseteros y temporales al morder fuertemente; lateralización mandibular contra resistencia.
+            </td>
+            <td>Hemi-anestesia orofacial, neuralgia del trigémino (dolor lancinante paroxístico en gatillo), debilidad masticatoria y desviación mandibular hacia el lado paralizado al abrir la boca.</td>
+          </tr>
+          <tr>
+            <td><strong>VI. Nervio Abducens (Motor Ocular Externo)</strong></td>
+            <td><span class="nerve-tag tag-motor">Motor</span><br><small>Surco bulboprotuberancial</small></td>
+            <td>Hendidura esfenoidal (fisura orbitaria superior)</td>
+            <td>Músculo recto lateral: solicitar al paciente que siga un punto fijo hacia el extremo lateral (abducción pura del ojo).</td>
+            <td><strong>Estrabismo convergente</strong> (el ojo afectado se desvía medialmente hacia la nariz; incapacidad de mirar hacia afuera) con diplopía horizontal.</td>
+          </tr>
+          <tr>
+            <td><strong>VII. Nervio Facial</strong></td>
+            <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Ángulo pontocerebeloso</small></td>
+            <td>Conducto auditivo interno → Agujero estilomastoideo</td>
+            <td>
+              <strong>Mímica:</strong> arrugar la frente, cerrar ojos fuertemente contra resistencia, sonreír y silbar.<br>
+              <strong>Gusto:</strong> hisopos con soluciones dulce/salada en los 2/3 anteriores linguales.<br>
+              <strong>Parasimpático:</strong> secreción lagrimal y salival.
+            </td>
+            <td>
+              <strong>Parálisis de Bell (periférica):</strong> asimetría facial total con imposibilidad de cerrar el ojo (lagoftalmos) y desaparición de arrugas frontales.<br>
+              <strong>Parálisis central:</strong> respeta la frente (inervación supranuclear bilateral). Ojo seco y ageusia anterior.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>VIII. Nervio Vestibulococlear</strong></td>
+            <td><span class="nerve-tag tag-sensorial">Sensorial</span><br><small>Receptores del oído interno (cóclea y conductos semicirculares)</small></td>
+            <td>Meato acústico interno</td>
+            <td>
+              <strong>Coclear:</strong> prueba del susurro o frote de dedos junto al pabellón auricular.<br>
+              <strong>Vestibular:</strong> Prueba de Romberg (paciente de pie con pies juntos y ojos cerrados).
+            </td>
+            <td>Hipoacusia neurosensorial, tinitus (acúfenos), <strong>vértigo rotatorio</strong>, nistagmo espontáneo y caída postural en Romberg hacia el lado dañado.</td>
+          </tr>
+          <tr>
+            <td><strong>IX. Nervio Glosofaríngeo</strong></td>
+            <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Surco retro-olivar del bulbo</small></td>
+            <td>Agujero rasgado posterior (foramen yugular)</td>
+            <td>Estimulación suave de la pared faríngea posterior con espejo bucal para desencadenar el <strong>reflejo nauseoso</strong>. Sabor amargo en 1/3 posterior de la lengua. Secreción parotídea.</td>
+            <td>Abolición del reflejo nauseoso, disfagia alta, neuralgia glosofaríngea (dolor lancinante en base lingual y amígdala) y pérdida gustativa posterior.</td>
+          </tr>
+          <tr>
+            <td><strong>X. Nervio Vago (Neumogástrico)</strong></td>
+            <td><span class="nerve-tag tag-mixto">Mixto</span> <span class="nerve-tag tag-ps">PS</span><br><small>Surco retro-olivar del bulbo</small></td>
+            <td>Agujero rasgado posterior (foramen yugular)</td>
+            <td>Solicitar al paciente pronunciar un tono sostenido: <strong>"¡Aaa!"</strong> mientras se visualiza directamente el paladar blando con luz dental.</td>
+            <td>Asimetría del velo del paladar: <strong>la úvula se desvía hacia el lado sano</strong> (signo de la cortina de Vernet). Disfonía con voz bitonal o nasal y riesgo crítico de regurgitación nasal de líquidos.</td>
+          </tr>
+          <tr>
+            <td><strong>XI. Nervio Accesorio (Espinal)</strong></td>
+            <td><span class="nerve-tag tag-motor">Motor</span><br><small>Bulbo raquídeo y raíces espinales C1-C5</small></td>
+            <td>Agujero rasgado posterior (foramen yugular)</td>
+            <td>
+              1. Elevar ambos hombros simultáneamente contra la presión hacia abajo de las manos del clínico (músculo trapecio).<br>
+              2. Girar la cabeza con fuerza hacia un lado contra la resistencia palmar (músculo esternocleidomastoideo contralateral).
+            </td>
+            <td>Hombro caído unilateral con debilidad para elevar el brazo por encima de la horizontal e incapacidad para girar con fuerza la barbilla hacia el hombro opuesto.</td>
+          </tr>
+          <tr>
+            <td><strong>XII. Nervio Hipogloso</strong></td>
+            <td><span class="nerve-tag tag-motor">Motor</span><br><small>Surco pre-olivar del bulbo</small></td>
+            <td>Agujero condíleo anterior (conducto del hipogloso)</td>
+            <td>Inspección de la lengua en reposo en el suelo de la boca (fasciculaciones o atrofia) y solicitar al paciente que la <strong>protruya hacia adelante</strong> en la línea media.</td>
+            <td><strong>Desviación de la lengua hacia el lado lesionado</strong> (el músculo geniogloso sano empuja la lengua hacia el lado parético sin oposición). Dificultad para articular fonemas linguales ("L", "R", "T").</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:#F8FAFC;border:1px solid var(--color-border);padding:1rem 1.5rem;border-radius:var(--radius-md);margin-top:1rem;font-size:0.85rem;color:var(--color-slate);">
+      <strong>*Regla de Oro en Exploración Instrumental:</strong> Todo instrumento médico utilizado en la exploración de la cavidad oral o facial (como la cuchara de Biopío, espejos o pinzas) debe ser retirado de su empaque estéril, limpiado con gasa estéril y manipulado siempre frente a la vista del paciente. Esta conducta transmite máxima rigurosidad y profesionalismo clínico.
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: PERLAS CLÍNICAS EN EL CONSULTORIO DENTAL -->
+  <section id="perlas-clinicas" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:1.5rem;">6. Aspectos Clínicos Relevantes en la Consulta Estomatológica</h2>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;">
+      <div class="pearl-box" style="margin:0;">
+        <h4 style="color:#0B1426;margin-bottom:0.5rem;">El "Striptease" del Trigémino y el Ángulo Mandibular (C2)</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.6;">
+          El nervio trigémino divide la cara en tres pisos anatómicos puros: <strong>V1</strong> (desde el vértex del cráneo hasta la frente y dorso nasal), <strong>V2</strong> (pómulo, maxilar superior y labio superior) y <strong>V3</strong> (mandíbula, labio inferior y ATM).
+        </p>
+        <p style="font-size:0.9rem;color:var(--color-slate);margin-top:0.5rem;line-height:1.6;">
+          <strong>Bandera Roja:</strong> El <em>ángulo de la mandíbula</em> <strong>NO</strong> está inervado por el trigémino sino por el <strong>segundo nervio cervical (C2)</strong>. Por tanto, un dolor agudo e irradiado específicamente localizado en el ángulo mandibular, acompañado de diaforesis o disnea, debe considerarse de inmediato un dolor de <strong>infarto de miocardio referido</strong> a través de las fibras vegetativas del nervio frénico y plexo cervical.
+        </p>
+      </div>
+
+      <div class="pearl-box" style="margin:0;">
+        <h4 style="color:#0B1426;margin-bottom:0.5rem;">Protección Auditiva Dental: Músculo Tensor del Tímpano y Estapedio</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.6;">
+          El ruido de alta frecuencia emitido por la turbina y la pieza de mano dental puede alcanzar intensidades lesivas para el oído interno. La naturaleza protege al paciente mediante dos reflejos acústicos comandados por pares craneales:
+        </p>
+        <ul style="font-size:0.85rem;color:var(--color-slate);margin:0.5rem 0 0 1.25rem;line-height:1.5;">
+          <li><strong>V3 (Trigémino):</strong> Inerva el <em>músculo tensor del tímpano</em> (músculo del martillo), que tensa la membrana timpánica amortiguando las vibraciones masivas.</li>
+          <li><strong>VII (Facial):</strong> Inerva el <em>músculo del estribo (estapedio)</em>, que fija la platina del estribo evitando sobrecargas de presión acústica en la ventana oval. Una lesión periférica del facial produce <strong>hiperacusia dolorosa</strong> al sonido del taladro dental.</li>
+        </ul>
+      </div>
+
+      <div class="pearl-box" style="margin:0;">
+        <h4 style="color:#0B1426;margin-bottom:0.5rem;">Parálisis Facial Periférica (Bell) vs. Parálisis Central</h4>
+        <p style="font-size:0.9rem;color:var(--color-slate);line-height:1.6;">
+          Un signo de cabecera imprescindible:
+        </p>
+        <ul style="font-size:0.85rem;color:var(--color-slate);margin:0.5rem 0 0 1.25rem;line-height:1.5;">
+          <li><strong>Parálisis Facial Periférica (Infranuclear):</strong> Se lesiona el nervio VII en su trayecto (ej. en el ganglio geniculado o glándula parótida). Provoca parálisis de <em>toda la mitad de la cara</em>, incluyendo la incapacidad total para arrugar la frente y cerrar el párpado (Signo de Bell positivo). Lesiones profundas en el ganglio geniculado eliminan el lagrimeo (vía nervio petroso mayor/Vidiano) generando <strong>ojo seco severo</strong>.</li>
+          <li><strong>Parálisis Facial Central (Supranuclear):</strong> Se lesiona la vía corticonuclear en la cápsula interna o corteza. <em>Preserva la musculatura de la frente</em> debido a que el núcleo facial superior recibe inervación de ambos hemisferios cerebrales (bilateral).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 7: SIMULADOR INTERACTIVO DE DIAGNÓSTICO -->
+  <section id="simulador-diagnostico" class="interactive-simulator-box">
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+      <span style="background:#0284C7;color:white;padding:0.25rem 0.6rem;border-radius:4px;font-size:0.75rem;font-weight:700;">HERRAMIENTA DIDÁCTICA</span>
+      <h3 style="color:#FFFFFF;margin:0;font-size:1.6rem;">Simulador Clínico Rápido de Pares Craneales</h3>
+    </div>
+    <p style="color:#94A3B8;font-size:0.95rem;">
+      Selecciona el signo o síntoma observado en el examen físico del paciente para consultar instantáneamente el par craneal sospechoso, su origen anatómico, el agujero óseo implicado y la conducta odontológica recomendada.
+    </p>
+
+    <label for="symptomSelector" style="display:block;font-size:0.85rem;font-weight:700;color:#E2E8F0;margin-top:1.5rem;">Signo Clínico Observado en Consulta:</label>
+    <select id="symptomSelector" class="sim-select">
+      <option value="">-- Selecciona un hallazgo semiológico --</option>
+      <option value="lengua_desviada">La lengua protruida se desvía asimétricamente hacia un lado</option>
+      <option value="uvula_desviada">Al decir 'Aaa', la úvula se inclina hacia un lado y la voz es ronca</option>
+      <option value="reflejo_nauseoso">Abolición unilateral del reflejo nauseoso al tocar la faringe</option>
+      <option value="ojo_seco_boca_torcida">Parálisis facial completa con lagoftalmos y ojo seco sin lágrimas</option>
+      <option value="ojo_hacia_adentro">El paciente no puede mirar hacia afuera; el ojo converge medialmente</option>
+      <option value="bajar_escaleras">Visión doble vertical manifiesta al bajar escaleras o leer la ficha</option>
+      <option value="pupila_midriasis">Pupila dilatada fija que no responde a la luz dental + ptosis</option>
+      <option value="angulo_mandibular">Dolor sordo y opresivo circunscrito al ángulo mandibular con sudoración</option>
+      <option value="masetero_pepas">Palpación de nódulos indoloros redondeados ("pepas") dentro del músculo masetero</option>
+      <option value="dientes_destornillador">Dientes de Hutchinson (incisivos excavados) en niño con ataxia de Romberg</option>
+    </select>
+
+    <div id="simResultContainer" class="sim-result-card" style="display:none;">
+      <!-- Rellenado dinámicamente vía JavaScript -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN 8: CASOS Y CORRELACIONES CLÍNICAS -->
+  <section id="casos-clinicos" class="clinical-card">
+    <h2 style="font-size:1.85rem;margin-bottom:0.5rem;">7. Casos y Correlaciones Clínicas Reales</h2>
+    <p style="color:var(--color-slate-light);margin-bottom:1.5rem;">
+      Ejemplos verídicos donde la semiología estomatológica marca la frontera entre un procedimiento seguro y una negligencia diagnóstica.
+    </p>
+
+    <div class="case-card-grid">
+      <!-- Caso 1 -->
+      <div class="case-card">
+        <div>
+          <span class="case-badge" style="background:#FEF3C7;color:#92400E;">CASO DE ESTUDIO 1</span>
+          <h4 style="font-size:1.15rem;margin-bottom:0.5rem;color:var(--color-navy);">Las Prótesis Oculares de Vidrio de Alemania</h4>
+          <p style="font-size:0.88rem;color:var(--color-slate);line-height:1.5;">
+            Un paciente que ingresó con estado febril y alteración sensorial presentó pupilas totalmente arreactivas a la luz dental bilateralmente. Un evaluador apresurado sospechó lesión masiva mesencefálica con muerte cerebral inminente.
+          </p>
+          <p style="font-size:0.88rem;color:var(--color-slate);margin-top:0.5rem;line-height:1.5;">
+            La inspección física detallada demostró que el paciente era portador de prótesis oculares estéticas de vidrio importadas de Alemania. 
+          </p>
+        </div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--color-border-subtle);font-size:0.8rem;font-weight:700;color:var(--color-primary);">
+          Lección: Nunca asumas un diagnóstico neurológico sin antes haber corroborado la integridad anatómica directa del órgano.
+        </div>
+      </div>
+
+      <!-- Caso 2 -->
+      <div class="case-card">
+        <div>
+          <span class="case-badge" style="background:#E0F2FE;color:#0369A1;">CASO DE ESTUDIO 2</span>
+          <h4 style="font-size:1.15rem;margin-bottom:0.5rem;color:var(--color-navy);">Meningioma de Fosa Posterior Detectado en el Gabinete</h4>
+          <p style="font-size:0.88rem;color:var(--color-slate);line-height:1.5;">
+            Un paciente acude para prótesis dental. Durante el interrogatorio refiere visión doble horizontal (diplopía) que comenzó dos meses antes (<strong>VI Par</strong>). Durante el examen se evidencia una leve debilidad para arrugar la comisura labial derecha (<strong>VII Par</strong>).
+          </p>
+          <p style="font-size:0.88rem;color:var(--color-slate);margin-top:0.5rem;line-height:1.5;">
+            Al indagar sobre audición, el paciente confirma acúfenos e inestabilidad al levantarse (<strong>VIII Par</strong>).
+          </p>
+        </div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--color-border-subtle);font-size:0.8rem;font-weight:700;color:var(--color-primary);">
+          Secuencia de Alerta: El compromiso progresivo VI → VII → VIII delata una masa expansiva en el ángulo pontocerebeloso remitida con éxito a neurocirugía.
+        </div>
+      </div>
+
+      <!-- Caso 3 -->
+      <div class="case-card">
+        <div>
+          <span class="case-badge" style="background:#FCE7F3;color:#9D174D;">CASO DE ESTUDIO 3</span>
+          <h4 style="font-size:1.15rem;margin-bottom:0.5rem;color:var(--color-navy);">Tabes Dorsal y Sífilis Congénita en Odontopediatría</h4>
+          <p style="font-size:0.88rem;color:var(--color-slate);line-height:1.5;">
+            En la revisión de un paciente juvenil se constatan incisivos centrales superiores con morfología en "destornillador" y muesca semilunar incisal típica (<strong>Dientes de Hutchinson</strong>), acompañados de molares en mora (molares de Fournier).
+          </p>
+          <p style="font-size:0.88rem;color:var(--color-slate);margin-top:0.5rem;line-height:1.5;">
+            El hallazgo bucal confirma sífilis congénita tardía, alertando sobre daño inminente del cordón posterior medular (Tabes dorsal), marcha atáxica con signo de Romberg positivo y pupila de Argyll Robertson.
+          </p>
+        </div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--color-border-subtle);font-size:0.8rem;font-weight:700;color:var(--color-primary);">
+          Impacto Clínico: El odontólogo es el primer profesional en diagnosticar la estigma espiroquetal antes de la discapacidad neurológica.
+        </div>
+      </div>
+
+      <!-- Caso 4 -->
+      <div class="case-card">
+        <div>
+          <span class="case-badge" style="background:#DCFCE7;color:#15803D;">CASO DE ESTUDIO 4</span>
+          <h4 style="font-size:1.15rem;margin-bottom:0.5rem;color:var(--color-navy);">Cisticercosis en el Músculo Masetero</h4>
+          <p style="font-size:0.88rem;color:var(--color-slate);line-height:1.5;">
+            Durante la palpación bimanual del músculo masetero (músculo de potente vascularización inervado por V3), el odontólogo detecta múltiples nódulos subcutáneos indoloros y móviles similares a pequeñas "pepas".
+          </p>
+          <p style="font-size:0.88rem;color:var(--color-slate);margin-top:0.5rem;line-height:1.5;">
+            La biopsia y ecografía orofacial revelan cisticercos calcificados de <em>Taenia solium</em>. 
+          </p>
+        </div>
+        <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--color-border-subtle);font-size:0.8rem;font-weight:700;color:var(--color-primary);">
+          Centinela Epidemiológico: La invasión muscular del masetero es el heraldo de neurocisticercosis cerebral con riesgo inminente de hidrocefalia en el acueducto de Silvio.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE INSTRUMENTAL Y ESTUDIANTES VINCULADA -->
+  <section class="clinical-card" style="background:#F8FAFC;border:2px dashed #CBD5E1;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
+      <div style="max-width:650px;">
+        <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Práctica Preclínica Universitaria</span>
+        <h3 style="font-size:1.4rem;color:var(--color-navy);margin:0.25rem 0 0.5rem;">¿Estudiando Semiología y Cirugía Bucal?</h3>
+        <p style="font-size:0.95rem;color:var(--color-slate);">
+          Explora los tipodontos anatómicos con articulación de ATM, almohadillas de sutura multicapa e instrumental quirúrgico calibrado seleccionados en nuestro catálogo de estudiantes.
+        </p>
+      </div>
+      <div>
+        <a href="../index.html#estudiantes" class="btn-store-go" style="background:#0B1426;color:white;padding:0.85rem 1.5rem;border-radius:var(--radius-md);font-weight:700;display:inline-flex;align-items:center;gap:0.5rem;">
+          <span>🎓 Ver Material para Estudiantes</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Odonto<span style="color:#0C7FD4">Score</span></h3>
+        <p style="margin-bottom:1rem;color:#94A3B8;">Portal odontológico independiente de análisis técnico, catálogo clínico, semiología y comparativas en 7 ejes.</p>
+        <p style="font-size:0.85rem;color:#64748B;">Sistematización clínica basada en evidencia neuroanatómica y semiológica orofacial.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Academia & Guías</h4>
+        <ul class="footer-links">
+          <li><a href="semiologia-pares-craneales-odontologia.html" style="font-weight:700;color:#38BDF8;">Semiología de Pares Craneales</a></li>
+          <li><a href="mejor-cepillo-electrico-encias-sensibles-2026.html">Guía Encías Sensibles</a></li>
+          <li><a href="mejor-irrigador-dental-brackets-2026.html">Guía Irrigadores Brackets</a></li>
+          <li><a href="../index.html#academia">Próximos Módulos Clínicos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Especialidades</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html#catalogo">Estudiantes y Prácticas</a></li>
+          <li><a href="../categoria/cepillos-electricos.html">Cepillos Eléctricos</a></li>
+          <li><a href="../categoria/irrigadores-dentales.html">Irrigadores Dentales</a></li>
+          <li><a href="../categoria/ortodoncia-brackets.html">Ortodoncia y Brackets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Transparencia Legal</h4>
+        <ul class="footer-links">
+          <li><a href="../aviso-afiliados.html">Aviso de Afiliación</a></li>
+          <li><a href="../privacidad.html">Privacidad y Cookies</a></li>
+          <li><a href="../sobre-nosotros.html">Metodología E-E-A-T</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimers">
+      <p><strong>Descargo de Responsabilidad Médica y Docente:</strong> El contenido de esta guía clínica tiene propósitos exclusivamente educativos, formativos y de divulgación semiológica para profesionales y estudiantes del área de la salud estomatológica. No sustituye la valoración médica integral por un especialista en neurología o cirugía maxilofacial.</p>
+    </div>
+    <div class="footer-bottom-copy">
+      © 2026 OdontoScore (odontoscore.com). Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- Script del Simulador Clínico -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var selector = document.getElementById("symptomSelector");
+  var container = document.getElementById("simResultContainer");
+
+  var KNOWLEDGE_BASE = {
+    "lengua_desviada": {
+      par: "XII. Nervio Hipogloso",
+      tipo: "Motor Puro",
+      origen: "Surco pre-olivar del bulbo raquídeo",
+      agujero: "Agujero condíleo anterior (conducto del hipogloso)",
+      mecanismo: "Paresia o parálisis del músculo geniogloso ipsilateral. El músculo contralateral sano empuja la lengua hacia el lado afectado.",
+      accion: "Explorar fasciculaciones y atrofia lingual. Descartar lesiones bulbares o tumores en la base del cráneo. Remitir para evaluación neurológica."
+    },
+    "uvula_desviada": {
+      par: "X. Nervio Vago (Neumogástrico)",
+      tipo: "Mixto y Parasimpático",
+      origen: "Surco retro-olivar del bulbo raquídeo",
+      agujero: "Agujero rasgado posterior (foramen yugular)",
+      mecanismo: "Paresia del músculo elevador del velo del paladar. El velo no se eleva en el lado dañado y la úvula es traccionada hacia el lado sano (Signo de Vernet).",
+      accion: "Evaluar inmediatamente reflejo nauseoso y voz ronca. Suspender procedimientos de deglución inmediata por riesgo de broncoaspiración."
+    },
+    "reflejo_nauseoso": {
+      par: "IX. Nervio Glosofaríngeo (Brazo Aferente) y X. Vago (Brazo Eferente)",
+      tipo: "Mixtos Bulbares",
+      origen: "Bulbo raquídeo",
+      agujero: "Agujero rasgado posterior",
+      mecanismo: "Interrupción del arco reflejo sensorial orofaríngeo posterior.",
+      accion: "Verificar si coexiste con disfagia o neuralgia del glosofaríngeo. Advertir al paciente sobre cuidado al ingerir líquidos."
+    },
+    "ojo_seco_boca_torcida": {
+      par: "VII. Nervio Facial (Nivel Ganglio Geniculado / Petroso Mayor)",
+      tipo: "Mixto y Parasimpático",
+      origen: "Ángulo pontocerebeloso (Puente)",
+      agujero: "Conducto auditivo interno hacia acueducto de Falopio",
+      mecanismo: "Compromiso proximal del nervio facial antes de la salida del nervio petroso mayor (vidiano), provocando denervación de la glándula lagrimal combinada con parálisis de Bell de toda la hemicara.",
+      accion: "Prescripción urgente de lágrimas artificiales y parche oclusivo nocturno para evitar úlcera corneal neurotrófica por lagoftalmos. Derivación neurológica."
+    },
+    "ojo_hacia_adentro": {
+      par: "VI. Nervio Abducens (Motor Ocular Externo)",
+      tipo: "Motor Puro",
+      origen: "Surco bulboprotuberancial",
+      agujero: "Hendidura esfenoidal (fisura orbitaria superior)",
+      mecanismo: "Parálisis del músculo recto lateral del ojo. El músculo recto medial (inervado por III) tracciona sin contrapeso, causando estrabismo convergente.",
+      accion: "Debido a su largo trayecto intracraneal, el VI par es el sensor más sensible de HIPERTENSIÓN INTRACRANEAL. Solicitar neuroimagen urgente."
+    },
+    "bajar_escaleras": {
+      par: "IV. Nervio Troclear (Patético)",
+      tipo: "Motor Puro",
+      origen: "Mesencéfalo dorsal (emerge por la cara posterior del tallo)",
+      agujero: "Hendidura esfenoidal",
+      mecanismo: "Paresia del músculo oblicuo superior, incapacitando la intorsión y depresión del globo ocular en aducción.",
+      accion: "Notar si el paciente inclina la cabeza hacia el hombro opuesto. Sugiere traumatismo de cráneo previo o microangiopatía diabética."
+    },
+    "pupila_midriasis": {
+      par: "III. Nervio Oculomotor (Fibras Parasimpáticas Pupilares)",
+      tipo: "Motor y Parasimpático",
+      origen: "Mesencéfalo (Núcleo de Edinger-Westphal)",
+      agujero: "Hendidura esfenoidal",
+      mecanismo: "Compresión extrínseca de las fibras parasimpáticas superficiales que rodean al nervio III (aneurisma de la arteria comunicante posterior o herniación uncal mesencefálica).",
+      accion: "EMERGENCIA MÉDICA ABSOLUTA. La midriasis unilateral fija con dolor de cabeza es signo inminente de ruptura aneurismática o masa expansiva."
+    },
+    "angulo_mandibular": {
+      par: "NO es Par Craneal: Raíz Cervical C2 y Nervio Frénico",
+      tipo: "Sensitivo Cervical y Dolor Referido Cardíaco",
+      origen: "Médula espinal cervical superior (C2-C3)",
+      agujero: "Foramen intervertebral cervical",
+      mecanismo: "El ángulo mandibular recibe inervación somática de C2, no de V3. Por convergencia en las astas posteriores medulares, la isquemia miocárdica refiere dolor a este ángulo.",
+      accion: "Interrumpir de inmediato la atención dental. Tomar signos vitales (presión arterial y pulso), mantener al paciente en reposo y llamar a urgencias médicas (código infarto)."
+    },
+    "masetero_pepas": {
+      par: "Inervación Muscular: V3 Trigémino | Etiología: Cisticercosis",
+      tipo: "Enfermedad Parasitaria Sistémica (Taenia solium)",
+      origen: "Ingestión de huevos de tenia en alimentos contaminados",
+      agujero: "Diseminación hematógena a músculos maseteros altamente vascularizados",
+      mecanismo: "Desarrollo de cisticercos (fase larvaria) en tejido muscular masticatorio.",
+      accion: "Solicitar ecografía de partes blandas y TAC / Resonancia Cerebral obligatoria para descartar neurocisticercosis con obstrucción del Acueducto de Silvio."
+    },
+    "dientes_destornillador": {
+      par: "Incisivos de Hutchinson | Patología: Sífilis Congénita (Treponema pallidum)",
+      tipo: "Infección Congénita Crónica",
+      origen: "Transmisión transplacentaria materna",
+      agujero: "Afectación de gérmenes dentarios y cordón posterior medular",
+      mecanismo: "Hipoplasia del esmalte con depresión semilunar central de incisivos centrales permanentes + molares en mora.",
+      accion: "Alerta sobre futura afección neurológica terciaria: Tabes Dorsal, pérdida de la propiocepción consciente (Signo de Romberg positivo) y sordera neurosensorial (Tríada de Hutchinson)."
+    }
+  };
+
+  selector.addEventListener("change", function () {
+    var val = this.value;
+    if (!val || !KNOWLEDGE_BASE[val]) {
+      container.style.display = "none";
+      container.innerHTML = "";
+      return;
+    }
+
+    var item = KNOWLEDGE_BASE[val];
+    container.style.display = "block";
+    container.innerHTML = 
+      '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;">' +
+        '<span style="font-size:1.2rem;font-weight:800;color:#38BDF8;">' + item.par + '</span>' +
+        '<span style="background:rgba(56,189,248,0.2);color:#38BDF8;padding:0.25rem 0.6rem;border-radius:4px;font-size:0.75rem;font-weight:700;">' + item.tipo + '</span>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:1rem;font-size:0.88rem;margin-bottom:1rem;">' +
+        '<div><strong>Origen Real:</strong> <span style="color:#CBD5E1;">' + item.origen + '</span></div>' +
+        '<div><strong>Salida Craneal:</strong> <span style="color:#CBD5E1;">' + item.agujero + '</span></div>' +
+      '</div>' +
+      '<div style="background:rgba(255,255,255,0.05);padding:1rem;border-radius:8px;font-size:0.88rem;margin-bottom:0.75rem;">' +
+        '<strong>Fisiopatología:</strong> ' + item.mecanismo +
+      '</div>' +
+      '<div style="background:rgba(217,43,84,0.15);border-left:3px solid #F43F5E;padding:0.85rem;border-radius:4px;font-size:0.88rem;color:#FECDD3;">' +
+        '<strong>Conducta Recomendada:</strong> ' + item.accion +
+      '</div>';
+  });
+});
+</script>
+
+</body>
+</html>
