@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metodología E-E-A-T y Quiénes Somos | OdontoScore</title>
   <link rel="canonical" href="https://odontoscore.com/sobre-nosotros.html" />
-  <link rel="stylesheet" href="styles.css?v=20260822">
+  <link rel="stylesheet" href="styles.css?v=20260903_v72">
 </head>
 <body>
   
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="container nav-wrapper">
-    <a href="index.html" class="brand-logo">
-      <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore Logo" height="38">
+    <a href="index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+      <img src="assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38">
     </a>
-    <nav class="main-nav">
-            <ul class="nav-links">
+    <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <ul class="nav-links">
         <li><a href="index.html#catalogo">Catálogo</a></li>
         <li><a href="index.html#estudiantes">Estudiantes</a></li>
         <li class="nav-item-dropdown">
@@ -26,35 +29,12 @@
             </svg>
           </a>
           <div class="nav-dropdown-menu">
-            <a href="guias/anatomia-dental-3d-por-capas.html" class="dropdown-item">
-              <div class="dropdown-item-title">
-                <span>Atlas Anatómico Dental 360°</span>
-                <span class="dropdown-item-badge">Activo</span>
-              </div>
-              <div class="dropdown-item-desc">Visor orbital en 8 planos, cortes sagitales y atlas histológico.</div>
-            </a>
-            <a href="guias/semiologia-pares-craneales-odontologia.html" class="dropdown-item">
-              <div class="dropdown-item-title">
-                <span>Semiología y Pares Craneales</span>
-                <span class="dropdown-item-badge">Clínico</span>
-              </div>
-              <div class="dropdown-item-desc">Neuroanatomía orofacial, 5 capas de disección y casos clínicos.</div>
-            </a>
-            <a href="guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-item">
-              <div class="dropdown-item-title">
-                <span>Guía: Encías Sensibles</span>
-              </div>
-              <div class="dropdown-item-desc">Protocolos periodontales y control atraumático de placa.</div>
-            </a>
-            <a href="guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-item">
-              <div class="dropdown-item-title">
-                <span>Guía: Higiene en Ortodoncia</span>
-              </div>
-              <div class="dropdown-item-desc">Mantenimiento de aparatología e irrigación subgingival.</div>
-            </a>
-            <div class="dropdown-footer-link">
-              <a href="index.html#academia">Ver todo el catálogo de Academia →</a>
-            </div>
+            <a href="guias/anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
+            <a href="guias/semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
+            <a href="guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
+            <a href="guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
+            <div class="dropdown-divider"></div>
+            <a href="index.html#academia" class="dropdown-link-all">Ver toda la Academia →</a>
           </div>
         </li>
         <li><a href="comparador.html">Comparador</a></li>
@@ -62,8 +42,8 @@
         <li><a href="index.html#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="index.html#comparador" class="btn-nav-compare">
-          <span>Comparar</span>
+        <a href="comparador.html" class="btn-nav-compare">
+          <span>Comparar Modelos</span>
         </a>
       </div>
     </nav>

@@ -948,18 +948,34 @@
   function initMobileMenu() {
     var btn = document.getElementById("mobileMenuBtn");
     var nav = document.getElementById("mainNav");
+    var header = document.getElementById("siteHeader");
     if (!btn || !nav) return;
 
     btn.addEventListener("click", function () {
       btn.classList.toggle("open");
       nav.classList.toggle("open");
+      if (header) header.classList.toggle("menu-open");
       document.body.style.overflow = nav.classList.contains("open") ? "hidden" : "";
     });
 
-    nav.querySelectorAll("a").forEach(function (link) {
+    var dropdownItems = nav.querySelectorAll(".nav-item-dropdown");
+    dropdownItems.forEach(function (item) {
+      var trigger = item.querySelector(".nav-link-dropdown");
+      if (trigger) {
+        trigger.addEventListener("click", function (e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            item.classList.toggle("open");
+          }
+        });
+      }
+    });
+
+    nav.querySelectorAll("a:not(.nav-link-dropdown)").forEach(function (link) {
       link.addEventListener("click", function () {
         btn.classList.remove("open");
         nav.classList.remove("open");
+        if (header) header.classList.remove("menu-open");
         document.body.style.overflow = "";
       });
     });
