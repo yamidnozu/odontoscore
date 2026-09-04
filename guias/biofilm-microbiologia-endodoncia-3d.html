@@ -3,31 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador 3D de Biofilm Oral y Microbiología Endodóntica | OdontoScore Academia</title>
-  <meta name="description" content="Simulador interactivo 3D con Three.js de las 5 fases del biofilm dental, microbiota oral, complejos de Socransky y patogenia de conductos radiculares en endodoncia.">
+  <title>Simulador de Biofilm Dental y Microbiología en Endodoncia | OdontoScore Academia</title>
+  <meta name="description" content="Simulador interactivo y atlas científico de las 5 fases del biofilm dental, microbiota oral, complejos de Socransky e invasión de conductos radiculares con protocolos de irrigación en endodoncia.">
   <link rel="canonical" href="https://odontoscore.com/guias/biofilm-microbiologia-endodoncia-3d.html" />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260904_v81">
-
-  <!-- Three.js y Controles -->
-  <script src="../lib/three.min.js"></script>
-  <script src="../lib/OrbitControls.js"></script>
-  <script src="../lib/biofilm-endodontic-sim.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260904_v82">
 
   <!-- Schema.org MedicalWebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    "name": "Simulador 3D de Biofilm Dental y Microbiología en Endodoncia",
+    "name": "Simulador Científico de Biofilm Dental y Patología Endodóntica",
     "url": "https://odontoscore.com/guias/biofilm-microbiologia-endodoncia-3d.html",
-    "description": "Atlas interactivo y simulación tridimensional de la biopelícula oral, colonización bacteriana cronológica y patología del sistema de conductos radiculares.",
+    "description": "Atlas visual interactivo sobre la formación cronológica de la biopelícula oral, complejos microbianos de Socransky y colonización del sistema de conductos radiculares.",
     "about": [
       { "@type": "MedicalCondition", "name": "Periodontitis Apical" },
-      { "@type": "MedicalCondition", "name": "Pulpitis Irreversible" },
+      { "@type": "MedicalCondition", "name": "Biofilm Intracanal" },
       { "@type": "MedicalCondition", "name": "Infección Endodóntica Persistente" }
     ],
     "publisher": {
@@ -43,18 +38,21 @@
 
   <style>
     :root {
-      --sim-bg: #060b14;
-      --sim-surface: #0f172a;
-      --sim-border: #1e293b;
-      --sim-cyan: #0284c7;
-      --sim-cyan-glow: #38bdf8;
-      --sim-text: #f8fafc;
-      --sim-muted: #94a3b8;
+      --bio-bg: #070B14;
+      --bio-surface: #0E1626;
+      --bio-border: rgba(255, 255, 255, 0.12);
+      --bio-cyan: #0284C7;
+      --bio-cyan-glow: #38BDF8;
+      --bio-emerald: #10B981;
+      --bio-amber: #F59E0B;
+      --bio-rose: #F43F5E;
+      --bio-text: #F8FAFC;
+      --bio-muted: #94A3B8;
     }
 
     body {
-      background-color: #f8fafc;
-      color: #0f172a;
+      background-color: #F8FAFC;
+      color: #0F172A;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 0;
@@ -62,11 +60,12 @@
     }
 
     .academy-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 5rem;
     }
 
+    /* Hero Section */
     .guide-hero {
       margin-bottom: 2rem;
     }
@@ -74,7 +73,7 @@
     .guide-badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.6rem;
       align-items: center;
       margin-bottom: 1rem;
     }
@@ -83,9 +82,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: #eff6ff;
-      color: #0284c7;
-      border: 1px solid #bfdbfe;
+      background: #EFF6FF;
+      color: #0284C7;
+      border: 1px solid #BFDBFE;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -95,9 +94,9 @@
     }
 
     .badge-interactive {
-      background: #f0fdf4;
-      color: #16a34a;
-      border: 1px solid #bbf7d0;
+      background: #ECFDF5;
+      color: #059669;
+      border: 1px solid #A7F3D0;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -106,72 +105,78 @@
     }
 
     .guide-title {
-      font-family: 'Sora', sans-serif;
-      font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
       font-weight: 800;
-      color: #0f172a;
+      color: #0F172A;
       line-height: 1.15;
       margin: 0 0 1rem;
+      letter-spacing: -0.02em;
     }
 
     .guide-lead {
       font-size: 1.12rem;
       color: #475569;
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 0 1.5rem;
     }
 
-    /* Simulador 3D Container */
-    .sim-card {
-      background: var(--sim-bg);
-      border: 1px solid var(--sim-border);
-      border-radius: 16px;
-      box-shadow: 0 20px 45px -10px rgba(2, 6, 23, 0.4);
+    /* Master Theater Stage */
+    .sim-master-stage {
+      background: var(--bio-bg);
+      border: 1px solid var(--bio-border);
+      border-radius: 18px;
+      box-shadow: 0 25px 60px -15px rgba(2, 6, 23, 0.6);
       overflow: hidden;
       margin-bottom: 3.5rem;
     }
 
-    .sim-header {
+    .sim-stage-header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      padding: 1rem 1.5rem;
-      background: #0b1322;
-      border-bottom: 1px solid var(--sim-border);
+      padding: 1.1rem 1.5rem;
+      background: #09101E;
+      border-bottom: 1px solid var(--bio-border);
     }
 
-    .sim-header-title {
+    .stage-title-wrap {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      color: var(--sim-text);
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
+    .status-dot-live {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
+      background: #10B981;
+      box-shadow: 0 0 12px #10B981;
       display: inline-block;
     }
 
-    .sim-view-switchers {
+    .stage-main-title {
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .stage-mode-nav {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
 
-    .btn-view {
-      background: #1e293b;
-      color: #cbd5e1;
-      border: 1px solid #334155;
-      padding: 0.45rem 0.9rem;
+    .btn-mode-tab {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #CBD5E1;
+      padding: 0.45rem 0.95rem;
       font-size: 0.8rem;
       font-weight: 600;
       border-radius: 8px;
@@ -179,232 +184,387 @@
       transition: all 0.2s ease;
     }
 
-    .btn-view:hover {
-      background: #334155;
-      color: #fff;
+    .btn-mode-tab:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
     }
 
-    .btn-view.active {
-      background: #0284c7;
-      color: #fff;
-      border-color: #38bdf8;
-      box-shadow: 0 0 12px rgba(2, 132, 199, 0.35);
+    .btn-mode-tab.active {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #38BDF8;
+      box-shadow: 0 0 14px rgba(2, 132, 199, 0.5);
     }
 
-    .btn-irrigation {
-      background: linear-gradient(135deg, #059669, #10b981);
-      color: #ffffff;
-      border: 1px solid #34d399;
-      padding: 0.45rem 1rem;
-      font-size: 0.8rem;
+    /* Grid Interior del Simulador (Viewport + Panel de Inspección) */
+    .sim-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1px;
+      background: var(--bio-border);
+    }
+
+    @media (max-width: 992px) {
+      .sim-grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Viewport Interactivo */
+    .sim-viewport-col {
+      background: #050912;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #biofilmCinematicContainer {
+      width: 100%;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Marca de agua / Badge de tiempo */
+    .biofilm-watermark {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(7, 11, 20, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #F8FAFC;
+      font-size: 0.75rem;
       font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
+      pointer-events: none;
+      z-index: 20;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
-    .btn-irrigation:hover {
-      background: linear-gradient(135deg, #047857, #059669);
-      box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+    .wm-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 8px #38BDF8;
     }
 
-    /* Viewport 3D */
-    .sim-viewport-wrapper {
-      position: relative;
-      width: 100%;
-      height: 540px;
-      background: radial-gradient(circle at 50% 40%, #0d1a30 0%, #060b14 100%);
-      user-select: none;
+    /* Pines Anatómicos y Microbiológicos */
+    .biofilm-pin-node {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #0284C7;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 25;
+      padding: 0;
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.8);
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    #biofilmViewport {
-      width: 100%;
-      height: 100%;
+    .biofilm-pin-node:hover {
+      transform: translate(-50%, -50%) scale(1.25);
+      background: #0369A1;
+    }
+
+    .biofilm-pin-node.active {
+      background: #38BDF8;
+      transform: translate(-50%, -50%) scale(1.35);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 1);
+    }
+
+    .biofilm-pin-node.active::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid #38BDF8;
+      animation: pinWave 1.6s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes pinWave {
+      0% { transform: scale(0.9); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .pin-hover-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(9, 16, 30, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #FFFFFF;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+      display: none;
+    }
+
+    .biofilm-pin-node:hover .pin-hover-tooltip {
       display: block;
     }
 
-    /* Floating Microbe Inspection Card */
-    .microbe-floating-card {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      width: 320px;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 12px;
-      padding: 1.15rem;
-      color: #f8fafc;
-      font-size: 0.82rem;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 10;
+    .tooltip-badge {
+      display: block;
+      font-size: 0.62rem;
+      color: #38BDF8;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
-    .microbe-floating-card.hidden {
-      opacity: 0;
-      transform: translateY(-8px);
+    /* Panel Lateral de Inspección y Ficha Médica */
+    .sim-panel-col {
+      background: var(--bio-surface);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--bio-text);
+      border-left: 1px solid var(--bio-border);
     }
 
-    .card-header-badge {
+    .panel-header-badge {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.85rem;
     }
 
-    .badge-gram {
+    .panel-category-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #38BDF8;
+    }
+
+    .panel-status-pill {
+      background: rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38BDF8;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.2rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 4px;
-      text-transform: uppercase;
     }
 
-    .gram-pos {
-      background: rgba(56, 189, 248, 0.2);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-    }
-
-    .gram-neg {
-      background: rgba(244, 63, 94, 0.2);
-      color: #fb7185;
-      border: 1px solid rgba(244, 63, 94, 0.4);
-    }
-
-    .microbe-name {
-      font-family: 'Sora', sans-serif;
-      font-size: 1.05rem;
+    .panel-item-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
       font-weight: 700;
-      font-style: italic;
-      color: #ffffff;
-      margin: 0 0 0.35rem;
+      color: #FFFFFF;
+      margin: 0 0 0.85rem;
+      line-height: 1.25;
     }
 
-    .microbe-prop {
-      margin-bottom: 0.4rem;
-      line-height: 1.45;
-      color: #cbd5e1;
-    }
-
-    .microbe-prop strong {
-      color: #e2e8f0;
-      font-weight: 600;
-    }
-
-    /* Simulation Control Bar */
-    .sim-controls {
-      background: #0b1322;
-      border-top: 1px solid var(--sim-border);
-      padding: 1rem 1.5rem;
-    }
-
-    .phase-selector-bar {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
+    .panel-scenario-name {
+      font-size: 0.82rem;
+      color: #94A3B8;
       margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .phase-tab {
-      background: #162238;
-      border: 1px solid #233554;
-      color: #94a3b8;
-      padding: 0.65rem 0.5rem;
+    .panel-detail-text {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .panel-clinical-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid #38BDF8;
+      padding: 0.85rem 1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.8rem;
+      color: #E0F2FE;
+      line-height: 1.5;
+      margin-top: auto;
+    }
+
+    .panel-clinical-box strong {
+      display: block;
+      color: #FFFFFF;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Barra de Controles y Línea de Tiempo Cinematográfica */
+    .sim-player-bar {
+      background: #09101E;
+      border-top: 1px solid var(--bio-border);
+      padding: 1.25rem 1.5rem;
+    }
+
+    /* Pestañas de Escenarios con 1 Clic */
+    .scenario-timeline-tabs {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 860px) {
+      .scenario-timeline-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .tab-scenario-node {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94A3B8;
+      padding: 0.65rem 0.45rem;
       border-radius: 8px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .phase-tab:hover {
-      background: #1e3050;
-      color: #f1f5f9;
+    .tab-scenario-node:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
     }
 
-    .phase-tab.active {
-      background: #0284c7;
-      color: #ffffff;
-      border-color: #38bdf8;
-      box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+    .tab-scenario-node.active {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #38BDF8;
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.45);
     }
 
-    .phase-tab small {
+    .tab-scenario-node small {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       opacity: 0.85;
       margin-top: 0.2rem;
       font-weight: 400;
     }
 
-    .player-deck {
+    /* Controles del Reproductor */
+    .player-deck-row {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
     }
 
-    .btn-play {
-      background: #0284c7;
-      color: #fff;
+    .player-deck-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-deck-play {
+      background: #0284C7;
+      color: #FFFFFF;
       border: none;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 0.95rem;
-      flex-shrink: 0;
+      font-size: 1rem;
       transition: transform 0.15s ease, background 0.2s ease;
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.4);
     }
 
-    .btn-play:hover {
-      background: #0369a1;
-      transform: scale(1.05);
+    .btn-deck-play:hover {
+      background: #0369A1;
+      transform: scale(1.06);
     }
 
-    .scrubber-track {
-      flex-grow: 1;
-      height: 8px;
-      background: #1e293b;
-      border-radius: 4px;
-      position: relative;
+    .btn-deck-step {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #E2E8F0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      overflow: hidden;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
     }
 
-    .scrubber-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #0284c7, #38bdf8);
-      border-radius: 4px;
-      transition: width 0.1s linear;
+    .btn-deck-step:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
     }
 
-    .speed-select {
-      background: #1e293b;
-      color: #cbd5e1;
-      border: 1px solid #334155;
-      padding: 0.4rem 0.75rem;
+    .player-deck-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-toggle-pins {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #CBD5E1;
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-pins:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #FFFFFF;
+    }
+
+    .btn-toggle-pins.active {
+      background: #0284C7;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+    }
+
+    .select-speed {
+      background: #162238;
+      color: #CBD5E1;
+      border: 1px solid #233554;
+      padding: 0.45rem 0.8rem;
       border-radius: 6px;
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
     }
 
-    /* Contenido Clínico Didáctico */
+    /* Módulos Clínicos Didácticos */
     .clinical-section {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: 12px;
       padding: 2.25rem 2rem;
       margin-bottom: 2.5rem;
@@ -415,32 +575,32 @@
       font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: #0284c7;
+      color: #0284C7;
       letter-spacing: 0.05em;
       margin-bottom: 0.5rem;
       display: block;
     }
 
     .section-h2 {
-      font-family: 'Sora', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #0F172A;
       margin: 0 0 1.25rem;
       line-height: 1.25;
     }
 
-    .phases-grid {
+    .phases-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
       margin: 2rem 0;
     }
 
-    .phase-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-left: 4px solid #0284c7;
+    .phase-feature-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #0284C7;
       border-radius: 8px;
       padding: 1.5rem;
     }
@@ -452,98 +612,97 @@
       margin-bottom: 0.75rem;
     }
 
-    .phase-title {
-      font-family: 'Sora', sans-serif;
+    .phase-card-title {
+      font-family: 'Outfit', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #0F172A;
       margin: 0;
     }
 
-    .phase-time {
-      background: #e0f2fe;
-      color: #0369a1;
+    .phase-pill-time {
+      background: #E0F2FE;
+      color: #0369A1;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 9999px;
     }
 
-    /* Tabla de Microbiología */
-    .table-container {
+    /* Tabla Microbiana */
+    .table-responsive-wrapper {
       overflow-x: auto;
       margin: 1.75rem 0;
     }
 
-    .med-table {
+    .medical-data-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.88rem;
       text-align: left;
     }
 
-    .med-table th {
-      background: #f1f5f9;
+    .medical-data-table th {
+      background: #F1F5F9;
       color: #334155;
       font-weight: 700;
       padding: 0.85rem 1rem;
-      border-bottom: 2px solid #cbd5e1;
+      border-bottom: 2px solid #CBD5E1;
     }
 
-    .med-table td {
+    .medical-data-table td {
       padding: 0.85rem 1rem;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #E2E8F0;
       color: #475569;
     }
 
-    .med-table tr:hover {
-      background: #f8fafc;
+    .medical-data-table tr:hover {
+      background: #F8FAFC;
     }
 
     /* Complejos de Socransky */
-    .socransky-box {
+    .socransky-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
       margin: 1.75rem 0;
     }
 
-    .complex-card {
+    .socransky-card {
       padding: 1.25rem;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #E2E8F0;
     }
 
-    .complex-red {
-      background: #fff1f2;
-      border-color: #fecdd3;
-      border-left: 4px solid #e11d48;
+    .socransky-red {
+      background: #FFF1F2;
+      border-color: #FECDD3;
+      border-left: 4px solid #E11D48;
     }
 
-    .complex-orange {
-      background: #fff7ed;
-      border-color: #fed7aa;
-      border-left: 4px solid #ea580c;
+    .socransky-orange {
+      background: #FFF7ED;
+      border-color: #FED7AA;
+      border-left: 4px solid #EA580C;
     }
 
-    .complex-yellow {
-      background: #fefce8;
-      border-color: #fef08a;
-      border-left: 4px solid #ca8a04;
+    .socransky-yellow {
+      background: #FEFCE8;
+      border-color: #FEF08A;
+      border-left: 4px solid #CA8A04;
     }
 
-    .complex-card h4 {
-      font-family: 'Sora', sans-serif;
+    .socransky-card h4 {
+      font-family: 'Outfit', sans-serif;
       margin: 0 0 0.5rem;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 700;
     }
 
-    /* Caja de Alerta Médica */
-    .clinical-callout {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-left: 4px solid #16a34a;
+    .clinical-callout-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-left: 4px solid #16A34A;
       padding: 1.25rem 1.5rem;
       border-radius: 8px;
       margin: 1.75rem 0;
@@ -551,328 +710,337 @@
       color: #166534;
     }
 
-    .clinical-callout strong {
+    .clinical-callout-box strong {
       display: block;
-      color: #14532d;
+      color: #14532D;
       margin-bottom: 0.35rem;
       font-size: 1rem;
     }
 
-    /* Cuestionario de Autoevaluación */
-    .quiz-container {
-      margin-top: 1.5rem;
-    }
-
-    .quiz-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+    /* Autoevaluación Interactiva */
+    .quiz-card-block {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
       border-radius: 8px;
       padding: 1.5rem;
       margin-bottom: 1.25rem;
     }
 
-    .quiz-question {
+    .quiz-query-title {
       font-weight: 700;
-      color: #0f172a;
+      color: #0F172A;
       margin-bottom: 1rem;
       font-size: 0.98rem;
     }
 
-    .quiz-option {
+    .quiz-choice-btn {
       display: block;
+      width: 100%;
+      text-align: left;
       padding: 0.75rem 1rem;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
       border-radius: 6px;
       margin-bottom: 0.5rem;
       cursor: pointer;
       font-size: 0.88rem;
       transition: all 0.2s ease;
+      color: #334155;
     }
 
-    .quiz-option:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
+    .quiz-choice-btn:hover {
+      background: #F1F5F9;
+      border-color: #94A3B8;
     }
 
-    .quiz-option.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #15803d;
+    .quiz-choice-btn.correct {
+      background: #DCFCE7;
+      border-color: #22C55E;
+      color: #15803D;
       font-weight: 600;
     }
 
-    .quiz-option.wrong {
-      background: #fee2e2;
-      border-color: #ef4444;
-      color: #b91c1c;
+    .quiz-choice-btn.wrong {
+      background: #FEE2E2;
+      border-color: #EF4444;
+      color: #B91C1C;
     }
 
-    .quiz-feedback {
+    .quiz-solution-text {
       margin-top: 0.75rem;
       font-size: 0.85rem;
       font-weight: 500;
       display: none;
     }
-
-    @media (max-width: 768px) {
-      .sim-viewport-wrapper {
-        height: 420px;
-      }
-      .phase-selector-bar {
-        grid-template-columns: 1fr 1fr;
-      }
-      .microbe-floating-card {
-        width: calc(100% - 2.5rem);
-        top: auto;
-        bottom: 1rem;
-        right: 1.25rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Navegación OdontoScore Academia -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="header-left">
-        <a href="../index.html" class="logo-link">
-          <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" class="site-logo" width="140" height="34">
-        </a>
-      </div>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="../index.html" class="nav-link">Inicio</a>
-        <div class="nav-item-has-dropdown">
-          <button class="nav-link dropdown-trigger active" aria-expanded="false">
-            Academia
-            <svg class="dropdown-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="anatomia-dental-3d-por-capas.html" class="dropdown-item">
-              <span class="dropdown-item-title">Atlas Anatómico Dental 360°</span>
-              <span class="dropdown-item-desc">Morfología de molares por capas histológicas</span>
+  <!-- Cabecera OdontoScore Academia -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="../index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+        <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38">
+      </a>
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-links">
+          <li><a href="../index.html#catalogo">Catálogo</a></li>
+          <li><a href="../index.html#estudiantes">Estudiantes</a></li>
+          <li class="nav-item-dropdown">
+            <a href="../index.html#academia" class="nav-link-dropdown active" aria-haspopup="true" aria-expanded="false">
+              Academia
+              <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </a>
-            <a href="biofilm-microbiologia-endodoncia-3d.html" class="dropdown-item active">
-              <span class="dropdown-item-title">Biofilm y Endodoncia 3D</span>
-              <span class="dropdown-item-desc">Microbiota oral, fases del biofilm y patología radicular</span>
-            </a>
-            <a href="semiologia-pares-craneales-odontologia.html" class="dropdown-item">
-              <span class="dropdown-item-title">Semiología y Pares Craneales</span>
-              <span class="dropdown-item-desc">Exploración neuroanatómica de cabeza y cuello</span>
-            </a>
-            <a href="mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-item">
-              <span class="dropdown-item-title">Guía: Encías Sensibles</span>
-              <span class="dropdown-item-desc">Control de biofilm en recesión gingival</span>
-            </a>
-            <a href="mejor-irrigador-dental-brackets-2026.html" class="dropdown-item">
-              <span class="dropdown-item-title">Guía: Higiene en Ortodoncia</span>
-              <span class="dropdown-item-desc">Irrigación subgingival e interproximal</span>
-            </a>
-          </div>
+            <div class="nav-dropdown-menu">
+              <a href="anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
+              <a href="biofilm-microbiologia-endodoncia-3d.html" class="dropdown-link active">Biofilm y Endodoncia 3D</a>
+              <a href="semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
+              <a href="mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
+              <a href="mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
+              <div class="dropdown-divider"></div>
+              <a href="../index.html#academia" class="dropdown-link-all">Ver toda la Academia →</a>
+            </div>
+          </li>
+          <li><a href="../comparador.html">Comparador</a></li>
+          <li><a href="../ofertas.html">Ofertas</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="../comparador.html" class="btn-nav-compare">
+            <span>Comparar Modelos</span>
+          </a>
         </div>
-        <a href="../ofertas.html" class="nav-link">Comparador Clínico</a>
-        <a href="../sobre-nosotros.html" class="nav-link">Nosotros</a>
       </nav>
     </div>
   </header>
 
   <main class="academy-container">
 
-    <!-- Cabecera de la Guía -->
+    <!-- Encabezado de la Guía -->
     <section class="guide-hero">
       <div class="guide-badge-row">
-        <span class="badge-clinical">Endodoncia y Microbiología Oral</span>
-        <span class="badge-interactive">Simulación 3D Three.js</span>
-        <span class="badge-clinical">Edición Clínica 2026</span>
+        <span class="badge-clinical">Microbiología Oral y Biofilm</span>
+        <span class="badge-interactive">Simulador Cinematográfico HD</span>
+        <span class="badge-clinical">Terapéutica Endodóntica</span>
       </div>
       <h1 class="guide-title">Biofilm Dental, Microbiota Oral y Patología Endodóntica</h1>
       <p class="guide-lead">
-        Atlas dinámico e interactivo de la biopelícula oral: sucesión ecológica de las 5 fases de maduración, matriz de sustancias poliméricas extracelulares (EPS), complejos bacterianos de Socransky e invasión del sistema de conductos radiculares con protocolos de irrigación química.
+        Atlas interactivo y simulador de alta definición sobre las 5 fases de maduración de la placa bacteriana, la matriz de exopolisacáridos (EPS), los complejos ecológicos de Socransky y la colonización periapical del conducto radicular con protocolos químicos de desinfección.
       </p>
     </section>
 
-    <!-- Tarjeta del Simulador 3D Interactiva -->
-    <section class="sim-card" aria-label="Simulador 3D interactivo">
-      <div class="sim-header">
-        <div class="sim-header-title">
-          <span class="status-dot"></span>
-          <span>SIMULADOR 3D: DINÁMICA DEL BIOFILM Y CONDUCTO RADICULAR</span>
+    <!-- Master Stage: Simulador Cinematográfico y Panel de Diagnóstico -->
+    <section class="sim-master-stage" aria-label="Simulador científico interactivo">
+      <div class="sim-stage-header">
+        <div class="stage-title-wrap">
+          <span class="status-dot-live"></span>
+          <h2 class="stage-main-title" id="stageMainTitle">Fase 1: Película Salival Adquirida</h2>
         </div>
-        <div class="sim-view-switchers">
-          <button class="btn-view active" id="viewSurface">Superficie de Esmalte</button>
-          <button class="btn-view" id="viewTubules">Túbulos Dentinarios</button>
-          <button class="btn-view" id="viewCanal">Conducto y Ápice (Endodoncia)</button>
-          <button class="btn-irrigation" id="btnIrrigation">
-            <span>Simular Irrigación NaOCl</span>
-          </button>
+        <div class="stage-mode-nav">
+          <button class="btn-mode-tab active" data-group="biofilm" id="btnGroupBiofilm">Fases del Biofilm (1 al 5)</button>
+          <button class="btn-mode-tab" data-group="conducto" id="btnGroupConducto">Conducto Radicular</button>
+          <button class="btn-mode-tab" data-group="irrigacion" id="btnGroupIrrigacion">Irrigación Química NaOCl</button>
         </div>
       </div>
 
-      <div class="sim-viewport-wrapper">
-        <div id="biofilmViewport"></div>
+      <div class="sim-grid-layout">
+        <!-- Columna Izquierda: Viewport Visual con Canvas y Puntos -->
+        <div class="sim-viewport-col">
+          <div id="biofilmCinematicContainer"></div>
+        </div>
 
-        <!-- Tarjeta Flotante de Inspección Bacteriológica -->
-        <div class="microbe-floating-card" id="microbeInfoCard">
-          <div class="card-header-badge">
-            <span class="badge-gram gram-pos" id="cardGram">Grampositivo (+)</span>
-            <span style="font-size: 0.7rem; color: #94a3b8;" id="cardPhase">Fase 2</span>
+        <!-- Columna Derecha: Panel de Inspección y Ficha Médica -->
+        <div class="sim-panel-col" id="simInspectionPanel">
+          <div>
+            <div class="panel-header-badge">
+              <span class="panel-category-tag" id="panelCategory">Estructura Dental</span>
+              <span class="panel-status-pill" id="panelBadge">Esmalte Mineral</span>
+            </div>
+            <h3 class="panel-item-title" id="panelTitle">Prismas de Hidroxiapatita</h3>
+            <div class="panel-scenario-name" id="panelScenario">Fase 1: Película Salival Adquirida</div>
+            <p class="panel-detail-text" id="panelDetail">
+              Columnas hexagonales densamente empaquetadas compuestas de fosfato de calcio cristalino. Presentan carga superficial neta electronegativa que atrae cationes salivales.
+            </p>
           </div>
-          <div class="microbe-name" id="cardName">Streptococcus sanguinis</div>
-          <div class="microbe-prop"><strong>Morfología:</strong> <span id="cardMorphology">Cocos en cadenas cortas (0.8 - 1.0 µm)</span></div>
-          <div class="microbe-prop"><strong>Mecanismo:</strong> <span id="cardRole">Adhesinas fimbriales FimA que reconocen receptores de la película adquirida.</span></div>
-          <div class="microbe-prop"><strong>Relevancia Clínica:</strong> <span id="cardClinical">Pionero en la adhesión primaria tras la profilaxis dental.</span></div>
+
+          <div class="panel-clinical-box">
+            <strong>Relevancia Clínica</strong>
+            <span id="panelClinicalNote">El conocimiento de la afinidad iónica permite el diseño de colutorios y pastas con flúor que fortalecen la resistencia ácida de los prismas.</span>
+          </div>
         </div>
       </div>
 
-      <div class="sim-controls">
-        <!-- Selector de Fases con 1 Clic -->
-        <div class="phase-selector-bar">
-          <div class="phase-tab active" data-phase="1">
-            Fase 1: Película Adquirida
-            <small>0 - 2 horas | Glicoproteínas</small>
+      <!-- Barra Inferior de Reproducción y Escenarios -->
+      <div class="sim-player-bar">
+        <!-- Pestañas de Escenarios con 1 Clic -->
+        <div class="scenario-timeline-tabs">
+          <div class="tab-scenario-node active" data-index="0">
+            1. Película
+            <small>0 - 2 h | Saliva</small>
           </div>
-          <div class="phase-tab" data-phase="2">
-            Fase 2: Adhesión Primaria
-            <small>2 - 6 horas | Estreptococos pioneros</small>
+          <div class="tab-scenario-node" data-index="1">
+            2. Adhesión
+            <small>2 - 6 h | Pioneros</small>
           </div>
-          <div class="phase-tab" data-phase="3">
-            Fase 3: Co-agregación
-            <small>6 - 24 horas | F. nucleatum / Mazorcas</small>
+          <div class="tab-scenario-node" data-index="2">
+            3. Co-agregación
+            <small>6 - 24 h | Mazorcas</small>
           </div>
-          <div class="phase-tab" data-phase="4">
-            Fase 4: Biofilm Maduro
-            <small>24 - 72 h | Matriz EPS y C. Rojo</small>
+          <div class="tab-scenario-node" data-index="3">
+            4. Biofilm Maduro
+            <small>24 - 72 h | EPS</small>
           </div>
-          <div class="phase-tab" data-phase="5">
-            Fase 5: Invasión Endodóntica
-            <small>&gt; 3 días | E. faecalis y Periápice</small>
+          <div class="tab-scenario-node" data-index="4">
+            5. Invasión
+            <small>&gt; 3 d | Túbulos</small>
+          </div>
+          <div class="tab-scenario-node" data-index="5">
+            6. Endodoncia
+            <small>Necrosis y Ápice</small>
+          </div>
+          <div class="tab-scenario-node" data-index="6">
+            7. Irrigación
+            <small>NaOCl al 5.25%</small>
           </div>
         </div>
 
-        <!-- Deck del Reproductor de Video -->
-        <div class="player-deck">
-          <button class="btn-play" id="btnPlayPause" title="Reproducir / Pausar Animación">
-            <span id="playIcon">►</span>
-          </button>
-          <div class="scrubber-track" id="scrubberTrack" title="Arrastrar para navegar en el tiempo del biofilm">
-            <div class="scrubber-fill" id="scrubberFill"></div>
+        <!-- Controles del Reproductor -->
+        <div class="player-deck-row">
+          <div class="player-deck-left">
+            <button class="btn-deck-step" id="btnPrev" title="Escenario Anterior">❮</button>
+            <button class="btn-deck-play" id="btnPlayPause" title="Reproducir / Pausar Animación">
+              <span id="playIcon">►</span>
+            </button>
+            <button class="btn-deck-step" id="btnNext" title="Escenario Siguiente">❯</button>
+            <span style="font-size: 0.8rem; color: #94A3B8; margin-left: 0.5rem;" id="playerStatusText">Pausado</span>
           </div>
-          <select class="speed-select" id="speedSelect" title="Velocidad de reproducción">
-            <option value="0.5">0.5x</option>
-            <option value="1.0" selected>1.0x</option>
-            <option value="2.0">2.0x</option>
-          </select>
+
+          <div class="player-deck-right">
+            <button class="btn-toggle-pins active" id="btnTogglePins">Puntos: Visibles</button>
+            <select class="select-speed" id="selectSpeed" title="Velocidad de reproducción">
+              <option value="0.5">0.5x</option>
+              <option value="1.0" selected>1.0x (Normal)</option>
+              <option value="2.0">2.0x (Rápido)</option>
+            </select>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Módulo 1: Fundamentos Científicos del Biofilm -->
+    <!-- Módulo 1: Fundamentos Científicos del Biofilm Oral -->
     <section class="clinical-section">
       <span class="section-tag">Fundamento Microbiológico</span>
-      <h2 class="section-h2">Biofilm Sésil vs. Células Planctónicas en Odontología</h2>
+      <h2 class="section-h2">Biofilm Sésil vs. Bacterias Planctónicas en Estomatología</h2>
       <p>
-        El 99% de las bacterias en la cavidad oral residen dentro de una biopelícula estructurada y no en suspensión libre (estado planctónico). La organización en biofilm confiere a las comunidades bacterianas una resistencia hasta <strong>1000 veces superior</strong> frente a antibióticos convencionales, antisépticos y defensas inmunitarias del huésped (fagocitosis e inmunoglobulinas).
+        En la cavidad oral, más del 99% de las bacterias no habitan en suspensión libre en la saliva, sino organizadas en una biopelícula estructurada y metabólicamente cooperativa. La vida en biofilm confiere a las comunidades bacterianas una tolerancia antimicrobiana hasta <strong>1000 veces superior</strong> respecto al estado planctónico.
       </p>
       <p>
-        Esta extraordinaria protección se debe a tres pilares fisiológicos: la barrera de difusión física que ejerce la matriz de sustancias poliméricas extracelulares (EPS), el microambiente con gradiente de pH y oxígeno que induce estados de latencia metabólica (*persister cells*), y la transferencia horizontal de genes de resistencia mediada por proximidad física dentro de los microclones.
+        Este escudo protector se sostiene sobre tres mecanismos biológicos:
       </p>
+      <ul>
+        <li><strong>Barrera física de la matriz de EPS:</strong> La densa red de glucanos y fructanos enlentece y neutraliza la difusión de antimicrobianos, antisépticos y anticuerpos.</li>
+        <li><strong>Gradientes fisiológicos y células persistentes (*persisters*):</strong> En los estratos profundos del biofilm, la privación de oxígeno y nutrientes induce un estado de latencia metabólica en el cual los antibióticos betalactámicos no encuentran dianas activas.</li>
+        <li><strong>Transferencia génica horizontal:</strong> La íntima proximidad física facilita el intercambio de plásmidos de resistencia bacteriana mediante conjugación y transformación natural.</li>
+      </ul>
 
-      <div class="clinical-callout">
-        <strong>Implicación Clínica Directa en Endodoncia</strong>
-        En el interior del sistema de conductos radiculares necrótico, las bacterias no flotan en el fluido del conducto; forman un biofilm denso adherido a las paredes dentinarias y penetran en los túbulos hasta 1000 µm de profundidad. Por esta razón, la administración sistémica de antibióticos es ineficaz para curar una periodontitis apical y resulta imperativa la desinfección química mecánica con irrigantes proteolíticos.
+      <div class="clinical-callout-box">
+        <strong>Correlación Clínica en Endodoncia</strong>
+        En conductos radiculares necróticos con periodontitis apical, las bacterias se hallan profundamente ancladas a las paredes dentinarias y dentro de los túbulos hasta 1000 µm de profundidad. Debido a ello, la medicación antibiótica sistémica no puede esterilizar el conducto y resulta obligatoria la desinfección químico-mecánica con hipoclorito de sodio y activación ultrasónica.
       </div>
     </section>
 
-    <!-- Módulo 2: Las 5 Fases Cronológicas del Biofilm -->
+    <!-- Módulo 2: Desglose de las 5 Fases Cronológicas -->
     <section class="clinical-section">
       <span class="section-tag">Sucesión Ecológica</span>
-      <h2 class="section-h2">Cronología y Mecanismos de las 5 Fases del Biofilm Dental</h2>
-      <p>
-        La formación de la placa bacteriana es un proceso ordenado y predecible de colonización y maduración ecológica:
-      </p>
+      <h2 class="section-h2">Cronología y Ultraestructura de las 5 Fases del Biofilm</h2>
 
-      <div class="phases-grid">
-        <div class="phase-card">
+      <div class="phases-cards-grid">
+        <div class="phase-feature-card">
           <div class="phase-card-header">
-            <h3 class="phase-title">1. Película Adquirida</h3>
-            <span class="phase-time">0 a 2 horas</span>
+            <h3 class="phase-card-title">1. Película Adquirida</h3>
+            <span class="phase-pill-time">0 a 2 Horas</span>
           </div>
           <p>
-            Membrana acelular amorfa (0.1 a 1 µm) formada por la adsorción selectiva de macromoléculas salivales sobre los iones de calcio y fosfato de la hidroxiapatita.
+            Capa acelular acelular (0.1 a 1 µm) formada segundos después del cepillado dental por adsorción de macromoléculas salivales (mucinas, amilasa, estaterinas y proteínas ricas en prolina) sobre la hidroxiapatita.
           </p>
           <p>
-            <strong>Componentes clave:</strong> Mucinas (MUC5B y MUC7), amilasa, lisozima, estaterinas y proteínas ricas en prolina (PRPs). Actúa como lubricante pero expone receptores criptados para adhesinas microbianas.
+            <strong>Función biológica:</strong> Lubrica el esmalte, pero expone dominios peptídicos criptados que actúan como receptores para los primeros microorganismos.
           </p>
         </div>
 
-        <div class="phase-card">
+        <div class="phase-feature-card">
           <div class="phase-card-header">
-            <h3 class="phase-title">2. Colonización Primaria</h3>
-            <span class="phase-time">2 a 6 horas</span>
+            <h3 class="phase-card-title">2. Colonización Primaria</h3>
+            <span class="phase-pill-time">2 a 6 Horas</span>
           </div>
           <p>
-            Llegada y anclaje de bacterias aerobias y facultativas pioneras. Inicialmente mediante fuerzas reversibles de Van der Waals, seguidas de unión irreversible ligando-receptor.
+            Llegada de colonizadores tempranos aerobios y anaerobios facultativos: <em>Streptococcus sanguinis</em>, <em>S. mitis</em>, <em>S. oralis</em> y <em>Actinomyces naeslundii</em>.
           </p>
           <p>
-            <strong>Especies dominantes:</strong> <em>Streptococcus sanguinis</em>, <em>S. mitis</em>, <em>S. oralis</em> y <em>Actinomyces naeslundii</em>. Consumen oxígeno y preparan el nicho para especies anaerobias.
+            <strong>Mecanismo de anclaje:</strong> Inicialmente mediante débiles fuerzas electrostáticas de Van der Waals, seguidas de la unión irreversible ligando-receptor mediada por adhesinas fimbriales (FimA).
           </p>
         </div>
 
-        <div class="phase-card">
+        <div class="phase-feature-card">
           <div class="phase-card-header">
-            <h3 class="phase-title">3. Co-agregación y Proliferación</h3>
-            <span class="phase-time">6 a 24 horas</span>
+            <h3 class="phase-card-title">3. Co-agregación y Proliferación</h3>
+            <span class="phase-pill-time">6 a 24 Horas</span>
           </div>
           <p>
-            Adhesión intermicrobiana entre células genéticamente distintas. Las bacterias no se unen al esmalte sino a colonizadores ya establecidos formando microcolonias organizadas.
+            Unión intercelular entre células bacterianas genéticamente disímiles. Las especies tardías no se unen al diente, sino a la superficie de los colonizadores tempranos.
           </p>
           <p>
-            <strong>El puente biológico:</strong> <em>Fusobacterium nucleatum</em> permite el anclaje de bacilos gramnegativos. Aparecen las formaciones en "mazorca de maíz" (<em>corn-cob</em>) y colonias de <em>Veillonella</em>.
+            <strong>El puente biológico:</strong> <em>Fusobacterium nucleatum</em> (Complejo Naranja) expresa la adhesina RadD y Fap2, permitiendo el anclaje de patógenos anaerobios y originando las estructuras en "mazorca de maíz" (<em>corn-cob</em>).
           </p>
         </div>
 
-        <div class="phase-card">
+        <div class="phase-feature-card">
           <div class="phase-card-header">
-            <h3 class="phase-title">4. Maduración y Matriz de EPS</h3>
-            <span class="phase-time">24 a 72+ horas</span>
+            <h3 class="phase-card-title">4. Maduración y Matriz de EPS</h3>
+            <span class="phase-pill-time">24 a 72+ Horas</span>
           </div>
           <p>
-            Síntesis activa de sustancias poliméricas extracelulares (glucanos insolubles y fructanos) por glucosiltransferasas (GTFs).
+            Síntesis masiva de sustancias poliméricas extracelulares (glucanos insolubles y fructanos) por glucosiltransferasas.
           </p>
           <p>
-            <strong>Arquitectura tridimensional:</strong> Formación de canales acuosos primitivos para circulación de metabolitos. Núcleo con anaerobiosis estricta y comunicación intercelular por <em>quorum sensing</em> (AI-2). Establecimiento del Complejo Rojo.
+            <strong>Arquitectura tridimensional:</strong> Creación de canales acuosos abiertos que funcionan como un sistema circulatorio primitivo. Se consolida el microambiente anaeróbico del Complejo Rojo (<em>P. gingivalis</em>, <em>T. denticola</em>, <em>T. forsythia</em>).
           </p>
         </div>
 
-        <div class="phase-card">
+        <div class="phase-feature-card">
           <div class="phase-card-header">
-            <h3 class="phase-title">5. Desprendimiento e Invasión</h3>
-            <span class="phase-time">3 días a semanas</span>
+            <h3 class="phase-card-title">5. Desprendimiento e Invasión</h3>
+            <span class="phase-pill-time">&gt; 3 Días</span>
           </div>
           <p>
-            Cizallamiento y desprendimiento activo por enzimas autolíticas que liberan células planctónicas para iniciar nuevos focos.
+            Cizallamiento y desprendimiento enzimático activo que disemina bacterias hacia nuevas zonas de la boca.
           </p>
           <p>
-            <strong>Translocación endodóntica:</strong> Desmineralización ácida de esmalte y dentina, penetración bacteriana a través de los túbulos dentinarios, necrosis de la pulpa e infección del sistema de conductos con formación de biofilm apical y lesión periapical.
+            <strong>Propagación endodóntica:</strong> La producción continua de ácido desmineraliza esmalte y dentina, abriendo los túbulos dentinarios por donde migran hacia la cámara pulpar, desencadenando pulpitis irreversible y necrosis.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Módulo 3: Tabla Taxonómica de Microorganismos Clave -->
+    <!-- Módulo 3: Tabla Taxonómica Microbiana -->
     <section class="clinical-section">
-      <span class="section-tag">Perfil Taxonómico</span>
-      <h2 class="section-h2">Microbiota Oral y Endodóntica Representativa</h2>
-      <div class="table-container">
-        <table class="med-table">
+      <span class="section-tag">Microbiota Oral y Endodóntica</span>
+      <h2 class="section-h2">Tabla Taxonómica y Patogenicidad de Especies Clave</h2>
+
+      <div class="table-responsive-wrapper">
+        <table class="medical-data-table">
           <thead>
             <tr>
-              <th>Especie Microbiana</th>
+              <th>Microorganismo</th>
               <th>Tinción Gram</th>
               <th>Morfología</th>
-              <th>Estadio / Fase</th>
-              <th>Rol Patogénico / Relevancia Clínica</th>
+              <th>Estadio / Complejo</th>
+              <th>Mecanismo Patogénico / Relevancia Clínica</th>
             </tr>
           </thead>
           <tbody>
@@ -881,56 +1049,56 @@
               <td>Grampositivo (+)</td>
               <td>Cocos en cadenas cortas</td>
               <td>Fase 2 (Pionero)</td>
-              <td>Adhesina FimA que reconoce estaterinas y PRPs salivales.</td>
+              <td>Adhesina FimA que reconoce glicoproteínas salivales; produce H2O2 antagonista.</td>
             </tr>
             <tr>
               <td><em>Streptococcus mitis</em></td>
               <td>Grampositivo (+)</td>
-              <td>Cocos ovoides en parejas</td>
+              <td>Cocos ovoides</td>
               <td>Fase 2 (Pionero)</td>
-              <td>Secreta proteasas IgA1 que neutralizan defensas salivales locales.</td>
+              <td>Secreta proteasas IgA1 que neutralizan las inmunoglobulinas salivales.</td>
             </tr>
             <tr>
               <td><em>Actinomyces naeslundii</em></td>
               <td>Grampositivo (+)</td>
-              <td>Bacilos ramificados</td>
+              <td>Bacilo ramificado</td>
               <td>Fase 2 (Pionero)</td>
-              <td>Fimbrias tipo 1 (unión a diente) y tipo 2 (unión a galactosa en estreptococos).</td>
+              <td>Fimbrias tipo 1 (unión a esmalte) y tipo 2 (unión a galactosa estreptocócica).</td>
             </tr>
             <tr>
               <td><em>Fusobacterium nucleatum</em></td>
               <td>Gramnegativo (-)</td>
-              <td>Bacilo fusiforme largo</td>
-              <td>Fase 3 (Puente)</td>
-              <td>Puente de coagregación físico indispensable (adhesinas RadD y Fap2).</td>
+              <td>Bacilo fusiforme alargado</td>
+              <td>Fase 3 (Puente Naranja)</td>
+              <td>Puente físico indispensable de coagregación; ancla patógenos anaerobios tardíos.</td>
             </tr>
             <tr>
               <td><em>Veillonella parvula</em></td>
               <td>Gramnegativo (-)</td>
               <td>Diplococo pequeño</td>
               <td>Fase 3 (Simbiosis)</td>
-              <td>Consume ácido láctico producido por estreptococos y amortigua el pH.</td>
+              <td>Consume ácido láctico producido por estreptococos y lo convierte en ácidos más débiles.</td>
             </tr>
             <tr>
               <td><em>Porphyromonas gingivalis</em></td>
               <td>Gramnegativo (-)</td>
               <td>Cocobacilo anaerobio</td>
               <td>Fase 4 (Complejo Rojo)</td>
-              <td>Secreta gingipaínas que degradan colágeno y desencadenan periodontitis.</td>
+              <td>Gingipaínas proteolíticas (Rgp/Kgp) que degradan colágeno y activan osteoclastos.</td>
             </tr>
             <tr>
               <td><em>Treponema denticola</em></td>
               <td>Gramnegativo (-)</td>
-              <td>Espiroqueta helicoidal móvil</td>
+              <td>Espiroqueta helicoidal</td>
               <td>Fase 4 (Complejo Rojo)</td>
-              <td>Motilidad periplásmica que atraviesa la matriz densa e invade túbulos.</td>
+              <td>Motilidad periplásmica que repta por la matriz viscosa e invade itsmos y túbulos.</td>
             </tr>
             <tr>
               <td><em>Enterococcus faecalis</em></td>
               <td>Grampositivo (+)</td>
-              <td>Coco ovoide en cadenas</td>
-              <td>Fase 5 (Endodoncia)</td>
-              <td>Sobrevive en túbulos profundos; tolera pH alcalino > 11.5 y resiste Ca(OH)2.</td>
+              <td>Coco ovoide en parejas</td>
+              <td>Fase 5 y Endodoncia</td>
+              <td>Bomba de protones que tolera pH &gt; 11.5; invade túbulos profundos y resiste el Ca(OH)2.</td>
             </tr>
           </tbody>
         </table>
@@ -939,87 +1107,97 @@
 
     <!-- Módulo 4: Complejos de Socransky -->
     <section class="clinical-section">
-      <span class="section-tag">Pirámide Ecológica</span>
-      <h2 class="section-h2">Complejos Microbianos Subgingivales de Socransky</h2>
+      <span class="section-tag">Ecología Microbiana</span>
+      <h2 class="section-h2">Los Complejos Subgingivales de Socransky</h2>
       <p>
-        Sigmund Socransky y colaboradores categorizaron las comunidades bacterianas de la placa en grupos cromáticos interdependientes, demostrando que la enfermedad periodontal no es producto de una bacteria aislada, sino de una disbiosis secuencial:
+        Socransky y colaboradores demostraron que la patología periodontal y periapical no deriva de una única especie, sino de una sucesión ecológica ordenada en consorcios microbianos con sinergia patogénica:
       </p>
 
-      <div class="socransky-box">
-        <div class="complex-card complex-yellow">
-          <h4>Complejo Amarillo y Verde</h4>
-          <p><strong>Especies:</strong> <em>Streptococcus gordonii</em>, <em>S. mitis</em>, <em>S. oralis</em>, <em>Capnocytophaga gingivalis</em>, <em>Eikenella corrodens</em>.</p>
-          <p><strong>Nicho:</strong> Colonizadores iniciales asociados a salud o estadios muy tempranos de gingivitis.</p>
+      <div class="socransky-grid">
+        <div class="socransky-card socransky-yellow">
+          <h4>Complejos Amarillo y Verde</h4>
+          <p><strong>Especies:</strong> <em>S. gordonii</em>, <em>S. mitis</em>, <em>S. oralis</em>, <em>Eikenella corrodens</em>, <em>Capnocytophaga</em>.</p>
+          <p><strong>Significado:</strong> Colonizadores iniciales y comensales compatibles con salud o gingivitis incipiente.</p>
         </div>
 
-        <div class="complex-card complex-orange">
-          <h4>Complejo Naranja</h4>
-          <p><strong>Especies:</strong> <em>Fusobacterium nucleatum</em>, <em>Prevotella intermedia</em>, <em>Parvimonas micra</em>, <em>Campylobacter rectus</em>.</p>
-          <p><strong>Nicho:</strong> Puente ecológico. Crea el microambiente anaeróbico indispensable para el asentamiento del Complejo Rojo.</p>
+        <div class="socransky-card socransky-orange">
+          <h4>Complejo Naranja (Transición)</h4>
+          <p><strong>Especies:</strong> <em>Fusobacterium nucleatum</em>, <em>Prevotella intermedia</em>, <em>Parvimonas micra</em>.</p>
+          <p><strong>Significado:</strong> Puentes de coagregación indispensables que preparan el nicho anaeróbico estricto.</p>
         </div>
 
-        <div class="complex-card complex-red">
-          <h4>Complejo Rojo (Patógeno Máximo)</h4>
+        <div class="socransky-card socransky-red">
+          <h4>Complejo Rojo (Destructivo)</h4>
           <p><strong>Especies:</strong> <em>Porphyromonas gingivalis</em>, <em>Treponema denticola</em>, <em>Tannerella forsythia</em>.</p>
-          <p><strong>Nicho:</strong> Anaerobios estrictos responsables de la pérdida activa de inserción periodontal y resorción ósea alveolar.</p>
+          <p><strong>Significado:</strong> Consorcio altamente virulento causante de periodontitis severa y lesiones endoperiodontales.</p>
         </div>
       </div>
     </section>
 
-    <!-- Módulo 5: Microbiología y Desinfección en Endodoncia -->
+    <!-- Módulo 5: Protocolo de Irrigación Endodóntica -->
     <section class="clinical-section">
-      <span class="section-tag">Protocolo Terapéutico</span>
-      <h2 class="section-h2">Infección del Conducto Radicular y Erradicación Química</h2>
+      <span class="section-tag">Terapéutica Endodóntica</span>
+      <h2 class="section-h2">Protocolo Químico de Desinfección y Erradicación del Biofilm</h2>
       <p>
-        La infección endodóntica primaria es polimicrobiana (10 a 30 especies por conducto), dominada en un 90% por anaerobios estrictos gramnegativos. Por el contrario, la infección endodóntica persistente (fracaso de tratamientos de conductos previos) suele ser oligomicrobiana (1 a 3 especies), con predominio absoluto de <strong><em>Enterococcus faecalis</em></strong> y hongos como <em>Candida albicans</em>.
+        Debido a la compleja anatomía de los conductos radiculares (curvaturas, itsmos, conductos laterales y deltas apicales), la instrumentación mecánica solo alcanza a tocar el 60-65% de la superficie dentinaria. El 35-40% restante requiere desinfección química activa mediante irrigación:
       </p>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; margin: 1.5rem 0 0.75rem; color: #0f172a;">Protocolo Químico-Mecánico de Irrigación</h3>
-      <ul>
-        <li>
-          <strong>Hipoclorito de Sodio (NaOCl al 2.5% - 5.25%):</strong> Único irrigante con capacidad simultánea de potente disolución de tejido orgánico necrótico y lisis bacteriana de amplio espectro. Descompone la matriz de EPS del biofilm mediante saponificación y cloraminación.
-        </li>
-        <li>
-          <strong>Ácido Etilendiaminotetraacético (EDTA al 17%):</strong> Agente quelante que secuestra iones de calcio para desmineralizar y disolver la capa de barrillo dentinario inorgánico (*smear layer*), destapando la entrada a los túbulos dentinarios durante 60 segundos.
-        </li>
-        <li>
-          <strong>Activación Pasiva Ultrasónica (PUI):</strong> La oscilación acústica a 30 kHz genera microflujo acústico y cavitación transitoria, proyectando el irrigante hacia itsmos, conductos laterales y el tercio apical con penetración de hasta 300 µm dentro de los túbulos.
-        </li>
-      </ul>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0;">
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; margin: 0 0 0.5rem; color: #0F172A;">1. Hipoclorito de Sodio (NaOCl 2.5% - 5.25%)</h3>
+          <p style="font-size: 0.88rem; color: #475569; margin: 0;">
+            Único irrigante que combina potente actividad bactericida de amplio espectro con disolución activa de tejido necrótico y degradación de la matriz de EPS del biofilm mediante saponificación de ácidos grasos y cloraminación.
+          </p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; margin: 0 0 0.5rem; color: #0F172A;">2. Ácido Etilendiaminotetraacético (EDTA 17%)</h3>
+          <p style="font-size: 0.88rem; color: #475569; margin: 0;">
+            Agente quelante que secuestra iones de calcio para desmineralizar y disolver la porción inorgánica del barrillo dentinario (*smear layer*), desobstruyendo la entrada de los túbulos durante 60 segundos.
+          </p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; margin: 0 0 0.5rem; color: #0F172A;">3. Activación Pasiva Ultrasónica (PUI)</h3>
+          <p style="font-size: 0.88rem; color: #475569; margin: 0;">
+            Oscilación acústica a 30 kHz en una punta no cortante que produce microcorrientes y cavitación, impulsando el irrigante hacia itsmos, túbulos dentinarios profundos y el tercio apical sin riesgo de extrusión.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Módulo 6: Autoevaluación Diagnóstica Interactiva -->
     <section class="clinical-section">
-      <span class="section-tag">Comprobación de Conocimientos</span>
+      <span class="section-tag">Evaluación de Conocimientos</span>
       <h2 class="section-h2">Cuestionario Clínico Interactivo</h2>
-      <p>Comprueba tu comprensión sobre las fases del biofilm y la microbiología endodóntica:</p>
+      <p>Verifica tu dominio de la microbiología del biofilm y los protocolos de desinfección endodóntica:</p>
 
       <div class="quiz-container">
-        <div class="quiz-card" id="q1">
-          <div class="quiz-question">1. ¿Qué microorganismo actúa como el "puente biológico" indispensable entre colonizadores primarios y anaerobios tardíos en la co-agregación?</div>
-          <div class="quiz-option" data-correct="false">A) Streptococcus mutans</div>
-          <div class="quiz-option" data-correct="true">B) Fusobacterium nucleatum</div>
-          <div class="quiz-option" data-correct="false">C) Enterococcus faecalis</div>
-          <div class="quiz-option" data-correct="false">D) Treponema denticola</div>
-          <div class="quiz-feedback">Correcto. Fusobacterium nucleatum (Complejo Naranja) posee múltiples adhesinas superficiales (RadD, Fap2) que le permiten unirse simultáneamente a estreptococos tempranos y a patógenos del Complejo Rojo.</div>
+        <div class="quiz-card-block" id="quiz1">
+          <div class="quiz-query-title">1. ¿Qué microorganismo actúa como el "puente biológico" indispensable para la co-agregación entre colonizadores primarios y patógenos tardíos?</div>
+          <button type="button" class="quiz-choice-btn" data-correct="false">A) Streptococcus mutans</button>
+          <button type="button" class="quiz-choice-btn" data-correct="true">B) Fusobacterium nucleatum</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">C) Enterococcus faecalis</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">D) Treponema denticola</button>
+          <div class="quiz-solution-text">Correcto. Fusobacterium nucleatum posee las adhesinas RadD y Fap2 que le permiten ligarse simultáneamente a los estreptococos tempranos y a los anaerobios estrictos del Complejo Rojo.</div>
         </div>
 
-        <div class="quiz-card" id="q2">
-          <div class="quiz-question">2. ¿Por qué Enterococcus faecalis presenta una resistencia excepcional dentro de los conductos radiculares tratados previamente?</div>
-          <div class="quiz-option" data-correct="false">A) Porque es un anaerobio estricto que muere con el oxígeno</div>
-          <div class="quiz-option" data-correct="true">B) Porque posee una bomba de protones que tolera pH > 11.5 y sobrevive en túbulos dentinarios sin nutrientes</div>
-          <div class="quiz-option" data-correct="false">C) Porque se disuelve inmediatamente en contacto con EDTA al 17%</div>
-          <div class="quiz-option" data-correct="false">D) Porque carece de pared celular de peptidoglicano</div>
-          <div class="quiz-feedback">Exacto. La bomba de protones de E. faecalis bombea iones H+ hacia el citoplasma para neutralizar el medio alcalino del hidróxido de calcio (pH ~12.5), y es capaz de permanecer latente en túbulos dentinarios profundos.</div>
+        <div class="quiz-card-block" id="quiz2">
+          <div class="quiz-query-title">2. ¿Por qué Enterococcus faecalis es el principal microorganismo aislado en fracasos de tratamientos de conductos previos?</div>
+          <button type="button" class="quiz-choice-btn" data-correct="false">A) Porque es una bacteria aerobia estricta que muere con el oxígeno</button>
+          <button type="button" class="quiz-choice-btn" data-correct="true">B) Porque su bomba de protones tolera pH &gt; 11.5 y sobrevive en túbulos dentinarios sin nutrientes</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">C) Porque se disuelve inmediatamente con EDTA al 17%</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">D) Porque no forma biofilm y sólo existe en estado planctónico</button>
+          <div class="quiz-solution-text">Exacto. E. faecalis cuenta con una bomba de protones que bombea iones H+ al citoplasma para amortiguar el pH alcalino del hidróxido de calcio, manteniéndose viable en los túbulos profundos.</div>
         </div>
 
-        <div class="quiz-card" id="q3">
-          <div class="quiz-question">3. ¿Cuál es la función fundamental del EDTA al 17% en la secuencia de irrigación endodóntica?</div>
-          <div class="quiz-option" data-correct="false">A) Disolver los restos de tejido pulpar blando necrótico</div>
-          <div class="quiz-option" data-correct="false">B) Teñir las bacterias viables con tinción de Gram</div>
-          <div class="quiz-option" data-correct="true">C) Quelar el calcio para eliminar la porción inorgánica del barro dentinario (smear layer) y abrir los túbulos</div>
-          <div class="quiz-option" data-correct="false">D) Neutralizar permanentemente el hipoclorito de sodio</div>
-          <div class="quiz-feedback">Correcto. El EDTA quelará los iones de calcio eliminando la capa inorgánica de barrillo producida por las limas rotatorias, permitiendo que el NaOCl o la medicación penetren profundamente en los túbulos.</div>
+        <div class="quiz-card-block" id="quiz3">
+          <div class="quiz-query-title">3. ¿Cuál es el objetivo primordial del EDTA al 17% durante la secuencia final de irrigación?</div>
+          <button type="button" class="quiz-choice-btn" data-correct="false">A) Disolver restos de pulpa blanda necrótica</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">B) Teñir las bacterias con tinción de Gram</button>
+          <button type="button" class="quiz-choice-btn" data-correct="true">C) Quelar el calcio para eliminar el barrillo dentinario inorgánico (smear layer) y abrir los túbulos</button>
+          <button type="button" class="quiz-choice-btn" data-correct="false">D) Neutralizar de forma permanente la efervescencia del NaOCl</button>
+          <div class="quiz-solution-text">Correcto. El EDTA quela el calcio del barrillo inorgánico generado por las limas rotatorias, destapando los canalículos para que los selladores biocerámicos penetren de forma tridimensional.</div>
         </div>
       </div>
     </section>
@@ -1059,60 +1237,62 @@
     </div>
   </footer>
 
-  <!-- Lógica de Control del Simulador 3D -->
+  <!-- Script del Motor Cinematográfico -->
+  <script src="../lib/biofilm-cinematic-sim.js"></script>
+
+  <!-- Lógica de Enlace y Control de Interfaz -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const container = document.getElementById('biofilmViewport');
-      const scrubberFill = document.getElementById('scrubberFill');
-      const scrubberTrack = document.getElementById('scrubberTrack');
+      const container = document.getElementById('biofilmCinematicContainer');
+      const stageMainTitle = document.getElementById('stageMainTitle');
+      const scenarioTabs = document.querySelectorAll('.tab-scenario-node');
       const btnPlayPause = document.getElementById('btnPlayPause');
       const playIcon = document.getElementById('playIcon');
-      const speedSelect = document.getElementById('speedSelect');
-      const phaseTabs = document.querySelectorAll('.phase-tab');
+      const btnPrev = document.getElementById('btnPrev');
+      const btnNext = document.getElementById('btnNext');
+      const playerStatusText = document.getElementById('playerStatusText');
+      const btnTogglePins = document.getElementById('btnTogglePins');
+      const selectSpeed = document.getElementById('selectSpeed');
 
-      // Tarjeta de información flotante
-      const card = document.getElementById('microbeInfoCard');
-      const cardGram = document.getElementById('cardGram');
-      const cardPhase = document.getElementById('cardPhase');
-      const cardName = document.getElementById('cardName');
-      const cardMorphology = document.getElementById('cardMorphology');
-      const cardRole = document.getElementById('cardRole');
-      const cardClinical = document.getElementById('cardClinical');
+      // Panel lateral
+      const panelCategory = document.getElementById('panelCategory');
+      const panelBadge = document.getElementById('panelBadge');
+      const panelTitle = document.getElementById('panelTitle');
+      const panelScenario = document.getElementById('panelScenario');
+      const panelDetail = document.getElementById('panelDetail');
+      const panelClinicalNote = document.getElementById('panelClinicalNote');
 
-      // Botones de vistas
-      const viewSurface = document.getElementById('viewSurface');
-      const viewTubules = document.getElementById('viewTubules');
-      const viewCanal = document.getElementById('viewCanal');
-      const btnIrrigation = document.getElementById('btnIrrigation');
+      // Modos de cabecera
+      const btnGroupBiofilm = document.getElementById('btnGroupBiofilm');
+      const btnGroupConducto = document.getElementById('btnGroupConducto');
+      const btnGroupIrrigacion = document.getElementById('btnGroupIrrigacion');
 
       let simulator = null;
 
       try {
-        simulator = new BiofilmSimulator(container, {
-          onPhaseChange: function (phase, progress) {
-            scrubberFill.style.width = (progress * 100) + '%';
-            phaseTabs.forEach(tab => {
-              const p = parseInt(tab.getAttribute('data-phase'), 10);
-              tab.classList.toggle('active', p === phase);
+        simulator = new BiofilmCinematicSim(container, {
+          onScenarioChange: function (data, index, total) {
+            stageMainTitle.textContent = data.title;
+            panelScenario.textContent = data.title;
+
+            scenarioTabs.forEach((tab, i) => {
+              tab.classList.toggle('active', i === index);
             });
+
+            // Actualizar botones de modo superior
+            btnGroupBiofilm.classList.toggle('active', index < 5);
+            btnGroupConducto.classList.toggle('active', index === 5);
+            btnGroupIrrigacion.classList.toggle('active', index === 6);
           },
-          onMicrobeSelected: function (info) {
-            if (!info) return;
-            card.classList.remove('hidden');
-            cardName.textContent = info.name;
-            cardGram.textContent = info.gram;
-            cardGram.className = 'badge-gram ' + (info.gram.includes('+') ? 'gram-pos' : 'gram-neg');
-            cardPhase.textContent = 'Fase ' + info.phase;
-            cardMorphology.textContent = info.morphology;
-            cardRole.textContent = info.role;
-            cardClinical.textContent = info.clinical;
-          },
-          onProgress: function (progress, phase) {
-            scrubberFill.style.width = (progress * 100) + '%';
+          onHotspotSelect: function (hp) {
+            panelTitle.textContent = hp.name;
+            panelCategory.textContent = hp.category;
+            panelBadge.textContent = hp.badge;
+            panelDetail.textContent = hp.detail;
           }
         });
-      } catch (err) {
-        console.error("Error al inicializar el simulador 3D:", err);
+      } catch (e) {
+        console.error("Error al iniciar el simulador cinematográfico:", e);
       }
 
       // Reproducción Play / Pause
@@ -1120,81 +1300,64 @@
         if (!simulator) return;
         const isPlaying = simulator.togglePlay();
         playIcon.textContent = isPlaying ? '❚❚' : '►';
+        playerStatusText.textContent = isPlaying ? 'Reproduciendo video...' : 'Pausado';
+      });
+
+      btnPrev.addEventListener('click', function () {
+        if (simulator) simulator.prev();
+      });
+
+      btnNext.addEventListener('click', function () {
+        if (simulator) simulator.next();
       });
 
       // Cambio de velocidad
-      speedSelect.addEventListener('change', function () {
+      selectSpeed.addEventListener('change', function () {
         if (!simulator) return;
         simulator.setPlaybackRate(parseFloat(this.value));
       });
 
-      // Clic en barra de tiempo
-      scrubberTrack.addEventListener('click', function (e) {
+      // Alternar visualización de puntos de referencia
+      btnTogglePins.addEventListener('click', function () {
         if (!simulator) return;
-        const rect = scrubberTrack.getBoundingClientRect();
-        const pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-        simulator.setProgress(pos);
+        const areVisible = simulator.toggleHotspots();
+        btnTogglePins.textContent = areVisible ? 'Puntos: Visibles' : 'Puntos: Ocultos (Vista Limpia)';
+        btnTogglePins.classList.toggle('active', areVisible);
       });
 
-      // Clic en pestañas de fases
-      phaseTabs.forEach(tab => {
+      // Clic en pestañas de escenarios
+      scenarioTabs.forEach(tab => {
         tab.addEventListener('click', function () {
           if (!simulator) return;
-          const phase = parseInt(this.getAttribute('data-phase'), 10);
-          simulator.updatePhase(phase, true);
+          const idx = parseInt(this.getAttribute('data-index'), 10);
+          simulator.loadScenario(idx, true);
         });
       });
 
-      // Conmutadores de vistas de cámara
-      function clearActiveViews() {
-        viewSurface.classList.remove('active');
-        viewTubules.classList.remove('active');
-        viewCanal.classList.remove('active');
-      }
-
-      viewSurface.addEventListener('click', function () {
-        clearActiveViews();
-        this.classList.add('active');
-        if (simulator) simulator.setCameraView('surface');
+      // Botones de modo de cabecera
+      btnGroupBiofilm.addEventListener('click', function () {
+        if (simulator) simulator.loadScenario(0, true);
       });
 
-      viewTubules.addEventListener('click', function () {
-        clearActiveViews();
-        this.classList.add('active');
-        if (simulator) simulator.setCameraView('tubules');
+      btnGroupConducto.addEventListener('click', function () {
+        if (simulator) simulator.loadScenario(5, true);
       });
 
-      viewCanal.addEventListener('click', function () {
-        clearActiveViews();
-        this.classList.add('active');
-        if (simulator) simulator.setCameraView('canal');
+      btnGroupIrrigacion.addEventListener('click', function () {
+        if (simulator) simulator.loadScenario(6, true);
       });
 
-      // Animación de Irrigación Endodóntica NaOCl
-      btnIrrigation.addEventListener('click', function () {
-        if (!simulator || simulator.isIrrigating) return;
-        clearActiveViews();
-        viewCanal.classList.add('active');
-        btnIrrigation.textContent = 'Irrigando con NaOCl 5.25%...';
-        btnIrrigation.style.opacity = '0.7';
-
-        simulator.triggerEndodonticIrrigation(function () {
-          btnIrrigation.textContent = 'Simular Irrigación NaOCl';
-          btnIrrigation.style.opacity = '1.0';
-        });
-      });
-
-      // Lógica de Autoevaluación Clínica
-      document.querySelectorAll('.quiz-option').forEach(option => {
-        option.addEventListener('click', function () {
-          const parent = this.closest('.quiz-card');
+      // Lógica de Autoevaluación
+      document.querySelectorAll('.quiz-choice-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const card = this.closest('.quiz-card-block');
           const isCorrect = this.getAttribute('data-correct') === 'true';
-          const feedback = parent.querySelector('.quiz-feedback');
+          const solution = card.querySelector('.quiz-solution-text');
 
-          parent.querySelectorAll('.quiz-option').forEach(opt => {
-            opt.style.pointerEvents = 'none';
-            if (opt.getAttribute('data-correct') === 'true') {
-              opt.classList.add('correct');
+          card.querySelectorAll('.quiz-choice-btn').forEach(b => {
+            b.style.pointerEvents = 'none';
+            if (b.getAttribute('data-correct') === 'true') {
+              b.classList.add('correct');
             }
           });
 
@@ -1202,29 +1365,10 @@
             this.classList.add('wrong');
           }
 
-          feedback.style.display = 'block';
-          feedback.style.color = isCorrect ? '#166534' : '#991b1b';
+          solution.style.display = 'block';
+          solution.style.color = isCorrect ? '#166534' : '#991B1B';
         });
       });
-
-      // Dropdown de navegación Academia
-      const dropdownTrigger = document.querySelector('.dropdown-trigger');
-      const navItem = document.querySelector('.nav-item-has-dropdown');
-      if (dropdownTrigger && navItem) {
-        dropdownTrigger.addEventListener('click', function (e) {
-          e.stopPropagation();
-          const expanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !expanded);
-          navItem.classList.toggle('is-open', !expanded);
-        });
-
-        document.addEventListener('click', function (e) {
-          if (!navItem.contains(e.target)) {
-            dropdownTrigger.setAttribute('aria-expanded', 'false');
-            navItem.classList.remove('is-open');
-          }
-        });
-      }
     });
   </script>
 </body>
