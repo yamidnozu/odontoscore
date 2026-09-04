@@ -342,195 +342,147 @@
   <!-- ====================================================================
        MODULO ULTRA-INTERACTIVO: EXPLORADOR ANATÓMICO Y CLÍNICO POR CAPAS
        ==================================================================== -->
+  <!-- ====================================================================
+       MODULO ULTRA-INTERACTIVO: DISECTOR ANATÓMICO POR CAPAS REGISTRADAS
+       ==================================================================== -->
   <section class="layer-explorer-container" id="explorador-capas">
-    <div style="padding:1.5rem 2rem;background:#0B1426;color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.1);">
-      <span style="font-size:0.75rem;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.08em;">HERRAMIENTA CLÍNICA INTERACTIVA</span>
-      <h2 style="font-size:1.6rem;color:#FFFFFF;margin:0.25rem 0 0.5rem;">Explorador Anatómico y Semiológico por Capas</h2>
-      <p style="font-size:0.95rem;color:#94A3B8;margin:0;">
-        Haz clic en cada capa para navegar dinámicamente desde los centros de control cortical hasta la base del cráneo, la inervación orofacial periférica y los signos clínicos de alerta.
+    <div style="padding:1.75rem 2rem;background:#0B1426;color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.35rem;">
+        <span style="font-size:0.75rem;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.08em;">ATLAS MULTICAPA REGISTRADO · CIRUGÍA & SEMIOLOGÍA</span>
+        <span style="font-size:0.75rem;color:#94A3B8;background:rgba(255,255,255,0.08);padding:0.2rem 0.6rem;border-radius:var(--radius-full);">5 Planos Anatómicos Sincronizados</span>
+      </div>
+      <h2 style="font-size:1.75rem;color:#FFFFFF;margin:0.25rem 0 0.5rem;">Disector Anatómico y Semiológico Multicapa</h2>
+      <p style="font-size:0.95rem;color:#94A3B8;margin:0;max-width:850px;line-height:1.5;">
+        Explora la anatomía orofacial y neurológica en capas registradas en el mismo plano visual. Puedes <strong>eliminar capa a capa</strong> para desnudar la base ósea y forámenes profundos, o <strong>reponerlas progresivamente</strong> para reconstruir el tallo cerebral, los 12 pares, la red dental alveolar y las alertas clínicas patológicas.
       </p>
     </div>
 
-    <!-- Pestañas de Capas -->
-    <div class="layer-nav-tabs" role="tablist">
-      <button type="button" class="layer-tab-btn active" data-layer-target="layer-1" role="tab" aria-selected="true">
-        <span class="layer-num-badge">1</span>
-        <span>Capa Cortical & Tálamo</span>
-      </button>
-      <button type="button" class="layer-tab-btn" data-layer-target="layer-2" role="tab" aria-selected="false">
-        <span class="layer-num-badge">2</span>
-        <span>Capa Tallo Cerebral</span>
-      </button>
-      <button type="button" class="layer-tab-btn" data-layer-target="layer-3" role="tab" aria-selected="false">
-        <span class="layer-num-badge">3</span>
-        <span>Capa Base del Cráneo</span>
-      </button>
-      <button type="button" class="layer-tab-btn" data-layer-target="layer-4" role="tab" aria-selected="false">
-        <span class="layer-num-badge">4</span>
-        <span>Capa Inervación Facial & V</span>
-      </button>
-      <button type="button" class="layer-tab-btn" data-layer-target="layer-5" role="tab" aria-selected="false">
-        <span class="layer-num-badge">5</span>
-        <span>Capa Signos & Patología</span>
-      </button>
-    </div>
+    <!-- Visor Multicapa y Consola de Controles -->
+    <div style="padding:1.75rem 2rem;">
+      <div class="dissector-main-container" style="margin-top:0;">
+        <!-- Columna Izquierda: Viewport de Capas Superpuestas -->
+        <div>
+          <div class="layered-dissection-viewport" id="dissectionViewport">
+            <!-- Badges Superiores -->
+            <div class="viewport-badge-top">
+              <div class="viewport-badge active-indicator" id="liveLayerBadge">Capa 5: Patología Clínica & Banderas Rojas</div>
+              <div class="viewport-badge" id="liveDepthBadge">Plano 5 de 5</div>
+            </div>
 
-    <!-- Panel Capa 1 -->
-    <div class="layer-content-panel active" id="layer-1" role="tabpanel">
-      <div class="layer-grid">
-        <div>
-          <figure class="medical-figure" style="margin:0;">
-            <img src="../assets/img/homunculo-penfield-neuroanatomia.jpg" alt="Homúnculo de Penfield y Corteza Cerebral" width="1200" height="675" loading="lazy">
-            <figcaption>
-              <strong>Capa 1:</strong> Corteza cerebral y Homúnculo de Penfield. Destaca la enorme densidad de representación cortical asignada al macizo orofacial (lengua, labios, dientes, mandíbula) y a las manos.
-            </figcaption>
-          </figure>
-        </div>
-        <div>
-          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 1 · Centros Superiores</span>
-          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Homúnculo de Penfield, Decusación y Tálamo</h3>
-          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
-            El cerebro organiza sus funciones motoras y sensitivas mediante distribución topográfica estricta. El <strong>Homúnculo de Penfield</strong> evidencia que la boca y las manos dominan la corteza para permitir la masticación, el habla articulada y la destreza manual clínica.
-          </p>
-          <ul class="layer-keypoints">
-            <li class="layer-keypoint-item">
-              <strong>Contralateralidad:</strong> Las señales sensitivomotoras se cruzan; el hemisferio izquierdo comanda y siente el lado derecho y viceversa.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Cápsula Interna:</strong> Embudo de sustancia blanca donde convergen las fibras descendentes. Su infarto genera hemiplejía contralateral y parálisis facial central.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>El Tálamo:</strong> Portería y filtro sensorial central que procesa toda la aferencia orofacial antes de llegar a la consciencia.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+            <!-- Capas de Imágenes Superpuestas (Stack) -->
+            <img id="layer-img-1" src="../assets/img/capa-1-base-osea.jpg" class="layer-stack-img" alt="Capa 1: Base de Cráneo y Forámenes" style="opacity:0; z-index:1;">
+            <img id="layer-img-2" src="../assets/img/capa-2-encefalo-tallo.jpg" class="layer-stack-img" alt="Capa 2: Encéfalo y Tallo Cerebral" style="opacity:0; z-index:2;">
+            <img id="layer-img-3" src="../assets/img/capa-3-pares-craneales.jpg" class="layer-stack-img" alt="Capa 3: Troncos de Pares Craneales III-XII" style="opacity:0; z-index:3;">
+            <img id="layer-img-4" src="../assets/img/capa-4-inervacion-dental.jpg" class="layer-stack-img" alt="Capa 4: Inervación Dental V2/V3 y C2" style="opacity:0; z-index:4;">
+            <img id="layer-img-5" src="../assets/img/capa-5-patologia-clinica.jpg" class="layer-stack-img" alt="Capa 5: Signos Clínicos y Patología" style="opacity:1; z-index:5;">
 
-    <!-- Panel Capa 2 -->
-    <div class="layer-content-panel" id="layer-2" role="tabpanel">
-      <div class="layer-grid">
-        <div>
-          <figure class="medical-figure" style="margin:0;">
-            <img src="../assets/img/tallo-cerebral-pares-craneales.jpg" alt="Vista Ventral del Tallo Cerebral y Emergencia de los Pares Craneales" width="1200" height="675" loading="lazy">
-            <figcaption>
-              <strong>Capa 2:</strong> Vista ventral del tallo cerebral humano (mesencéfalo, puente y bulbo raquídeo). Origen real de los pares craneales III al XII con pirámides y olivas bulbares.
-            </figcaption>
-          </figure>
-        </div>
-        <div>
-          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 2 · Estación Central</span>
-          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Topografía del Tallo Encefálico (3 Niveles)</h3>
-          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
-            El tallo cerebral concentra los núcleos motores, sensoriales y vegetativos que el odontólogo explora directa o indirectamente en la consulta estomatológica.
-          </p>
-          <ul class="layer-keypoints">
-            <li class="layer-keypoint-item">
-              <strong>1. Mesencéfalo (Pares III y IV):</strong> Contiene el Acueducto de Silvio. Si se bloquea por cisticercosis o tumores, genera hidrocefalia aguda, ptosis y midriasis fija.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>2. Protuberancia / Puente (Pares V, VI, VII, VIII):</strong> Núcleo del ángulo pontocerebeloso. Causa hemi-anestesia facial, debilidad maseterina, estrabismo interno y vértigo.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>3. Bulbo Raquídeo (Pares IX, X, XI, XII):</strong> Gobierna deglución y fonación. Lesiones causan disfagia con riesgo de broncoaspiración, voz ronca y desviación lingual.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+            <!-- Pines Interactivos (Hotspots) -->
+            <div class="viewport-hotspots-overlay" id="hotspotsOverlay">
+              <button type="button" class="viewport-pin" style="left:48%; top:22%;" data-pin="homunculo" title="Homúnculo de Penfield y Corteza">1</button>
+              <button type="button" class="viewport-pin" style="left:58%; top:54%;" data-pin="tallo" title="Tallo Cerebral (Mesencéfalo, Puente y Bulbo)">2</button>
+              <button type="button" class="viewport-pin" style="left:45%; top:56%;" data-pin="gasser" title="Ganglio de Gasser (Trigémino V)">3</button>
+              <button type="button" class="viewport-pin" style="left:36%; top:73%;" data-pin="dental" title="Nervios Dentarios Alveolares V2/V3">4</button>
+              <button type="button" class="viewport-pin pin-danger" style="left:44%; top:82%;" data-pin="c2" title="Ángulo Mandibular C2 (Alerta Infarto)">5</button>
+              <button type="button" class="viewport-pin" style="left:55%; top:62%;" data-pin="bell" title="Foramen Estilomastoideo / Facial VII">6</button>
+            </div>
+          </div>
 
-    <!-- Panel Capa 3 -->
-    <div class="layer-content-panel" id="layer-3" role="tabpanel">
-      <div class="layer-grid">
-        <div>
-          <figure class="medical-figure" style="margin:0;">
-            <img src="../assets/img/base-craneo-foramenes-pares.jpg" alt="Base del Cráneo y Forámenes de Salida de los Pares Craneales" width="1200" height="675" loading="lazy">
-            <figcaption>
-              <strong>Capa 3:</strong> Vista endocraneal de la base del cráneo. Fosas anterior, media y posterior con los orificios anatómicos exactos de salida de cada uno de los doce pares craneales.
-            </figcaption>
-          </figure>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;font-size:0.78rem;color:#94A3B8;">
+            <span>💡 Haz clic en los números del visor para inspeccionar estructuras clave.</span>
+            <span>Perspectiva lateral oblicua 3D</span>
+          </div>
         </div>
-        <div>
-          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 3 · Trayectos Óseos</span>
-          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Forámenes de Salida en la Base del Cráneo</h3>
-          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
-            Cada par craneal abandona el estuche óseo a través de forámenes o fisuras específicas. Los traumatismos faciales o fracturas de base craneal lesionan selectivamente estos canales:
-          </p>
-          <ul class="layer-keypoints">
-            <li class="layer-keypoint-item">
-              <strong>Fosa Anterior:</strong> Lámina cribosa del etmoides (I Par Olfatorio).
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Fosa Media:</strong> Agujero óptico (II), Hendidura esfenoidal (III, IV, V1, VI), Agujero redondo (V2) y Agujero oval (V3).
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Fosa Posterior:</strong> Meato acústico interno (VII, VIII), Agujero rasgado posterior / Foramen yugular (IX, X, XI) y Agujero condíleo anterior / conducto hipogloso (XII).
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    <!-- Panel Capa 4 -->
-    <div class="layer-content-panel" id="layer-4" role="tabpanel">
-      <div class="layer-grid">
-        <div>
-          <figure class="medical-figure" style="margin:0;">
-            <img src="../assets/img/trigemino-facial-odontologia.jpg" alt="Inervación Facial, Trigémino V1-V2-V3, Músculo Masetero y C2" width="1200" height="675" loading="lazy">
-            <figcaption>
-              <strong>Capa 4:</strong> Inervación orofacial clínica. Ramas del trigémino (V1, V2, V3), foramen estilomastoideo del facial (VII), músculo masetero y dermatoma cervical C2 en el ángulo mandibular.
-            </figcaption>
-          </figure>
-        </div>
-        <div>
-          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 4 · Inervación Periférica</span>
-          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Trigémino (V), Facial (VII) y Alerta C2</h3>
-          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
-            El territorio operativo directo del odontólogo. Aquí convergen la anestesia local odontológica, el reflejo masticatorio y la mímica facial:
-          </p>
-          <ul class="layer-keypoints">
-            <li class="layer-keypoint-item">
-              <strong>"Striptease" Sensitivo del V:</strong> V1 oftálmico (vértice a frente), V2 maxilar (labio superior y maxilar) y V3 mandibular (labio inferior y mandíbula).
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Ángulo Mandibular (C2):</strong> No inervado por V3 sino por la raíz cervical C2. Dolor aquí puede corresponder a infarto agudo de miocardio referido vía nervio frénico.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Protección Acústica frente a Turbina Dental:</strong> El músculo tensor del tímpano (inervado por V3) y el músculo del estribo/estapedio (inervado por VII) amortiguan el ruido de la pieza de mano.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+        <!-- Columna Derecha: Consola de Controles Interactivos -->
+        <div class="dissection-controls-console">
+          <!-- Botones de Acción Rápida: Eliminar / Reponer -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">
+              Controles de Capas
+            </div>
+            <div class="dissection-actions-bar">
+              <button type="button" class="dissect-action-btn btn-accent" id="btnPeelLayer">
+                ➖ Eliminar Capa (Pelar)
+              </button>
+              <button type="button" class="dissect-action-btn" id="btnAddLayer">
+                ➕ Reponer Capa
+              </button>
+              <button type="button" class="dissect-action-btn" id="btnResetAll" title="Ver todas las 5 capas">
+                🔄 Todas (5)
+              </button>
+              <button type="button" class="dissect-action-btn" id="btnBoneOnly" title="Aislar plano óseo puro">
+                💀 Solo Hueso (1)
+              </button>
+            </div>
+          </div>
 
-    <!-- Panel Capa 5 -->
-    <div class="layer-content-panel" id="layer-5" role="tabpanel">
-      <div class="layer-grid">
-        <div>
-          <figure class="medical-figure" style="margin:0;">
-            <img src="../assets/img/signos-clinicos-semiologia.jpg" alt="Signos Clínicos Dentales y Neurológicos: Dientes de Hutchinson y Parálisis Facial" width="1200" height="675" loading="lazy">
-            <figcaption>
-              <strong>Capa 5:</strong> Correlaciones patológicas orofaciales. Incisivos en destornillador de Hutchinson (sífilis congénita/Tabes dorsal), asimetría motora del nervio facial y prueba de desviación lingual del XII par.
-            </figcaption>
-          </figure>
-        </div>
-        <div>
-          <span style="font-size:0.75rem;font-weight:800;color:#0C7FD4;text-transform:uppercase;letter-spacing:0.05em;">Capa 5 · Patología y Semiología</span>
-          <h3 style="font-size:1.5rem;color:var(--color-navy);margin:0.25rem 0 0.75rem;">Estigmas Dentales y Banderas Rojas</h3>
-          <p style="font-size:0.92rem;color:var(--color-slate);line-height:1.6;">
-            Hallazgos bucales y extraorales que salvan vidas al orientar patologías neurológicas y sistémicas antes de iniciar maniobras invasivas:
-          </p>
-          <ul class="layer-keypoints">
-            <li class="layer-keypoint-item">
-              <strong>Dientes de Hutchinson:</strong> Incisivos centrales con muesca semilunar que delatan sífilis congénita y predicen futura neurosífilis (Tabes dorsal con Romberg+).
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Parálisis de Bell vs Central:</strong> La lesión periférica compromete toda la hemicara y provoca ojo seco; la central preserva el movimiento de la frente.
-            </li>
-            <li class="layer-keypoint-item">
-              <strong>Desviación Lingual:</strong> Al protruir la lengua, la punta apunta hacia el lado de la lesión por acción del músculo geniogloso sano opuesto.
-            </li>
-          </ul>
+          <!-- Deslizador de Profundidad Anatómica -->
+          <div class="dissection-slider-container">
+            <div class="dissection-slider-header">
+              <span class="dissection-slider-title">Deslizador de Disección</span>
+              <span class="dissection-slider-level-name" id="sliderLevelLabel">Nivel 5: Patología Completa</span>
+            </div>
+            <input type="range" min="1" max="5" value="5" id="dissectionSlider" class="dissection-slider-input" aria-label="Nivel de Disección Anatómica">
+            <div class="dissection-slider-labels">
+              <span>1. Hueso</span>
+              <span>2. Tallo</span>
+              <span>3. Pares</span>
+              <span>4. Dientes</span>
+              <span>5. Patología</span>
+            </div>
+          </div>
+
+          <!-- Lista de Capas Conmutables -->
+          <div class="layer-toggles-list">
+            <div class="layer-toggle-chip active" data-chip-layer="5">
+              <div class="layer-chip-left">
+                <span class="layer-chip-num">5</span>
+                <span class="layer-chip-name">Capa 5: Signos & Patología</span>
+              </div>
+              <span class="layer-chip-status">ACTIVA</span>
+            </div>
+            <div class="layer-toggle-chip active" data-chip-layer="4">
+              <div class="layer-chip-left">
+                <span class="layer-chip-num">4</span>
+                <span class="layer-chip-name">Capa 4: Inervación Dental & V/VII</span>
+              </div>
+              <span class="layer-chip-status">ACTIVA</span>
+            </div>
+            <div class="layer-toggle-chip active" data-chip-layer="3">
+              <div class="layer-chip-left">
+                <span class="layer-chip-num">3</span>
+                <span class="layer-chip-name">Capa 3: Pares Craneales III-XII</span>
+              </div>
+              <span class="layer-chip-status">ACTIVA</span>
+            </div>
+            <div class="layer-toggle-chip active" data-chip-layer="2">
+              <div class="layer-chip-left">
+                <span class="layer-chip-num">2</span>
+                <span class="layer-chip-name">Capa 2: Encéfalo & Tallo Cerebral</span>
+              </div>
+              <span class="layer-chip-status">ACTIVA</span>
+            </div>
+            <div class="layer-toggle-chip active" data-chip-layer="1">
+              <div class="layer-chip-left">
+                <span class="layer-chip-num">1</span>
+                <span class="layer-chip-name">Capa 1: Base Cráneo & Forámenes</span>
+              </div>
+              <span class="layer-chip-status">BASE</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta de Información Dinámica Sincronizada -->
+          <div class="dissection-live-card" id="dissectionLiveCard">
+            <div class="dissection-live-title" id="liveCardTitle">
+              <span>🩺 Capa 5 · Patología y Banderas Rojas</span>
+            </div>
+            <div class="dissection-live-desc" id="liveCardDesc">
+              Visualización de marcadores patológicos críticos: zonas desencadenantes (trigger) de neuralgia del trigémino en V2/V3, signo de Bell en foramen estilomastoideo, desviación de lengua por parálisis del XII par y alerta roja de dolor referido cardíaco en C2.
+            </div>
+            <div class="dissection-live-relevance" id="liveCardRelevance">
+              <strong>Correlación Odontológica:</strong> Un dolor punzante en el ángulo mandibular no cede con anestesia troncular en conducto mandibular porque depende de la raíz C2; sospechar angina de pecho o infarto agudo en curso.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1076,35 +1028,223 @@
   </div>
 </footer>
 
-<!-- JavaScript: Capas Interactivas, Filtro de Pares Craneales y Simulador Clínico -->
+<!-- JavaScript: Disector Multicapa, Filtro de Pares Craneales y Simulador Clínico -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   
-  // ── 1. Visor de Capas Interactivas ──
-  var layerTabs = document.querySelectorAll(".layer-tab-btn");
-  var layerPanels = document.querySelectorAll(".layer-content-panel");
+  // ── 1. Disector Anatómico y Semiológico Multicapa ──
+  var currentDepth = 5;
+  var dissectionSlider = document.getElementById("dissectionSlider");
+  var sliderLevelLabel = document.getElementById("sliderLevelLabel");
+  var liveLayerBadge = document.getElementById("liveLayerBadge");
+  var liveDepthBadge = document.getElementById("liveDepthBadge");
+  var liveCardTitle = document.getElementById("liveCardTitle");
+  var liveCardDesc = document.getElementById("liveCardDesc");
+  var liveCardRelevance = document.getElementById("liveCardRelevance");
 
-  layerTabs.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var targetId = this.getAttribute("data-layer-target");
+  var btnPeel = document.getElementById("btnPeelLayer");
+  var btnAdd = document.getElementById("btnAddLayer");
+  var btnReset = document.getElementById("btnResetAll");
+  var btnBone = document.getElementById("btnBoneOnly");
+  var toggleChips = document.querySelectorAll(".layer-toggle-chip");
+  var pins = document.querySelectorAll(".viewport-pin");
 
-      layerTabs.forEach(function (t) {
-        t.classList.remove("active");
-        t.setAttribute("aria-selected", "false");
-      });
-      layerPanels.forEach(function (p) {
-        p.classList.remove("active");
-      });
+  var LAYER_DATA = {
+    1: {
+      badge: "Capa 1: Base Cráneo & Forámenes Óseos",
+      title: "🦴 Capa 1 · Estuche Óseo y Agujeros de Salida",
+      desc: "Visualización límpida del cráneo óseo, maxilar y mandíbula con ventana de corte transversal. Observa los forámenes: lámina cribosa (I), agujero óptico (II), hendidura esfenoidal (III, IV, V1, VI), agujero redondo para V2 maxilar, agujero oval para V3 mandibular, foramen yugular (IX, X, XI) y conducto hipogloso (XII).",
+      relevance: "En fracturas maxilofaciales (Le Fort I, II, III) o traumatismos mandibulares por impacto, las espículas óseas comprimen o seccionan estos forámenes, generando parálisis o anestesia irreversible si no se descompresionan a tiempo."
+    },
+    2: {
+      badge: "Capa 2: Encéfalo & Tallo Cerebral",
+      title: "🧠 Capa 2 · Homúnculo de Penfield y Tallo Encefálico",
+      desc: "Estructuras centrales integradas: la corteza cerebral con el Homúnculo de Penfield (dominancia sensitivomotora masiva de lengua, labios y manos) y los tres niveles del tallo cerebral: Mesencéfalo (pares III y IV), Puente (núcleo del ángulo pontocerebeloso con pares V, VI, VII y VIII) y Bulbo Raquídeo (pares IX, X, XI y XII).",
+      relevance: "La desproporción cortical explica por qué una micro-lesión pulpar o una discrepancia oclusal de 50 micras desata tanta angustia o dolor en el paciente dental frente a otras partes del cuerpo."
+    },
+    3: {
+      badge: "Capa 3: Troncos de Pares Craneales III-XII",
+      title: "⚡ Capa 3 · Origen Real y Salida de Pares Craneales",
+      desc: "Estructuras nerviosas en amarillo brillante emergiendo del tallo hacia los forámenes de la base del cráneo: Ganglio de Gasser (Trigémino V), nervio facial (VII) adentrándose al meato acústico interno, nervio glosofaríngeo (IX), vago (X), espinal (XI) y cordón del hipogloso (XII).",
+      relevance: "Tumores como los neurinomas del acústico o meningiomas de fosa posterior comprimen secuencialmente los pares V, VII y VIII, manifestándose en la consulta dental como hipoestesia de mejilla y pérdida del reflejo corneal antes de que aparezca sordera."
+    },
+    4: {
+      badge: "Capa 4: Inervación Dental Alveolar y C2",
+      title: "🦷 Capa 4 · Red Dental Alveolar y Alerta C2",
+      desc: "Distribución maxilofacial periférica: nervios alveolares superiores (ramas de V2) inervando premolares y molares superiores; nervio dentario inferior / alveolar inferior (rama de V3) viajando por el conducto mandibular hasta el nervio mentoniano; ramas motoras del facial (VII) y delimitación en violeta del ángulo mandibular (C2).",
+      relevance: "Dianas de la anestesia odontológica cotidiana. Revela que el ángulo mandibular está inervado por la raíz cervical C2 y no por V3, lo que explica por qué el bloqueo mandibular nunca anestesia este ángulo."
+    },
+    5: {
+      badge: "Capa 5: Patología Clínica & Banderas Rojas",
+      title: "🩺 Capa 5 · Patología y Banderas Rojas",
+      desc: "Marcadores clínicos críticos: zonas gatillo de descargas de neuralgia del trigémino en V2/V3 (signo del relámpago lancinante), lesión en foramen estilomastoideo (parálisis periférica de Bell con lagoftalmos), desviación lingual por parálisis del XII par y la señal roja de dolor referido miocárdico en C2.",
+      relevance: "Si un paciente refiere dolor opresivo irradiado al ángulo mandibular acompañado de diaforesis, palidez o disnea, ¡NO es una odontalgia! Es un infarto agudo de miocardio referido a través del plexo cervical (C2)."
+    }
+  };
 
-      this.classList.add("active");
-      this.setAttribute("aria-selected", "true");
+  var HOTSPOT_DATA = {
+    "homunculo": {
+      depth: 2,
+      title: "🧠 Hotspot 1: Homúnculo Sensitivo y Motor de Penfield",
+      desc: "Mapeo cortical superpuesto. La corteza motora primaria y sensitiva dedican más del 60% de su área al territorio orofacial (lengua, labios, dientes, mucosa bucal) y manos.",
+      relevance: "Cualquier alteración pulpar oclusal satura los circuitos corticales, provocando odontalgias de intensidad desmedida."
+    },
+    "tallo": {
+      depth: 2,
+      title: "🧬 Hotspot 2: Tallo Cerebral y Núcleos de Origen",
+      desc: "Mesencéfalo (Acueducto de Silvio, cisticercosis, ptosis), Puente (ángulo pontocerebeloso, V, VII, VIII) y Bulbo (núcleo ambiguo, deglución, úvula simétrica).",
+      relevance: "Distingue odinofagia local (dolor al tragar) de disfagia bulbar motora (urgencia médica con riesgo de broncoaspiración)."
+    },
+    "gasser": {
+      depth: 3,
+      title: "⚡ Hotspot 3: Ganglio de Gasser (Trigémino V)",
+      desc: "Ubicado en el cavum de Meckel en la fosa craneal media. De él emergen las tres divisiones: V1 (oftálmico), V2 (maxilar) y V3 (mandibular).",
+      relevance: "Asiento primario de la Neuralgia del Trigémino. Pacientes describen dolores comparables a descargas eléctricas de alto voltaje desatadas al lavarse los dientes o afeitarse."
+    },
+    "dental": {
+      depth: 4,
+      title: "🦷 Hotspot 4: Nervios Dentarios Alveolares (V2 y V3)",
+      desc: "Ramas terminales orofaciales que penetran los ápices radiculares a través del foramen apical. Vía de conducción de la propiocepción periodontal y dolor pulpar.",
+      relevance: "Ruta de la técnica anestésica troncular mandibular. Requiere depositar el anestésico en la espina de Spix antes de su entrada al conducto dentario."
+    },
+    "c2": {
+      depth: 5,
+      title: "🚨 Hotspot 5: Ángulo Mandibular (Dermatoma C2) - Alerta de Infarto",
+      desc: "Punto semiológico crítico: El ángulo de la mandíbula recibe inervación somática de la raíz espinal cervical C2 a través del nervio auricular mayor, NO del trigémino V3.",
+      relevance: "¡Bandera roja máxima! El dolor referido de isquemia coronaria asciende por fibras del nervio frénico y plexo cervical hacia C2, simulando una afección de molares inferiores."
+    },
+    "bell": {
+      depth: 5,
+      title: "⚠️ Hotspot 6: Foramen Estilomastoideo / Facial VII (Signo de Bell)",
+      desc: "Punto de emergencia externa del VII par craneal entre la apófisis estiloides y mastoides antes de ramificarse dentro de la glándula parótida.",
+      relevance: "Su compresión vírica o inflamatoria produce parálisis facial periférica completa de la hemicara con imposibilidad de cerrar el ojo (lagoftalmos) y riesgo de úlcera de córnea."
+    }
+  };
 
-      var targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.add("active");
+  function updateDissectionView(depth) {
+    currentDepth = Math.max(1, Math.min(5, depth));
+
+    // 1. Actualizar visibilidad de capas de imágenes apiladas
+    for (var i = 1; i <= 5; i++) {
+      var img = document.getElementById("layer-img-" + i);
+      if (img) {
+        // La capa i es visible si es menor o igual a currentDepth
+        img.style.opacity = (i <= currentDepth) ? "1" : "0";
+      }
+    }
+
+    // 2. Actualizar slider y labels
+    if (dissectionSlider) {
+      dissectionSlider.value = currentDepth;
+    }
+    if (sliderLevelLabel && LAYER_DATA[currentDepth]) {
+      sliderLevelLabel.textContent = "Nivel " + currentDepth + ": " + LAYER_DATA[currentDepth].badge;
+    }
+
+    // 3. Actualizar badges en la imagen
+    if (liveLayerBadge && LAYER_DATA[currentDepth]) {
+      liveLayerBadge.textContent = LAYER_DATA[currentDepth].badge;
+    }
+    if (liveDepthBadge) {
+      liveDepthBadge.textContent = "Plano " + currentDepth + " de 5";
+    }
+
+    // 4. Actualizar chips conmutadores
+    toggleChips.forEach(function (chip) {
+      var chipLayer = parseInt(chip.getAttribute("data-chip-layer"), 10);
+      var statusSpan = chip.querySelector(".layer-chip-status");
+      if (chipLayer <= currentDepth) {
+        chip.classList.add("active");
+        if (statusSpan) {
+          statusSpan.textContent = (chipLayer === 1) ? "BASE" : "ACTIVA";
+        }
+      } else {
+        chip.classList.remove("active");
+        if (statusSpan) {
+          statusSpan.textContent = "OCULTA";
+        }
       }
     });
+
+    // 5. Actualizar tarjeta en vivo
+    if (LAYER_DATA[currentDepth]) {
+      var data = LAYER_DATA[currentDepth];
+      if (liveCardTitle) liveCardTitle.innerHTML = "<span>" + data.title + "</span>";
+      if (liveCardDesc) liveCardDesc.textContent = data.desc;
+      if (liveCardRelevance) liveCardRelevance.innerHTML = "<strong>Correlación Odontológica:</strong> " + data.relevance;
+    }
+  }
+
+  // Event Listeners: Botones de Acción
+  if (btnPeel) {
+    btnPeel.addEventListener("click", function () {
+      if (currentDepth > 1) {
+        updateDissectionView(currentDepth - 1);
+      }
+    });
+  }
+
+  if (btnAdd) {
+    btnAdd.addEventListener("click", function () {
+      if (currentDepth < 5) {
+        updateDissectionView(currentDepth + 1);
+      }
+    });
+  }
+
+  if (btnReset) {
+    btnReset.addEventListener("click", function () {
+      updateDissectionView(5);
+    });
+  }
+
+  if (btnBone) {
+    btnBone.addEventListener("click", function () {
+      updateDissectionView(1);
+    });
+  }
+
+  // Event Listener: Slider
+  if (dissectionSlider) {
+    dissectionSlider.addEventListener("input", function () {
+      updateDissectionView(parseInt(this.value, 10));
+    });
+  }
+
+  // Event Listener: Chips Conmutadores
+  toggleChips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      var chipLayer = parseInt(this.getAttribute("data-chip-layer"), 10);
+      updateDissectionView(chipLayer);
+    });
   });
+
+  // Event Listener: Pines / Hotspots
+  pins.forEach(function (pin) {
+    pin.addEventListener("click", function () {
+      var pinKey = this.getAttribute("data-pin");
+      if (!pinKey || !HOTSPOT_DATA[pinKey]) return;
+
+      var spot = HOTSPOT_DATA[pinKey];
+      // Si la capa requerida está apagada, elevar el nivel para que sea visible
+      if (currentDepth < spot.depth) {
+        updateDissectionView(spot.depth);
+      }
+
+      // Animación de foco en el pin
+      pins.forEach(function (p) { p.style.transform = "translate(-50%, -50%) scale(1)"; });
+      this.style.transform = "translate(-50%, -50%) scale(1.4)";
+
+      // Actualizar tarjeta en vivo con la perla del hotspot
+      if (liveCardTitle) liveCardTitle.innerHTML = "<span>" + spot.title + "</span>";
+      if (liveCardDesc) liveCardDesc.textContent = spot.desc;
+      if (liveCardRelevance) liveCardRelevance.innerHTML = "<strong>Correlación Odontológica:</strong> " + spot.relevance;
+    });
+  });
+
+  // Inicializar en Nivel 5 (Completo)
+  updateDissectionView(5);
+
 
   // ── 2. Filtro Interactivo de la Tabla de Pares Craneales ──
   var filterButtons = document.querySelectorAll(".nerve-filter-btn");
