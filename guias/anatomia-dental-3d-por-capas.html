@@ -81,8 +81,8 @@
     .step-viewport {
       position: relative;
       width: 100%;
+      max-width: 520px;
       aspect-ratio: 1 / 1;
-      max-height: 520px;
       margin: 0 auto;
       border-radius: var(--radius-xl);
       overflow: hidden;
@@ -521,8 +521,8 @@
     .hotspot-pin {
       position: absolute;
       transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: rgba(14, 165, 233, 0.95);
       color: #FFFFFF;
@@ -530,20 +530,36 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 800;
       cursor: pointer;
       pointer-events: auto;
-      box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
-      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.85);
+      transition: transform 0.15s ease, background-color 0.2s, box-shadow 0.2s;
       user-select: none;
+      z-index: 25;
     }
 
     .hotspot-pin:hover, .hotspot-pin.active {
-      transform: translate(-50%, -50%) scale(1.35);
+      transform: translate(-50%, -50%) scale(1.3);
       background: #38BDF8;
       box-shadow: 0 0 20px rgba(56, 189, 248, 1);
       z-index: 35;
+    }
+
+    .hotspot-pin.active::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid #38BDF8;
+      animation: pinPulse 1.6s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes pinPulse {
+      0% { transform: scale(0.9); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
     }
 
     .hotspot-tooltip {
@@ -630,6 +646,7 @@
           </a>
           <div class="nav-dropdown-menu">
             <a href="../guias/anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
+            <a href="../guias/biofilm-microbiologia-endodoncia-3d.html" class="dropdown-link">Biofilm y Endodoncia 3D</a>
             <a href="../guias/semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
             <a href="../guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
             <a href="../guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
@@ -697,7 +714,9 @@
             <!-- HUD Superior -->
             <div class="step-hud" style="z-index:20;">
               <span class="hud-chip accent" id="badgeStepName">Cara Vestibular</span>
-              <span class="hud-chip" id="badgeStepCount">Puntos de Interés Clínico</span>
+              <button type="button" class="hud-chip" id="btnTogglePins" style="cursor:pointer;background:rgba(12,127,212,0.25);border:1px solid #38BDF8;color:#FFFFFF;transition:all 0.2s;">
+                Puntos Anatómicos: Visibles
+              </button>
             </div>
 
             <!-- Canvas Lightfield Interactivo en tiempo real -->
@@ -712,10 +731,10 @@
             <!-- HUD Inferior: Indicador Clínico -->
             <div style="position:absolute;bottom:0.65rem;left:0.75rem;right:0.75rem;display:flex;justify-content:space-between;align-items:center;pointer-events:none;z-index:20;">
               <span style="background:rgba(11,20,38,0.85);color:#94A3B8;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:600;border:1px solid rgba(255,255,255,0.1);">
-                Toca los puntos para ver notas clínicas · Arrastra para girar
+                Gira en 3D libremente · Toca cualquier punto anatómico
               </span>
               <span id="activeHotspotCountBadge" style="background:#0284C7;color:#FFFFFF;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:700;">
-                Vista Seleccionada
+                Cara Vestibular
               </span>
             </div>
           </div>
@@ -1138,7 +1157,114 @@
       secSequence.style.display = "none";
     });
 
-    // ── 2. ESCENARIOS ANATÓMICOS CON NOTAS Y PINES INTERACTIVOS ──
+    // ── 2. MODELO ANATÓMICO 3D Y PUNTOS DE REFERENCIA CALIBRADOS ──
+    var DENTAL_LANDMARKS_3D = [
+      {
+        id: "cusp_mv",
+        num: "1",
+        title: "Cúspide Mesiovestibular",
+        desc: "Cúspide cortante prominente en el ángulo vestíbulo-mesial de la corona. Presenta vertientes armadas bien delimitadas y vertiente lisa orientada al vestíbulo bucal.",
+        pearl: "Oclusión céntrica: Su vertiente distal contacta con la fosa central del primer molar superior. Crucial para restaurar la guía masticatoria funcional.",
+        x: -0.47, y: 0.82, z: 0.35
+      },
+      {
+        id: "cusp_dv",
+        num: "2",
+        title: "Cúspide Distovestibular",
+        desc: "Cúspide vestibular de relieve redondeado y altura ligeramente menor que la mesiovestibular, contigua a la tronera distovestibular.",
+        pearl: "Canaliza el bolo alimenticio durante la fase de escape masticatorio hacia distal. Su sobrecontorno genera interferencias en lateralidad.",
+        x: 0.47, y: 0.80, z: 0.35
+      },
+      {
+        id: "surco_v",
+        num: "3",
+        title: "Surco de Desarrollo Vestibular",
+        desc: "Depresión lineal vertical que separa ambas cúspides vestibulares y desciende hasta el tercio medio coronal.",
+        pearl: "Zona con alto acúmulo de biofilm y riesgo de caries de surco. Sitio diana para selladores preventivos y tallado de fisuras en resina compuesta.",
+        x: 0.00, y: 0.57, z: 0.48
+      },
+      {
+        id: "lac",
+        num: "4",
+        title: "Línea Amelocementaria (Cuello)",
+        desc: "Límite anatómico cervical festoneado que divide el esmalte de la corona anatómica del cemento de la superficie radicular.",
+        pearl: "Punto de referencia milimétrico para ubicar márgenes de preparación protésica y cuantificar la pérdida de inserción periodontal clínica.",
+        x: 0.00, y: 0.16, z: 0.42
+      },
+      {
+        id: "furca",
+        num: "5",
+        title: "Bifurcación Radicular (Furca)",
+        desc: "Zona de división anatómica del tronco común hacia las raíces divergentes mesial y distal.",
+        pearl: "Se evalúa con sonda de Nabers calibrada. Las lesiones de furca (Grado I a III de Hamp) deciden la necesidad de regeneración ósea o tunelización.",
+        x: 0.00, y: -0.15, z: 0.35
+      },
+      {
+        id: "apex_m",
+        num: "6",
+        title: "Ápice Radicular Mesial",
+        desc: "Vértice apical de la raíz mesial, habitualmente con doble conducto radicular (MV y ML) y curvatura anatómica distal.",
+        pearl: "La constricción apical anatómica se ubica a 0.5-1.0 mm del foramen radiográfico. Su conformación exige limas flexibles de níquel-titanio.",
+        x: -0.35, y: -0.99, z: 0.08
+      },
+      {
+        id: "apex_d",
+        num: "7",
+        title: "Ápice Radicular Distal",
+        desc: "Vértice cónico y más recto de la raíz posterior con foramen apical único o ramificaciones de delta apical.",
+        pearl: "Aloja habitualmente un conducto amplio y accesible de sección ovalada, ideal para la cementación de pernos radiculares si se requiere retención.",
+        x: 0.35, y: -0.99, z: -0.08
+      },
+      {
+        id: "cusp_ml",
+        num: "8",
+        title: "Cúspide Mesiolingual",
+        desc: "Cúspide de soporte y trituración de mayor volumen y altura en la superficie lingual del molar.",
+        pearl: "Recibe la mayor carga masticatoria vertical del arco. Su preservación es crucial al realizar accesos cavitarios endodónticos conservadores.",
+        x: -0.47, y: 0.82, z: -0.35
+      },
+      {
+        id: "cusp_dl",
+        num: "9",
+        title: "Cúspide Distolingual",
+        desc: "Cúspide lingual posterior funcional delimitada por el surco lingual de desarrollo.",
+        pearl: "Guía el bolo hacia el piso de la boca y la faringe, protegiendo los bordes linguales de laceraciones masticatorias involuntarias.",
+        x: 0.47, y: 0.80, z: -0.35
+      },
+      {
+        id: "surco_l",
+        num: "10",
+        title: "Surco Lingual de Desarrollo",
+        desc: "Depresión longitudinal sobre la superficie lingual que separa las cúspides mesiolingual y distolingual.",
+        pearl: "Frecuente zona de acúmulo de cálculo lingual subgingival proveniente de los conductos salivales de Wharton y Rivinus.",
+        x: 0.00, y: 0.57, z: -0.48
+      },
+      {
+        id: "fosa_cen",
+        num: "11",
+        title: "Fosa Central Oclusal",
+        desc: "Depresión más profunda de la tabla oclusal donde confluyen los surcos principales mesiodistal y vestibular.",
+        pearl: "Sitio del contacto céntrico fundamental contra la cúspide mesiopalatina del antagonista superior. Prioridad en encerado gnathológico.",
+        x: 0.00, y: 0.75, z: 0.00
+      },
+      {
+        id: "cont_m",
+        num: "12",
+        title: "Área de Contacto Mesial",
+        desc: "Zona de contacto interproximal con el segundo premolar adyacente, situada en el tercio oclusal hacia vestibular.",
+        pearl: "El uso de cuñas y matrices seccionales convexas evita el empaquetamiento alimenticio y el daño de la papila interproximal.",
+        x: -0.62, y: 0.45, z: 0.00
+      },
+      {
+        id: "cont_d",
+        num: "13",
+        title: "Área de Contacto Distal",
+        desc: "Punto de contacto proximal posterior más amplio y situado ligeramente más hacia apical.",
+        pearl: "Mantiene la estabilidad tridimensional de la arcada dental e impide la mesialización patológica de molares contiguos.",
+        x: 0.62, y: 0.42, z: 0.00
+      }
+    ];
+
     var CLINICAL_SCENARIOS = [
       {
         id: "vestibular",
@@ -1149,21 +1275,14 @@
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg",
         title: "Cara Vestibular: Morfología y Relieve",
-        desc: "Superficie orientada hacia el vestíbulo bucal. Presenta la convexidad de las dos cúspides vestibulares, el surco vertical de desarrollo y la bifurcación de las raíces mesial y distal.",
+        desc: "Superficie orientada hacia el vestíbulo bucal. Presenta la convexidad de las dos cúspides vestibulares, el surco vertical de desarrollo, el límite amelocementario y la bifurcación de las raíces.",
         clinical: "Referencia para restauraciones Clase V de Black, determinación del perfil de emergencia y valoración del biotipo periodontal vestibular.",
-        hotspots: [
-          { id: "cusp_mv", num: "1", x: 42, y: 34, title: "Cúspide Mesiovestibular", desc: "Cúspide cortante con vertientes lisas bien delimitadas.", pearl: "Su vertiente oclusal contacta con la fosa central superior en oclusión céntrica." },
-          { id: "cusp_dv", num: "2", x: 58, y: 35, title: "Cúspide Distovestibular", desc: "Cúspide de menor volumen y más redondeada que la mesiovestibular.", pearl: "Canaliza el bolo alimenticio hacia la tronera distovestibular en la masticación." },
-          { id: "groove_v", num: "3", x: 50, y: 40, title: "Surco de Desarrollo Vestibular", desc: "Depresión longitudinal que separa ambas cúspides vestibulares.", pearl: "Zona susceptible a acúmulo de biofilm y caries de fisura; diana de sellado preventivo." },
-          { id: "lac", num: "4", x: 50, y: 49, title: "Línea Amelocementaria (LAC)", desc: "Cuello anatómico que delimita el esmalte coronal del cemento radicular.", pearl: "Punto de referencia milimétrico para situar el margen de coronas y carillas." },
-          { id: "furca", num: "5", x: 50, y: 64, title: "Bifurcación Radicular (Furca)", desc: "Punto de divergencia anatómica entre la raíz mesial y la raíz distal.", pearl: "Se evalúa con sonda de Nabers para clasificar lesiones de furca (Hamp I a III)." },
-          { id: "apex", num: "6", x: 49, y: 83, title: "Ápices Radiculares", desc: "Terminación radicular con curvatura fisiológica distal.", pearl: "Punto crítico de instrumentación endodóntica y obturación hermética tridimensional." }
-        ]
+        landmarkIds: ["cusp_mv", "cusp_dv", "surco_v", "lac", "furca", "apex_m"]
       },
       {
         id: "vestomesial",
         name: "Transición Vesto-Mesial",
-        thetaX: 1,
+        thetaX: 1.0,
         thetaY: 3,
         type: "Ángulo Línea Proximal",
         typeClass: "type-surface",
@@ -1171,34 +1290,25 @@
         title: "Transición Mesial y Cresta Marginal",
         desc: "Perspectiva oblicua que muestra el ángulo línea mesiovestibular, el área de contacto proximal y la emergencia de la papila interdental.",
         clinical: "El diseño de matrices y cuñas en Clase II debe respetar esta curvatura para devolver el punto de contacto anatómico sin sobrecontornos.",
-        hotspots: [
-          { id: "cresta_m", num: "1", x: 45, y: 34, title: "Cresta Marginal Mesial", desc: "Borde de esmalte que delimita la vertiente oclusal mesial.", pearl: "Debe reproducir el reborde marginal para evitar empaquetamiento de comida interproximal." },
-          { id: "punto_cont", num: "2", x: 40, y: 42, title: "Área de Contacto Proximal", desc: "Punto de apoyo con el diente contiguo.", pearl: "Protege la papila gingival interdentaria de la fuerza directa del impacto masticatorio." },
-          { id: "concavidad_cerv", num: "3", x: 45, y: 52, title: "Concavidad Cervical Mesial", desc: "Depresión anatómica en el tercio cervical de la raíz.", pearl: "Zona crítica propensa a márgenes desbordantes de composite o amalgama." },
-          { id: "raiz_mesial", num: "4", x: 47, y: 70, title: "Tronco Radicular Mesial", desc: "Superficie externa ancha de la raíz mesial.", pearl: "Alberga dos conductos radiculares (MV y ML) unidos por un istmo anatómico." }
-        ]
+        landmarkIds: ["cusp_mv", "cont_m", "surco_v", "lac", "apex_m"]
       },
       {
         id: "mesial",
         name: "Cara Mesial",
-        thetaX: 2,
+        thetaX: 1.8,
         thetaY: 3,
         type: "Perfil Proximal Puro",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_3_90deg_lateral_corte.jpg",
         title: "Cara Mesial: Dimensión Vestíbulo-Lingual",
-        desc: "Proyección mesial directa. Muestra la amplia dimensión bucolingual del molar, la inclinación lingual de las cúspides y la depresión longitudinal de la raíz.",
+        desc: "Proyección mesial directa. Muestra la amplia dimensión bucolingual del molar, la inclinación lingual de las cúspides y la depresión longitudinal del tronco radicular.",
         clinical: "Esencial en endodoncia para comprender la curvatura radicular y el acceso a los dos conductos mesiales sin debilitar la furca.",
-        hotspots: [
-          { id: "cusp_ml", num: "1", x: 57, y: 34, title: "Cúspide Mesiolingual", desc: "Cúspide principal de soporte y trituración.", pearl: "Recibe el mayor porcentaje de carga axial durante el ciclo masticatorio." },
-          { id: "surco_dep", num: "2", x: 50, y: 65, title: "Surco Radicular Longitudinal", desc: "Canaladura longitudinal sobre la raíz mesial.", pearl: "Frecuente depósito de cálculo subgingival de difícil acceso para el raspado." },
-          { id: "espacio_inter", num: "3", x: 44, y: 74, title: "Espacio Interradicular", desc: "Espacio entre raíces ocupado por el hueso alveolar septal.", pearl: "La pérdida ósea interradicular conduce a compromiso de furca Grado II o III." }
-        ]
+        landmarkIds: ["cont_m", "cusp_mv", "cusp_ml", "lac", "apex_m"]
       },
       {
         id: "lingual",
         name: "Cara Lingual",
-        thetaX: 3,
+        thetaX: 3.0,
         thetaY: 3,
         type: "Morfología Lingual",
         typeClass: "type-surface",
@@ -1206,16 +1316,12 @@
         title: "Cara Lingual: Cúspides Funcionales",
         desc: "Superficie orientada hacia la lengua. Exhibe cúspides de contorno redondeado y un perfil axial liso continuo hacia la raíz.",
         clinical: "Zona expuesta al flujo salival de las glándulas submandibulares, con predisposición a cálculo supra y subgingival lingual.",
-        hotspots: [
-          { id: "cusp_ling", num: "1", x: 47, y: 34, title: "Cúspides Linguales", desc: "Cúspides funcionales que orientan el plano oclusal lingual.", pearl: "Protegen la mucosa lingual de pellizcamientos durante el cierre mandibular." },
-          { id: "surco_ling", num: "2", x: 50, y: 41, title: "Surco Lingual de Desarrollo", desc: "Hendidura suave sobre la cara lingual.", pearl: "Puede terminar en una foseta lingual ciega vulnerable a caries no visibles." },
-          { id: "raiz_ling", num: "3", x: 50, y: 68, title: "Convexidad Radicular Lingual", desc: "Contorno liso y continuo de las raíces por lingual.", pearl: "Superficie favorable para el acceso con curetas periodontales Gracey 11/12." }
-        ]
+        landmarkIds: ["cusp_ml", "cusp_dl", "surco_l", "lac", "apex_d"]
       },
       {
         id: "distolingual",
         name: "Transición Disto-Lingual",
-        thetaX: 4,
+        thetaX: 4.2,
         thetaY: 3,
         type: "Ángulo Línea Distal",
         typeClass: "type-surface",
@@ -1223,15 +1329,12 @@
         title: "Transición Distal y Reborde Marginal",
         desc: "Perspectiva posterior-oblicua orientada hacia la tronera distal. Revela la menor altura relativa del reborde distal y la morfología del cono radicular posterior.",
         clinical: "En oclusión terapéutica, el reborde marginal distal previene contactos prematuros en movimientos de lateralidad y protrusión.",
-        hotspots: [
-          { id: "reborde_d", num: "1", x: 52, y: 35, title: "Reborde Marginal Distal", desc: "Cresta de esmalte situada más apicalmente que la mesial.", pearl: "Control oclusal: su falta de armonía genera facetas de desgaste patológico." },
-          { id: "cono_distal", num: "2", x: 50, y: 68, title: "Raíz Distal Cónica", desc: "Raíz posterior redondeada y recta.", pearl: "Aloja habitualmente un conducto amplio y recto de fácil instrumentación." }
-        ]
+        landmarkIds: ["cusp_dl", "cont_d", "surco_l", "lac", "apex_d"]
       },
       {
         id: "distal",
         name: "Cara Distal",
-        thetaX: 5,
+        thetaX: 4.8,
         thetaY: 3,
         type: "Perfil Posterior",
         typeClass: "type-surface",
@@ -1239,10 +1342,7 @@
         title: "Cara Distal: Relieve y Espacio Retromolar",
         desc: "Proyección distal pura del molar. Permite evaluar la relación con el diente distal adyacente o el reborde desdentado retromolar.",
         clinical: "Superficie distal de difícil higiene; el uso de hilo dental o cepillos interproximales es mandatorio para prevenir caries radiculares.",
-        hotspots: [
-          { id: "cont_dist", num: "1", x: 45, y: 42, title: "Área de Contacto Distal", desc: "Zona plana de contacto interdentario.", pearl: "En ausencia del segundo molar, actúa como pilar terminal en prótesis fija." },
-          { id: "cuello_dist", num: "2", x: 48, y: 52, title: "Línea Cervical Distal", desc: "Línea amelocementaria con menor concavidad que en la cara mesial.", pearl: "Menor ondulación anatómica de la inserción epitelial conectiva." }
-        ]
+        landmarkIds: ["cont_d", "cusp_dv", "cusp_dl", "lac", "apex_d"]
       },
       {
         id: "oclusal",
@@ -1255,29 +1355,20 @@
         title: "Tabla Oclusal: Cúspides, Fosas y Surcos",
         desc: "Visión superior completa de la cara masticatoria. Expone el relieve de fosas principales, surco central mesiodistal y crestas triangulares.",
         clinical: "Referencia para tallado cavitario, encerado oclusal funcional de Gnathología y ajuste de contactos céntricos y excéntricos.",
-        hotspots: [
-          { id: "fosa_cen", num: "1", x: 50, y: 47, title: "Fosa Central Oclusal", desc: "Punto más profundo donde confluyen los surcos principales.", pearl: "Área con el mayor porcentaje de caries oclusal; zona prioritaria de sellado de fisuras." },
-          { id: "surco_md", num: "2", x: 50, y: 39, title: "Surco Principal Mesiodistal", desc: "Hendidura anatómica que separa cúspides vestibulares y linguales.", pearl: "Vía de escape del bolo alimenticio en los ciclos masticatorios." },
-          { id: "crestas_triang", num: "3", x: 42, y: 47, title: "Crestas Triangulares", desc: "Planos inclinados cuspídeos que confluyen al centro.", pearl: "Deben esculpirse anatómicamente para evitar interferencias oclusales." },
-          { id: "fosa_dist", num: "4", x: 60, y: 48, title: "Foseta Triangular Distal", desc: "Depresión secundaria que limita con la cresta marginal.", pearl: "Punto de apoyo para la cúspide antagonista durante la deglución." }
-        ]
+        landmarkIds: ["fosa_cen", "cusp_mv", "cusp_dv", "cusp_ml", "cusp_dl"]
       },
       {
         id: "apices",
         name: "Raíz y Ápices",
         thetaX: 0,
-        thetaY: 5,
+        thetaY: 6,
         type: "Zona Apical y Foramen",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_8_315deg_hemiseccion_3d.jpg",
         title: "Zona Apical: Forámenes Radiculares",
         desc: "Visión basal inferior dirigida a los ápices de las raíces mesial y distal.",
         clinical: "En endodoncia, la determinación exacta de la constricción apical (límite CDC) evita la sobreinstrumentación hacia los tejidos periapicales.",
-        hotspots: [
-          { id: "foramen_m", num: "1", x: 43, y: 62, title: "Foramen Apical Mesial", desc: "Apertura apical de la raíz mesial (frecuente doble conducto).", pearl: "La longitud de trabajo se sitúa a 0.5 - 1.0 mm del foramen radiográfico." },
-          { id: "foramen_d", num: "2", x: 55, y: 64, title: "Foramen Apical Distal", desc: "Salida apical de la raíz distal.", pearl: "Puede presentar un delta apical con ramificaciones vasculares colaterales." },
-          { id: "cemento_ap", num: "3", x: 49, y: 55, title: "Cemento Apical Reparativo", desc: "Capa gruesa de cemento celular en el ápice.", pearl: "Capaz de formar un tapón biológico mineralizado tras la endodoncia." }
-        ]
+        landmarkIds: ["apex_m", "apex_d", "furca", "lac"]
       }
     ];
 
@@ -1289,31 +1380,10 @@
       PRELOADED_CACHE.push(preloadImg);
     });
 
-    // ── INTEGRACIÓN DEL EXPLORADOR DENTAL 3D ──
-    var lfCanvas = document.getElementById("lightfieldCanvas");
-    var lfViewer = null;
-
-    if (typeof LightfieldViewer !== "undefined" && lfCanvas) {
-      try {
-        lfViewer = new LightfieldViewer({
-          canvas: lfCanvas,
-          imageSrc: "../assets/img/lightfield_diente_encoded.png",
-          initialX: 0,
-          initialY: 3,
-          onReady: function () {
-            lfCanvas.style.display = "block";
-            if (stepImage) stepImage.style.display = "none";
-          }
-        });
-      } catch (err) {
-        console.warn("Explorador fallback a imágenes estáticas:", err);
-      }
-    }
-
     // Elementos del DOM
     var stepImage = document.getElementById("stepImage");
     var badgeStepName = document.getElementById("badgeStepName");
-    var badgeStepCount = document.getElementById("badgeStepCount");
+    var btnTogglePins = document.getElementById("btnTogglePins");
     var hotspotsContainer = document.getElementById("hotspotsContainer");
     var stepTypeChip = document.getElementById("stepTypeChip");
     var stepTitle = document.getElementById("stepTitle");
@@ -1332,56 +1402,147 @@
     var totalScenarios = CLINICAL_SCENARIOS.length;
     var playTimer = null;
     var activeHotspotId = null;
+    var pinsVisible = true;
+    var pinElements = {};
 
-    function renderHotspots(scenario) {
+    // ── PROYECCIÓN MATEMÁTICA 3D CALIBRADA ──
+    function projectLandmark(lm, thetaX, thetaY) {
+      // thetaX: 0..6 (azimut 0..360 deg)
+      var azimuth = (thetaX / 6.0) * 2 * Math.PI;
+      // thetaY: 0..6 (elevación: 3 es horizontal 0°, 0 es cenital +50°, 6 es basal -50°)
+      var elevation = ((3.0 - thetaY) / 3.0) * (Math.PI / 3.6);
+
+      var x = lm.x;
+      var y = lm.y;
+      var z = lm.z;
+
+      // 1. Rotación alrededor del eje vertical Y (Azimut)
+      var x1 = x * Math.cos(azimuth) + z * Math.sin(azimuth);
+      var z1 = -x * Math.sin(azimuth) + z * Math.cos(azimuth);
+      var y1 = y;
+
+      // 2. Inclinación alrededor del eje X (Elevación)
+      var y2 = y1 * Math.cos(elevation) - z1 * Math.sin(elevation);
+      var z2 = y1 * Math.sin(elevation) + z1 * Math.cos(elevation);
+      var x2 = x1;
+
+      // Porcentajes en lienzo 400x400
+      var centerX = 50.0;
+      var centerY = 48.0;
+      var scaleX = 20.0;
+      var scaleY = 38.0;
+
+      var screenX = centerX + x2 * scaleX;
+      var screenY = centerY - y2 * scaleY;
+
+      var isFront = z2 > -0.08;
+      var opacity = Math.max(0, Math.min(1, (z2 + 0.08) / 0.18));
+
+      return {
+        x: screenX,
+        y: screenY,
+        z: z2,
+        isFront: isFront,
+        opacity: opacity
+      };
+    }
+
+    // Inicialización de pines en el DOM una sola vez
+    function initLandmarkPins() {
       if (!hotspotsContainer) return;
       hotspotsContainer.innerHTML = "";
+      pinElements = {};
 
-      scenario.hotspots.forEach(function (spot, idx) {
+      DENTAL_LANDMARKS_3D.forEach(function (lm) {
         var pin = document.createElement("button");
         pin.type = "button";
-        pin.className = "hotspot-pin" + (activeHotspotId === spot.id ? " active" : "");
-        pin.style.left = spot.x + "%";
-        pin.style.top = spot.y + "%";
-        pin.setAttribute("data-hotspot-id", spot.id);
-        pin.setAttribute("aria-label", spot.title);
-        pin.textContent = spot.num;
+        pin.className = "hotspot-pin";
+        pin.setAttribute("data-landmark-id", lm.id);
+        pin.setAttribute("aria-label", lm.title);
+        pin.textContent = lm.num;
 
-        // Tooltip flotante sobre el pin
         var tooltip = document.createElement("span");
         tooltip.className = "hotspot-tooltip";
-        tooltip.textContent = spot.title;
+        tooltip.textContent = lm.title;
         pin.appendChild(tooltip);
 
         pin.addEventListener("click", function (e) {
           e.stopPropagation();
-          selectHotspot(spot);
+          if (lfViewer && lfViewer.pointerState && lfViewer.pointerState.moved) return;
+          selectLandmark(lm);
         });
 
         hotspotsContainer.appendChild(pin);
+        pinElements[lm.id] = pin;
       });
     }
 
-    function selectHotspot(spot) {
-      activeHotspotId = spot.id;
+    // Actualización dinámica fluida de los pines en tiempo real
+    function updateLandmarks3D(thetaX, thetaY) {
+      if (!hotspotsContainer) return;
 
-      // Actualizar estado activo en los pines
-      if (hotspotsContainer) {
-        var pins = hotspotsContainer.querySelectorAll(".hotspot-pin");
-        pins.forEach(function (p) {
-          if (p.getAttribute("data-hotspot-id") === spot.id) {
-            p.classList.add("active");
-          } else {
-            p.classList.remove("active");
+      DENTAL_LANDMARKS_3D.forEach(function (lm) {
+        var pin = pinElements[lm.id];
+        if (!pin) return;
+
+        if (!pinsVisible) {
+          if (activeHotspotId === lm.id) {
+            // Mostrar sólo el pin enfocado
+            var projFocus = projectLandmark(lm, thetaX, thetaY);
+            if (projFocus.isFront) {
+              pin.style.display = "flex";
+              pin.style.left = projFocus.x.toFixed(2) + "%";
+              pin.style.top = projFocus.y.toFixed(2) + "%";
+              pin.style.opacity = "1";
+              pin.style.pointerEvents = "auto";
+              return;
+            }
           }
-        });
-      }
+          pin.style.display = "none";
+          pin.style.pointerEvents = "none";
+          return;
+        }
 
-      // Actualizar estado activo en los chips de la lista lateral
+        var proj = projectLandmark(lm, thetaX, thetaY);
+
+        if (proj.isFront && proj.opacity > 0.05) {
+          pin.style.display = "flex";
+          pin.style.left = proj.x.toFixed(2) + "%";
+          pin.style.top = proj.y.toFixed(2) + "%";
+          pin.style.opacity = proj.opacity.toFixed(2);
+          pin.style.pointerEvents = proj.opacity > 0.35 ? "auto" : "none";
+        } else {
+          pin.style.display = "none";
+          pin.style.pointerEvents = "none";
+        }
+      });
+    }
+
+    function selectLandmark(lm) {
+      activeHotspotId = lm.id;
+
+      // Actualizar estado en pines
+      Object.keys(pinElements).forEach(function (id) {
+        var pin = pinElements[id];
+        if (id === lm.id) {
+          pin.classList.add("active");
+          pin.style.display = "flex";
+          pin.style.opacity = "1";
+          pin.style.zIndex = "40";
+        } else {
+          pin.classList.remove("active");
+          pin.style.zIndex = "25";
+          if (!pinsVisible) {
+            pin.style.display = "none";
+          }
+        }
+      });
+
+      // Actualizar estado en tags de la lista lateral
       if (stepStructures) {
         var tags = stepStructures.querySelectorAll(".structure-tag");
         tags.forEach(function (t) {
-          if (t.getAttribute("data-hotspot-id") === spot.id) {
+          if (t.getAttribute("data-landmark-id") === lm.id) {
             t.style.background = "#0284C7";
             t.style.borderColor = "#38BDF8";
             t.style.color = "#FFFFFF";
@@ -1393,16 +1554,16 @@
         });
       }
 
-      // Actualizar contenido de la tarjeta clínica
-      stepTitle.textContent = spot.title;
-      stepDesc.textContent = spot.desc;
-      stepPearl.innerHTML = "<strong>Relevancia Clínica:</strong> " + spot.pearl;
+      // Actualizar tarjeta clínica
+      stepTitle.textContent = lm.num + ". " + lm.title;
+      stepDesc.textContent = lm.desc;
+      stepPearl.innerHTML = "<strong>Relevancia Clínica:</strong> " + lm.pearl;
 
       var activeBadge = document.getElementById("activeHotspotCountBadge");
-      if (activeBadge) activeBadge.textContent = spot.title;
+      if (activeBadge) activeBadge.textContent = lm.title;
     }
 
-    function renderScenario(idx) {
+    function renderScenario(idx, animate) {
       currentScenario = (idx + totalScenarios) % totalScenarios;
       var data = CLINICAL_SCENARIOS[currentScenario];
       activeHotspotId = null;
@@ -1410,24 +1571,24 @@
       var activeBadge = document.getElementById("activeHotspotCountBadge");
       if (activeBadge) activeBadge.textContent = data.name;
 
-      // Actualizar imagen con fallback
-      stepImage.src = data.file;
+      // Actualizar imagen estática de respaldo
+      if (stepImage) stepImage.src = data.file;
 
       // Actualizar badges
       badgeStepName.textContent = data.name;
-      badgeStepCount.textContent = data.hotspots.length + " Puntos Anatómicos Marcados";
 
-      // Orientar el modelo 3D
+      // Orientar el visor 3D suavemente
       if (lfViewer) {
         if (lfViewer.isReady) {
           lfCanvas.style.display = "block";
           if (stepImage) stepImage.style.display = "none";
         }
-        lfViewer.setAngles(data.thetaX, data.thetaY);
+        if (animate !== false && lfViewer.animateToAngles) {
+          lfViewer.animateToAngles(data.thetaX, data.thetaY, 350);
+        } else {
+          lfViewer.setAngles(data.thetaX, data.thetaY);
+        }
       }
-
-      // Renderizar los pines interactivos sobre la cara
-      renderHotspots(data);
 
       // Actualizar selector rápido de caras
       faceTabs.forEach(function (tab, i) {
@@ -1438,25 +1599,29 @@
         }
       });
 
-      // Actualizar chip y textos de la tarjeta lateral
+      // Actualizar tarjeta lateral
       stepTypeChip.className = "step-type-chip " + data.typeClass;
       stepTypeChip.textContent = data.type;
       stepTitle.textContent = data.title;
       stepDesc.textContent = data.desc;
       stepPearl.innerHTML = "<strong>Relevancia Clínica:</strong> " + data.clinical;
 
-      // Construir lista de puntos anatómicos interactivos
+      // Construir lista de estructuras anatómicas para esta cara
       stepStructures.innerHTML = "";
-      data.hotspots.forEach(function (spot) {
+      var primaryLms = DENTAL_LANDMARKS_3D.filter(function (lm) {
+        return data.landmarkIds.indexOf(lm.id) !== -1;
+      });
+
+      primaryLms.forEach(function (lm) {
         var span = document.createElement("button");
         span.type = "button";
         span.className = "structure-tag";
         span.style.cursor = "pointer";
         span.style.textAlign = "left";
-        span.setAttribute("data-hotspot-id", spot.id);
-        span.textContent = spot.num + ". " + spot.title;
+        span.setAttribute("data-landmark-id", lm.id);
+        span.textContent = lm.num + ". " + lm.title;
         span.addEventListener("click", function () {
-          selectHotspot(spot);
+          selectLandmark(lm);
         });
         stepStructures.appendChild(span);
       });
@@ -1478,6 +1643,98 @@
           thumb.classList.remove("active");
         }
       });
+
+      // Actualizar posiciones de puntos 3D si el visor no está listo
+      if (!lfViewer || !lfViewer.isReady) {
+        updateLandmarks3D(data.thetaX, data.thetaY);
+      }
+    }
+
+    // Callback en tiempo real cuando el usuario gira el modelo
+    function onViewerAngleChange(angles) {
+      // 1. Mover los pines en tiempo real sincronizados con la rotación
+      updateLandmarks3D(angles.thetaX, angles.thetaY);
+
+      // 2. Determinar la cara más cercana para sincronizar indicadores
+      var closestIdx = 0;
+      var minDiff = 999;
+      CLINICAL_SCENARIOS.forEach(function (scen, i) {
+        var dx = Math.abs(scen.thetaX - angles.thetaX);
+        if (dx > 3) dx = 6 - dx;
+        var dy = Math.abs(scen.thetaY - angles.thetaY);
+        var dist = dx * 1.4 + dy * 1.0;
+        if (dist < minDiff) {
+          minDiff = dist;
+          closestIdx = i;
+        }
+      });
+
+      if (closestIdx !== currentScenario && minDiff < 0.9) {
+        currentScenario = closestIdx;
+        badgeStepName.textContent = CLINICAL_SCENARIOS[currentScenario].name;
+        faceTabs.forEach(function (tab, i) {
+          if (i === currentScenario) tab.classList.add("active");
+          else tab.classList.remove("active");
+        });
+        stepWrappers.forEach(function (wrap, i) {
+          if (i === currentScenario) wrap.classList.add("active");
+          else wrap.classList.remove("active");
+        });
+        filmstripThumbs.forEach(function (thumb, i) {
+          if (i === currentScenario) thumb.classList.add("active");
+          else thumb.classList.remove("active");
+        });
+      }
+    }
+
+    // Inicializar pines en el contenedor
+    initLandmarkPins();
+
+    // ── INTEGRACIÓN DEL EXPLORADOR DENTAL 3D ──
+    var lfCanvas = document.getElementById("lightfieldCanvas");
+    var lfViewer = null;
+
+    if (typeof LightfieldViewer !== "undefined" && lfCanvas) {
+      try {
+        lfViewer = new LightfieldViewer({
+          canvas: lfCanvas,
+          eventTarget: document.getElementById("stepViewport"),
+          imageSrc: "../assets/img/lightfield_diente_encoded.png",
+          initialX: 0,
+          initialY: 3,
+          onReady: function () {
+            lfCanvas.style.display = "block";
+            if (stepImage) stepImage.style.display = "none";
+            updateLandmarks3D(0, 3);
+          },
+          onAngleChange: function (angles) {
+            onViewerAngleChange(angles);
+          }
+        });
+      } catch (err) {
+        console.warn("Explorador fallback a imágenes estáticas:", err);
+      }
+    }
+
+    // Botón de alternar visibilidad de puntos
+    if (btnTogglePins) {
+      btnTogglePins.addEventListener("click", function () {
+        pinsVisible = !pinsVisible;
+        if (pinsVisible) {
+          btnTogglePins.textContent = "Puntos Anatómicos: Visibles";
+          btnTogglePins.style.borderColor = "#38BDF8";
+          btnTogglePins.style.color = "#FFFFFF";
+          btnTogglePins.style.background = "rgba(12,127,212,0.3)";
+        } else {
+          btnTogglePins.textContent = "Puntos: Ocultos (Vista Limpia)";
+          btnTogglePins.style.borderColor = "rgba(255,255,255,0.2)";
+          btnTogglePins.style.color = "#94A3B8";
+          btnTogglePins.style.background = "rgba(11,20,38,0.85)";
+        }
+        var curX = lfViewer ? lfViewer.thetaX : 0;
+        var curY = lfViewer ? lfViewer.thetaY : 3;
+        updateLandmarks3D(curX, curY);
+      });
     }
 
     // Clic en el selector de caras
@@ -1485,19 +1742,19 @@
       tab.addEventListener("click", function () {
         stopAutoPlay();
         var target = parseInt(this.getAttribute("data-scenario-idx"), 10);
-        renderScenario(target);
+        renderScenario(target, true);
       });
     });
 
     // Botones de avance / retroceso
     btnPrevStep.addEventListener("click", function () {
       stopAutoPlay();
-      renderScenario(currentScenario - 1);
+      renderScenario(currentScenario - 1, true);
     });
 
     btnNextStep.addEventListener("click", function () {
       stopAutoPlay();
-      renderScenario(currentScenario + 1);
+      renderScenario(currentScenario + 1, true);
     });
 
     // Clic en los nodos del stepper
@@ -1505,7 +1762,7 @@
       wrap.addEventListener("click", function () {
         stopAutoPlay();
         var target = parseInt(this.getAttribute("data-step-target"), 10);
-        renderScenario(target);
+        renderScenario(target, true);
       });
     });
 
@@ -1514,20 +1771,27 @@
       thumb.addEventListener("click", function () {
         stopAutoPlay();
         var target = parseInt(this.getAttribute("data-thumb-idx"), 10);
-        renderScenario(target);
+        renderScenario(target, true);
       });
     });
 
-    // Rotación automática continua
+    // Rotación suave continua en 3D
     function startAutoPlay() {
-      playTimer = setInterval(function () {
-        renderScenario(currentScenario + 1);
-      }, 2500);
+      if (lfViewer && lfViewer.isReady) {
+        lfViewer.startOrbit(0.016);
+      } else {
+        playTimer = setInterval(function () {
+          renderScenario(currentScenario + 1, true);
+        }, 2500);
+      }
       btnPlaySequence.classList.add("primary");
       btnPlaySequence.innerHTML = "<span>Pausar Giro</span>";
     }
 
     function stopAutoPlay() {
+      if (lfViewer && lfViewer.isPlaying) {
+        lfViewer.stopOrbit();
+      }
       if (playTimer) {
         clearInterval(playTimer);
         playTimer = null;
@@ -1537,7 +1801,8 @@
     }
 
     btnPlaySequence.addEventListener("click", function () {
-      if (playTimer) {
+      var isRunning = (lfViewer && lfViewer.isPlaying) || playTimer !== null;
+      if (isRunning) {
         stopAutoPlay();
       } else {
         startAutoPlay();
