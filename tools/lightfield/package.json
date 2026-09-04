@@ -1,0 +1,9 @@
+{
+  "name": "single-png-lightfield-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node source/build.mjs"},
+  "dependencies": {"react": "18.3.1", "react-dom": "18.3.1"},
+  "devDependencies": {"esbuild": "0.25.5"}
+}

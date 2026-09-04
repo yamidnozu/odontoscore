@@ -1,0 +1,884 @@
+[
+  {
+    "row": 0,
+    "column": 0,
+    "elevation_target": 60,
+    "yaw_target": 0,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      138,
+      44,
+      430,
+      427
+    ],
+    "placed_at": [
+      99,
+      67
+    ],
+    "placed_size": [
+      202,
+      265
+    ]
+  },
+  {
+    "row": 0,
+    "column": 1,
+    "elevation_target": 60,
+    "yaw_target": 60,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      619,
+      39,
+      909,
+      447
+    ],
+    "placed_at": [
+      499,
+      58
+    ],
+    "placed_size": [
+      201,
+      283
+    ]
+  },
+  {
+    "row": 0,
+    "column": 2,
+    "elevation_target": 60,
+    "yaw_target": 120,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      1121,
+      51,
+      1391,
+      440
+    ],
+    "placed_at": [
+      906,
+      65
+    ],
+    "placed_size": [
+      187,
+      269
+    ]
+  },
+  {
+    "row": 0,
+    "column": 3,
+    "elevation_target": 60,
+    "yaw_target": 180,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      145,
+      533,
+      421,
+      898
+    ],
+    "placed_at": [
+      1304,
+      73
+    ],
+    "placed_size": [
+      191,
+      253
+    ]
+  },
+  {
+    "row": 0,
+    "column": 4,
+    "elevation_target": 60,
+    "yaw_target": 240,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      620,
+      512,
+      901,
+      903
+    ],
+    "placed_at": [
+      1702,
+      64
+    ],
+    "placed_size": [
+      195,
+      271
+    ]
+  },
+  {
+    "row": 0,
+    "column": 5,
+    "elevation_target": 60,
+    "yaw_target": 300,
+    "source": "views/elevation_p60.png",
+    "source_crop": [
+      1110,
+      531,
+      1380,
+      918
+    ],
+    "placed_at": [
+      2106,
+      66
+    ],
+    "placed_size": [
+      187,
+      268
+    ]
+  },
+  {
+    "row": 1,
+    "column": 0,
+    "elevation_target": 40,
+    "yaw_target": 0,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      144,
+      27,
+      408,
+      457
+    ],
+    "placed_at": [
+      108,
+      451
+    ],
+    "placed_size": [
+      183,
+      298
+    ]
+  },
+  {
+    "row": 1,
+    "column": 1,
+    "elevation_target": 40,
+    "yaw_target": 60,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      637,
+      28,
+      896,
+      462
+    ],
+    "placed_at": [
+      510,
+      449
+    ],
+    "placed_size": [
+      179,
+      301
+    ]
+  },
+  {
+    "row": 1,
+    "column": 2,
+    "elevation_target": 40,
+    "yaw_target": 120,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      1134,
+      29,
+      1385,
+      453
+    ],
+    "placed_at": [
+      913,
+      453
+    ],
+    "placed_size": [
+      174,
+      294
+    ]
+  },
+  {
+    "row": 1,
+    "column": 3,
+    "elevation_target": 40,
+    "yaw_target": 180,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      139,
+      526,
+      407,
+      952
+    ],
+    "placed_at": [
+      1307,
+      452
+    ],
+    "placed_size": [
+      186,
+      295
+    ]
+  },
+  {
+    "row": 1,
+    "column": 4,
+    "elevation_target": 40,
+    "yaw_target": 240,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      631,
+      527,
+      890,
+      959
+    ],
+    "placed_at": [
+      1710,
+      450
+    ],
+    "placed_size": [
+      179,
+      299
+    ]
+  },
+  {
+    "row": 1,
+    "column": 5,
+    "elevation_target": 40,
+    "yaw_target": 300,
+    "source": "views/elevation_p40.png",
+    "source_crop": [
+      1125,
+      526,
+      1382,
+      958
+    ],
+    "placed_at": [
+      2111,
+      450
+    ],
+    "placed_size": [
+      178,
+      299
+    ]
+  },
+  {
+    "row": 2,
+    "column": 0,
+    "elevation_target": 20,
+    "yaw_target": 0,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      149,
+      25,
+      423,
+      459
+    ],
+    "placed_at": [
+      105,
+      849
+    ],
+    "placed_size": [
+      190,
+      301
+    ]
+  },
+  {
+    "row": 2,
+    "column": 1,
+    "elevation_target": 20,
+    "yaw_target": 60,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      638,
+      33,
+      886,
+      459
+    ],
+    "placed_at": [
+      514,
+      852
+    ],
+    "placed_size": [
+      172,
+      295
+    ]
+  },
+  {
+    "row": 2,
+    "column": 2,
+    "elevation_target": 20,
+    "yaw_target": 120,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      1123,
+      27,
+      1369,
+      457
+    ],
+    "placed_at": [
+      915,
+      851
+    ],
+    "placed_size": [
+      170,
+      298
+    ]
+  },
+  {
+    "row": 2,
+    "column": 3,
+    "elevation_target": 20,
+    "yaw_target": 180,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      145,
+      521,
+      415,
+      948
+    ],
+    "placed_at": [
+      1306,
+      852
+    ],
+    "placed_size": [
+      187,
+      296
+    ]
+  },
+  {
+    "row": 2,
+    "column": 4,
+    "elevation_target": 20,
+    "yaw_target": 240,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      621,
+      529,
+      879,
+      956
+    ],
+    "placed_at": [
+      1710,
+      852
+    ],
+    "placed_size": [
+      179,
+      296
+    ]
+  },
+  {
+    "row": 2,
+    "column": 5,
+    "elevation_target": 20,
+    "yaw_target": 300,
+    "source": "views/elevation_p20.png",
+    "source_crop": [
+      1108,
+      523,
+      1353,
+      956
+    ],
+    "placed_at": [
+      2115,
+      850
+    ],
+    "placed_size": [
+      170,
+      300
+    ]
+  },
+  {
+    "row": 3,
+    "column": 0,
+    "elevation_target": 0,
+    "yaw_target": 0,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      152,
+      9,
+      425,
+      465
+    ],
+    "placed_at": [
+      105,
+      1242
+    ],
+    "placed_size": [
+      189,
+      316
+    ]
+  },
+  {
+    "row": 3,
+    "column": 1,
+    "elevation_target": 0,
+    "yaw_target": 60,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      645,
+      11,
+      886,
+      465
+    ],
+    "placed_at": [
+      516,
+      1243
+    ],
+    "placed_size": [
+      167,
+      314
+    ]
+  },
+  {
+    "row": 3,
+    "column": 2,
+    "elevation_target": 0,
+    "yaw_target": 120,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      1127,
+      9,
+      1369,
+      463
+    ],
+    "placed_at": [
+      916,
+      1243
+    ],
+    "placed_size": [
+      168,
+      314
+    ]
+  },
+  {
+    "row": 3,
+    "column": 3,
+    "elevation_target": 0,
+    "yaw_target": 180,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      148,
+      514,
+      411,
+      956
+    ],
+    "placed_at": [
+      1309,
+      1247
+    ],
+    "placed_size": [
+      182,
+      306
+    ]
+  },
+  {
+    "row": 3,
+    "column": 4,
+    "elevation_target": 0,
+    "yaw_target": 240,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      630,
+      515,
+      873,
+      973
+    ],
+    "placed_at": [
+      1716,
+      1241
+    ],
+    "placed_size": [
+      168,
+      317
+    ]
+  },
+  {
+    "row": 3,
+    "column": 5,
+    "elevation_target": 0,
+    "yaw_target": 300,
+    "source": "views/elevation_p0.png",
+    "source_crop": [
+      1117,
+      514,
+      1352,
+      969
+    ],
+    "placed_at": [
+      2118,
+      1242
+    ],
+    "placed_size": [
+      163,
+      315
+    ]
+  },
+  {
+    "row": 4,
+    "column": 0,
+    "elevation_target": -20,
+    "yaw_target": 0,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      136,
+      27,
+      423,
+      486
+    ],
+    "placed_at": [
+      100,
+      1641
+    ],
+    "placed_size": [
+      199,
+      318
+    ]
+  },
+  {
+    "row": 4,
+    "column": 1,
+    "elevation_target": -20,
+    "yaw_target": 60,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      637,
+      27,
+      905,
+      486
+    ],
+    "placed_at": [
+      507,
+      1641
+    ],
+    "placed_size": [
+      186,
+      318
+    ]
+  },
+  {
+    "row": 4,
+    "column": 2,
+    "elevation_target": -20,
+    "yaw_target": 120,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      1130,
+      26,
+      1383,
+      485
+    ],
+    "placed_at": [
+      912,
+      1641
+    ],
+    "placed_size": [
+      175,
+      318
+    ]
+  },
+  {
+    "row": 4,
+    "column": 3,
+    "elevation_target": -20,
+    "yaw_target": 180,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      139,
+      530,
+      410,
+      984
+    ],
+    "placed_at": [
+      1306,
+      1643
+    ],
+    "placed_size": [
+      188,
+      314
+    ]
+  },
+  {
+    "row": 4,
+    "column": 4,
+    "elevation_target": -20,
+    "yaw_target": 240,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      637,
+      526,
+      889,
+      988
+    ],
+    "placed_at": [
+      1712,
+      1640
+    ],
+    "placed_size": [
+      175,
+      320
+    ]
+  },
+  {
+    "row": 4,
+    "column": 5,
+    "elevation_target": -20,
+    "yaw_target": 300,
+    "source": "views/elevation_m20.png",
+    "source_crop": [
+      1132,
+      537,
+      1381,
+      988
+    ],
+    "placed_at": [
+      2114,
+      1644
+    ],
+    "placed_size": [
+      172,
+      312
+    ]
+  },
+  {
+    "row": 5,
+    "column": 0,
+    "elevation_target": -40,
+    "yaw_target": 0,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      146,
+      7,
+      448,
+      445
+    ],
+    "placed_at": [
+      95,
+      2048
+    ],
+    "placed_size": [
+      209,
+      303
+    ]
+  },
+  {
+    "row": 5,
+    "column": 1,
+    "elevation_target": -40,
+    "yaw_target": 60,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      640,
+      21,
+      918,
+      477
+    ],
+    "placed_at": [
+      503,
+      2042
+    ],
+    "placed_size": [
+      193,
+      316
+    ]
+  },
+  {
+    "row": 5,
+    "column": 2,
+    "elevation_target": -40,
+    "yaw_target": 120,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      1142,
+      31,
+      1393,
+      473
+    ],
+    "placed_at": [
+      913,
+      2047
+    ],
+    "placed_size": [
+      174,
+      306
+    ]
+  },
+  {
+    "row": 5,
+    "column": 3,
+    "elevation_target": -40,
+    "yaw_target": 180,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      144,
+      507,
+      430,
+      964
+    ],
+    "placed_at": [
+      1301,
+      2041
+    ],
+    "placed_size": [
+      198,
+      317
+    ]
+  },
+  {
+    "row": 5,
+    "column": 4,
+    "elevation_target": -40,
+    "yaw_target": 240,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      649,
+      519,
+      914,
+      975
+    ],
+    "placed_at": [
+      1708,
+      2042
+    ],
+    "placed_size": [
+      184,
+      316
+    ]
+  },
+  {
+    "row": 5,
+    "column": 5,
+    "elevation_target": -40,
+    "yaw_target": 300,
+    "source": "views/elevation_m40.png",
+    "source_crop": [
+      1116,
+      537,
+      1369,
+      968
+    ],
+    "placed_at": [
+      2112,
+      2050
+    ],
+    "placed_size": [
+      175,
+      299
+    ]
+  },
+  {
+    "row": 6,
+    "column": 0,
+    "elevation_target": -60,
+    "yaw_target": 0,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      158,
+      42,
+      438,
+      451
+    ],
+    "placed_at": [
+      103,
+      2458
+    ],
+    "placed_size": [
+      194,
+      283
+    ]
+  },
+  {
+    "row": 6,
+    "column": 1,
+    "elevation_target": -60,
+    "yaw_target": 60,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      644,
+      43,
+      899,
+      451
+    ],
+    "placed_at": [
+      511,
+      2458
+    ],
+    "placed_size": [
+      177,
+      283
+    ]
+  },
+  {
+    "row": 6,
+    "column": 2,
+    "elevation_target": -60,
+    "yaw_target": 120,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      1144,
+      41,
+      1384,
+      451
+    ],
+    "placed_at": [
+      917,
+      2458
+    ],
+    "placed_size": [
+      166,
+      284
+    ]
+  },
+  {
+    "row": 6,
+    "column": 3,
+    "elevation_target": -60,
+    "yaw_target": 180,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      167,
+      531,
+      423,
+      941
+    ],
+    "placed_at": [
+      1311,
+      2458
+    ],
+    "placed_size": [
+      177,
+      284
+    ]
+  },
+  {
+    "row": 6,
+    "column": 4,
+    "elevation_target": -60,
+    "yaw_target": 240,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      639,
+      531,
+      879,
+      941
+    ],
+    "placed_at": [
+      1717,
+      2458
+    ],
+    "placed_size": [
+      166,
+      284
+    ]
+  },
+  {
+    "row": 6,
+    "column": 5,
+    "elevation_target": -60,
+    "yaw_target": 300,
+    "source": "views/elevation_m60.png",
+    "source_crop": [
+      1099,
+      530,
+      1350,
+      941
+    ],
+    "placed_at": [
+      2113,
+      2457
+    ],
+    "placed_size": [
+      174,
+      285
+    ]
+  }
+]

@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="../styles.css?v=20260903_v75">
+  <link rel="stylesheet" href="../styles.css?v=20260904_v80">
 
   <style>
     .atlas-master-box {
@@ -587,8 +587,11 @@
           <span> 1. Giro 360° en 8 Ángulos Secuenciales (0° a 315°)</span>
         </button>
         <button type="button" class="mode-tab-btn" id="tabBtnHistology" role="tab" aria-selected="false">
-          <span> 2. Atlas Histológico Maestro con 11 Partes Señaladas</span>
+          <span>2. Atlas Histológico Maestro con 11 Partes Señaladas</span>
         </button>
+        <a href="visor-3d-diente.html" class="mode-tab-btn" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;color:#38BDF8;">
+          <span>3. Laboratorio 3D Autónomo (42 Vistas PNG / LAB) →</span>
+        </a>
       </div>
 
       <!-- ================================================================
@@ -598,21 +601,45 @@
         
         <!-- Columna Izquierda: Viewport Secuencial -->
         <div>
-          <div class="step-viewport" id="stepViewport">
+          <div class="step-viewport" id="stepViewport" style="position:relative;cursor:grab;touch-action:none;user-select:none;">
             <!-- HUD Superior -->
-            <div class="step-hud">
-              <span class="hud-chip accent" id="badgeStepName">0° · Front View (Corte Sagital)</span>
-              <span class="hud-chip" id="badgeStepCount">Ángulo 1 de 8 (0°)</span>
+            <div class="step-hud" style="z-index:20;">
+              <span class="hud-chip accent" id="badgeStepName">0° · Vista Frontal (Vestibular)</span>
+              <span class="hud-chip" id="badgeStepCount">42 Ángulos Continuos (Arrastra para girar)</span>
             </div>
 
-            <!-- Imagen Activa del Paso -->
-            <img id="stepImage" src="../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg" alt="Ángulo anatómico del molar 360">
+            <!-- Canvas Lightfield Interactivo en tiempo real -->
+            <canvas id="lightfieldCanvas" width="400" height="400" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;touch-action:none;display:none;z-index:10;cursor:grab;"></canvas>
+
+            <!-- Imagen Activa del Paso (Fallback y precarga instantánea) -->
+            <img id="stepImage" src="../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg" alt="Ángulo anatómico del molar 360" style="position:relative;z-index:2;width:100%;height:100%;object-fit:contain;">
+
+            <!-- HUD Inferior: Indicador de orientación y ayuda de gestos -->
+            <div style="position:absolute;bottom:0.65rem;left:0.75rem;right:0.75rem;display:flex;justify-content:space-between;align-items:center;pointer-events:none;z-index:20;">
+              <span style="background:rgba(11,20,38,0.85);color:#94A3B8;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:600;border:1px solid rgba(255,255,255,0.1);">
+                Arrastra horizontal 360° · vertical para inclinar
+              </span>
+              <span id="liveAnglePill" style="background:#0284C7;color:#FFFFFF;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:700;font-family:'JetBrains Mono',monospace;">
+                0° azim · 0° elev
+              </span>
+            </div>
+          </div>
+
+          <!-- Selector de Inclinación Vertical (Tilt Presets) -->
+          <div style="display:flex;gap:0.4rem;align-items:center;margin:0.75rem 0 0.5rem;flex-wrap:wrap;">
+            <span style="font-size:0.72rem;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">Elevación:</span>
+            <button type="button" class="btn-tilt-preset" data-tilt="0" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#E2E8F0;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;">Cénit Oclusal (+60°)</button>
+            <button type="button" class="btn-tilt-preset" data-tilt="1" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#E2E8F0;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;">Oclusal Oblicua (+40°)</button>
+            <button type="button" class="btn-tilt-preset" data-tilt="2" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#E2E8F0;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;">Cúspides (+20°)</button>
+            <button type="button" class="btn-tilt-preset active" data-tilt="3" style="background:#0284C7;border:1px solid #38BDF8;color:#FFFFFF;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;font-weight:700;">Ecuador (0°)</button>
+            <button type="button" class="btn-tilt-preset" data-tilt="5" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#E2E8F0;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;">Radicular (-40°)</button>
+            <button type="button" class="btn-tilt-preset" data-tilt="6" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#E2E8F0;padding:2px 8px;font-size:0.72rem;border-radius:4px;cursor:pointer;">Ápices (-60°)</button>
           </div>
 
           <!-- Slider de Control Continuo 360° -->
           <div class="slider-container">
             <div class="slider-header">
-              <span>️ Desliza para rotar el diente en 360°:</span>
+              <span>Desliza para rotar el diente en 360°:</span>
               <strong id="sliderAngleReadout">0° Frontal</strong>
             </div>
             <input type="range" min="0" max="7" value="0" step="1" class="turntable-slider" id="turntableSlider" aria-label="Control deslizante de ángulo de giro 360">
@@ -715,7 +742,7 @@
 
           <!-- Ficha Clínica de la Fase Activa -->
           <div class="step-clinical-card" id="stepCard">
-            <span class="step-type-chip type-cut" id="stepTypeChip"> Corte Anatómico Sagital</span>
+            <span class="step-type-chip type-cut" id="stepTypeChip">Corte Anatómico Sagital</span>
             <div class="step-card-title" id="stepTitle">
               <span>Ángulo 0° · Corte Sagital Frontal (Cámara y Conductos)</span>
             </div>
@@ -921,42 +948,42 @@
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Esmalte Dental</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Esmalte Dental</td>
               <td style="padding:1rem;"><strong>96% Inorgánico</strong> (Hidroxiapatita)<br><small>4% agua y proteínas (amelogeninas)</small></td>
               <td style="padding:1rem;">Ameloblastos (se pierden en la erupción)</td>
               <td style="padding:1rem;"><span style="color:#DC2626; font-weight:700;">Nula</span> (acelular). Solo remineralización iónica con Flúor.</td>
               <td style="padding:1rem;">Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore).</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Dentina</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Dentina</td>
               <td style="padding:1rem;"><strong>70% Inorgánico</strong><br><small>20% colágeno Tipo I, 10% agua</small></td>
               <td style="padding:1rem;">Odontoblastos (en la periferia pulpar)</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Sí</span> (Dentina terciaria/reaccional frente a caries o fresado).</td>
               <td style="padding:1rem;">Hipersensibilidad dentinaria por flujo en túbulos (Brännström). Adhesión mediante capa híbrida.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Pulpa Dental</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Pulpa Dental</td>
               <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Tejido conectivo laxo altamente vascularizado)</td>
               <td style="padding:1rem;">Fibroblastos, odontoblastos y células madre mesenquimales</td>
               <td style="padding:1rem;"><span style="color:#CA8A04; font-weight:700;">Limitada</span> por estar enclaustrada en paredes rígidas inextensibles.</td>
               <td style="padding:1rem;">Si el edema inflamatorio colapsa las vénulas apicales, sobreviene necrosis pulpar con flemón periapical.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">️ Cemento Radicular</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Cemento Radicular</td>
               <td style="padding:1rem;"><strong>50% Inorgánico</strong><br><small>50% colágeno y agua</small></td>
               <td style="padding:1rem;">Cementoblastos y cementocitos</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> a lo largo de toda la vida en el tercio apical.</td>
               <td style="padding:1rem;">Ancla las fibras de Sharpey. El raspado radicular excesivo lo elimina, exponiendo dentina hipersensible.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--color-border-subtle);">
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Ligamento Periodontal</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Ligamento Periodontal</td>
               <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Colágeno I y III, sustancia fundamental y células)</td>
               <td style="padding:1rem;">Fibroblastos periodontales de alto recambio</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Alta</span> (células madre pluripotenciales del ligamento).</td>
               <td style="padding:1rem;">Amortiguador viscoelástico de fuerzas oclusales y propiocepción mecanorreceptora (10 a 20 µm).</td>
             </tr>
             <tr>
-              <td style="padding:1rem; font-weight:700; color:var(--color-navy);"> Hueso Alveolar</td>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Hueso Alveolar</td>
               <td style="padding:1rem;"><strong>65% Inorgánico</strong><br><small>35% matriz orgánica y células óseas</small></td>
               <td style="padding:1rem;">Osteoblastos y osteocitos</td>
               <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> mediante remodelación acoplada a la carga (Leyes de Wolff).</td>
@@ -1004,6 +1031,8 @@
   <!-- ====================================================================
        MOTOR JAVASCRIPT: ROTACIÓN CONTINUA 360° + ATLAS HISTOLÓGICO
        ==================================================================== -->
+  <script src="../lib/lightfield-data.js?v=20260904_v80"></script>
+  <script src="../lib/lightfield-viewer.js?v=20260904_v80"></script>
   <script>
   document.addEventListener("DOMContentLoaded", function () {
 
@@ -1032,98 +1061,114 @@
       {
         step: 1,
         angle: 0,
-        angleLabel: "0° · Vista Frontal (Corte Sagital)",
-        type: "Corte Anatómico Sagital",
-        typeClass: "type-cut",
+        thetaX: 0,
+        thetaY: 3,
+        angleLabel: "0° · Cara Vestibular Frontal",
+        type: "Vista Frontal Ecuatorial",
+        typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg",
-        title: "Ángulo 0° · Corte Sagital Frontal (Cámara y Conductos)",
-        desc: "Corte sagital medio perpendicular al eje longitudinal del molar. Permite evaluar en máxima resolución la corona de esmalte, la dentina tubular, el techo cameral, los cuernos pulpares (mesial y distal) y la desembocadura de los conductos radiculares en el hueso alveolar mandibular.",
-        structures: ["Esmalte coronal", "Dentina peripulpar", "Cuernos pulpares", "Cámara pulpar", "Conductos radiculares", "Hueso trabecular"],
-        clinical: "Paso clave en endodoncia para planificar el acceso cameral en línea recta, visualizando la distancia exacta entre el surco oclusal y el techo de la cámara pulpar para evitar perforaciones de furca."
+        title: "Ángulo 0° · Cara Vestibular y Surco de Desarrollo",
+        desc: "Proyección vestibular pura a 0° de elevación. Permite apreciar la convexidad de las cúspides vestibulares (mesiovestibular y distovestibular), el perfil de emergencia radicular y la bifurcación anatómica de las raíces mesial y distal.",
+        structures: ["Cúspide mesiovestibular", "Cúspide distovestibular", "Surco de desarrollo vestibular", "Línea amelocementaria (LAC)", "Tronera radicular vestibular"],
+        clinical: "Referencia para restauraciones estéticas, diseño de márgenes de coronas y evaluación de biotipo periodontal en zona vestibular."
       },
       {
         step: 2,
-        angle: 45,
-        angleLabel: "45° · Vista Vestibular-Mesial",
-        type: "Superficie Externa 3D",
+        angle: 60,
+        thetaX: 1,
+        thetaY: 3,
+        angleLabel: "60° · Vista Vestibular-Mesial",
+        type: "Proyección Oblicua",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_2_45deg_vestibular_mesial.jpg",
-        title: "Ángulo 45° · Relieve Vestibular-Mesial y Cúspides",
-        desc: "Rotación oblicua externa que expone la arquitectura tridimensional de la cara vestibular y mesial. Se aprecia la convexidad anatómica de la corona, las crestas cuspídeas oclusales, el cuello anatómico y el sellado de la encía libre sobre el esmalte.",
-        structures: ["Cúspide mesiovestibular", "Surco de desarrollo vestibular", "Línea amelocementaria (LAC)", "Encía marginal libre", "Encía adherida con puntillado"],
-        clinical: "Fundamental para restauraciones estéticas y clase V de Black; la convexidad vestibular desvía el bolo alimenticio durante la masticación protegiendo el margen gingival del trauma directo."
+        title: "Ángulo 60° · Transición Mesial y Cresta Marginal",
+        desc: "Rotación oblicua que revela el punto de contacto interproximal mesial, la concavidad subcervical y la transición entre la cara vestibular y el plano mesial.",
+        structures: ["Cresta marginal mesial", "Área de contacto interproximal", "Raíz mesial (cara libre)", "Convexidad axial mesiovestibular"],
+        clinical: "Esencial para el ajuste de matrices seccionales en cavidades Clase II compuestas y preservación de la papila mesial."
       },
       {
         step: 3,
-        angle: 90,
-        angleLabel: "90° · Vista Lateral (Corte Radicular)",
-        type: "Corte Anatómico Sagital",
-        typeClass: "type-cut",
+        angle: 120,
+        thetaX: 2,
+        thetaY: 3,
+        angleLabel: "120° · Vista Mesial-Lingual",
+        type: "Proyección Proximal",
+        typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_3_90deg_lateral_corte.jpg",
-        title: "Ángulo 90° · Corte Lateral, Bifurcación y Furca",
-        desc: "Perspectiva lateral en corte longitudinal. Revela el espesor de la pared de dentina interradicular, la zona de bifurcación (furca radicular) y el trayecto del ligamento periodontal anclado en la cortical alveolar (lámina dura).",
-        structures: ["Bifurcación de raíces (furca)", "Ligamento periodontal", "Lámina dura alveolar", "Dentinoductos radiculares", "Trabeculado óseo denso"],
-        clinical: "Enfermedad periodontal: la pérdida de inserción en la zona de furca (clasificación de Hamp y Lindhe) compromete la retención del molar y exige técnicas de regeneración tisular guiada o tunelización."
+        title: "Ángulo 120° · Cara Mesial y Raíz Mesial",
+        desc: "Perspectiva proximal que muestra la gran amplitud vestíbulo-lingual de la raíz mesial, su surco longitudinal y la inclinación lingual de las cúspides.",
+        structures: ["Surco de depresión radicular mesial", "Cúspide mesiolingual", "Límite cervical proximal", "Espacio interradicular"],
+        clinical: "En endodoncia, la raíz mesial alberga frecuentemente dos conductos (mesiovestibular y mesiolingual) conectados por un istmo anatómico."
       },
       {
         step: 4,
-        angle: 135,
-        angleLabel: "135° · Vista Lingual-Mesial",
-        type: "Superficie Externa 3D",
+        angle: 180,
+        thetaX: 3,
+        thetaY: 3,
+        angleLabel: "180° · Cara Lingual Posterior",
+        type: "Vista Lingual Ecuatorial",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_4_135deg_lingual_mesial.jpg",
-        title: "Ángulo 135° · Superficie Lingual-Mesial y Cíngulo",
-        desc: "Perspectiva posterior-oblicua que muestra la cara interna (lingual/palatina) del molar. Destaca la superficie lisa del esmalte lingual, la morfología de la tabla ósea lingual más gruesa y la transición hacia el cuello radicular.",
-        structures: ["Vertientes linguales oclusales", "Cúspide mesiolingual", "Tabla ósea lingual", "Surco gingival lingual", "Inserción gingival supraalveolar"],
-        clinical: "En periodoncia y profilaxis, la cara lingual mandibular es la zona de mayor acúmulo de cálculo subgingival por la cercanía de los conductos de Wharton de las glándulas submandibulares."
+        title: "Ángulo 180° · Cara Lingual y Cúspides Funcionales",
+        desc: "Vista lingual completa a 180°. Se identifican las cúspides linguales con mayor altura de vertiente, el perfil lingual continuo y la superficie radicular lingual lisa.",
+        structures: ["Cúspide mesiolingual", "Cúspide distolingual", "Surco intercuspídeo lingual", "Superficie cervical lingual"],
+        clinical: "Zona de inserción de las fibras supraalveolares y localización crítica de depósitos subgingivales por proximidad salival."
       },
       {
         step: 5,
-        angle: 180,
-        angleLabel: "180° · Vista Posterior (Corte Sagital)",
-        type: "Corte Anatómico Sagital",
-        typeClass: "type-cut",
+        angle: 240,
+        thetaX: 4,
+        thetaY: 3,
+        angleLabel: "240° · Cara Distal-Lingual",
+        type: "Proyección Oblicua",
+        typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_5_180deg_posterior_corte.jpg",
-        title: "Ángulo 180° · Corte Posterior y Ápices Radiculares",
-        desc: "Corte coronal posterior simétrico opuesto a la cara frontal. Expone la raíz distal en toda su longitud, la constricción apical (límite CDC), la emergencia de los forámenes apicales y su vecindad con el conducto dentario mandibular inferior.",
-        structures: ["Conducto distal amplio", "Constricción apical (CDC)", "Foramen apical de salida", "Espacio periapical", "Conducto alveolar mandibular"],
-        clinical: "Crucial en cirugía periapical (apicocectomía) y endodoncia: determina la longitud de trabajo exacta (0.5 a 1 mm antes del foramen radiográfico) para evitar la sobreinstrumentación del periapice."
+        title: "Ángulo 240° · Reborde Marginal Distal",
+        desc: "Perspectiva posterior-oblicua hacia la tronera distal. Muestra la menor convexidad relativa de la corona distal y la orientación cónica de la raíz distal.",
+        structures: ["Reborde marginal distal", "Vertiente distal de la cresta oblicua", "Raíz distal cónica", "Cuello anatómico distal"],
+        clinical: "Control oclusal fundamental: las prematuridades en el reborde marginal distal pueden causar facetas de desgaste y sobrecarga periodontal."
       },
       {
         step: 6,
-        angle: 225,
-        angleLabel: "225° · Vista Lingual-Distal",
-        type: "Superficie Externa 3D",
+        angle: 300,
+        thetaX: 5,
+        thetaY: 3,
+        angleLabel: "300° · Vista Distal-Vestibular",
+        type: "Proyección Proximal",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_6_225deg_lingual_distal.jpg",
-        title: "Ángulo 225° · Relieve Lingual-Distal y Reborde Marginal",
-        desc: "Rotación postero-distal que evidencia la relación entre el reborde marginal distal, la tronera interproximal y la curvatura anatómica de la raíz distal embebida en el hueso alveolar esponjoso.",
-        structures: ["Reborde marginal distal", "Cúspide distolingual", "Punto de contacto distal", "Tronera gingival", "Cresta alveolar distal"],
-        clinical: "En operatoria dental y prótesis: la reconstrucción anatómica del reborde marginal distal con matriz seccional evita el empaquetamiento de comida y la inflamación de la papila interdental."
+        title: "Ángulo 300° · Cara Distovestibular y Furca Distal",
+        desc: "Cierre de la órbita 360° en la transición hacia la cara vestibular. Se examina la convexidad cuspídea distal y la entrada distal a la bifurcación radicular.",
+        structures: ["Cúspide distovestibular", "Entrada a la furca distal", "Raíz distal (vertiente externa)", "Línea de unión esmalte-cemento"],
+        clinical: "Diagnóstico periodontal: las lesiones de furca distales requieren sondaje con sonda Nabers angulada debido a la inclinación anatómica."
       },
       {
         step: 7,
-        angle: 270,
-        angleLabel: "270° · Vista Lateral Externa",
-        type: "Superficie Externa 3D",
+        angle: 90,
+        thetaX: 0,
+        thetaY: 0,
+        angleLabel: "Cénit · Cara Oclusal (+60°)",
+        type: "Vista Oclusal Cenital",
         typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_7_270deg_lateral_externo.jpg",
-        title: "Ángulo 270° · Perfil Lateral Completo y Periodonto",
-        desc: "Vista ortogonal lateral de la cara externa completa. Se observa el perfil sagital de la corona, la inclinación axial del eje dental respecto a la cortical ósea externa y el volumen del reborde alveolar circundante.",
-        structures: ["Perfil de emergencia axial", "Cortical vestibular externa", "Espesor de hueso alveolar", "Línea mucogingival", "Mucosa alveolar móvil"],
-        clinical: "En implantología y ortodoncia: evalúa el grosor de la tabla ósea vestibular (> 1.5 - 2 mm para estabilidad a largo plazo) y previene fenestraciones o dehiscencias óseas durante movimientos ortodónticos."
+        title: "Ángulo Cenital (+60°) · Topografía Oclusal y Fosas",
+        desc: "Perspectiva cenital perpendicular a la tabla oclusal. Revela con fidelidad micrométrica el surco principal mesiodistal, la fosa central, las fosetas triangulares y los planos inclinados cuspídeos.",
+        structures: ["Fosa central oclusal", "Surco principal mesiodistal", "Foseta triangular mesial", "Crestas triangulares cuspídeas", "Rebordes marginales"],
+        clinical: "Patrón anatómico para encerado de diagnóstico, tallado de restauraciones indirectas (inlays/onlays) y sellado de fisuras preventivo."
       },
       {
         step: 8,
-        angle: 315,
-        angleLabel: "315° · Hemisección Tridimensional",
-        type: "Hemisección 3D Mixta",
-        typeClass: "type-hybrid",
+        angle: 270,
+        thetaX: 0,
+        thetaY: 5,
+        angleLabel: "Basal · Ápices Radiculares (-40°)",
+        type: "Vista Radicular Basal",
+        typeClass: "type-surface",
         file: "../assets/img/secuencia_360/paso_8_315deg_hemiseccion_3d.jpg",
-        title: "Ángulo 315° · Hemisección 3D (Esmalte + Pulpa Simultáneos)",
-        desc: "Perspectiva tridimensional compuesta de máxima riqueza clínica: en la mitad derecha se preserva la superficie lisa del esmalte coronal y la cortical íntegra; en la mitad izquierda se diseca el interior mostrando la pulpa, la dentina y el conducto en continuidad espacial directa.",
-        structures: ["Interfase esmalte-dentina", "Pared de acceso cameral", "Mitad intacta vs mitad seccionada", "Conducto radicular expuesto", "Continuidad tisular completa"],
-        clinical: "Obra maestra didáctica para comprender la patogenia de la caries: muestra cómo una desmineralización superficial avanza a través de los prismas del esmalte hasta infectar la pulpa y propagarse por el conducto radicular."
+        title: "Ángulo Basal (-40°) · Ápices y Forámenes Radiculares",
+        desc: "Perspectiva inferior oblicua orientada hacia los ápices radiculares. Expone la curvatura apical mesial y distal y la zona de emergencia de los forámenes nutricios.",
+        structures: ["Ápice radicular mesial", "Ápice radicular distal", "Foramen apical principal", "Zona de constricción CDC", "Cemento apical"],
+        clinical: "Anatomía apical de alta trascendencia en endodoncia: respeto de la constricción apical para evitar sobreobturación y sellado tridimensional hermético."
       }
     ];
 
@@ -1133,6 +1178,47 @@
       var preloadImg = new Image();
       preloadImg.src = item.file;
       PRELOADED_CACHE.push(preloadImg);
+    });
+
+    // ── INTEGRACIÓN MOTOR LIGHTFIELD 3D INTERACTIVO ──
+    var lfCanvas = document.getElementById("lightfieldCanvas");
+    var liveAnglePill = document.getElementById("liveAnglePill");
+    var tiltButtons = document.querySelectorAll(".btn-tilt-preset");
+    var lfViewer = null;
+
+    if (typeof LightfieldViewer !== "undefined" && lfCanvas) {
+      try {
+        lfViewer = new LightfieldViewer({
+          canvas: lfCanvas,
+          imageSrc: "../assets/img/lightfield_diente_encoded.png",
+          initialX: 0,
+          initialY: 3,
+          onReady: function () {
+            lfCanvas.style.display = "block";
+            if (stepImage) stepImage.style.display = "none";
+          },
+          onAngleChange: function (angles) {
+            if (liveAnglePill) {
+              liveAnglePill.textContent = angles.degX + "° azim · " + (angles.degY >= 0 ? "+" : "") + angles.degY + "° elev";
+            }
+          }
+        });
+      } catch (err) {
+        console.warn("Lightfield fallback a fotos estáticas:", err);
+      }
+    }
+
+    // Botones de presets de inclinación vertical
+    tiltButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        tiltButtons.forEach(function (b) { b.classList.remove("active"); b.style.background = "rgba(255,255,255,0.06)"; b.style.borderColor = "rgba(255,255,255,0.15)"; b.style.fontWeight = "normal"; });
+        btn.classList.add("active");
+        btn.style.background = "#0284C7";
+        btn.style.borderColor = "#38BDF8";
+        btn.style.fontWeight = "700";
+        var tiltVal = parseInt(btn.getAttribute("data-tilt"), 10);
+        if (lfViewer) lfViewer.setAngles(undefined, tiltVal);
+      });
     });
 
     // Elementos del DOM
@@ -1166,6 +1252,28 @@
 
       // Actualizar badges e indicadores
       badgeStepName.textContent = data.angleLabel;
+      if (lfViewer) {
+        if (lfViewer.isReady) {
+          lfCanvas.style.display = "block";
+          if (stepImage) stepImage.style.display = "none";
+        }
+        lfViewer.setAngles(data.thetaX, data.thetaY);
+        // Actualizar tilt button activo
+        tiltButtons.forEach(function (btn) {
+          var tVal = parseInt(btn.getAttribute("data-tilt"), 10);
+          if (tVal === data.thetaY) {
+            btn.classList.add("active");
+            btn.style.background = "#0284C7";
+            btn.style.borderColor = "#38BDF8";
+            btn.style.fontWeight = "700";
+          } else {
+            btn.classList.remove("active");
+            btn.style.background = "rgba(255,255,255,0.06)";
+            btn.style.borderColor = "rgba(255,255,255,0.15)";
+            btn.style.fontWeight = "normal";
+          }
+        });
+      }
       badgeStepCount.textContent = "Ángulo " + (currentStep + 1) + " de " + totalSteps + " (" + data.angle + "°)";
       
       // Actualizar slider
@@ -1263,10 +1371,21 @@
     }
 
     btnPlaySequence.addEventListener("click", function () {
-      if (playTimer) {
-        stopAutoPlay();
+      if (lfViewer && lfViewer.isReady) {
+        var isPlaying = lfViewer.toggleOrbit(0.025);
+        if (isPlaying) {
+          btnPlaySequence.classList.add("primary");
+          btnPlaySequence.innerHTML = "<span>Pausar Rotación</span>";
+        } else {
+          btnPlaySequence.classList.remove("primary");
+          btnPlaySequence.innerHTML = "<span>Rotación Continua 360°</span>";
+        }
       } else {
-        startAutoPlay();
+        if (playTimer) {
+          stopAutoPlay();
+        } else {
+          startAutoPlay();
+        }
       }
     });
 
@@ -1280,57 +1399,57 @@
 
     var HISTOLOGY_PARTS = {
       "enamel": {
-        title: " 1. Esmalte Dental (Enamel)",
+        title: "1. Esmalte Dental (Enamel)",
         desc: "96% mineral hidroxiapatita cálcica pura, 4% agua y matriz orgánica. Formado por millones de prismas orientados perpendicularmente a la unión amelodentinaria (UAD). Es acelular y no regenerable.",
         pearl: "Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore). A pH salival menor de 5.5 se desmineraliza provocando caries incipiente."
       },
       "dentin": {
-        title: " 2. Dentina (Dentin)",
+        title: "2. Dentina (Dentin)",
         desc: "70% hidroxiapatita, 20% colágeno tipo I, 10% agua. Tejido vivo elástico atravesado por 30.000 a 50.000 túbulos dentinarios por mm² que albergan líquido y prolongaciones de odontoblastos.",
         pearl: "Teoría Hidrodinámica de Brännström: Los cambios térmicos mueven el líquido dentro de los túbulos, activando mecano-receptores pulpares y causando la típica hipersensibilidad al frío."
       },
       "pulp_chamber": {
-        title: " 3. Cámara Pulpar Coronaria",
+        title: "3. Cámara Pulpar Coronaria",
         desc: "Cavidad anatómica central en la corona que contiene tejido conectivo laxo, abundantes capilares y nervios. Proyecta cuernos pulpares hacia cada cúspide oclusal.",
         pearl: "En pacientes jóvenes los cuernos pulpares son muy prominentes; una preparación cavitaria descuidada puede causar exposición pulpar y requerir recubrimiento directo o pulpotomía."
       },
       "root_canal": {
-        title: " 4. Conducto Radicular (Root Canal)",
+        title: "4. Conducto Radicular (Root Canal)",
         desc: "Canal endodóntico longitudinal que recorre la raíz transportando el paquete vasculonervioso desde el piso cameral hasta el foramen apical.",
         pearl: "La instrumentación rotatoria con limas de níquel-titanio (NiTi) y la irrigación con hipoclorito de sodio al 5.25% logran desinfectar el conducto antes de la obturación con gutapercha."
       },
       "cementum": {
-        title: "️ 5. Cemento Radicular (Cementum)",
+        title: "5. Cemento Radicular (Cementum)",
         desc: "Tejido conectivo mineralizado avascular (50% hidroxiapatita) que sella y protege la dentina de toda la superficie radicular anatómica.",
         pearl: "Ancla los haces colágenos del ligamento periodontal. El raspado y alisado radicular excesivo lo desgasta, exponiendo dentina hipersensible al cuello dental."
       },
       "ligament": {
-        title: " 6. Ligamento Periodontal (Fibras de Sharpey)",
+        title: "6. Ligamento Periodontal (Fibras de Sharpey)",
         desc: "Estructura viscoelástica de 0.2 mm compuesta por haces de colágeno I y III que suspenden el diente dentro del alvéolo, disipando cargas de hasta 80 kg/cm².",
         pearl: "Propiocepción Mecanorreceptora: Detecta partículas de hasta 15 micras entre las cúspides, disparando el reflejo de apertura protector para evitar fracturas dentales."
       },
       "sulcus": {
-        title: " 7. Surco Gingival y Encía Libre",
+        title: "7. Surco Gingival y Encía Libre",
         desc: "Espacio virtual fisiológico de 1 a 3 mm entre la superficie dental y la encía libre marginal festoneada.",
         pearl: "Profundidad al sondaje > 3 mm con sangrado al tacto suave (0.25 N) indica pérdida de inserción conectiva y presencia de una bolsa periodontal patológica."
       },
       "attached_gingiva": {
-        title: " 8. Encía Adherida (Puntillado Clínico)",
+        title: "8. Encía Adherida (Puntillado Clínico)",
         desc: "Banda de mucosa queratinizada firmemente unida al periostio óseo. Muestra pequeñas depresiones que recuerdan a la piel de una naranja.",
         pearl: "Indispensable para sellar el periodonto y evitar que la tracción de los frenillos o el roce de los alimentos cause retracción de la encía y exposición radicular."
       },
       "bone": {
-        title: " 9. Hueso Alveolar Trabecular y Lámina Dura",
+        title: "9. Hueso Alveolar Trabecular y Lámina Dura",
         desc: "Apófisis ósea que rodea y aloja el alvéolo dentario. Presenta hueso esponjoso con espacios medulares hematopoyéticos y una delgada lámina cribosa (lámina dura).",
         pearl: "Es un tejido diente-dependiente: tras una exodoncia sin preservación alveolar, el reborde óseo pierde entre el 40% y el 60% de su anchura en los primeros 6 meses."
       },
       "apex": {
-        title: " 10. Foramen Apical y Límite CDC",
+        title: "10. Foramen Apical y Límite CDC",
         desc: "Apertura apical en la punta de la raíz por donde penetran las arteriolas y filetes nerviosos al interior del diente.",
         pearl: "La constricción apical anatómica (unión cemento-dentina-conducto o CDC) es el punto milimétrico exacto donde debe detenerse la conformación y obturación endodóntica."
       },
       "neurovascular": {
-        title: " 11. Paquete Vasculonervioso Mandibular",
+        title: "11. Paquete Vasculonervioso Mandibular",
         desc: "Arteria, vena y nervio alveolar inferior (rama sensitiva de V3 mandibular) discurriendo por el conducto dentario inferior.",
         pearl: "En cirugía de terceros molares incluidos o colocación de implantes, debe dejarse un margen de seguridad de al menos 2 mm para evitar daño o parestesia permanente del labio inferior."
       }
@@ -1409,6 +1528,7 @@
 
   });
   </script>
+
 
 </body>
 </html>

@@ -2593,6 +2593,16 @@ h1, h2, h3, h4, h5, h6 {
 .step-viewport {
   max-height: 380px !important;
   border-radius: var(--radius-md) !important;
+  background: #FFFFFF !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.step-viewport canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #FFFFFF !important;
 }
 
 .step-hud {

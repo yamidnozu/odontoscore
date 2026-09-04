@@ -1,0 +1,9 @@
+{
+  "0": "views/elevation_p0.png",
+  "20": "views/elevation_p20.png",
+  "40": "views/elevation_p40.png",
+  "60": "views/elevation_p60.png",
+  "-20": "views/elevation_m20.png",
+  "-40": "views/elevation_m40.png",
+  "-60": "views/elevation_m60.png"
+}
