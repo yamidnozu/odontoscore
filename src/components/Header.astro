@@ -1,0 +1,73 @@
+---
+import CurrencySelector from './CurrencySelector';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+---
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrapper">
+    <a href="/" class="brand-logo" title="OdontoScore - Portal Odontológico">
+      <img src="/assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38" class="logo-img" />
+    </a>
+
+    <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul class="nav-links">
+        <li><a href="/#catalogo" data-nav="catalogo">Catálogo</a></li>
+        <li><a href="/#estudiantes" data-nav="estudiantes">Estudiantes</a></li>
+        
+        <li class="nav-item-dropdown">
+          <a href="/#academia" class="nav-link-dropdown" data-nav="academia" aria-haspopup="true" aria-expanded="false">
+            Academia
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="/guias/anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
+            <a href="/guias/biofilm-microbiologia-endodoncia-3d.html" class="dropdown-link">Biofilm y Endodoncia 3D</a>
+            <a href="/guias/semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
+            <a href="/guias/farmacologia-dolor-trigeminal-inflamacion-pediatrica.html" class="dropdown-link">Farmacología & Calculadora Pediátrica</a>
+            <a href="/calculadora-dosis-pediatrica/" class="dropdown-link" style="color:#0284C7;font-weight:700;">Calculadora Visual de Dosis</a>
+            <a href="/guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
+            <a href="/guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
+            <div class="dropdown-divider"></div>
+            <a href="/#academia" class="dropdown-link-all">Ver toda la Academia →</a>
+          </div>
+        </li>
+
+        <li><a href="/comparador.html" data-nav="comparador">Comparador</a></li>
+        <li><a href="/ofertas.html" data-nav="ofertas">Ofertas</a></li>
+        <li><a href="/#faq" data-nav="faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- React Island: CurrencySelector -->
+        <CurrencySelector client:load />
+
+        <a href="/comparador.html" class="btn-nav-compare" id="headerCompareBtn">
+          <span>Comparar Modelos</span>
+          <span class="compare-badge" id="compareCountBadge" style="display:none">0</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const nav = document.getElementById('mainNav');
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+  }
+</script>

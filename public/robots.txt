@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://odontoscore.com/sitemap.xml

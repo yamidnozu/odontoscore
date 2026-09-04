@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Comparador Clínico de 7 Ejes — OdontoScore";
+const pageDesc = "Comparador odontológico de especificaciones, radar clínico y características de dispositivos e instrumental.";
+const canonicalUrl = "https://odontoscore.com/comparador.html";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="site-container section-block" style="margin-top:2rem;margin-bottom:4rem;" data-comparator-app>
+    <div class="section-header" style="text-align:left;max-width:100%;">
+      <div class="hero-badge">Comparador Clínico</div>
+      <h1 style="font-size:2.2rem;margin-bottom:0.75rem;">Comparativa de Dispositivos y Material</h1>
+      <p style="color:#64748B;font-size:1.05rem;">Selecciona una especialidad y compara especificaciones técnicas y radares superpuestos.</p>
+    </div>
+
+    <div class="comparator-selector-bar" style="background:#FFFFFF;border:1px solid var(--color-border);padding:1.25rem;border-radius:12px;margin-bottom:2rem;">
+      <div>
+        <label for="compCategorySelect" style="font-weight:700;font-size:0.95rem;margin-right:0.75rem;">Especialidad:</label>
+        <select id="compCategorySelect" style="padding:0.6rem 1rem;border-radius:8px;border:1px solid var(--color-border);font-size:0.95rem;">
+          <option value="">Todas las Especialidades</option>
+          <option value="estudiantes_practicas">Estudiantes y Prácticas</option>
+          <option value="cepillos_electricos">Cepillos Eléctricos</option>
+          <option value="irrigadores_dentales">Irrigadores Dentales</option>
+          <option value="blanqueamiento_dental">Blanqueamiento Dental</option>
+          <option value="ortodoncia_brackets">Ortodoncia y Brackets</option>
+          <option value="higiene_infantil">Odontopediatría</option>
+          <option value="instrumental_basico">Instrumental y Clínica</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="comparatorResultsArea" class="comparator-results-area">
+      <!-- Renders through main.js comparator logic -->
+    </div>
+  </div>
+</BaseLayout>

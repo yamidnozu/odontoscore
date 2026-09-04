@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E76BC" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <!-- Medical Tooth & Analytics Shield Icon -->
+  <g transform="translate(6, 6)">
+    <!-- Outer Shield/Tooth Silhouette -->
+    <path d="M26 2 C16 2, 4 9, 4 24 C4 38, 12 48, 18 51 C22 53, 24 45, 26 43 C28 45, 30 53, 34 51 C40 48, 48 38, 48 24 C48 9, 36 2, 26 2 Z" fill="url(#logoGrad)" />
+    
+    <!-- Inner Precision Cross & Clinical Spark -->
+    <path d="M26 13 L26 33 M16 23 L36 23" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" />
+    
+    <!-- Analytics / Score Indicator Pill -->
+    <circle cx="37" cy="13" r="5.5" fill="#FFFFFF" />
+    <circle cx="37" cy="13" r="3.5" fill="url(#sparkGrad)" />
+  </g>
+
+  <!-- Typography -->
+  <text x="68" y="38" font-family="'Sora', 'Inter', system-ui, sans-serif" font-size="27" font-weight="800" fill="#0F172A" letter-spacing="-0.5">
+    Odonto<tspan fill="#0E76BC">Score</tspan>
+  </text>
+  
+  <!-- Clinical Badge Subtitle -->
+  <text x="69" y="52" font-family="'Inter', system-ui, sans-serif" font-size="9" font-weight="700" fill="#64748B" letter-spacing="1.2" text-transform="uppercase">
+    PORTAL CLÍNICO &amp; COMPARADOR
+  </text>
+</svg>

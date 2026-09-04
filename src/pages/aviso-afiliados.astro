@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Aviso de Afiliación | OdontoScore";
+const pageDesc = "Declaración de transparencia sobre el programa de afiliados de Amazon en OdontoScore.";
+const canonicalUrl = "https://odontoscore.com/aviso-afiliados.html";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="site-container section-block" style="max-width:850px;margin-top:2.5rem;margin-bottom:4rem;line-height:1.7;">
+    <h1>Aviso de Afiliados y Transparencia</h1>
+    <div class="editorial-content-box" style="margin-top:1.5rem;">
+      <p>
+        En cumplimiento con las directrices de la Comisión Federal de Comercio (FTC) y las normativas de publicidad europea, informamos de manera transparente sobre los modelos de ingresos de OdontoScore.
+      </p>
+      <p>
+        <strong>OdontoScore (odontoscore.com)</strong> participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es.
+      </p>
+      <p>
+        Los precios, disponibilidad y condiciones de envío mostrados en OdontoScore son los vigentes en el momento de la consulta y pueden variar sin previo aviso según la política comercial del vendedor final en Amazon.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

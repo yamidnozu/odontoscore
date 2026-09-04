@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Metodología E-E-A-T y Quiénes Somos | OdontoScore";
+const pageDesc = "Conoce los criterios clínicos, metodologías de ensayo y directrices de evaluación en 7 ejes de OdontoScore.";
+const canonicalUrl = "https://odontoscore.com/sobre-nosotros.html";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="site-container section-block" style="max-width:850px;margin-top:2.5rem;margin-bottom:4rem;">
+    <h1>Metodología E-E-A-T y Criterios Clínicos</h1>
+    <div class="editorial-content-box" style="margin-top:1.5rem;line-height:1.7;">
+      <p>
+        <strong>OdontoScore</strong> nace con el objetivo de dotar de rigor y transparencia a la elección de productos de salud bucodental y material para estudiantes universitarios, evaluando 7 ejes de rendimiento normalizados según estándares internacionales (ISO e índices clínicos periodontales).
+      </p>
+
+      <h2>Nuestros 7 Ejes de Evaluación</h2>
+      <ol style="margin-left:1.5rem;margin-top:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+        <li><strong>Eficacia en Remoción de Biofilm:</strong> Porcentaje medible de desorganización bacteriana en superficies lisas y nichos interproximales.</li>
+        <li><strong>Cuidado Gingival & Presión:</strong> Sensores de torque y presión para evitar retracción gingival y daño epitelial.</li>
+        <li><strong>Durabilidad y Resistencia:</strong> Autonomía de batería, sellado estanco (IPX7) y vida útil de componentes mecánicos.</li>
+        <li><strong>Ergonomía y Usabilidad:</strong> Peso, agarre antideslizante y maniobrabilidad en arcada superior e inferior.</li>
+        <li><strong>Nivel Sonoro y Vibración:</strong> Emisión en decibelios (dB) para minimizar fatiga acústica.</li>
+        <li><strong>Tecnología y Conectividad:</strong> Modos de cepillado, temporizadores y conectividad de retroalimentación.</li>
+        <li><strong>Relación Calidad-Precio:</strong> Coste por ciclo de uso y disponibilidad de cabezales de recambio accesibles.</li>
+      </ol>
+    </div>
+  </div>
+</BaseLayout>

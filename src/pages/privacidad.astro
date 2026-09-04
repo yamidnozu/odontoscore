@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Política de Privacidad y Cookies | OdontoScore";
+const pageDesc = "Política de privacidad, cookies y protección de datos personales de OdontoScore.";
+const canonicalUrl = "https://odontoscore.com/privacidad.html";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="site-container section-block" style="max-width:850px;margin-top:2.5rem;margin-bottom:4rem;line-height:1.7;">
+    <h1>Política de Privacidad y Cookies</h1>
+    <div class="editorial-content-box" style="margin-top:1.5rem;">
+      <p>
+        En OdontoScore nos comprometemos a salvaguardar la privacidad de todos nuestros usuarios de acuerdo con el Reglamento General de Protección de Datos (RGPD) y la LOPD-GDD.
+      </p>
+      <h2>Uso de Cookies</h2>
+      <p>
+        Este sitio web puede utilizar cookies técnicas necesarias para el funcionamiento del comparador y el almacenamiento en el navegador de la divisa preferida (EUR, COP, MXN, USD).
+      </p>
+      <h2>Enlaces de Terceros</h2>
+      <p>
+        Al hacer clic en enlaces a plataformas externas como Amazon, dichas plataformas operan bajo sus propias políticas de privacidad y condiciones de servicio.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsData from '../../../datos/productos.json';
+
+export async function getStaticPaths() {
+  const CATEGORIES = [
+    { id: 'estudiantes_practicas', slug: 'estudiantes-odontologia', name: 'Estudiantes y Prácticas', desc: 'Tipodontos anatómicos con dientes desmontables, kits de sutura oral y material de simulación universitaria.' },
+    { id: 'cepillos_electricos', slug: 'cepillos-electricos', name: 'Cepillos Eléctricos', desc: 'Tecnología sónica, rotatoria y magnética para eliminación de placa bacteriana y protección gingival.' },
+    { id: 'irrigadores_dentales', slug: 'irrigadores-dentales', name: 'Irrigadores Dentales', desc: 'Limpieza interdental profunda y masaje de encías avalado por la ADA.' },
+    { id: 'blanqueamiento_dental', slug: 'blanqueamiento-dental', name: 'Blanqueamiento Dental', desc: 'Kits con tecnología LED de luz fría, geles desensibilizantes y tiras para esmalte.' },
+    { id: 'ortodoncia_brackets', slug: 'ortodoncia-brackets', name: 'Ortodoncia y Brackets', desc: 'Ceras de alivio, cepillos interdentales específicos y posicionadores.' },
+    { id: 'instrumental_basico', slug: 'instrumental-basico', name: 'Instrumental Clínico', desc: 'Sondas periodontales calibradas, espejos con tratamiento antivaho y exploración.' },
+    { id: 'higiene_infantil', slug: 'higiene-infantil', name: 'Higiene Infantil', desc: 'Dispositivos de dosificación y cepillado adaptados a la dentición temporal y mixta.' }
+  ];
+
+  return CATEGORIES.map((cat) => {
+    const catProducts = productsData.filter((p: any) => 
+      p.categoria_odontologica === cat.id || 
+      p.category_slug === cat.slug ||
+      (p.category_id && cat.slug.includes(p.category_id.replace('_', '-')))
+    );
+
+    return {
+      params: { slug: cat.slug },
+      props: { category: cat, products: catProducts.length > 0 ? catProducts : productsData.slice(0, 8) }
+    };
+  });
+}
+
+const { category, products } = Astro.props;
+const canonicalUrl = `https://odontoscore.com/categoria/${category.slug}.html`;
+const pageTitle = `${category.name} | Catálogo Clínico y Comparativas OdontoScore`;
+const pageDesc = category.desc;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="category-page-container site-container">
+    <nav class="breadcrumb-nav" aria-label="Ruta de navegación">
+      <ol class="breadcrumbs">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/#catalogo">Categorías</a></li>
+        <li aria-current="page">{category.name}</li>
+      </ol>
+    </nav>
+
+    <header class="category-header">
+      <span class="badge-accent">ESPECIALIDAD ODONTOSCORE</span>
+      <h1>{category.name}</h1>
+      <p class="category-description">{category.desc}</p>
+    </header>
+
+    <section class="category-products-grid">
+      {products.map((prod: any) => {
+        const prodPrice = prod.discountedPrice || prod.retailPrice || prod.price_eur || 0;
+        return (
+          <article class="product-card" data-category={category.slug}>
+            <a href={`/producto/${prod.id}.html`} class="product-card-img-link">
+              <img
+                src={prod.images?.[0] || prod.image || '/assets/img/logo-odontoscore.svg'}
+                alt={prod.name || 'Dispositivo'}
+                class="product-card-img"
+                loading="lazy"
+              />
+            </a>
+            <div class="product-card-content">
+              <span class="product-card-brand">{prod.marca || prod.brand || 'Clínico'}</span>
+              <h3 class="product-card-title">
+                <a href={`/producto/${prod.id}.html`}>{prod.name}</a>
+              </h3>
+              <div class="product-card-footer">
+                <span class="product-card-price" data-eur={prodPrice}>
+                  {prodPrice > 0 ? `${prodPrice.toFixed(2)} €` : 'Consultar'}
+                </span>
+                <a href={`/producto/${prod.id}.html`} class="btn-card-action">Ver análisis →</a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </section>
+  </div>
+</BaseLayout>

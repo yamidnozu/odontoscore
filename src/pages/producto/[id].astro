@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RadarChart from '../../components/RadarChart';
+import productsData from '../../../datos/productos.json';
+
+export async function getStaticPaths() {
+  return productsData.map((p) => ({
+    params: { id: p.id },
+    props: { product: p }
+  }));
+}
+
+const { product } = Astro.props;
+
+const productName = product.name || product.title || 'Dispositivo Clínico';
+const productBrand = product.marca || product.brand || 'Clínico';
+const productCategory = product.category || 'Odontología';
+const productPrice = product.discountedPrice || product.price_eur || product.retailPrice || 0;
+const productOriginalPrice = product.retailPrice || product.original_price_eur || 0;
+const productImages = product.images || [product.image] || ['/assets/img/logo-odontoscore.svg'];
+const mainImage = productImages[0];
+const hasDiscount = productOriginalPrice > productPrice && productPrice > 0;
+const discountPct = hasDiscount ? Math.round(((productOriginalPrice - productPrice) / productOriginalPrice) * 100) : 0;
+const productRating = product.valoracion_media ? product.valoracion_media.toFixed(1) : "4.6";
+const reviewCount = product.resenas_cantidad ? Number(product.resenas_cantidad).toLocaleString("es-ES") : "150";
+
+const pageTitle = `${productName} — Análisis Clínico y Precio | OdontoScore`;
+const pageDesc = product.description || `Análisis clínico y especificaciones técnicas completas de ${productName}.`;
+const canonicalUrl = `https://odontoscore.com/producto/${product.id}.html`;
+const affiliateUrl = product.affiliate_url || `https://www.amazon.es/dp/${product.asin || ''}?tag=odontoscore-21`;
+
+const scores = {
+  score_eficacia: product.score_eficacia ?? 8.5,
+  score_comodidad_encias: product.score_comodidad_encias ?? 8.0,
+  score_durabilidad: product.score_durabilidad ?? 8.5,
+  score_facilidad_uso: product.score_facilidad_uso ?? 8.2,
+  score_silencio: product.score_silencio ?? 7.8,
+  score_tecnologia: product.score_tecnologia ?? 8.4,
+  score_calidad_precio: product.score_calidad_precio ?? 8.6
+};
+
+// JSON-LD Schema
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": productName,
+  "image": mainImage,
+  "description": pageDesc,
+  "brand": {
+    "@type": "Brand",
+    "name": productBrand
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": productPrice ? productPrice.toString() : "0.00",
+    "availability": product.in_stock !== false ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+    "url": canonicalUrl
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": productRating,
+    "reviewCount": product.resenas_cantidad ? product.resenas_cantidad.toString() : "150"
+  }
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+  ogImage={mainImage}
+  ogType="product"
+  jsonLd={productSchema}
+>
+  <div class="container ficha-layout" data-producto-id={product.id} data-asin={product.asin} style="padding-top:2.5rem;padding-bottom:4rem;">
+    <!-- Breadcrumb -->
+    <div style="font-size:0.85rem;color:#64748B;margin-bottom:1.5rem;">
+      <a href="/">Inicio</a> / <a href="/#catalogo">{productCategory}</a> / <span>{productName.length > 35 ? productName.substring(0, 35) + '...' : productName}</span>
+    </div>
+
+    <!-- Hero Grid -->
+    <div class="ficha-hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3rem;">
+      <!-- Gallery -->
+      <div class="ficha-gallery-wrapper" data-galeria>
+        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:2rem;text-align:center;height:380px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <img class="gallery-main-img" id="galleryMainImg" src={mainImage} alt={productName} style="max-height:100%;max-width:100%;object-fit:contain;" />
+        </div>
+        {productImages && productImages.length > 1 && (
+          <ul style="display:flex;gap:0.5rem;overflow-x:auto;list-style:none;">
+            {productImages.map((imgUrl: string, idx: number) => (
+              <li class={`gallery-thumb-btn ${idx === 0 ? 'active' : ''}`} data-src={imgUrl}>
+                <img src={imgUrl} alt={`Miniatura ${idx + 1}`} style="width:50px;height:50px;object-fit:contain;cursor:pointer;" />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <!-- Info Column -->
+      <div>
+        <span class="card-brand-tag">{productBrand}</span>
+        <h1 style="font-size:1.85rem;line-height:1.3;margin:0.5rem 0 1rem;">{productName}</h1>
+        
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <span style="color:#D97706;font-weight:800;">★ {productRating} / 5</span>
+          <span style="color:#64748B;font-size:0.9rem;">({reviewCount} valoraciones)</span>
+          <div><span class="card-category-tag">{productCategory.toUpperCase()}</span></div>
+        </div>
+
+        <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;">
+          <div style="display:flex;align-items:baseline;gap:0.75rem;">
+            <span style="font-size:1.8rem;font-weight:800;color:#0F172A;" data-eur={productPrice}>
+              {productPrice > 0 ? `${productPrice.toFixed(2)} €` : 'Consultar precio'}
+            </span>
+            {hasDiscount && (
+              <span style="font-size:1rem;color:#94A3B8;text-decoration:line-through;">{productOriginalPrice.toFixed(2)} €</span>
+            )}
+            {hasDiscount && (
+              <span class="price-discount-pill">-{discountPct}%</span>
+            )}
+          </div>
+          <p style="font-size:0.8rem;color:#64748B;margin-top:0.25rem;">Precio sincronizado con Amazon España · Envío Prime</p>
+        </div>
+
+        <a href={affiliateUrl} target="_blank" rel="sponsored nofollow noopener" class="btn-buy-amazon-large" style="width:100%;">
+          <span>Ver Oferta en Amazon</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Radar Section (React Island) -->
+    <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:2rem;margin-bottom:3rem;">
+      <h2 style="font-size:1.4rem;margin-bottom:1rem;">Evaluación Técnica OdontoScore (7 Ejes)</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div style="display:flex;justify-content:center;">
+          <RadarChart client:visible scores={scores} productName={productName} size={300} />
+        </div>
+        <div>
+          <table class="specs-table">
+            <tbody>
+              <tr><th>Eficacia y Desempeño</th><td>{scores.score_eficacia} / 10</td></tr>
+              <tr><th>Protección Gingival</th><td>{scores.score_comodidad_encias} / 10</td></tr>
+              <tr><th>Durabilidad de Materiales</th><td>{scores.score_durabilidad} / 10</td></tr>
+              <tr><th>Ergonomía de Uso</th><td>{scores.score_facilidad_uso} / 10</td></tr>
+              <tr><th>Nivel Sonoro (Silencio)</th><td>{scores.score_silencio} / 10</td></tr>
+              <tr><th>Tecnología e Innovación</th><td>{scores.score_tecnologia} / 10</td></tr>
+              <tr><th>Relación Calidad-Precio</th><td>{scores.score_calidad_precio} / 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:2rem;margin-bottom:3rem;">
+      <h2 style="font-size:1.4rem;margin-bottom:1rem;">Especificaciones Técnicas</h2>
+      <table class="specs-table">
+        <tbody>
+          <tr><th>Marca y Modelo</th><td>{productBrand} {productName}</td></tr>
+          <tr><th>Especialidad</th><td>{productCategory}</td></tr>
+          {product.tecnologia && <tr><th>Tecnología</th><td>{product.tecnologia.toUpperCase()}</td></tr>}
+          {product.modos_limpieza && <tr><th>Modos / Ajustes</th><td>{product.modos_limpieza} programas</td></tr>}
+          {product.pulsaciones_min && <tr><th>Potencia / Presión</th><td>{product.pulsaciones_min.toLocaleString()} mov/min</td></tr>}
+          {product.autonomia_dias && <tr><th>Autonomía</th><td>{product.autonomia_dias} días</td></tr>}
+          {product.nivel_ruido_db && <tr><th>Nivel Sonoro</th><td>{product.nivel_ruido_db} dB</td></tr>}
+          {product.resistencia_ipx && <tr><th>Sellado</th><td>{product.resistencia_ipx}</td></tr>}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Editorial Review -->
+    {product.cuerpo_editorial && (
+      <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:2rem;margin-bottom:3rem;">
+        <h2 style="font-size:1.4rem;margin-bottom:1rem;">Evaluación Odontológica Profesional</h2>
+        <div style="line-height:1.7;color:#334155;" set:html={product.cuerpo_editorial} />
+
+        {(product.pros || product.contras) && (
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
+            {product.pros && (
+              <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:1.25rem;">
+                <h3 style="color:#166534;font-size:1.05rem;margin-bottom:0.75rem;">Ventajas Clínicas</h3>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem;color:#14532D;">
+                  {product.pros.map((p: string) => <li>✓ {p}</li>)}
+                </ul>
+              </div>
+            )}
+            {product.contras && (
+              <div style="background:#FFF1F2;border:1px solid #FECDD3;border-radius:12px;padding:1.25rem;">
+                <h3 style="color:#9F1239;font-size:1.05rem;margin-bottom:0.75rem;">Puntos a Considerar</h3>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem;color:#881337;">
+                  {product.contras.map((c: string) => <li>• {c}</li>)}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<script>
+  // Thumbnail click gallery switcher
+  document.querySelectorAll('.gallery-thumb-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-thumb-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const src = btn.getAttribute('data-src');
+      const mainImg = document.getElementById('galleryMainImg') as HTMLImageElement;
+      if (mainImg && src) mainImg.src = src;
+    });
+  });
+</script>

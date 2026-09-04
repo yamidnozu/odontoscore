@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Anatómico y Clínico del Molar Permanente | OdontoScore Academia</title>
+  <meta name="description" content="Atlas interactivo de anatomía dental: exploración de caras vestibulares, proximales, tabla oclusal y raíces con notas clínicas sobre esmalte, dentina, furca y ápices.">
+  <meta name="keywords" content="secuencia anatomia dental, visor 360 diente, anatomia molar 3d, corte sagital diente, histologia dental, camara pulpar, foramen apical, ligamento periodontal">
+  <link rel="canonical" href="https://odontoscore.com/guias/anatomia-dental-3d-por-capas.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Giro 360° y Secuencia Anatómica Dental Paso a Paso">
+  <meta property="og:description" content="Visor 360° interactivo con rotación en 8 ángulos secuenciales (0° a 315°), disección de cámara pulpar y atlas histológico maestro.">
+  <meta property="og:url" content="https://odontoscore.com/guias/anatomia-dental-3d-por-capas.html">
+  <meta property="og:image" content="https://odontoscore.com/assets/img/secuencia_360/paso_8_315deg_hemiseccion_3d.jpg">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../styles.css?v=20260904_v80">
+
+  <style>
+    .atlas-master-box {
+      background: #0B1426;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      margin: 2rem 0;
+    }
+
+    /* Pestañas Superiores de Modo */
+    .mode-nav-tabs {
+      display: flex;
+      background: #060B14;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 1rem 0;
+      gap: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .mode-tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      padding: 0.85rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .mode-tab-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mode-tab-btn.active {
+      color: #38BDF8;
+      background: #0B1426;
+      border-top: 3px solid #38BDF8;
+    }
+
+    .atlas-content-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 2rem;
+      padding: 2rem;
+      align-items: start;
+    }
+
+    /* Viewport de Rotación 360 y Secuencia */
+    .step-viewport {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: radial-gradient(circle at center, #17253D 0%, #060B14 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      user-select: none;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.15s ease;
+    }
+
+    /* HUD Superior en el Viewport */
+    .step-hud {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .hud-chip {
+      background: rgba(11, 20, 38, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      pointer-events: auto;
+      text-transform: uppercase;
+    }
+
+    .hud-chip.accent {
+      border-color: #38BDF8;
+      color: #38BDF8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Control Deslizante de Ángulo 360° */
+    .slider-container {
+      margin: 1.25rem 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #94A3B8;
+    }
+
+    .slider-header strong {
+      color: #38BDF8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .turntable-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .turntable-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #38BDF8;
+      border: 2px solid #FFFFFF;
+      cursor: grab;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
+      transition: transform 0.15s;
+    }
+
+    .turntable-slider::-webkit-slider-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.25);
+    }
+
+    /* Stepper Bar con 8 Ángulos */
+    .steps-stepper-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin: 1.25rem 0 0.75rem;
+      padding: 0 0.25rem;
+    }
+
+    .steps-stepper-bar::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      top: 14px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.12);
+      z-index: 1;
+    }
+
+    .step-indicator-wrapper {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+    }
+
+    .step-indicator-node {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #1E293B;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      transition: all 0.2s;
+    }
+
+    .step-indicator-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #64748B;
+      font-family: 'JetBrains Mono', monospace;
+      transition: color 0.2s;
+    }
+
+    .step-indicator-wrapper:hover .step-indicator-node {
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      transform: scale(1.1);
+    }
+
+    .step-indicator-wrapper.active .step-indicator-node {
+      background: #0C7FD4;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
+      transform: scale(1.2);
+    }
+
+    .step-indicator-wrapper.active .step-indicator-label {
+      color: #38BDF8;
+      font-weight: 800;
+    }
+
+    /* Filmstrip Miniaturas */
+    .filmstrip-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .filmstrip-thumb {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      background: #050B14;
+      transition: all 0.2s;
+    }
+
+    .filmstrip-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+
+    .filmstrip-thumb:hover img {
+      opacity: 0.95;
+    }
+
+    .filmstrip-thumb.active {
+      border-color: #38BDF8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    .filmstrip-thumb.active img {
+      opacity: 1;
+    }
+
+    .filmstrip-deg {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #38BDF8;
+      font-size: 0.55rem;
+      font-weight: 700;
+      padding: 1px 3px;
+      border-radius: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Columna Derecha: Controles y Tarjeta Clínica */
+    .sidebar-step-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      color: #FFFFFF;
+    }
+
+    .btn-stepper-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-step-act {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #E2E8F0;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .btn-step-act:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #FFFFFF;
+      border-color: #38BDF8;
+    }
+
+    .btn-step-act.primary {
+      background: #0C7FD4;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+    }
+
+    .btn-step-act.primary:hover {
+      background: #0284C7;
+    }
+
+    /* Tarjeta Clínica de la Secuencia */
+    .step-clinical-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .step-type-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+
+    .step-type-chip.type-cut {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .step-type-chip.type-surface {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .step-type-chip.type-hybrid {
+      background: rgba(251, 191, 36, 0.15);
+      color: #FBBF24;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .step-card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .step-card-desc {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      line-height: 1.6;
+    }
+
+    .step-structures-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .structure-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: #E2E8F0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-card-pearl {
+      background: rgba(12, 127, 212, 0.15);
+      border-left: 3px solid #38BDF8;
+      padding: 0.75rem 0.95rem;
+      border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+      font-size: 0.82rem;
+      color: #E0F2FE;
+      line-height: 1.5;
+    }
+
+    /* Viewport de Señalización Histológica con Pines */
+    .viewport-histology-master {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #050B14;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .viewport-histology-master img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+
+    .viewport-histology-master.xray-mode img {
+      filter: invert(1) contrast(1.6) brightness(1.1) grayscale(0.8);
+    }
+
+    .pin-label-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      background: rgba(14, 165, 233, 0.95);
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      user-select: none;
+    }
+
+    .pin-label-node:hover, .pin-label-node.active {
+      transform: translate(-50%, -50%) scale(1.35);
+      background: #38BDF8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 1);
+      z-index: 30;
+    }
+
+    .pin-label-node.danger {
+      background: rgba(239, 68, 68, 0.95);
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.8);
+    }
+
+    @media (max-width: 992px) {
+      .atlas-content-grid {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+      }
+      .filmstrip-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Hotspots y Notas Anatómicas sobre el Visor */
+    .hotspots-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 25;
+    }
+
+    .hotspot-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(14, 165, 233, 0.95);
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.85);
+      transition: transform 0.15s ease, background-color 0.2s, box-shadow 0.2s;
+      user-select: none;
+      z-index: 25;
+    }
+
+    .hotspot-pin:hover, .hotspot-pin.active {
+      transform: translate(-50%, -50%) scale(1.3);
+      background: #38BDF8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 1);
+      z-index: 35;
+    }
+
+    .hotspot-pin.active::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid #38BDF8;
+      animation: pinPulse 1.6s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes pinPulse {
+      0% { transform: scale(0.9); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .hotspot-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(11, 20, 38, 0.96);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #FFFFFF;
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      display: none;
+      z-index: 40;
+    }
+
+    .hotspot-pin:hover .hotspot-tooltip, .hotspot-pin.active .hotspot-tooltip {
+      display: block;
+    }
+
+    /* Selector Rápido de Caras Anatómicas */
+    .face-selector-bar {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      margin: 0.85rem 0 0.6rem;
+      padding-bottom: 0.25rem;
+    }
+
+    .btn-face-tab {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #CBD5E1;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-face-tab:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+    }
+
+    .btn-face-tab.active {
+      background: #0284C7;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.5);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="site-header" id="siteHeader">
+  <div class="container nav-wrapper">
+    <a href="../index.html" class="brand-logo" title="OdontoScore - Portal Odontológico">
+      <img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" height="38">
+    </a>
+    <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <ul class="nav-links">
+        <li><a href="../index.html#catalogo">Catálogo</a></li>
+        <li><a href="../index.html#estudiantes">Estudiantes</a></li>
+        <li class="nav-item-dropdown">
+          <a href="../index.html#academia" class="nav-link-dropdown" aria-haspopup="true" aria-expanded="false">
+            Academia
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="../guias/anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
+            <a href="../guias/biofilm-microbiologia-endodoncia-3d.html" class="dropdown-link">Biofilm y Endodoncia 3D</a>
+            <a href="../guias/semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
+            <a href="../guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
+            <a href="../guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
+            <div class="dropdown-divider"></div>
+            <a href="../index.html#academia" class="dropdown-link-all">Ver toda la Academia →</a>
+          </div>
+        </li>
+        <li><a href="../comparador.html">Comparador</a></li>
+        <li><a href="../ofertas.html">Ofertas</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="../comparador.html" class="btn-nav-compare">
+          <span>Comparar Modelos</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Ruta de navegación" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--color-slate-light);">
+      <a href="../index.html" style="color: var(--color-primary); text-decoration: none;">Inicio</a> / 
+      <a href="../index.html#academia" style="color: var(--color-primary); text-decoration: none;">Academia</a> / 
+      <span style="color: var(--color-navy); font-weight: 600;">Secuencia Anatómica e Histológica Dental</span>
+    </nav>
+
+    <!-- Encabezado Clínico -->
+    <header style="max-width: 880px; margin-bottom: 1.5rem;">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(12,127,212,0.1); color:#0C7FD4; padding:0.35rem 0.85rem; border-radius:var(--radius-full); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.75rem;">
+        <span>ANATOMÍA DENTAL CLÍNICA</span> · <span>EXPLORADOR INTERACTIVO 3D</span>
+      </div>
+      <h1 style="font-size: clamp(2rem, 3.8vw, 2.75rem); color: var(--color-navy); line-height: 1.2; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Atlas Anatómico y Clínico del Molar Permanente
+      </h1>
+      <p style="font-size: 1.05rem; color: var(--color-slate); line-height: 1.6;">
+        Examina la morfología coronal, caras axiales, tabla oclusal y ápices radiculares. <strong>Toca los puntos anatómicos señalados sobre el diente</strong> para consultar su función masticatoria y aplicaciones prácticas en operatoria, endodoncia y periodoncia.
+      </p>
+    </header>
+
+    <!-- ====================================================================
+         CONTENEDOR MAESTRO DEL ATLAS INTERACTIVO
+         ==================================================================== -->
+    <section class="atlas-master-box" id="atlasMaster">
+      
+      <!-- Pestañas Superiores de Modo -->
+      <div class="mode-nav-tabs" role="tablist">
+        <button type="button" class="mode-tab-btn active" id="tabBtnSequence" role="tab" aria-selected="true">
+          <span>1. Morfología Dental y Caras Clínicas (Explorador 3D)</span>
+        </button>
+        <button type="button" class="mode-tab-btn" id="tabBtnHistology" role="tab" aria-selected="false">
+          <span>2. Corte Histológico y Tejidos Internos</span>
+        </button>
+      </div>
+
+      <!-- ================================================================
+           MODO 1: GIRO 360° Y SECUENCIA PASO A PASO COHERENTE
+           ================================================================ -->
+      <div class="atlas-content-grid" id="viewSectionSequence">
+        
+        <!-- Columna Izquierda: Viewport y Selector Anatómico -->
+        <div>
+          <div class="step-viewport" id="stepViewport" style="position:relative;cursor:grab;touch-action:none;user-select:none;">
+            <!-- HUD Superior -->
+            <div class="step-hud" style="z-index:20;">
+              <span class="hud-chip accent" id="badgeStepName">Cara Vestibular</span>
+              <button type="button" class="hud-chip" id="btnTogglePins" style="cursor:pointer;background:rgba(12,127,212,0.25);border:1px solid #38BDF8;color:#FFFFFF;transition:all 0.2s;">
+                Puntos Anatómicos: Visibles
+              </button>
+            </div>
+
+            <!-- Canvas Lightfield Interactivo en tiempo real -->
+            <canvas id="lightfieldCanvas" width="400" height="400" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;touch-action:none;display:none;z-index:10;cursor:grab;"></canvas>
+
+            <!-- Imagen Activa del Paso (Fallback y precarga instantánea) -->
+            <img id="stepImage" src="../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg" alt="Ángulo anatómico del molar" style="position:relative;z-index:2;width:100%;height:100%;object-fit:contain;">
+
+            <!-- Pines / Hotspots Interactivos directamente sobre la pieza -->
+            <div class="hotspots-overlay" id="hotspotsContainer"></div>
+
+            <!-- HUD Inferior: Indicador Clínico -->
+            <div style="position:absolute;bottom:0.65rem;left:0.75rem;right:0.75rem;display:flex;justify-content:space-between;align-items:center;pointer-events:none;z-index:20;">
+              <span style="background:rgba(11,20,38,0.85);color:#94A3B8;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:600;border:1px solid rgba(255,255,255,0.1);">
+                Gira en 3D libremente · Toca cualquier punto anatómico
+              </span>
+              <span id="activeHotspotCountBadge" style="background:#0284C7;color:#FFFFFF;font-size:0.68rem;padding:3px 8px;border-radius:999px;font-weight:700;">
+                Cara Vestibular
+              </span>
+            </div>
+          </div>
+
+          <!-- Selector Rápido de Caras Anatómicas -->
+          <div class="face-selector-bar" id="faceSelectorBar">
+            <button type="button" class="btn-face-tab active" data-scenario-idx="0">Cara Vestibular</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="1">Transición Mesial</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="2">Cara Mesial</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="3">Cara Lingual</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="4">Transición Distal</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="5">Cara Distal</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="6">Tabla Oclusal</button>
+            <button type="button" class="btn-face-tab" data-scenario-idx="7">Raíz y Ápices</button>
+          </div>
+
+          <!-- Barra de Navegación por Caras -->
+          <div class="steps-stepper-bar" style="margin-top:0.75rem;">
+            <div class="step-indicator-wrapper active" data-step-target="0" title="Cara Vestibular">
+              <div class="step-indicator-node">1</div>
+              <span class="step-indicator-label">Vestibular</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="1" title="Transición Mesial">
+              <div class="step-indicator-node">2</div>
+              <span class="step-indicator-label">Vesto-Mesial</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="2" title="Cara Mesial">
+              <div class="step-indicator-node">3</div>
+              <span class="step-indicator-label">Mesial</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="3" title="Cara Lingual">
+              <div class="step-indicator-node">4</div>
+              <span class="step-indicator-label">Lingual</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="4" title="Transición Distal">
+              <div class="step-indicator-node">5</div>
+              <span class="step-indicator-label">Disto-Lingual</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="5" title="Cara Distal">
+              <div class="step-indicator-node">6</div>
+              <span class="step-indicator-label">Distal</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="6" title="Tabla Oclusal">
+              <div class="step-indicator-node">7</div>
+              <span class="step-indicator-label">Oclusal</span>
+            </div>
+            <div class="step-indicator-wrapper" data-step-target="7" title="Raíz y Ápices">
+              <div class="step-indicator-node">8</div>
+              <span class="step-indicator-label">Ápices</span>
+            </div>
+          </div>
+
+          <!-- Filmstrip de Vistas -->
+          <div class="filmstrip-row" id="filmstripContainer">
+            <div class="filmstrip-thumb active" data-thumb-idx="0" title="Cara Vestibular">
+              <img src="../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg" alt="Vestibular">
+              <span class="filmstrip-deg">Vestibular</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="1" title="Vesto-Mesial">
+              <img src="../assets/img/secuencia_360/paso_2_45deg_vestibular_mesial.jpg" alt="Vesto-Mesial">
+              <span class="filmstrip-deg">V-Mesial</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="2" title="Cara Mesial">
+              <img src="../assets/img/secuencia_360/paso_3_90deg_lateral_corte.jpg" alt="Mesial">
+              <span class="filmstrip-deg">Mesial</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="3" title="Cara Lingual">
+              <img src="../assets/img/secuencia_360/paso_4_135deg_lingual_mesial.jpg" alt="Lingual">
+              <span class="filmstrip-deg">Lingual</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="4" title="Disto-Lingual">
+              <img src="../assets/img/secuencia_360/paso_5_180deg_posterior_corte.jpg" alt="Disto-Lingual">
+              <span class="filmstrip-deg">D-Lingual</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="5" title="Cara Distal">
+              <img src="../assets/img/secuencia_360/paso_6_225deg_lingual_distal.jpg" alt="Distal">
+              <span class="filmstrip-deg">Distal</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="6" title="Tabla Oclusal">
+              <img src="../assets/img/secuencia_360/paso_7_270deg_lateral_externo.jpg" alt="Oclusal">
+              <span class="filmstrip-deg">Oclusal</span>
+            </div>
+            <div class="filmstrip-thumb" data-thumb-idx="7" title="Raíz y Ápices">
+              <img src="../assets/img/secuencia_360/paso_8_315deg_hemiseccion_3d.jpg" alt="Ápices">
+              <span class="filmstrip-deg">Ápices</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Ficha Clínica y Notas Anatómicas -->
+        <div class="sidebar-step-col">
+          
+          <!-- Botones de Navegación Simple -->
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">
+              Navegación Anatómica
+            </div>
+            <div class="btn-stepper-actions">
+              <button type="button" class="btn-step-act" id="btnPrevStep">
+                <span>Cara Anterior</span>
+              </button>
+              <button type="button" class="btn-step-act primary" id="btnNextStep">
+                <span>Cara Siguiente</span>
+              </button>
+              <button type="button" class="btn-step-act" id="btnPlaySequence">
+                <span>Giro Continuo</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Ficha Clínica de la Cara y del Punto Seleccionado -->
+          <div class="step-clinical-card" id="stepCard">
+            <span class="step-type-chip type-surface" id="stepTypeChip">Morfología Coronal</span>
+            <div class="step-card-title" id="stepTitle">
+              <span>Cara Vestibular y Cúspides</span>
+            </div>
+            <div class="step-card-desc" id="stepDesc">
+              Superficie orientada hacia el vestíbulo bucal. Destaca la convexidad de las cúspides vestibulares, el perfil cervical y la bifurcación radicular anatómica.
+            </div>
+            <div>
+              <div style="font-size:0.72rem; font-weight:700; color:#94A3B8; text-transform:uppercase; margin-bottom:0.35rem;">
+                Puntos Anatómicos en esta Cara (Toca para seleccionar):
+              </div>
+              <div class="step-structures-list" id="stepStructures"></div>
+            </div>
+            <div class="step-card-pearl" id="stepPearl">
+              <strong>Relevancia Clínica:</strong> Referencia fundamental en estética dental, contorno de restauraciones Clase V de Black y evaluación de biotipo gingival vestibular.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================================================================
+           MODO 2: ATLAS HISTOLÓGICO MAESTRO CON TODAS LAS PARTES SEÑALADAS
+           ================================================================ -->
+      <div class="atlas-content-grid" id="viewSectionHistology" style="display:none;">
+        
+        <!-- Columna Izquierda: Imagen Maestra con 11 Pines Registrados -->
+        <div>
+          <div class="viewport-histology-master" id="histologyViewport">
+            <!-- HUD Superior -->
+            <div class="step-hud">
+              <span class="hud-chip accent">Corte Histológico Ultra-Realista</span>
+              <span class="hud-chip" id="pinSelectedBadge">11 Estructuras Señaladas</span>
+            </div>
+
+            <!-- Imagen Maestra -->
+            <img src="../assets/img/anatomia-dental-histologia-master.jpg" alt="Corte histológico completo de diente, encía y hueso">
+
+            <!-- 11 Pines Registrados sobre el Corte -->
+            <div class="pins-container" id="pinsMasterContainer">
+              <button type="button" class="pin-label-node" style="left:35%; top:15%;" data-part-id="enamel" title="Esmalte Dental">1</button>
+              <button type="button" class="pin-label-node" style="left:38%; top:26%;" data-part-id="dentin" title="Dentina">2</button>
+              <button type="button" class="pin-label-node" style="left:53%; top:35%;" data-part-id="pulp_chamber" title="Cámara Pulpar">3</button>
+              <button type="button" class="pin-label-node" style="left:44%; top:48%;" data-part-id="root_canal" title="Conducto Radicular">4</button>
+              <button type="button" class="pin-label-node" style="left:26%; top:54%;" data-part-id="cementum" title="Cemento Radicular">5</button>
+              <button type="button" class="pin-label-node" style="left:72%; top:60%;" data-part-id="ligament" title="Ligamento Periodontal (Fibras de Sharpey)">6</button>
+              <button type="button" class="pin-label-node" style="left:79%; top:41%;" data-part-id="sulcus" title="Surco Gingival y Encía Libre">7</button>
+              <button type="button" class="pin-label-node" style="left:82%; top:33%;" data-part-id="attached_gingiva" title="Encía Adherida">8</button>
+              <button type="button" class="pin-label-node" style="left:78%; top:74%;" data-part-id="bone" title="Hueso Alveolar Trabecular">9</button>
+              <button type="button" class="pin-label-node" style="left:24%; top:82%;" data-part-id="apex" title="Foramen Apical">10</button>
+              <button type="button" class="pin-label-node danger" style="left:83%; top:87%;" data-part-id="neurovascular" title="Paquete Vasculonervioso Mandibular">11</button>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; font-size:0.78rem; color:#94A3B8;">
+            <span> Haz clic en cualquier número del corte para inspeccionar su microscopía.</span>
+            <button type="button" id="btnToggleRayosX" style="background:none; border:none; color:#38BDF8; font-size:0.78rem; cursor:pointer; font-weight:700;">
+              Filtro Radiográfico Rayos X
+            </button>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta Histológica Detallada -->
+        <div class="sidebar-step-col">
+          
+          <div style="font-size:0.75rem; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:0.05em;">
+            Inspección Histológica Detallada
+          </div>
+
+          <div class="step-clinical-card" id="partCard">
+            <div class="step-card-title" id="partTitle">
+              <span> Vista General del Órgano Dentario</span>
+            </div>
+            <div class="step-card-desc" id="partDesc">
+              El diente es una estructura especializada compuesta por tres tejidos duros calcificados (esmalte, dentina, cemento) que protegen un tejido blando sensitivo central (la pulpa dental), suspendido en el lecho alveolar mediante el ligamento periodontal.
+            </div>
+            <div class="step-card-pearl" id="partPearl">
+              <strong>Relevancia en Consulta:</strong> Haz clic en cualquiera de los 11 puntos anatómicos señalados sobre la imagen para revisar su composición histológica, células formadoras y relevancia clínica.
+            </div>
+          </div>
+
+          <!-- Selector Rápido de Partes -->
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.5rem;">
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="enamel">1. Esmalte</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="dentin">2. Dentina</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="pulp_chamber">3. Pulpa</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="root_canal">4. Conducto</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="cementum">5. Cemento</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="ligament">6. Ligamento</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="sulcus">7. Surco</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="attached_gingiva">8. Encía</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="bone">9. Hueso</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="apex">10. Ápice</button>
+            <button type="button" class="btn-step-act" style="font-size:0.75rem; padding:0.4rem 0.6rem;" data-snap-part="neurovascular">11. Nervio</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TABLA CLÍNICA COMPARATIVA DE LOS 8 ÁNGULOS DE ROTACIÓN -->
+    <section style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:2.25rem; margin-top:2.5rem; box-shadow:var(--shadow-sm);">
+      <h3 style="font-size:1.6rem; color:var(--color-navy); margin-bottom:0.75rem;">Atlas Clínico de las 8 Vistas Anatómicas del Molar</h3>
+      <p style="color:var(--color-slate-light); font-size:0.95rem; margin-bottom:1.5rem;">
+        Correlación entre la cara anatómica explorada, las estructuras clave señaladas y su impacto en operatoria, endodoncia y periodoncia.
+      </p>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+          <thead>
+            <tr style="background:#0B1426; color:#FFFFFF;">
+              <th style="padding:1rem; border-top-left-radius:var(--radius-md);">Vista</th>
+              <th style="padding:1rem;">Cara Dental</th>
+              <th style="padding:1rem;">Región Anatómica</th>
+              <th style="padding:1rem;">Estructuras Clave Señaladas</th>
+              <th style="padding:1rem; border-top-right-radius:var(--radius-md);">Aplicación Odontológica y Clínica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">1</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Cara Vestibular</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Corona y Raíces</span></td>
+              <td style="padding:0.9rem 1rem;">Cúspides vestibulares, surco de desarrollo y bifurcación radicular</td>
+              <td style="padding:0.9rem 1rem;">Restauraciones Clase V de Black, perfil de emergencia y diagnóstico de furca con sonda Nabers.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">2</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Transición Vesto-Mesial</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Ángulo Línea</span></td>
+              <td style="padding:0.9rem 1rem;">Cresta marginal mesial y área de contacto proximal</td>
+              <td style="padding:0.9rem 1rem;">Ajuste de cuñas y matrices en Clase II para devolver el punto de contacto y proteger la papila.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">3</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Cara Mesial</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Perfil Proximal</span></td>
+              <td style="padding:0.9rem 1rem;">Cúspide mesiolingual, surco radicular longitudinal y espacio interradicular</td>
+              <td style="padding:0.9rem 1rem;">Endodoncia: localización de conductos MV y ML comunicados por istmo; raspado en surco radicular.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">4</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Cara Lingual</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Cúspides Funcionales</span></td>
+              <td style="padding:0.9rem 1rem;">Cúspides linguales redondeadas y convexidad radicular lingual</td>
+              <td style="padding:0.9rem 1rem;">Periodoncia: detección de cálculo subgingival lingual y raspado con curetas Gracey 11/12.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">5</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Transición Disto-Lingual</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Ángulo Línea Distal</span></td>
+              <td style="padding:0.9rem 1rem;">Reborde marginal distal y cono radicular distal</td>
+              <td style="padding:0.9rem 1rem;">Oclusión funcional: prevención de interferencias oclusales en lateralidad y tallado protésico.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">6</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Cara Distal</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Perfil Posterior</span></td>
+              <td style="padding:0.9rem 1rem;">Área de contacto distal y línea cervical plana</td>
+              <td style="padding:0.9rem 1rem;">Evaluación de tronera distal y pilar posterior en prótesis fija y prótesis sobre implantes.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">7</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Tabla Oclusal</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Superficie Masticatoria</span></td>
+              <td style="padding:0.9rem 1rem;">Fosa central, surco principal mesiodistal y crestas triangulares</td>
+              <td style="padding:0.9rem 1rem;">Operatoria y estética: anatomía oclusal para incrustaciones inlay/onlay y sellantes de fosas.</td>
+            </tr>
+            <tr>
+              <td style="padding:0.9rem 1rem; font-weight:800; color:#0C7FD4;">8</td>
+              <td style="padding:0.9rem 1rem; font-weight:700; color:var(--color-navy);">Raíz y Ápices</td>
+              <td style="padding:0.9rem 1rem;"><span class="step-type-chip type-surface" style="font-size:0.65rem;">Zona Apical</span></td>
+              <td style="padding:0.9rem 1rem;">Foramen apical mesial y distal, constricción CDC y cemento apical</td>
+              <td style="padding:0.9rem 1rem;">Endodoncia y cirugía periapical: longitud de trabajo a 0.5 mm del foramen y sellado biológico.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TABLA COMPARATIVA HISTOLÓGICA DE TEJIDOS DENTALES -->
+    <section style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:2.25rem; margin-top:2rem; box-shadow:var(--shadow-sm);">
+      <h3 style="font-size:1.6rem; color:var(--color-navy); margin-bottom:0.75rem;">Atlas Comparativo de Tejidos Dentales y Periodontales</h3>
+      <p style="color:var(--color-slate-light); font-size:0.95rem; margin-bottom:1.5rem;">
+        Composición físico-química, células formadoras y aplicabilidad clínica directa en operatoria, endodoncia y periodoncia.
+      </p>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+          <thead>
+            <tr style="background:#0B1426; color:#FFFFFF;">
+              <th style="padding:1rem; border-top-left-radius:var(--radius-md);">Tejido</th>
+              <th style="padding:1rem;">Mineralización (% Peso)</th>
+              <th style="padding:1rem;">Célula Formadora</th>
+              <th style="padding:1rem;">Regeneración Biológica</th>
+              <th style="padding:1rem; border-top-right-radius:var(--radius-md);">Relevancia Clínica en Consulta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Esmalte Dental</td>
+              <td style="padding:1rem;"><strong>96% Inorgánico</strong> (Hidroxiapatita)<br><small>4% agua y proteínas (amelogeninas)</small></td>
+              <td style="padding:1rem;">Ameloblastos (se pierden en la erupción)</td>
+              <td style="padding:1rem;"><span style="color:#DC2626; font-weight:700;">Nula</span> (acelular). Solo remineralización iónica con Flúor.</td>
+              <td style="padding:1rem;">Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore).</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Dentina</td>
+              <td style="padding:1rem;"><strong>70% Inorgánico</strong><br><small>20% colágeno Tipo I, 10% agua</small></td>
+              <td style="padding:1rem;">Odontoblastos (en la periferia pulpar)</td>
+              <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Sí</span> (Dentina terciaria/reaccional frente a caries o fresado).</td>
+              <td style="padding:1rem;">Hipersensibilidad dentinaria por flujo en túbulos (Brännström). Adhesión mediante capa híbrida.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Pulpa Dental</td>
+              <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Tejido conectivo laxo altamente vascularizado)</td>
+              <td style="padding:1rem;">Fibroblastos, odontoblastos y células madre mesenquimales</td>
+              <td style="padding:1rem;"><span style="color:#CA8A04; font-weight:700;">Limitada</span> por estar enclaustrada en paredes rígidas inextensibles.</td>
+              <td style="padding:1rem;">Si el edema inflamatorio colapsa las vénulas apicales, sobreviene necrosis pulpar con flemón periapical.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle); background:#F8FAFC;">
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Cemento Radicular</td>
+              <td style="padding:1rem;"><strong>50% Inorgánico</strong><br><small>50% colágeno y agua</small></td>
+              <td style="padding:1rem;">Cementoblastos y cementocitos</td>
+              <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> a lo largo de toda la vida en el tercio apical.</td>
+              <td style="padding:1rem;">Ancla las fibras de Sharpey. El raspado radicular excesivo lo elimina, exponiendo dentina hipersensible.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border-subtle);">
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Ligamento Periodontal</td>
+              <td style="padding:1rem;"><strong>0% Inorgánico</strong> (Colágeno I y III, sustancia fundamental y células)</td>
+              <td style="padding:1rem;">Fibroblastos periodontales de alto recambio</td>
+              <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Alta</span> (células madre pluripotenciales del ligamento).</td>
+              <td style="padding:1rem;">Amortiguador viscoelástico de fuerzas oclusales y propiocepción mecanorreceptora (10 a 20 µm).</td>
+            </tr>
+            <tr>
+              <td style="padding:1rem; font-weight:700; color:var(--color-navy);">Hueso Alveolar</td>
+              <td style="padding:1rem;"><strong>65% Inorgánico</strong><br><small>35% matriz orgánica y células óseas</small></td>
+              <td style="padding:1rem;">Osteoblastos y osteocitos</td>
+              <td style="padding:1rem;"><span style="color:#16A34A; font-weight:700;">Continua</span> mediante remodelación acoplada a la carga (Leyes de Wolff).</td>
+              <td style="padding:1rem;">Se reabsorbe si no recibe estímulo masticatorio tras la extracción, requiriendo preservación alveolar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <a href="../index.html" class="brand-logo" style="margin-bottom:0.75rem;display:inline-flex;"><img src="../assets/img/logo-odontoscore.svg" alt="OdontoScore" height="34" style="filter: brightness(0) invert(1);"></a>
+        <p class="footer-desc">
+          Plataforma odontológica con tecnología interactiva y guías clínicas basadas en evidencia científica.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Academia Dental</h4>
+        <ul class="footer-links">
+          <li><a href="semiologia-pares-craneales-odontologia.html">Pares Craneales (Atlas)</a></li>
+          <li><a href="anatomia-dental-3d-por-capas.html">Anatomía e Histología Dental</a></li>
+          <li><a href="mejor-cepillo-electrico-encias-sensibles-2026.html">Guía Cepillos Eléctricos</a></li>
+          <li><a href="mejor-irrigador-dental-brackets-2026.html">Guía Irrigadores Dentales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Legal</h4>
+        <ul class="footer-links">
+          <li><a href="../aviso-afiliados.html">Aviso de Afiliados</a></li>
+          <li><a href="../privacidad.html">Política de Privacidad</a></li>
+          <li><a href="../sobre-nosotros.html">Sobre Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 OdontoScore. Todos los derechos reservados. Diseñado para profesionales y estudiantes de odontología.</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       MOTOR JAVASCRIPT: ROTACIÓN CONTINUA 360° + ATLAS HISTOLÓGICO
+       ==================================================================== -->
+  <script src="../lib/lightfield-data.js?v=20260904_v80"></script>
+  <script src="../lib/lightfield-viewer.js?v=20260904_v80"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // ── 1. CONMUTADOR DE PESTAÑAS PRINCIPALES ──
+    var tabSequence = document.getElementById("tabBtnSequence");
+    var tabHistology = document.getElementById("tabBtnHistology");
+    var secSequence = document.getElementById("viewSectionSequence");
+    var secHistology = document.getElementById("viewSectionHistology");
+
+    tabSequence.addEventListener("click", function () {
+      tabSequence.classList.add("active");
+      tabHistology.classList.remove("active");
+      secSequence.style.display = "grid";
+      secHistology.style.display = "none";
+    });
+
+    tabHistology.addEventListener("click", function () {
+      tabHistology.classList.add("active");
+      tabSequence.classList.remove("active");
+      secHistology.style.display = "grid";
+      secSequence.style.display = "none";
+    });
+
+    // ── 2. MODELO ANATÓMICO 3D Y PUNTOS DE REFERENCIA CALIBRADOS ──
+    var DENTAL_LANDMARKS_3D = [
+      {
+        id: "cusp_mv",
+        num: "1",
+        title: "Cúspide Mesiovestibular",
+        desc: "Cúspide cortante prominente en el ángulo vestíbulo-mesial de la corona. Presenta vertientes armadas bien delimitadas y vertiente lisa orientada al vestíbulo bucal.",
+        pearl: "Oclusión céntrica: Su vertiente distal contacta con la fosa central del primer molar superior. Crucial para restaurar la guía masticatoria funcional.",
+        x: -0.47, y: 0.82, z: 0.35
+      },
+      {
+        id: "cusp_dv",
+        num: "2",
+        title: "Cúspide Distovestibular",
+        desc: "Cúspide vestibular de relieve redondeado y altura ligeramente menor que la mesiovestibular, contigua a la tronera distovestibular.",
+        pearl: "Canaliza el bolo alimenticio durante la fase de escape masticatorio hacia distal. Su sobrecontorno genera interferencias en lateralidad.",
+        x: 0.47, y: 0.80, z: 0.35
+      },
+      {
+        id: "surco_v",
+        num: "3",
+        title: "Surco de Desarrollo Vestibular",
+        desc: "Depresión lineal vertical que separa ambas cúspides vestibulares y desciende hasta el tercio medio coronal.",
+        pearl: "Zona con alto acúmulo de biofilm y riesgo de caries de surco. Sitio diana para selladores preventivos y tallado de fisuras en resina compuesta.",
+        x: 0.00, y: 0.57, z: 0.48
+      },
+      {
+        id: "lac",
+        num: "4",
+        title: "Línea Amelocementaria (Cuello)",
+        desc: "Límite anatómico cervical festoneado que divide el esmalte de la corona anatómica del cemento de la superficie radicular.",
+        pearl: "Punto de referencia milimétrico para ubicar márgenes de preparación protésica y cuantificar la pérdida de inserción periodontal clínica.",
+        x: 0.00, y: 0.16, z: 0.42
+      },
+      {
+        id: "furca",
+        num: "5",
+        title: "Bifurcación Radicular (Furca)",
+        desc: "Zona de división anatómica del tronco común hacia las raíces divergentes mesial y distal.",
+        pearl: "Se evalúa con sonda de Nabers calibrada. Las lesiones de furca (Grado I a III de Hamp) deciden la necesidad de regeneración ósea o tunelización.",
+        x: 0.00, y: -0.15, z: 0.35
+      },
+      {
+        id: "apex_m",
+        num: "6",
+        title: "Ápice Radicular Mesial",
+        desc: "Vértice apical de la raíz mesial, habitualmente con doble conducto radicular (MV y ML) y curvatura anatómica distal.",
+        pearl: "La constricción apical anatómica se ubica a 0.5-1.0 mm del foramen radiográfico. Su conformación exige limas flexibles de níquel-titanio.",
+        x: -0.35, y: -0.99, z: 0.08
+      },
+      {
+        id: "apex_d",
+        num: "7",
+        title: "Ápice Radicular Distal",
+        desc: "Vértice cónico y más recto de la raíz posterior con foramen apical único o ramificaciones de delta apical.",
+        pearl: "Aloja habitualmente un conducto amplio y accesible de sección ovalada, ideal para la cementación de pernos radiculares si se requiere retención.",
+        x: 0.35, y: -0.99, z: -0.08
+      },
+      {
+        id: "cusp_ml",
+        num: "8",
+        title: "Cúspide Mesiolingual",
+        desc: "Cúspide de soporte y trituración de mayor volumen y altura en la superficie lingual del molar.",
+        pearl: "Recibe la mayor carga masticatoria vertical del arco. Su preservación es crucial al realizar accesos cavitarios endodónticos conservadores.",
+        x: -0.47, y: 0.82, z: -0.35
+      },
+      {
+        id: "cusp_dl",
+        num: "9",
+        title: "Cúspide Distolingual",
+        desc: "Cúspide lingual posterior funcional delimitada por el surco lingual de desarrollo.",
+        pearl: "Guía el bolo hacia el piso de la boca y la faringe, protegiendo los bordes linguales de laceraciones masticatorias involuntarias.",
+        x: 0.47, y: 0.80, z: -0.35
+      },
+      {
+        id: "surco_l",
+        num: "10",
+        title: "Surco Lingual de Desarrollo",
+        desc: "Depresión longitudinal sobre la superficie lingual que separa las cúspides mesiolingual y distolingual.",
+        pearl: "Frecuente zona de acúmulo de cálculo lingual subgingival proveniente de los conductos salivales de Wharton y Rivinus.",
+        x: 0.00, y: 0.57, z: -0.48
+      },
+      {
+        id: "fosa_cen",
+        num: "11",
+        title: "Fosa Central Oclusal",
+        desc: "Depresión más profunda de la tabla oclusal donde confluyen los surcos principales mesiodistal y vestibular.",
+        pearl: "Sitio del contacto céntrico fundamental contra la cúspide mesiopalatina del antagonista superior. Prioridad en encerado gnathológico.",
+        x: 0.00, y: 0.75, z: 0.00
+      },
+      {
+        id: "cont_m",
+        num: "12",
+        title: "Área de Contacto Mesial",
+        desc: "Zona de contacto interproximal con el segundo premolar adyacente, situada en el tercio oclusal hacia vestibular.",
+        pearl: "El uso de cuñas y matrices seccionales convexas evita el empaquetamiento alimenticio y el daño de la papila interproximal.",
+        x: -0.62, y: 0.45, z: 0.00
+      },
+      {
+        id: "cont_d",
+        num: "13",
+        title: "Área de Contacto Distal",
+        desc: "Punto de contacto proximal posterior más amplio y situado ligeramente más hacia apical.",
+        pearl: "Mantiene la estabilidad tridimensional de la arcada dental e impide la mesialización patológica de molares contiguos.",
+        x: 0.62, y: 0.42, z: 0.00
+      }
+    ];
+
+    var CLINICAL_SCENARIOS = [
+      {
+        id: "vestibular",
+        name: "Cara Vestibular",
+        thetaX: 0,
+        thetaY: 3,
+        type: "Morfología Coronal y Radicular",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_1_0deg_frontal_corte.jpg",
+        title: "Cara Vestibular: Morfología y Relieve",
+        desc: "Superficie orientada hacia el vestíbulo bucal. Presenta la convexidad de las dos cúspides vestibulares, el surco vertical de desarrollo, el límite amelocementario y la bifurcación de las raíces.",
+        clinical: "Referencia para restauraciones Clase V de Black, determinación del perfil de emergencia y valoración del biotipo periodontal vestibular.",
+        landmarkIds: ["cusp_mv", "cusp_dv", "surco_v", "lac", "furca", "apex_m"]
+      },
+      {
+        id: "vestomesial",
+        name: "Transición Vesto-Mesial",
+        thetaX: 1.0,
+        thetaY: 3,
+        type: "Ángulo Línea Proximal",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_2_45deg_vestibular_mesial.jpg",
+        title: "Transición Mesial y Cresta Marginal",
+        desc: "Perspectiva oblicua que muestra el ángulo línea mesiovestibular, el área de contacto proximal y la emergencia de la papila interdental.",
+        clinical: "El diseño de matrices y cuñas en Clase II debe respetar esta curvatura para devolver el punto de contacto anatómico sin sobrecontornos.",
+        landmarkIds: ["cusp_mv", "cont_m", "surco_v", "lac", "apex_m"]
+      },
+      {
+        id: "mesial",
+        name: "Cara Mesial",
+        thetaX: 1.8,
+        thetaY: 3,
+        type: "Perfil Proximal Puro",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_3_90deg_lateral_corte.jpg",
+        title: "Cara Mesial: Dimensión Vestíbulo-Lingual",
+        desc: "Proyección mesial directa. Muestra la amplia dimensión bucolingual del molar, la inclinación lingual de las cúspides y la depresión longitudinal del tronco radicular.",
+        clinical: "Esencial en endodoncia para comprender la curvatura radicular y el acceso a los dos conductos mesiales sin debilitar la furca.",
+        landmarkIds: ["cont_m", "cusp_mv", "cusp_ml", "lac", "apex_m"]
+      },
+      {
+        id: "lingual",
+        name: "Cara Lingual",
+        thetaX: 3.0,
+        thetaY: 3,
+        type: "Morfología Lingual",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_4_135deg_lingual_mesial.jpg",
+        title: "Cara Lingual: Cúspides Funcionales",
+        desc: "Superficie orientada hacia la lengua. Exhibe cúspides de contorno redondeado y un perfil axial liso continuo hacia la raíz.",
+        clinical: "Zona expuesta al flujo salival de las glándulas submandibulares, con predisposición a cálculo supra y subgingival lingual.",
+        landmarkIds: ["cusp_ml", "cusp_dl", "surco_l", "lac", "apex_d"]
+      },
+      {
+        id: "distolingual",
+        name: "Transición Disto-Lingual",
+        thetaX: 4.2,
+        thetaY: 3,
+        type: "Ángulo Línea Distal",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_5_180deg_posterior_corte.jpg",
+        title: "Transición Distal y Reborde Marginal",
+        desc: "Perspectiva posterior-oblicua orientada hacia la tronera distal. Revela la menor altura relativa del reborde distal y la morfología del cono radicular posterior.",
+        clinical: "En oclusión terapéutica, el reborde marginal distal previene contactos prematuros en movimientos de lateralidad y protrusión.",
+        landmarkIds: ["cusp_dl", "cont_d", "surco_l", "lac", "apex_d"]
+      },
+      {
+        id: "distal",
+        name: "Cara Distal",
+        thetaX: 4.8,
+        thetaY: 3,
+        type: "Perfil Posterior",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_6_225deg_lingual_distal.jpg",
+        title: "Cara Distal: Relieve y Espacio Retromolar",
+        desc: "Proyección distal pura del molar. Permite evaluar la relación con el diente distal adyacente o el reborde desdentado retromolar.",
+        clinical: "Superficie distal de difícil higiene; el uso de hilo dental o cepillos interproximales es mandatorio para prevenir caries radiculares.",
+        landmarkIds: ["cont_d", "cusp_dv", "cusp_dl", "lac", "apex_d"]
+      },
+      {
+        id: "oclusal",
+        name: "Tabla Oclusal",
+        thetaX: 0,
+        thetaY: 0,
+        type: "Superficie Masticatoria",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_7_270deg_lateral_externo.jpg",
+        title: "Tabla Oclusal: Cúspides, Fosas y Surcos",
+        desc: "Visión superior completa de la cara masticatoria. Expone el relieve de fosas principales, surco central mesiodistal y crestas triangulares.",
+        clinical: "Referencia para tallado cavitario, encerado oclusal funcional de Gnathología y ajuste de contactos céntricos y excéntricos.",
+        landmarkIds: ["fosa_cen", "cusp_mv", "cusp_dv", "cusp_ml", "cusp_dl"]
+      },
+      {
+        id: "apices",
+        name: "Raíz y Ápices",
+        thetaX: 0,
+        thetaY: 6,
+        type: "Zona Apical y Foramen",
+        typeClass: "type-surface",
+        file: "../assets/img/secuencia_360/paso_8_315deg_hemiseccion_3d.jpg",
+        title: "Zona Apical: Forámenes Radiculares",
+        desc: "Visión basal inferior dirigida a los ápices de las raíces mesial y distal.",
+        clinical: "En endodoncia, la determinación exacta de la constricción apical (límite CDC) evita la sobreinstrumentación hacia los tejidos periapicales.",
+        landmarkIds: ["apex_m", "apex_d", "furca", "lac"]
+      }
+    ];
+
+    // Pre-carga inmediata de todas las imágenes
+    var PRELOADED_CACHE = [];
+    CLINICAL_SCENARIOS.forEach(function (item) {
+      var preloadImg = new Image();
+      preloadImg.src = item.file;
+      PRELOADED_CACHE.push(preloadImg);
+    });
+
+    // Elementos del DOM
+    var stepImage = document.getElementById("stepImage");
+    var badgeStepName = document.getElementById("badgeStepName");
+    var btnTogglePins = document.getElementById("btnTogglePins");
+    var hotspotsContainer = document.getElementById("hotspotsContainer");
+    var stepTypeChip = document.getElementById("stepTypeChip");
+    var stepTitle = document.getElementById("stepTitle");
+    var stepDesc = document.getElementById("stepDesc");
+    var stepStructures = document.getElementById("stepStructures");
+    var stepPearl = document.getElementById("stepPearl");
+    var faceTabs = document.querySelectorAll(".btn-face-tab");
+
+    var btnPrevStep = document.getElementById("btnPrevStep");
+    var btnNextStep = document.getElementById("btnNextStep");
+    var btnPlaySequence = document.getElementById("btnPlaySequence");
+    var stepWrappers = document.querySelectorAll(".step-indicator-wrapper");
+    var filmstripThumbs = document.querySelectorAll(".filmstrip-thumb");
+
+    var currentScenario = 0;
+    var totalScenarios = CLINICAL_SCENARIOS.length;
+    var playTimer = null;
+    var activeHotspotId = null;
+    var pinsVisible = true;
+    var pinElements = {};
+
+    // ── PROYECCIÓN MATEMÁTICA 3D CALIBRADA ──
+    function projectLandmark(lm, thetaX, thetaY) {
+      // thetaX: 0..6 (azimut 0..360 deg)
+      var azimuth = (thetaX / 6.0) * 2 * Math.PI;
+      // thetaY: 0..6 (elevación: 3 es horizontal 0°, 0 es cenital +50°, 6 es basal -50°)
+      var elevation = ((3.0 - thetaY) / 3.0) * (Math.PI / 3.6);
+
+      var x = lm.x;
+      var y = lm.y;
+      var z = lm.z;
+
+      // 1. Rotación alrededor del eje vertical Y (Azimut)
+      var x1 = x * Math.cos(azimuth) + z * Math.sin(azimuth);
+      var z1 = -x * Math.sin(azimuth) + z * Math.cos(azimuth);
+      var y1 = y;
+
+      // 2. Inclinación alrededor del eje X (Elevación)
+      var y2 = y1 * Math.cos(elevation) - z1 * Math.sin(elevation);
+      var z2 = y1 * Math.sin(elevation) + z1 * Math.cos(elevation);
+      var x2 = x1;
+
+      // Porcentajes en lienzo 400x400
+      var centerX = 50.0;
+      var centerY = 48.0;
+      var scaleX = 20.0;
+      var scaleY = 38.0;
+
+      var screenX = centerX + x2 * scaleX;
+      var screenY = centerY - y2 * scaleY;
+
+      var isFront = z2 > -0.08;
+      var opacity = Math.max(0, Math.min(1, (z2 + 0.08) / 0.18));
+
+      return {
+        x: screenX,
+        y: screenY,
+        z: z2,
+        isFront: isFront,
+        opacity: opacity
+      };
+    }
+
+    // Inicialización de pines en el DOM una sola vez
+    function initLandmarkPins() {
+      if (!hotspotsContainer) return;
+      hotspotsContainer.innerHTML = "";
+      pinElements = {};
+
+      DENTAL_LANDMARKS_3D.forEach(function (lm) {
+        var pin = document.createElement("button");
+        pin.type = "button";
+        pin.className = "hotspot-pin";
+        pin.setAttribute("data-landmark-id", lm.id);
+        pin.setAttribute("aria-label", lm.title);
+        pin.textContent = lm.num;
+
+        var tooltip = document.createElement("span");
+        tooltip.className = "hotspot-tooltip";
+        tooltip.textContent = lm.title;
+        pin.appendChild(tooltip);
+
+        pin.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (lfViewer && lfViewer.pointerState && lfViewer.pointerState.moved) return;
+          selectLandmark(lm);
+        });
+
+        hotspotsContainer.appendChild(pin);
+        pinElements[lm.id] = pin;
+      });
+    }
+
+    // Actualización dinámica fluida de los pines en tiempo real
+    function updateLandmarks3D(thetaX, thetaY) {
+      if (!hotspotsContainer) return;
+
+      DENTAL_LANDMARKS_3D.forEach(function (lm) {
+        var pin = pinElements[lm.id];
+        if (!pin) return;
+
+        if (!pinsVisible) {
+          if (activeHotspotId === lm.id) {
+            // Mostrar sólo el pin enfocado
+            var projFocus = projectLandmark(lm, thetaX, thetaY);
+            if (projFocus.isFront) {
+              pin.style.display = "flex";
+              pin.style.left = projFocus.x.toFixed(2) + "%";
+              pin.style.top = projFocus.y.toFixed(2) + "%";
+              pin.style.opacity = "1";
+              pin.style.pointerEvents = "auto";
+              return;
+            }
+          }
+          pin.style.display = "none";
+          pin.style.pointerEvents = "none";
+          return;
+        }
+
+        var proj = projectLandmark(lm, thetaX, thetaY);
+
+        if (proj.isFront && proj.opacity > 0.05) {
+          pin.style.display = "flex";
+          pin.style.left = proj.x.toFixed(2) + "%";
+          pin.style.top = proj.y.toFixed(2) + "%";
+          pin.style.opacity = proj.opacity.toFixed(2);
+          pin.style.pointerEvents = proj.opacity > 0.35 ? "auto" : "none";
+        } else {
+          pin.style.display = "none";
+          pin.style.pointerEvents = "none";
+        }
+      });
+    }
+
+    function selectLandmark(lm) {
+      activeHotspotId = lm.id;
+
+      // Actualizar estado en pines
+      Object.keys(pinElements).forEach(function (id) {
+        var pin = pinElements[id];
+        if (id === lm.id) {
+          pin.classList.add("active");
+          pin.style.display = "flex";
+          pin.style.opacity = "1";
+          pin.style.zIndex = "40";
+        } else {
+          pin.classList.remove("active");
+          pin.style.zIndex = "25";
+          if (!pinsVisible) {
+            pin.style.display = "none";
+          }
+        }
+      });
+
+      // Actualizar estado en tags de la lista lateral
+      if (stepStructures) {
+        var tags = stepStructures.querySelectorAll(".structure-tag");
+        tags.forEach(function (t) {
+          if (t.getAttribute("data-landmark-id") === lm.id) {
+            t.style.background = "#0284C7";
+            t.style.borderColor = "#38BDF8";
+            t.style.color = "#FFFFFF";
+          } else {
+            t.style.background = "rgba(255,255,255,0.08)";
+            t.style.borderColor = "rgba(255,255,255,0.1)";
+            t.style.color = "#E2E8F0";
+          }
+        });
+      }
+
+      // Actualizar tarjeta clínica
+      stepTitle.textContent = lm.num + ". " + lm.title;
+      stepDesc.textContent = lm.desc;
+      stepPearl.innerHTML = "<strong>Relevancia Clínica:</strong> " + lm.pearl;
+
+      var activeBadge = document.getElementById("activeHotspotCountBadge");
+      if (activeBadge) activeBadge.textContent = lm.title;
+    }
+
+    function renderScenario(idx, animate) {
+      currentScenario = (idx + totalScenarios) % totalScenarios;
+      var data = CLINICAL_SCENARIOS[currentScenario];
+      activeHotspotId = null;
+
+      var activeBadge = document.getElementById("activeHotspotCountBadge");
+      if (activeBadge) activeBadge.textContent = data.name;
+
+      // Actualizar imagen estática de respaldo
+      if (stepImage) stepImage.src = data.file;
+
+      // Actualizar badges
+      badgeStepName.textContent = data.name;
+
+      // Orientar el visor 3D suavemente
+      if (lfViewer) {
+        if (lfViewer.isReady) {
+          lfCanvas.style.display = "block";
+          if (stepImage) stepImage.style.display = "none";
+        }
+        if (animate !== false && lfViewer.animateToAngles) {
+          lfViewer.animateToAngles(data.thetaX, data.thetaY, 350);
+        } else {
+          lfViewer.setAngles(data.thetaX, data.thetaY);
+        }
+      }
+
+      // Actualizar selector rápido de caras
+      faceTabs.forEach(function (tab, i) {
+        if (i === currentScenario) {
+          tab.classList.add("active");
+        } else {
+          tab.classList.remove("active");
+        }
+      });
+
+      // Actualizar tarjeta lateral
+      stepTypeChip.className = "step-type-chip " + data.typeClass;
+      stepTypeChip.textContent = data.type;
+      stepTitle.textContent = data.title;
+      stepDesc.textContent = data.desc;
+      stepPearl.innerHTML = "<strong>Relevancia Clínica:</strong> " + data.clinical;
+
+      // Construir lista de estructuras anatómicas para esta cara
+      stepStructures.innerHTML = "";
+      var primaryLms = DENTAL_LANDMARKS_3D.filter(function (lm) {
+        return data.landmarkIds.indexOf(lm.id) !== -1;
+      });
+
+      primaryLms.forEach(function (lm) {
+        var span = document.createElement("button");
+        span.type = "button";
+        span.className = "structure-tag";
+        span.style.cursor = "pointer";
+        span.style.textAlign = "left";
+        span.setAttribute("data-landmark-id", lm.id);
+        span.textContent = lm.num + ". " + lm.title;
+        span.addEventListener("click", function () {
+          selectLandmark(lm);
+        });
+        stepStructures.appendChild(span);
+      });
+
+      // Actualizar stepper
+      stepWrappers.forEach(function (wrap, i) {
+        if (i === currentScenario) {
+          wrap.classList.add("active");
+        } else {
+          wrap.classList.remove("active");
+        }
+      });
+
+      // Actualizar filmstrip
+      filmstripThumbs.forEach(function (thumb, i) {
+        if (i === currentScenario) {
+          thumb.classList.add("active");
+        } else {
+          thumb.classList.remove("active");
+        }
+      });
+
+      // Actualizar posiciones de puntos 3D si el visor no está listo
+      if (!lfViewer || !lfViewer.isReady) {
+        updateLandmarks3D(data.thetaX, data.thetaY);
+      }
+    }
+
+    // Callback en tiempo real cuando el usuario gira el modelo
+    function onViewerAngleChange(angles) {
+      // 1. Mover los pines en tiempo real sincronizados con la rotación
+      updateLandmarks3D(angles.thetaX, angles.thetaY);
+
+      // 2. Determinar la cara más cercana para sincronizar indicadores
+      var closestIdx = 0;
+      var minDiff = 999;
+      CLINICAL_SCENARIOS.forEach(function (scen, i) {
+        var dx = Math.abs(scen.thetaX - angles.thetaX);
+        if (dx > 3) dx = 6 - dx;
+        var dy = Math.abs(scen.thetaY - angles.thetaY);
+        var dist = dx * 1.4 + dy * 1.0;
+        if (dist < minDiff) {
+          minDiff = dist;
+          closestIdx = i;
+        }
+      });
+
+      if (closestIdx !== currentScenario && minDiff < 0.9) {
+        currentScenario = closestIdx;
+        badgeStepName.textContent = CLINICAL_SCENARIOS[currentScenario].name;
+        faceTabs.forEach(function (tab, i) {
+          if (i === currentScenario) tab.classList.add("active");
+          else tab.classList.remove("active");
+        });
+        stepWrappers.forEach(function (wrap, i) {
+          if (i === currentScenario) wrap.classList.add("active");
+          else wrap.classList.remove("active");
+        });
+        filmstripThumbs.forEach(function (thumb, i) {
+          if (i === currentScenario) thumb.classList.add("active");
+          else thumb.classList.remove("active");
+        });
+      }
+    }
+
+    // Inicializar pines en el contenedor
+    initLandmarkPins();
+
+    // ── INTEGRACIÓN DEL EXPLORADOR DENTAL 3D ──
+    var lfCanvas = document.getElementById("lightfieldCanvas");
+    var lfViewer = null;
+
+    if (typeof LightfieldViewer !== "undefined" && lfCanvas) {
+      try {
+        lfViewer = new LightfieldViewer({
+          canvas: lfCanvas,
+          eventTarget: document.getElementById("stepViewport"),
+          imageSrc: "../assets/img/lightfield_diente_encoded.png",
+          initialX: 0,
+          initialY: 3,
+          onReady: function () {
+            lfCanvas.style.display = "block";
+            if (stepImage) stepImage.style.display = "none";
+            updateLandmarks3D(0, 3);
+          },
+          onAngleChange: function (angles) {
+            onViewerAngleChange(angles);
+          }
+        });
+      } catch (err) {
+        console.warn("Explorador fallback a imágenes estáticas:", err);
+      }
+    }
+
+    // Botón de alternar visibilidad de puntos
+    if (btnTogglePins) {
+      btnTogglePins.addEventListener("click", function () {
+        pinsVisible = !pinsVisible;
+        if (pinsVisible) {
+          btnTogglePins.textContent = "Puntos Anatómicos: Visibles";
+          btnTogglePins.style.borderColor = "#38BDF8";
+          btnTogglePins.style.color = "#FFFFFF";
+          btnTogglePins.style.background = "rgba(12,127,212,0.3)";
+        } else {
+          btnTogglePins.textContent = "Puntos: Ocultos (Vista Limpia)";
+          btnTogglePins.style.borderColor = "rgba(255,255,255,0.2)";
+          btnTogglePins.style.color = "#94A3B8";
+          btnTogglePins.style.background = "rgba(11,20,38,0.85)";
+        }
+        var curX = lfViewer ? lfViewer.thetaX : 0;
+        var curY = lfViewer ? lfViewer.thetaY : 3;
+        updateLandmarks3D(curX, curY);
+      });
+    }
+
+    // Clic en el selector de caras
+    faceTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        stopAutoPlay();
+        var target = parseInt(this.getAttribute("data-scenario-idx"), 10);
+        renderScenario(target, true);
+      });
+    });
+
+    // Botones de avance / retroceso
+    btnPrevStep.addEventListener("click", function () {
+      stopAutoPlay();
+      renderScenario(currentScenario - 1, true);
+    });
+
+    btnNextStep.addEventListener("click", function () {
+      stopAutoPlay();
+      renderScenario(currentScenario + 1, true);
+    });
+
+    // Clic en los nodos del stepper
+    stepWrappers.forEach(function (wrap) {
+      wrap.addEventListener("click", function () {
+        stopAutoPlay();
+        var target = parseInt(this.getAttribute("data-step-target"), 10);
+        renderScenario(target, true);
+      });
+    });
+
+    // Clic en las miniaturas del filmstrip
+    filmstripThumbs.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        stopAutoPlay();
+        var target = parseInt(this.getAttribute("data-thumb-idx"), 10);
+        renderScenario(target, true);
+      });
+    });
+
+    // Rotación suave continua en 3D
+    function startAutoPlay() {
+      if (lfViewer && lfViewer.isReady) {
+        lfViewer.startOrbit(0.016);
+      } else {
+        playTimer = setInterval(function () {
+          renderScenario(currentScenario + 1, true);
+        }, 2500);
+      }
+      btnPlaySequence.classList.add("primary");
+      btnPlaySequence.innerHTML = "<span>Pausar Giro</span>";
+    }
+
+    function stopAutoPlay() {
+      if (lfViewer && lfViewer.isPlaying) {
+        lfViewer.stopOrbit();
+      }
+      if (playTimer) {
+        clearInterval(playTimer);
+        playTimer = null;
+      }
+      btnPlaySequence.classList.remove("primary");
+      btnPlaySequence.innerHTML = "<span>Giro Continuo</span>";
+    }
+
+    btnPlaySequence.addEventListener("click", function () {
+      var isRunning = (lfViewer && lfViewer.isPlaying) || playTimer !== null;
+      if (isRunning) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    });
+
+    // ── 3. MOTOR DEL ATLAS HISTOLÓGICO MAESTRO CON PINES ──
+    var partTitle = document.getElementById("partTitle");
+    var partDesc = document.getElementById("partDesc");
+    var partPearl = document.getElementById("partPearl");
+    var btnToggleRayosX = document.getElementById("btnToggleRayosX");
+    var histologyViewport = document.getElementById("histologyViewport");
+    var pinNodes = document.querySelectorAll(".pin-label-node");
+
+    var HISTOLOGY_PARTS = {
+      "enamel": {
+        title: "1. Esmalte Dental (Enamel)",
+        desc: "96% mineral hidroxiapatita cálcica pura, 4% agua y matriz orgánica. Formado por millones de prismas orientados perpendicularmente a la unión amelodentinaria (UAD). Es acelular y no regenerable.",
+        pearl: "Sustrato de adhesión para grabado ácido con H₃PO₄ al 37% (patrón microporoso de Buonocore). A pH salival menor de 5.5 se desmineraliza provocando caries incipiente."
+      },
+      "dentin": {
+        title: "2. Dentina (Dentin)",
+        desc: "70% hidroxiapatita, 20% colágeno tipo I, 10% agua. Tejido vivo elástico atravesado por 30.000 a 50.000 túbulos dentinarios por mm² que albergan líquido y prolongaciones de odontoblastos.",
+        pearl: "Teoría Hidrodinámica de Brännström: Los cambios térmicos mueven el líquido dentro de los túbulos, activando mecano-receptores pulpares y causando la típica hipersensibilidad al frío."
+      },
+      "pulp_chamber": {
+        title: "3. Cámara Pulpar Coronaria",
+        desc: "Cavidad anatómica central en la corona que contiene tejido conectivo laxo, abundantes capilares y nervios. Proyecta cuernos pulpares hacia cada cúspide oclusal.",
+        pearl: "En pacientes jóvenes los cuernos pulpares son muy prominentes; una preparación cavitaria descuidada puede causar exposición pulpar y requerir recubrimiento directo o pulpotomía."
+      },
+      "root_canal": {
+        title: "4. Conducto Radicular (Root Canal)",
+        desc: "Canal endodóntico longitudinal que recorre la raíz transportando el paquete vasculonervioso desde el piso cameral hasta el foramen apical.",
+        pearl: "La instrumentación rotatoria con limas de níquel-titanio (NiTi) y la irrigación con hipoclorito de sodio al 5.25% logran desinfectar el conducto antes de la obturación con gutapercha."
+      },
+      "cementum": {
+        title: "5. Cemento Radicular (Cementum)",
+        desc: "Tejido conectivo mineralizado avascular (50% hidroxiapatita) que sella y protege la dentina de toda la superficie radicular anatómica.",
+        pearl: "Ancla los haces colágenos del ligamento periodontal. El raspado y alisado radicular excesivo lo desgasta, exponiendo dentina hipersensible al cuello dental."
+      },
+      "ligament": {
+        title: "6. Ligamento Periodontal (Fibras de Sharpey)",
+        desc: "Estructura viscoelástica de 0.2 mm compuesta por haces de colágeno I y III que suspenden el diente dentro del alvéolo, disipando cargas de hasta 80 kg/cm².",
+        pearl: "Propiocepción Mecanorreceptora: Detecta partículas de hasta 15 micras entre las cúspides, disparando el reflejo de apertura protector para evitar fracturas dentales."
+      },
+      "sulcus": {
+        title: "7. Surco Gingival y Encía Libre",
+        desc: "Espacio virtual fisiológico de 1 a 3 mm entre la superficie dental y la encía libre marginal festoneada.",
+        pearl: "Profundidad al sondaje > 3 mm con sangrado al tacto suave (0.25 N) indica pérdida de inserción conectiva y presencia de una bolsa periodontal patológica."
+      },
+      "attached_gingiva": {
+        title: "8. Encía Adherida (Puntillado Clínico)",
+        desc: "Banda de mucosa queratinizada firmemente unida al periostio óseo. Muestra pequeñas depresiones que recuerdan a la piel de una naranja.",
+        pearl: "Indispensable para sellar el periodonto y evitar que la tracción de los frenillos o el roce de los alimentos cause retracción de la encía y exposición radicular."
+      },
+      "bone": {
+        title: "9. Hueso Alveolar Trabecular y Lámina Dura",
+        desc: "Apófisis ósea que rodea y aloja el alvéolo dentario. Presenta hueso esponjoso con espacios medulares hematopoyéticos y una delgada lámina cribosa (lámina dura).",
+        pearl: "Es un tejido diente-dependiente: tras una exodoncia sin preservación alveolar, el reborde óseo pierde entre el 40% y el 60% de su anchura en los primeros 6 meses."
+      },
+      "apex": {
+        title: "10. Foramen Apical y Límite CDC",
+        desc: "Apertura apical en la punta de la raíz por donde penetran las arteriolas y filetes nerviosos al interior del diente.",
+        pearl: "La constricción apical anatómica (unión cemento-dentina-conducto o CDC) es el punto milimétrico exacto donde debe detenerse la conformación y obturación endodóntica."
+      },
+      "neurovascular": {
+        title: "11. Paquete Vasculonervioso Mandibular",
+        desc: "Arteria, vena y nervio alveolar inferior (rama sensitiva de V3 mandibular) discurriendo por el conducto dentario inferior.",
+        pearl: "En cirugía de terceros molares incluidos o colocación de implantes, debe dejarse un margen de seguridad de al menos 2 mm para evitar daño o parestesia permanente del labio inferior."
+      }
+    };
+
+    function highlightPart(partId) {
+      if (!partId || !HISTOLOGY_PARTS[partId]) return;
+      var data = HISTOLOGY_PARTS[partId];
+
+      pinNodes.forEach(function (p) {
+        if (p.getAttribute("data-part-id") === partId) {
+          p.classList.add("active");
+        } else {
+          p.classList.remove("active");
+        }
+      });
+
+      partTitle.innerHTML = "<span>" + data.title + "</span>";
+      partDesc.textContent = data.desc;
+      partPearl.innerHTML = "<strong>Correlación Clínica:</strong> " + data.pearl;
+    }
+
+    pinNodes.forEach(function (pin) {
+      pin.addEventListener("click", function () {
+        highlightPart(this.getAttribute("data-part-id"));
+      });
+    });
+
+    document.querySelectorAll("[data-snap-part]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        highlightPart(this.getAttribute("data-snap-part"));
+      });
+    });
+
+    btnToggleRayosX.addEventListener("click", function () {
+      histologyViewport.classList.toggle("xray-mode");
+      if (histologyViewport.classList.contains("xray-mode")) {
+        btnToggleRayosX.textContent = "Modo Histológico Realista";
+      } else {
+        btnToggleRayosX.textContent = "Filtro Radiográfico Rayos X";
+      }
+    });
+
+    // Iniciar con el Ángulo 0°
+    var mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    var mainNav = document.getElementById("mainNav");
+    var siteHeader = document.getElementById("siteHeader");
+    if (mobileMenuBtn && mainNav) {
+      mobileMenuBtn.addEventListener("click", function() {
+        mobileMenuBtn.classList.toggle("open");
+        mainNav.classList.toggle("open");
+        if (siteHeader) siteHeader.classList.toggle("menu-open");
+        document.body.style.overflow = mainNav.classList.contains("open") ? "hidden" : "";
+      });
+      var dropdownItems = mainNav.querySelectorAll(".nav-item-dropdown");
+      dropdownItems.forEach(function (item) {
+        var trigger = item.querySelector(".nav-link-dropdown");
+        if (trigger) {
+          trigger.addEventListener("click", function (e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              item.classList.toggle("open");
+            }
+          });
+        }
+      });
+      mainNav.querySelectorAll("a:not(.nav-link-dropdown)").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileMenuBtn.classList.remove("open");
+          mainNav.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    }
+    renderScenario(0);
+
+  });
+  </script>
+
+
+</body>
+</html>

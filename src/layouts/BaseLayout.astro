@@ -1,0 +1,109 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: string;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = 'https://odontoscore.com/assets/img/logo-odontoscore.svg',
+  ogType = 'website',
+  jsonLd
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:site_name" content="OdontoScore" />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Global Clinical CSS -->
+  <link rel="stylesheet" href="/styles.css?v=20260904_astro" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-odontoscore.svg" />
+
+  <!-- Master Schema: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OdontoScore",
+    "url": "https://odontoscore.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://odontoscore.com/#catalogo?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Master Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OdontoScore",
+    "url": "https://odontoscore.com",
+    "logo": "https://odontoscore.com/assets/img/logo-odontoscore.svg",
+    "description": "Portal odontológico independiente de análisis técnico, catálogo clínico y comparativas en 7 ejes."
+  }
+  </script>
+
+  <!-- Page Specific JSON-LD -->
+  {jsonLd && (
+    Array.isArray(jsonLd) ? (
+      jsonLd.map(item => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    ) : (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )
+  )}
+</head>
+<body>
+  <Header currentPath={Astro.url.pathname} />
+
+  <main id="mainContent">
+    <slot />
+  </main>
+
+  <Footer />
+
+  <!-- Sincronización en cliente para divisas e interactividad general -->
+  <script src="/main.js" defer></script>
+</body>
+</html>

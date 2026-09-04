@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import productsData from '../../datos/productos.json';
+
+const pageTitle = "Ofertas y Descuentos en Instrumental Odontológico | OdontoScore";
+const pageDesc = "Oportunidades, descuentos y bajadas de precio en cepillos eléctricos, tipodontos e irrigadores dentales verificados.";
+const canonicalUrl = "https://odontoscore.com/ofertas.html";
+
+// Filter products with discounts or special pricing
+const offerProducts = productsData.filter((p: any) => 
+  p.original_price_eur && p.price_eur && p.original_price_eur > p.price_eur
+);
+const displayProducts = offerProducts.length > 0 ? offerProducts : productsData.slice(0, 16);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <div class="site-container section-block" style="margin-top:2rem;margin-bottom:4rem;">
+    <div class="section-header" style="text-align:left;max-width:100%;">
+      <div class="hero-badge">Radar de Descuentos</div>
+      <h1 style="font-size:2.2rem;margin-bottom:0.75rem;">Ofertas y Oportunidades en Odontología</h1>
+      <p style="color:#64748B;font-size:1.05rem;">Monitoreamos fluctuaciones de precios en tiempo real para equipamiento clínico y de estudiantes.</p>
+    </div>
+
+    <div class="catalog-grid" style="margin-top:2rem;">
+      {displayProducts.map((prod: any) => {
+        const discountPct = prod.original_price_eur && prod.price_eur
+          ? Math.round(((prod.original_price_eur - prod.price_eur) / prod.original_price_eur) * 100)
+          : null;
+
+        return (
+          <article class="product-card">
+            {discountPct && <span class="badge-discount">-{discountPct}%</span>}
+            <a href={`/producto/${prod.id}.html`} class="product-card-img-link">
+              <img
+                src={prod.images?.[0] || prod.image || '/assets/img/logo-odontoscore.svg'}
+                alt={prod.title}
+                class="product-card-img"
+                loading="lazy"
+              />
+            </a>
+            <div class="product-card-content">
+              <span class="product-card-brand">{prod.brand || 'Clínico'}</span>
+              <h3 class="product-card-title">
+                <a href={`/producto/${prod.id}.html`}>{prod.title}</a>
+              </h3>
+              <div class="product-card-footer">
+                <span class="product-card-price" data-eur={prod.price_eur || 0}>
+                  {prod.price_eur ? `${prod.price_eur.toFixed(2)} €` : 'Consultar'}
+                </span>
+                <a href={`/producto/${prod.id}.html`} class="btn-card-action">Ver oferta →</a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>

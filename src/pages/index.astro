@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import productsData from '../../datos/productos.json';
+
+const pageTitle = "OdontoScore | Portal Odontológico Independiente, Análisis Clínico y Catálogo 2026";
+const pageDesc = "Dispositivos de higiene bucodental, equipamiento preclínico para estudiantes universitarios e instrumental médico evaluados bajo criterios objetivos de rendimiento y precio.";
+const canonicalUrl = "https://odontoscore.com/";
+
+function formatPrice(amountEur: number): string {
+  return `${amountEur.toFixed(2)} €`;
+}
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Panel Odontológico Independiente 2026</div>
+        <h1 class="hero-title">Análisis Técnico y Catálogo Odontológico <span>Profesional</span></h1>
+        <p class="hero-subtitle">Dispositivos de higiene bucodental, equipamiento preclínico para estudiantes universitarios e instrumental médico evaluados bajo criterios objetivos de rendimiento y precio.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn-primary">Ver Catálogo Completo</a>
+          <a href="/calculadora-dosis-pediatrica/" class="btn-secondary" style="border-color:#0284C7;color:#0284C7;font-weight:700;">Calculadora Pediátrica</a>
+          <a href="/comparador.html" class="btn-secondary">Comparador 7 Ejes</a>
+        </div>
+        <div class="hero-trust-bullets">
+          <span>✓ Enlaces y fotos reales verificadas</span>
+          <span>✓ Radar de rendimiento en 7 ejes</span>
+          <span>✓ Vídeos oficiales de fabricantes</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/assets/img/hero-dental.svg" alt="OdontoScore Portal Odontológico" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Academia & Herramientas Clínicas -->
+  <section class="section-block" id="academia" style="background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;padding:3rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-badge">Herramientas & Academia</div>
+        <h2 class="section-title">Simuladores 3D y Tutores Clínicos</h2>
+        <p class="section-desc">Modelos computacionales y calculadoras visuales para formación clínica avanzada.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1.5rem;margin-top:2rem;">
+        <!-- Calculadora Visual -->
+        <article style="background:#F0F9FF;border:2px solid #0284C7;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <span style="background:#0284C7;color:#fff;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">NUEVO · TUTOR VISUAL</span>
+            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;color:#0369A1;">Calculadora de Dosis Pediátrica</h3>
+            <p style="font-size:0.88rem;color:#475569;line-height:1.5;">Tutor con señalización animada paso a paso, regla de tres, reloj de 24 horas y semáforo del límite de 60 mg/kg/día.</p>
+          </div>
+          <a href="/calculadora-dosis-pediatrica/" style="margin-top:1.25rem;font-weight:700;color:#0284C7;">Abrir Calculadora Interactiva →</a>
+        </article>
+
+        <!-- Atlas Anatómico 360° -->
+        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">3D INTERACTIVO</span>
+            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Atlas Anatómico Dental 360°</h3>
+            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Visor de matriz lightfield con corte por capas histológicas y puntos de interés anatómico.</p>
+          </div>
+          <a href="/guias/anatomia-dental-3d-por-capas.html" style="margin-top:1.25rem;font-weight:700;">Explorar Atlas 360° →</a>
+        </article>
+
+        <!-- Biofilm & Endodoncia 3D -->
+        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">SIMULACIÓN CINEMÁTICA</span>
+            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Biofilm y Endodoncia 3D</h3>
+            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Cámara microscópica interactiva que recrea las 5 fases bacterianas y la irrigación del conducto radicular.</p>
+          </div>
+          <a href="/guias/biofilm-microbiologia-endodoncia-3d.html" style="margin-top:1.25rem;font-weight:700;">Ver Simulación 3D →</a>
+        </article>
+
+        <!-- Farmacología & Dolor Trigeminal -->
+        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">GUÍA CLÍNICA</span>
+            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Vía del Dolor Trigeminal</h3>
+            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Mapeo nociceptivo del V par, cascada de mediadores inflamatorios y farmacometría pediátrica.</p>
+          </div>
+          <a href="/guias/farmacologia-dolor-trigeminal-inflamacion-pediatrica.html" style="margin-top:1.25rem;font-weight:700;">Leer Guía Completa →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog Section -->
+  <section id="catalogo" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-badge">Catálogo Clínico y Académico</div>
+        <h2 class="section-title">Dispositivos y Material Odontológico</h2>
+        <p class="section-desc">Filtra por especialidad, busca por palabra clave o consulta el análisis técnico detallado con comparativa multi-tienda.</p>
+      </div>
+
+      <div class="product-grid" id="mainProductGrid">
+        {productsData.map((p: any) => {
+          const currentPrice = p.discountedPrice || p.price_eur || p.retailPrice || 0;
+          const retailPrice = p.retailPrice || p.original_price_eur || 0;
+          const hasDiscount = retailPrice > currentPrice && currentPrice > 0;
+          const discountPct = hasDiscount ? Math.round(((retailPrice - currentPrice) / retailPrice) * 100) : 0;
+          const mainImg = p.images?.[0] || p.image || '/assets/img/logo-odontoscore.svg';
+          const affiliateUrl = p.affiliate_url || `https://www.amazon.es/dp/${p.asin || ''}?tag=odontoscore-21`;
+
+          return (
+            <article
+              class="product-card"
+              data-producto-id={p.id}
+              data-asin={p.asin}
+              data-category={p.categoria_odontologica || ''}
+              data-brand={(p.marca || '').toLowerCase()}
+              data-title={(p.name || '').toLowerCase()}
+              data-price={currentPrice}
+              data-score={p.score_eficacia || 9}
+            >
+              {(p.is_featured || p.isFeatured) && <span class="card-badge-top">Top Clínico</span>}
+              {discountPct > 0 && <span class="price-discount-pill">-{discountPct}%</span>}
+
+              <div class="card-media-wrapper">
+                <div class="card-media">
+                  <a href={`/producto/${p.id}.html`}>
+                    <img class="card-main-photo" src={mainImg} alt={p.name} loading="lazy" />
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div class="card-header-meta">
+                  <span class="card-brand-tag">{p.marca || 'Dental'}</span>
+                  <span class="card-category-tag">{p.category || 'Odontología'}</span>
+                </div>
+                <h3 class="card-title" title={p.name}>
+                  <a href={`/producto/${p.id}.html`} style="color:inherit;">{p.name}</a>
+                </h3>
+
+                <div class="card-rating-box">
+                  <span class="rating-badge">{p.valoracion_media ? p.valoracion_media.toFixed(1) : '4.5'} ★</span>
+                  <span class="card-rating-count">({Number(p.resenas_cantidad || 0).toLocaleString("es-ES")} opiniones)</span>
+                </div>
+
+                <div class="card-specs-matrix">
+                  <div class="spec-cell">Tecnología: <strong>{p.tecnologia || 'Clínica'}</strong></div>
+                  <div class="spec-cell">Modos: <strong>{p.modos_limpieza || 1}</strong></div>
+                  <div class="spec-cell">Potencia: <strong>{p.pulsaciones_min ? `${p.pulsaciones_min.toLocaleString()} /min` : 'Estándar'}</strong></div>
+                  <div class="spec-cell">Autonomía: <strong>{p.autonomia_dias ? `${p.autonomia_dias} días` : 'Red/Batería'}</strong></div>
+                </div>
+
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-main-val" data-eur={currentPrice}>
+                      {currentPrice > 0 ? formatPrice(currentPrice) : 'Consultar'}
+                    </span>
+                    {hasDiscount && (
+                      <span class="price-strike-val">{formatPrice(retailPrice)}</span>
+                    )}
+                  </div>
+                  <span class="price-shipping">Envío Prime</span>
+                </div>
+
+                <div class="card-actions-grid">
+                  <a href={`/producto/${p.id}.html`} class="btn-card-quick" style="text-align:center;text-decoration:none;">Ficha Técnica</a>
+                  <a href={affiliateUrl} target="_blank" rel="sponsored nofollow noopener" class="btn-card-prime" style="text-align:center;text-decoration:none;">Ver en Amazon</a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
