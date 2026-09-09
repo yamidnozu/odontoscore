@@ -1,5 +1,7 @@
 ---
+import { footerNavigation } from '../config/navigation';
 ---
+
 <footer class="site-footer" id="siteFooter">
   <div class="container">
     <div class="footer-grid">
@@ -12,41 +14,23 @@
         </p>
       </div>
 
-      <div class="footer-col">
-        <h4>Especialidades</h4>
-        <ul class="footer-links">
-          <li><a href="/categoria/estudiantes-odontologia.html">Estudiantes y Prácticas</a></li>
-          <li><a href="/categoria/cepillos-electricos.html">Cepillos Eléctricos</a></li>
-          <li><a href="/categoria/irrigadores-dentales.html">Irrigadores Dentales</a></li>
-          <li><a href="/categoria/blanqueamiento-dental.html">Blanqueamiento Dental</a></li>
-          <li><a href="/categoria/ortodoncia-brackets.html">Ortodoncia y Brackets</a></li>
-          <li><a href="/categoria/instrumental-basico.html">Instrumental Clínico</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Herramientas & Academia</h4>
-        <ul class="footer-links">
-          <li><a href="/guias/anatomia-dental-3d-por-capas.html">Atlas Anatómico Dental 360°</a></li>
-          <li><a href="/guias/biofilm-microbiologia-endodoncia-3d.html">Biofilm y Endodoncia 3D</a></li>
-          <li><a href="/guias/semiologia-pares-craneales-odontologia.html" style="font-weight:700;color:var(--color-primary);">Semiología Pares Craneales</a></li>
-          <li><a href="/guias/farmacologia-dolor-trigeminal-inflamacion-pediatrica.html" style="font-weight:700;color:var(--color-primary);">Farmacología & Calculadora</a></li>
-          <li><a href="/calculadora-dosis-pediatrica/" style="font-weight:700;color:#0284C7;">Tutor Visual de Dosis Pediátrica</a></li>
-          <li><a href="/comparador.html">Comparador de 7 Ejes</a></li>
-          <li><a href="/ofertas.html">Ofertas y Descuentos</a></li>
-          <li><a href="/guias/mejor-irrigador-dental-brackets-2026.html">Guía Irrigadores</a></li>
-          <li><a href="/guias/mejor-cepillo-electrico-encias-sensibles-2026.html">Guía Encías Sensibles</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Transparencia</h4>
-        <ul class="footer-links">
-          <li><a href="/aviso-afiliados.html">Aviso de Afiliación</a></li>
-          <li><a href="/privacidad.html">Privacidad y Cookies</a></li>
-          <li><a href="/sobre-nosotros.html">Metodología OdontoScore</a></li>
-        </ul>
-      </div>
+      {footerNavigation.map((col) => (
+        <div class="footer-col">
+          <h4>{col.title}</h4>
+          <ul class="footer-links">
+            {col.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  style={link.color ? `color:${link.color};font-weight:${link.highlight ? '700' : 'normal'};` : (link.highlight ? 'font-weight:700;color:var(--color-primary);' : undefined)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
 
     <div class="footer-disclaimers">

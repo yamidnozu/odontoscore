@@ -1,11 +1,25 @@
 ---
 import CurrencySelector from './CurrencySelector';
+import { mainNavigation } from '../config/navigation';
 
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '' } = Astro.props;
+
+function isItemActive(href: string): boolean {
+  if (href === '/' || href.startsWith('/#')) return false;
+  const cleanHref = href.replace('.html', '').replace(/\/$/, '');
+  return currentPath.includes(cleanHref);
+}
+
+function isDropdownActive(item: typeof mainNavigation[0]): boolean {
+  if (item.children) {
+    return item.children.some(child => isItemActive(child.href));
+  }
+  return false;
+}
 ---
 
 <header class="site-header" id="siteHeader">
@@ -20,32 +34,61 @@ const { currentPath = '' } = Astro.props;
 
     <nav class="main-nav" id="mainNav">
       <ul class="nav-links">
-        <li><a href="/#catalogo" data-nav="catalogo">Catálogo</a></li>
-        <li><a href="/#estudiantes" data-nav="estudiantes">Estudiantes</a></li>
-        
-        <li class="nav-item-dropdown">
-          <a href="/#academia" class="nav-link-dropdown" data-nav="academia" aria-haspopup="true" aria-expanded="false">
-            Academia
-            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="nav-dropdown-menu">
-            <a href="/guias/anatomia-dental-3d-por-capas.html" class="dropdown-link">Atlas Anatómico Dental 360°</a>
-            <a href="/guias/biofilm-microbiologia-endodoncia-3d.html" class="dropdown-link">Biofilm y Endodoncia 3D</a>
-            <a href="/guias/semiologia-pares-craneales-odontologia.html" class="dropdown-link">Semiología y Pares Craneales</a>
-            <a href="/guias/farmacologia-dolor-trigeminal-inflamacion-pediatrica.html" class="dropdown-link">Farmacología & Calculadora Pediátrica</a>
-            <a href="/calculadora-dosis-pediatrica/" class="dropdown-link" style="color:#0284C7;font-weight:700;">Calculadora Visual de Dosis</a>
-            <a href="/guias/mejor-cepillo-electrico-encias-sensibles-2026.html" class="dropdown-link">Guía: Encías Sensibles</a>
-            <a href="/guias/mejor-irrigador-dental-brackets-2026.html" class="dropdown-link">Guía: Higiene en Ortodoncia</a>
-            <div class="dropdown-divider"></div>
-            <a href="/#academia" class="dropdown-link-all">Ver toda la Academia →</a>
-          </div>
-        </li>
+        {mainNavigation.map((item) => {
+          const hasChildren = item.children && item.children.length > 0;
+          const activeDropdown = hasChildren ? isDropdownActive(item) : false;
+          const activeLink = !hasChildren ? isItemActive(item.href) : false;
 
-        <li><a href="/comparador.html" data-nav="comparador">Comparador</a></li>
-        <li><a href="/ofertas.html" data-nav="ofertas">Ofertas</a></li>
-        <li><a href="/#faq" data-nav="faq">FAQ</a></li>
+          if (hasChildren) {
+            return (
+              <li class="nav-item-dropdown">
+                <a
+                  href={item.href}
+                  class={`nav-link-dropdown ${activeDropdown ? 'active' : ''}`}
+                  data-nav={item.navKey}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {item.label}
+                  <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <div class="nav-dropdown-menu">
+                  {item.children!.map((child) => (
+                    <a
+                      href={child.href}
+                      class={`dropdown-link ${isItemActive(child.href) ? 'active' : ''}`}
+                      style={child.highlight ? "color:#0284C7;font-weight:700;" : undefined}
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                  {item.viewAll && (
+                    <>
+                      <div class="dropdown-divider"></div>
+                      <a href={item.viewAll.href} class="dropdown-link-all">
+                        {item.viewAll.label}
+                      </a>
+                    </>
+                  )}
+                </div>
+              </li>
+            );
+          }
+
+          return (
+            <li>
+              <a
+                href={item.href}
+                data-nav={item.navKey}
+                class={activeLink ? 'active' : ''}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
       <div class="nav-actions">
@@ -62,12 +105,99 @@ const { currentPath = '' } = Astro.props;
 </header>
 
 <script>
-  const btn = document.getElementById('mobileMenuBtn');
-  const nav = document.getElementById('mainNav');
-  if (btn && nav) {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('active');
-      nav.classList.toggle('open');
+  function initHeaderNav() {
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    const siteHeader = document.getElementById('siteHeader');
+
+    // Mobile drawer toggle
+    if (mobileBtn && mainNav) {
+      mobileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mainNav.classList.toggle('open');
+        mobileBtn.classList.toggle('active', isOpen);
+        if (siteHeader) siteHeader.classList.toggle('menu-open', isOpen);
+      });
+    }
+
+    // Universal Dropdown click/tap handling (transversal para desktop, tablets y mobile)
+    const dropdownItems = document.querySelectorAll<HTMLElement>('.nav-item-dropdown');
+    dropdownItems.forEach((dropdown) => {
+      const trigger = dropdown.querySelector<HTMLAnchorElement>('.nav-link-dropdown');
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          const isMobile = window.innerWidth <= 900;
+          const isOpen = dropdown.classList.contains('open');
+
+          // Cerrar otros dropdowns abiertos
+          dropdownItems.forEach((d) => {
+            if (d !== dropdown) {
+              d.classList.remove('open');
+              d.querySelector('.nav-link-dropdown')?.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          if (isMobile) {
+            // En pantallas móviles/táctiles siempre prevenimos navegación para expandir la lista
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', dropdown.classList.contains('open') ? 'true' : 'false');
+          } else {
+            // En desktop/pantallas anchas: si se hace click en el botón desplegable
+            if (!isOpen) {
+              e.preventDefault();
+              dropdown.classList.add('open');
+              trigger.setAttribute('aria-expanded', 'true');
+            }
+          }
+        });
+      }
+    });
+
+    // Cerrar dropdown al hacer click fuera del menú
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+      if (target && !target.closest('.nav-item-dropdown')) {
+        dropdownItems.forEach((dropdown) => {
+          dropdown.classList.remove('open');
+          dropdown.querySelector('.nav-link-dropdown')?.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Cerrar al presionar tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        dropdownItems.forEach((dropdown) => {
+          dropdown.classList.remove('open');
+          dropdown.querySelector('.nav-link-dropdown')?.setAttribute('aria-expanded', 'false');
+        });
+        if (mainNav && mainNav.classList.contains('open')) {
+          mainNav.classList.remove('open');
+          mobileBtn?.classList.remove('active');
+          if (siteHeader) siteHeader.classList.remove('menu-open');
+        }
+      }
+    });
+
+    // Cerrar menú mobile al hacer click en cualquier enlace interno
+    const navLinks = mainNav?.querySelectorAll<HTMLAnchorElement>('a:not(.nav-link-dropdown)');
+    navLinks?.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900 && mainNav) {
+          mainNav.classList.remove('open');
+          mobileBtn?.classList.remove('active');
+          if (siteHeader) siteHeader.classList.remove('menu-open');
+        }
+      });
     });
   }
+
+  // Inicializar en carga y tras navegaciones de Astro
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderNav);
+  } else {
+    initHeaderNav();
+  }
+  document.addEventListener('astro:page-load', initHeaderNav);
 </script>

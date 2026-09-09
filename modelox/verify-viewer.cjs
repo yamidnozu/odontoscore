@@ -1,0 +1,17 @@
+const {chromium}=require('C:/Users/PREDATOR/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1500,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('file:///C:/Proyectos/modelo3dhumano/index.html');
+await page.getByText('OBJ oficiales cargados',{exact:true}).waitFor({timeout:90000});
+assert.equal(await page.locator('canvas').count(),1);
+assert.equal(await page.evaluate(()=>window.BP3D.entries.length),48);
+await page.screenshot({path:'verified-viewer.png'});
+await page.getByRole('button',{name:'Explotar',exact:true}).click();await page.getByRole('button',{name:'Cerrar',exact:true}).waitFor();assert.equal(await page.locator('canvas').count(),1);
+await page.getByRole('button',{name:'Cerrar',exact:true}).click();
+await page.getByRole('button',{name:'Wireframe',exact:true}).click();await page.getByRole('button',{name:'Wireframe',exact:true}).click();
+await page.getByRole('button',{name:'Vista lateral',exact:true}).click();
+await page.getByRole('button',{name:'Vista frontal',exact:true}).click();
+await page.getByRole('checkbox',{name:'Superiores',exact:true}).uncheck();await page.getByRole('checkbox',{name:'Superiores',exact:true}).check();
+await page.getByRole('button',{name:'Recargar modelos oficiales',exact:true}).click();await page.getByText('OBJ oficiales cargados',{exact:true}).waitFor();
+await page.setViewportSize({width:390,height:844});assert.ok(await page.locator('canvas').evaluate(c=>c.width>0&&c.height>0));
+assert.deepEqual(errors,[]);console.log('PASS: 48 estructuras oficiales, carga file://, controles, recarga, viewport móvil; sin errores JS.');await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

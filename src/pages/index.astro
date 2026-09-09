@@ -40,55 +40,132 @@ function formatPrice(amountEur: number): string {
     </div>
   </section>
 
-  <!-- Academia & Herramientas Clínicas -->
-  <section class="section-block" id="academia" style="background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;padding:3rem 0;">
-    <div class="container">
-      <div class="section-header">
-        <div class="hero-badge">Herramientas & Academia</div>
-        <h2 class="section-title">Simuladores 3D y Tutores Clínicos</h2>
-        <p class="section-desc">Modelos computacionales y calculadoras visuales para formación clínica avanzada.</p>
+  <!-- Academia & Herramientas Clínicas: Diseño Editorial Limpio (Sin Cards) -->
+  <section class="section-block" id="academia" style="background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;padding:4.5rem 0;">
+    <div class="container" style="max-width:1120px;">
+      <div style="margin-bottom:3.5rem;">
+        <span style="display:inline-block;font-size:0.78rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#0284C7;margin-bottom:0.75rem;">ACADEMIA & MODELOS CLÍNICOS</span>
+        <h2 style="font-size:clamp(1.9rem, 3.2vw, 2.5rem);color:#0F172A;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.2;">
+          Simuladores Computacionales, Atlas 3D y Tutores de Aprendizaje
+        </h2>
+        <p style="font-size:1.1rem;color:#64748B;line-height:1.75;max-width:820px;margin:0;">
+          Desarrollos pedagógicos interactivos diseñados para el entrenamiento preclínico y la consulta estomatológica. Cada herramienta integra fundamentos biofísicos, farmacológicos y anatómicos con ejemplos aplicados paso a paso.
+        </p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1.5rem;margin-top:2rem;">
-        <!-- Calculadora Visual -->
-        <article style="background:#F0F9FF;border:2px solid #0284C7;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <!-- Módulo 0: Longitud de Trabajo en Endodoncia (Simulador Apical) -->
+        <div style="padding:2.5rem 0;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:minmax(240px, 320px) 1fr;gap:2.5rem;align-items:start;">
           <div>
-            <span style="background:#0284C7;color:#fff;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">NUEVO · TUTOR VISUAL</span>
-            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;color:#0369A1;">Calculadora de Dosis Pediátrica</h3>
-            <p style="font-size:0.88rem;color:#475569;line-height:1.5;">Tutor con señalización animada paso a paso, regla de tres, reloj de 24 horas y semáforo del límite de 60 mg/kg/día.</p>
+            <span style="display:inline-block;font-size:0.75rem;font-weight:800;letter-spacing:0.06em;color:#0066FF;text-transform:uppercase;margin-bottom:0.4rem;">ENDODONCIA CLÍNICA & SIMULADOR</span>
+            <h3 style="font-size:1.45rem;color:#0F172A;margin:0 0 0.75rem;line-height:1.25;">Longitud de Trabajo y Conductometría</h3>
+            <a href="/guias/longitud-trabajo-endodoncia.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#0066FF;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;">
+              Abrir Simulador Gestual Apical →
+            </a>
+            <a href="/guias/simulador-endodoncia-3d.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#0066FF;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;margin-left:1.25rem;">
+              Practicar en 3D (6 dientes reales) →
+            </a>
           </div>
-          <a href="/calculadora-dosis-pediatrica/" style="margin-top:1.25rem;font-weight:700;color:#0284C7;">Abrir Calculadora Interactiva →</a>
-        </article>
+          <div>
+            <p style="font-size:1.02rem;color:#334155;line-height:1.75;margin:0 0 1rem;">
+              Simulador interactivo táctil que modela el avance milimétrico de la lima en el conducto radicular, detectando la impedancia de la constricción apical fisiológica (CDC) y determinando la longitud de trabajo exacta (LT = APEX − 0.5 mm) frente al vértice radiográfico.
+            </p>
+            <div style="border-left:3px solid #0066FF;padding-left:1.25rem;background:#F8FAFC;padding:1rem 1.25rem;border-radius:0 8px 8px 0;">
+              <strong style="display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;color:#0066FF;margin-bottom:0.35rem;">Regla de Oro en Conductometría</strong>
+              <span style="font-size:0.92rem;color:#475569;line-height:1.65;display:block;">
+                La constricción apical no coincide con el ápice radiográfico. Instrumentar hasta el vértice radiográfico provoca sobreinstrumentación e inflamación periapical. El localizador digital marca 0.0 en el foramen mayor; la longitud de trabajo real exige retroceder a la marca de <strong>0.5 mm</strong> con el tope perpendicular a la referencia coronaria.
+              </span>
+            </div>
+          </div>
+        </div>
 
-        <!-- Atlas Anatómico 360° -->
-        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+        <!-- Módulo 1: Calculadora Visual Pediátrica -->
+        <div style="padding:2.5rem 0;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:minmax(240px, 320px) 1fr;gap:2.5rem;align-items:start;">
           <div>
-            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">3D INTERACTIVO</span>
-            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Atlas Anatómico Dental 360°</h3>
-            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Visor de matriz lightfield con corte por capas histológicas y puntos de interés anatómico.</p>
+            <span style="display:inline-block;font-size:0.75rem;font-weight:800;letter-spacing:0.06em;color:#0284C7;text-transform:uppercase;margin-bottom:0.4rem;">FARMACOMETRÍA DINÁMICA</span>
+            <h3 style="font-size:1.45rem;color:#0F172A;margin:0 0 0.75rem;line-height:1.25;">Calculadora Visual de Dosis Pediátrica</h3>
+            <a href="/calculadora-dosis-pediatrica/" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#0284C7;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;">
+              Abrir Tutor de Cálculo →
+            </a>
           </div>
-          <a href="/guias/anatomia-dental-3d-por-capas.html" style="margin-top:1.25rem;font-weight:700;">Explorar Atlas 360° →</a>
-        </article>
+          <div>
+            <p style="font-size:1.02rem;color:#334155;line-height:1.75;margin:0 0 1rem;">
+              Tutor pedagógico que desglosa el camino completo de prescripción en jarabe mediante regla de tres animada, equivalencia miligramo a mililitro y validación estricta de margen de seguridad en un reloj de 24 horas.
+            </p>
+            <div style="border-left:3px solid #0284C7;padding-left:1.25rem;background:#F8FAFC;padding:1rem 1.25rem;border-radius:0 8px 8px 0;">
+              <strong style="display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;color:#0369A1;margin-bottom:0.35rem;">Ejemplo Clínico Integrado</strong>
+              <span style="font-size:0.92rem;color:#475569;line-height:1.65;display:block;">
+                Paciente pediátrico de <strong>12 kg</strong> con indicación de Acetaminofén a <strong>15 mg/kg cada 6 horas</strong>. La herramienta demuestra por qué 180 mg equivalen a <strong>6.0 mL</strong> de jarabe al 3% (150 mg/5 mL) y alerta si las 4 tomas rozan el límite preventivo de <strong>60 mg/kg/día</strong>.
+              </span>
+            </div>
+          </div>
+        </div>
 
-        <!-- Biofilm & Endodoncia 3D -->
-        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+        <!-- Módulo 2: Atlas Anatómico Dental 360° -->
+        <div style="padding:2.5rem 0;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:minmax(240px, 320px) 1fr;gap:2.5rem;align-items:start;">
           <div>
-            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">SIMULACIÓN CINEMÁTICA</span>
-            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Biofilm y Endodoncia 3D</h3>
-            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Cámara microscópica interactiva que recrea las 5 fases bacterianas y la irrigación del conducto radicular.</p>
+            <span style="display:inline-block;font-size:0.75rem;font-weight:800;letter-spacing:0.06em;color:#0F766E;text-transform:uppercase;margin-bottom:0.4rem;">ANATOMÍA & HISTOLOGÍA 3D</span>
+            <h3 style="font-size:1.45rem;color:#0F172A;margin:0 0 0.75rem;line-height:1.25;">Atlas Dental y Molar Permanente</h3>
+            <a href="/guias/anatomia-dental-3d-por-capas.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#0F766E;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;">
+              Explorar Atlas Dental 360° →
+            </a>
           </div>
-          <a href="/guias/biofilm-microbiologia-endodoncia-3d.html" style="margin-top:1.25rem;font-weight:700;">Ver Simulación 3D →</a>
-        </article>
+          <div>
+            <p style="font-size:1.02rem;color:#334155;line-height:1.75;margin:0 0 1rem;">
+              Matriz tridimensional interactiva que permite rotación continua de la corona y raíces dentales, disección por planos histológicos (esmalte, dentina, pulpa) y correlación de puntos anatómicos con técnicas de operatoria dental.
+            </p>
+            <div style="border-left:3px solid #0F766E;padding-left:1.25rem;background:#F8FAFC;padding:1rem 1.25rem;border-radius:0 8px 8px 0;">
+              <strong style="display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;color:#0F766E;margin-bottom:0.35rem;">Aplicación Práctica en Operatoria</strong>
+              <span style="font-size:0.92rem;color:#475569;line-height:1.65;display:block;">
+                Localización milimétrica de fosas, fisuras oclusales y el puente de esmalte para planificar preparaciones cavitarias conservadoras sin comprometer la cámara pulpar ni las cúspides de soporte.
+              </span>
+            </div>
+          </div>
+        </div>
 
-        <!-- Farmacología & Dolor Trigeminal -->
-        <article style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+        <!-- Módulo 3: Biofilm & Endodoncia 3D -->
+        <div style="padding:2.5rem 0;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:minmax(240px, 320px) 1fr;gap:2.5rem;align-items:start;">
           <div>
-            <span style="background:#E2E8F0;color:#334155;font-size:0.75rem;font-weight:800;padding:4px 8px;border-radius:999px;">GUÍA CLÍNICA</span>
-            <h3 style="font-size:1.2rem;margin:0.75rem 0 0.5rem;">Vía del Dolor Trigeminal</h3>
-            <p style="font-size:0.88rem;color:#64748B;line-height:1.5;">Mapeo nociceptivo del V par, cascada de mediadores inflamatorios y farmacometría pediátrica.</p>
+            <span style="display:inline-block;font-size:0.75rem;font-weight:800;letter-spacing:0.06em;color:#7C3AED;text-transform:uppercase;margin-bottom:0.4rem;">MICROBIOLOGÍA & SIMULACIÓN</span>
+            <h3 style="font-size:1.45rem;color:#0F172A;margin:0 0 0.75rem;line-height:1.25;">Biofilm y Desinfección Endodóntica</h3>
+            <a href="/guias/biofilm-microbiologia-endodoncia-3d.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#7C3AED;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;">
+              Ver Simulación Cinematográfica →
+            </a>
           </div>
-          <a href="/guias/farmacologia-dolor-trigeminal-inflamacion-pediatrica.html" style="margin-top:1.25rem;font-weight:700;">Leer Guía Completa →</a>
-        </article>
+          <div>
+            <p style="font-size:1.02rem;color:#334155;line-height:1.75;margin:0 0 1rem;">
+              Recreación computacional de la maduración bacteriana oral según los complejos de Socransky, penetración tubular en el tercio apical del conducto radicular y eficacia hidrodinámica del hipoclorito de sodio activado.
+            </p>
+            <div style="border-left:3px solid #7C3AED;padding-left:1.25rem;background:#F8FAFC;padding:1rem 1.25rem;border-radius:0 8px 8px 0;">
+              <strong style="display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;color:#7C3AED;margin-bottom:0.35rem;">Fundamento Microbiológico</strong>
+              <span style="font-size:0.92rem;color:#475569;line-height:1.65;display:block;">
+                Simulación del paso de colonizadores tempranos (Streptococcus gordonii) a bacterias anaerobias estrictas del complejo rojo (Porphyromonas gingivalis y Enterococcus faecalis) resistentes a la instrumentación mecánica.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulo 4: Semiología de Pares Craneales -->
+        <div style="padding:2.5rem 0;border-top:1px solid #E2E8F0;display:grid;grid-template-columns:minmax(240px, 320px) 1fr;gap:2.5rem;align-items:start;">
+          <div>
+            <span style="display:inline-block;font-size:0.75rem;font-weight:800;letter-spacing:0.06em;color:#0C7FD4;text-transform:uppercase;margin-bottom:0.4rem;">NEUROANATOMÍA & SEMIOLOGÍA</span>
+            <h3 style="font-size:1.45rem;color:#0F172A;margin:0 0 0.75rem;line-height:1.25;">Semiología de los 12 Pares Craneales</h3>
+            <a href="/guias/semiologia-pares-craneales-odontologia.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-weight:700;color:#0C7FD4;font-size:0.95rem;text-decoration:none;margin-top:0.5rem;">
+              Abrir Atlas de Semiología →
+            </a>
+          </div>
+          <div>
+            <p style="font-size:1.02rem;color:#334155;line-height:1.75;margin:0 0 1rem;">
+              Guía semiológica y disector en 5 planos sincrónicos: desde el foramen óseo de la base del cráneo hasta la inervación alveolar, discriminando banderas rojas como dolor cardíaco referido a C2 o parálisis facial periférica.
+            </p>
+            <div style="border-left:3px solid #0C7FD4;padding-left:1.25rem;background:#F8FAFC;padding:1rem 1.25rem;border-radius:0 8px 8px 0;">
+              <strong style="display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;color:#0C7FD4;margin-bottom:0.35rem;">Bandera Roja Semiológica</strong>
+              <span style="font-size:0.92rem;color:#475569;line-height:1.65;display:block;">
+                Diferenciación crucial en consulta: el ángulo mandibular no está inervado por el trigémino sino por C2. Un dolor mandibular sordo con diaforesis exige protocolo cardiovascular de urgencia y no intervención dental.
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

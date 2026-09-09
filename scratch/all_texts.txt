@@ -1,0 +1,54 @@
+0: LT — ENDO / V3 clínica real
+1: mano + boca + diente
+2: protocolo real
+3: constricción no ápice
+4: constricción apical
+5: borde incisal → constricción
+6: LT = APEX −0.5mm
+7: Endodoncia • Protocolo real
+8: Manos con guante azul, abrebocas, tipodonto 21. Referencia: borde incisal.
+9: Figura A — mano, diente y boca real. Parallax suave al scroll.
+10: Qué es y por qué falla
+11: No es hasta donde se ve en la Rx. Es hasta donde termina el conducto.
+12: Longitud de trabajo
+13: El ápice radiográfico es vértice anatómico de la raíz en la imagen. El foramen mayor suele estar 0.2-0.5mm lateral. Si instrumentas hasta Rx, sobreinstrumentas, extruyes, lesionas periodonto.
+14: Constricción 0.5mm
+15: LT = APEX −0.5
+16: ref. coronaria
+17: constricción
+18: vértice Rx
+19: 0.5-1mm
+20: LT = APEX −0.5mm
+21: Por qué fallas comunes
+22: Confundes ápice Rx con constricción → sobreobturas.
+23: Cambias referencia → LT varía 0.5-2mm.
+24: Stop angulado → lees mal en regla.
+25: Localizador con conducto inundado → marca errática.
+26: Esquema suizo minimal, no anatómico pesado.
+27: Instrumental en mano · fotos reales
+28: 4:3 object-cover · sin filtros
+29: Protocolo paso a paso · 6 pasos clínicos reales
+30: scroll para avanzar · click en número
+31: Qué haces
+32: LT definitiva
+33: stop
+34: ↕ arrastra · snap en constricción azul
+35: Simulador gestual minimal
+36: Longitud de trabajo
+37: = APEX −0.5mm
+38: mano con lima #10 + stop amarillo
+39: Validación táctil
+40: Stop perpendicular, sin comprimir. Confirma con Rx a 0.5-1mm del vértice.
+41: Localizador integrado: cuando veas 0.5 verde, estás en constricción. La lima deja de avanzar por resistencia.
+42: Checklist clínico corrido · sin botones gordos
+43: Rx diagnóstica
+44: referencia estable
+45: lima K #10
+46: regla
+47: localizador
+48: LT = APEX −0.5mm
+49: Rx conductometría
+50: LT — ENDO / V3 · fotos reales clínicas
+51: Imágenes: gloved_hand_kfile_macro · endodontic_file_measurement · dental_mankin_root_canal · dental_apex_locator_closeup · single_molar_radiograph
+52: Diseño: #FCFCFC · Inter 100/200/300 · acento #0066FF · glass 18px · border 1px rgba(0,0,0,0.06) · drag + scroll storytelling
+53: © 2026 · clínica real, no placeholder

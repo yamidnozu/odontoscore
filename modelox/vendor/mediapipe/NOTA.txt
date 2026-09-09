@@ -1,0 +1,11 @@
+Modo gestos (offline): MediaPipe Tasks Vision 0.10.14 (Apache 2.0).
+- vision_bundle.mjs: ESM original de npm (solo referencia).
+- vision_bundle.js: conversion a script clasico (export -> self.MPVision) + parche
+  en Wo() para no reinyectar el loader wasm cuando ya esta cargado (CORS en file://).
+- wasm/vision_wasm_internal.js/.wasm: runtime SIMD original.
+- wasm_bin.js / model_bin.js: binarios en base64; se inyectan como
+  wasmBinary/modelAssetBuffer porque fetch esta bloqueado en file://.
+- El bundle y el loader wasm van INTEGRADOS en endodoncia.html (compilado con
+  python, bloques con error capturado en window.__mpEngineErr/__mpWasmErr);
+  solo los .bin de 23 MB se cargan bajo demanda al activar la camara.
+- hand_landmarker.task y .wasm sueltos: respaldo para uso via http:// (servidor local).

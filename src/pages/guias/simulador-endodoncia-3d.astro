@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Simulador 3D de Endodoncia: Longitud de Trabajo sobre malla real";
+const pageDesc = "Practica la conductometría en 6 dientes reales (BodyParts3D): diente 3D con lima, regla milimetrada, Rx de conductometría, localizador apical y modo práctica con ápice oculto.";
+const canonicalUrl = "https://odontoscore.com/guias/simulador-endodoncia-3d.html";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Simulador 3D de Endodoncia: Longitud de Trabajo sobre malla real",
+    "url": canonicalUrl,
+    "description": pageDesc,
+    "author": {
+      "@type": "Organization",
+      "name": "Comité Clínico OdontoScore"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "OdontoScore",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://odontoscore.com/assets/img/logo-odontoscore.svg"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Endo3D Trainer · Longitud de Trabajo",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0" },
+    "url": canonicalUrl
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+  jsonLd={jsonLd}
+>
+  <style is:inline>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+    .endo-page {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+      background-color: #FCFCFC;
+    }
+
+    /* Simulador Endo3D: estilos encapsulados para no afectar al resto del sitio */
+    .endo-sim{--bg:#0d0e11;--panel:#14151b;--line:rgba(255,255,255,.1);--acc:#E8DCC8;--ok:#4ade80;--warn:#fbbf24;--bad:#f87171;--txt:#f4f4f5;--mut:rgba(255,255,255,.55)}
+    .endo-sim,.endo-sim *{box-sizing:border-box}
+    .endo-sim{margin:28px 0 0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;border:1px solid rgba(0,0,0,.08);border-radius:28px;overflow:hidden}
+    .endo-sim header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--line);background:#0f1014}
+    .endo-sim header h1{font-size:16px;margin:0}
+    .endo-sim header h1 small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+    .endo-sim header a{color:var(--acc);font-size:13px;text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:10px}
+    .endo-sim main{display:grid;grid-template-columns:310px 1fr 300px;gap:14px;padding:14px;max-width:1360px;margin:0 auto}
+    .endo-sim main.student{grid-template-columns:minmax(0,1.25fr) minmax(300px,380px);max-width:1240px}
+    .endo-sim .side{display:flex;flex-direction:column;gap:14px;min-width:0}
+    .endo-sim .seg{display:flex;gap:8px;margin:4px 0 8px}
+    .endo-sim .seg button{flex:1;margin-top:0}
+    .endo-sim .seg button.on{background:var(--acc);color:#111;border-color:var(--acc)}
+    .endo-sim .big{font-size:19px;font-weight:700;text-align:center;padding:10px 8px;border-radius:12px;margin:2px 0 8px}
+    .endo-sim .big.b-corta{background:rgba(251,191,36,.14)}
+    .endo-sim .big.b-justa{background:rgba(74,222,128,.14)}
+    .endo-sim .big.b-larga{background:rgba(248,113,113,.16)}
+    .endo-sim details{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+    .endo-sim summary{cursor:pointer;font-size:13px;color:var(--acc);font-weight:600}
+    .endo-sim .how{grid-column:1/-1;font-size:13px;color:var(--mut);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+    .endo-sim .how b{color:var(--acc)}
+    .endo-sim .ver{font-size:11px;color:var(--acc);border:1px solid var(--line);border-radius:99px;padding:2px 10px;white-space:nowrap}
+    .endo-sim footer{max-width:1240px;margin:0 auto;padding:0 14px 18px;font-size:12px;color:var(--mut)}
+    .endo-sim #history li{font-size:12px}
+    .endo-sim #cam{display:none}
+    .endo-sim .cockpit{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:12px;align-items:start;margin-top:10px}
+    .endo-sim .cockpit:has(#liveZone[hidden]){grid-template-columns:1fr}
+    .endo-sim .viewcell{min-width:0}
+    .endo-sim #stage{margin-top:0;border:1px solid var(--line);border-radius:12px;padding:12px;background:#0b0c0f;min-width:0;position:sticky;top:56px}
+    .endo-sim #stageDepth{font-size:26px;margin:8px 0}
+    .endo-sim #stage h3{margin:0 0 6px;font-size:13px;color:var(--acc)}
+    .endo-sim .frozeBadge{font-size:15px;font-weight:700;text-align:center;padding:8px 10px;border-radius:10px;margin:8px 0;background:rgba(74,222,128,.14);color:var(--ok);font-variant-numeric:tabular-nums}
+    @media(max-width:1000px){.endo-sim .cockpit{grid-template-columns:1fr}}
+    .endo-sim #hands{width:100%;height:auto;display:block;background:#000;border-radius:10px}
+    .endo-sim #stageHint{font-size:15px;font-weight:600;line-height:1.45;margin:8px 0}
+    .endo-sim #gestureInfo{font-size:15px;font-weight:600;line-height:1.45}
+    .endo-sim #rail{width:100%;height:auto;background:#0b0c0f;border:1px solid var(--line);border-radius:12px}
+    .endo-sim #depth{height:30px}
+    .endo-sim #view3d{cursor:grab}
+    .endo-sim #view3d:active{cursor:grabbing}
+    @media(max-width:1000px){.endo-sim main{grid-template-columns:1fr}.endo-sim main.student{grid-template-columns:1fr}}
+    .endo-sim .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+    .endo-sim .card h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:0 0 10px}
+    .endo-sim label{font-size:12px;color:var(--mut);display:block;margin:8px 0 4px}
+    .endo-sim select,.endo-sim input[type=number]{width:100%;background:#0b0c0f;color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:13px}
+    .endo-sim input[type=range]{width:100%;accent-color:var(--acc)}
+    .endo-sim button{background:var(--acc);color:#111;border:0;border-radius:10px;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;width:100%;margin-top:8px}
+    .endo-sim button.ghost{background:transparent;color:var(--acc);border:1px solid var(--line)}
+    .endo-sim button.mini{width:auto;padding:5px 10px;margin-top:0;font-size:12px}
+    .endo-sim button:disabled{opacity:.45;cursor:default}
+    .endo-sim .row{display:flex;gap:8px}
+    .endo-sim .row button{flex:1}
+    .endo-sim .stepper{display:flex;gap:6px;align-items:center}
+    .endo-sim .stepper input{flex:1}
+    .endo-sim .read{font-size:13px;margin:6px 0}
+    .endo-sim .read b{font-variant-numeric:tabular-nums}
+    .endo-sim .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .endo-sim .b-corta{background:rgba(251,191,36,.15);color:var(--warn)}
+    .endo-sim .b-justa{background:rgba(74,222,128,.15);color:var(--ok)}
+    .endo-sim .b-larga{background:rgba(248,113,113,.15);color:var(--bad)}
+    .endo-sim #apexBar{height:10px;border-radius:99px;background:#222;margin-top:6px;overflow:hidden}
+    .endo-sim #apexFill{height:100%;width:0%;background:var(--warn);transition:width .15s}
+    .endo-sim ol.steps{margin:8px 0 0 18px;padding:0;font-size:13px;color:var(--mut)}
+    .endo-sim ol.steps li{margin:5px 0}
+    .endo-sim ol.steps li.done{color:var(--ok);text-decoration:line-through}
+    .endo-sim canvas#view3d{width:100%;height:auto;background:#0b0c0f;border:1px solid var(--line);border-radius:12px;touch-action:none;cursor:grab}
+    .endo-sim canvas#rx{width:100%;border:1px solid var(--line);border-radius:12px;background:#000}
+    .endo-sim .hint{font-size:12px;color:var(--mut);line-height:1.5}
+    .endo-sim .formula{background:#0b0c0f;border:1px dashed var(--line);border-radius:10px;padding:8px;font-size:13px;margin-top:8px}
+    .endo-sim .exam{border:1px solid var(--warn);border-radius:10px;padding:8px;margin-top:8px;font-size:12px}
+    .endo-sim .warnbox{border:1px solid var(--bad);border-radius:10px;padding:8px;margin-top:8px;font-size:12px;color:var(--bad)}
+    .endo-sim .presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+    .endo-sim .presets button{width:auto;padding:5px 9px;font-size:11px;margin-top:0}
+
+    @media (prefers-reduced-motion: reduce) {
+      .endo-sim #apexFill { transition: none; }
+    }
+  </style>
+
+  <div class="endo-page min-h-screen bg-[#FCFCFC] text-[#0A0A0A] antialiased selection:bg-[#0066FF]/10 overflow-x-hidden">
+
+    <div class="sticky top-0 z-40 backdrop-blur-[20px] bg-[#FCFCFC]/80 border-b border-black/[0.06] px-6 md:px-10 h-[44px] flex items-center justify-between">
+      <div class="text-[10px] uppercase tracking-[0.2em] text-black/40 font-medium flex items-center gap-2">
+        <a href="/#academia" class="hover:text-[#0066FF] transition-colors">← Academia</a>
+        <span class="opacity-30">/</span>
+        <a href="/guias/longitud-trabajo-endodoncia.html" class="hover:text-[#0066FF] transition-colors">Guía LT</a>
+        <span class="opacity-30">/</span>
+        <span>Simulador 3D</span>
+      </div>
+      <div class="text-[10px] tracking-wide text-black/30 hidden md:flex gap-3 items-center">
+        <span>6 dientes reales</span>
+        <span class="opacity-30">·</span>
+        <span style="color:#0066FF" class="font-medium">LT = APEX −0.5mm</span>
+      </div>
+    </div>
+
+    <div class="max-w-[1240px] mx-auto px-6 md:px-10 pt-12 md:pt-16">
+      <div class="text-[11px] uppercase tracking-[0.2em] text-black/30 font-medium">Endo3D Trainer · malla real BodyParts3D</div>
+      <h1 class="mt-4 text-[36px] md:text-[52px] font-[200] tracking-[-0.03em] leading-[1.0] max-w-[20ch]">
+        Simulador 3D de longitud de trabajo
+      </h1>
+      <p class="mt-4 text-[13px] leading-[1.7] text-black/60 max-w-[62ch]">
+        Elige diente y conducto, introduce la lima por el conducto real, toma la Rx de
+        conductometría y fija la LT a 0.5–1 mm del foramen. En modo práctica el ápice se
+        oculta y se puntúa tu error (±0.5 mm). Tu progreso se guarda solo en tu navegador.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-2 text-[11px]">
+        <span class="px-2.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.06] text-black/60 font-medium">11 · 13 · 14 · 16 · 36 · 31</span>
+        <span class="px-2.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.06] text-black/60 font-medium">Regla clicable</span>
+        <span class="px-2.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.06] text-black/60 font-medium">Rx conductometría</span>
+        <span class="px-2.5 py-1 rounded-full bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-semibold">Localizador + modo práctica</span>
+      </div>
+
+      <div class="endo-sim">
+      <header>
+      <div><h1>Endo3D Trainer · Longitud de Trabajo <span class="ver">v1.0 · educativo</span><small>Diente real BodyParts3D (forma exacta) + conductometría · offline</small></h1></div>
+      <div><a href="/guias/visor-3d-diente.html">← Visor 3D</a> <a href="/guias/longitud-trabajo-endodoncia.html">Guía LT · Endodoncia</a></div>
+      </header>
+      <main class="student">
+      <div class="how"><b>1</b> Elige diente y conducto · <b>2</b> «Ver conducto» · <b>3</b> «Introducir hasta la LT» o haz clic en la regla · <b>4</b> «2 · Rx conductometría» · <b>5</b> «3 · Fijar LT»</div>
+      <section class="card">
+      <h2>Paso 1 · Elige el diente y el conducto</h2>
+      <label for="toothSel">Diente (malla 3D oficial)</label>
+      <select id="toothSel"></select>
+      <label for="canalSel">Conducto</label>
+      <select id="canalSel"></select>
+      <div class="read" id="toothInfo"></div>
+      <div class="read" id="meshInfo"></div>
+      <label><input type="checkbox" id="examMode" style="width:auto"> Modo práctica: oculta el ápice y comprueba tu error</label>
+      <div class="exam" id="examBox" hidden>Ápice oculto. Usa la Rx y el localizador para hallar la LT y pulsa <b>Comprobar</b>.</div>
+      <div class="warnbox" id="noModelBox" hidden>No se pudieron cargar las mallas 3D (data/models.js). Recarga la página.</div>
+      <h2 style="margin-top:14px">Paso 2 · Diente 3D + práctica con la mano</h2>
+      <div class="cockpit">
+      <div class="viewcell">
+      <div class="seg"><button id="modeSolid" class="ghost mini">Diente completo</button><button id="modeCanal" class="mini">Ver conducto</button><button id="modeXray" class="ghost mini">Rayos X</button></div>
+      <canvas id="view3d" width="1280" height="1040" role="img" aria-label="Diente 3D con lima endodóntica y regla milimetrada"></canvas>
+      <div class="hint">El punto <b style="color:#ffb4a2">acceso</b> es la cavidad real: la lima entra por ahí, como en clínica; la línea brillante es el conducto. Ratón: arrastrar = girar · clic derecho o Mayús+arrastrar = mover · rueda = zoom · doble clic = centrar · clic en la regla = llevar la lima. Táctil: un dedo gira, pellizco = zoom.</div>
+      </div>
+      <div id="stage"><h3>Tu mano aquí, junto al diente</h3>
+      <div class="hint">Control manual: deslizador, clic en la regla y botones ±0.1 / ±1 mm. El seguimiento por cámara no está incluido en esta versión.</div>
+      <video id="cam" width="320" height="240" playsinline muted hidden></video>
+      <div class="read" id="gestureInfo">Seguimiento por cámara no disponible en esta versión: usa el deslizador y los botones de ajuste.</div>
+      <div class="row"><button id="btnCam">Usar cámara y manos</button><button id="btnCamOff" class="ghost">Detener cámara</button></div>
+      <div id="liveZone" hidden>
+      <div class="big" id="stageDepth">19.0 mm</div>
+      <canvas id="hands"></canvas>
+      <div class="frozeBadge" id="frozeBadge" hidden></div>
+      <div class="read" id="stageHint">Inicia la cámara para practicar.</div>
+      <canvas id="rail" width="600" height="150"></canvas>
+      <div class="row"><button id="btnFreeze">Congelar medida</button><button id="btnUnlock" class="ghost">Seguir ajustando</button></div>
+      </div>
+      </div>
+      </div>
+      <h2 style="margin-top:14px">Paso 3 · Introduce la lima por el conducto</h2>
+      <label for="depth">Profundidad desde <span id="refPt">el borde</span>: <b id="depthVal">19.0 mm</b></label>
+      <input type="range" id="depth" min="8" max="32" step="0.1" value="19">
+      <div class="stepper"><button class="mini" id="dMinus1">−1</button><button class="mini" id="dMinus">−0.1</button><input type="number" id="depthNum" step="0.1" value="19"><button class="mini" id="dPlus">+0.1</button><button class="mini" id="dPlus1">+1</button></div>
+      <div class="row"><button id="btnIn">Introducir hasta la LT</button><button id="btnOut" class="ghost">Retirar</button></div>
+      <div class="row"><button id="rxInitBtn" class="ghost">1 · Rx inicial</button><button id="rxBtn">2 · Rx conductometría</button></div>
+      <div class="row"><button id="fixBtn">3 · Fijar LT aquí</button><button id="checkBtn" class="ghost">Comprobar</button></div>
+      <div class="row"><button id="resetBtn" class="ghost">Reiniciar</button></div>
+      <div class="read" id="cfgState">Configuración sin guardar.</div>
+      <div class="row"><button id="resetCfg" class="ghost">Restablecer valores de fábrica</button></div>
+      <details><summary>Avanzado: vista, lima y margen</summary>
+      <label for="fileSel">Lima K</label>
+      <select id="fileSel"><option>#08</option><option>#10</option><option selected>#15 (inicial habitual)</option><option>#20</option><option>#25</option></select>
+      <label for="marginSel">Margen foramen → CDC</label>
+      <select id="marginSel"><option value="0.5">0.5 mm (estándar)</option><option value="1">1.0 mm (curvo / reabsorción)</option></select>
+      <label>Rotación horizontal: <b id="rxVal">−18°</b></label>
+      <div class="stepper"><button class="mini" id="rxMinus">−1°</button><input type="range" id="rotX" min="-90" max="90" step="1" value="-18"><input type="number" id="rotXNum" step="1" value="-18" style="max-width:70px"><button class="mini" id="rxPlus">+1°</button></div>
+      <label>Rotación vertical: <b id="ryVal">24°</b></label>
+      <div class="stepper"><button class="mini" id="ryMinus">−1°</button><input type="range" id="rotY" min="-180" max="180" step="1" value="24"><input type="number" id="rotYNum" step="1" value="24" style="max-width:70px"><button class="mini" id="ryPlus">+1°</button></div>
+      <label>Zoom: <b id="zoomVal">1.0×</b></label>
+      <input type="range" id="zoom" min="0.5" max="4" step="0.1" value="1">
+      <label>Corte: <b id="clipVal">45%</b></label>
+      <input type="range" id="clip" min="0" max="90" step="5" value="45">
+      <label>Transparencia: <b id="opVal">100%</b></label>
+      <input type="range" id="opac" min="15" max="100" step="5" value="100">
+      <div class="presets"><button id="vVest" class="ghost mini">Vestibular</button><button id="vMes" class="ghost mini">Mesial</button><button id="vOcl" class="ghost mini">Oclusal</button><button id="vLing" class="ghost mini">Lingual</button><button id="vWire" class="ghost mini">Malla on/off</button></div>
+      </details>
+      </section>
+      <aside class="side">
+      <section class="card">
+      <h2>Rx de conductometría</h2>
+      <canvas id="rx" width="1200" height="760"></canvas>
+      <div class="read" id="rxInfo">Sin Rx todavía. Pulsa «1 · Rx inicial».</div>
+      </section>
+      <section class="card">
+      <h2>¿Cómo va la lima?</h2>
+      <div class="big b-corta" id="bigZone">—</div>
+      <div class="read">Profundidad: <b id="rDepth">19.0 mm</b> · Punta → foramen: <b id="rDist">?</b> <span class="badge b-corta" id="rZone">—</span></div>
+      <div class="read">Localizador apical: <b id="rApex">—</b></div>
+      <div id="apexBar"><div id="apexFill"></div></div>
+      <div class="formula">Corrección: <b id="rCorr">—</b></div>
+      <div class="read" id="result"></div>
+      </section>
+      <section class="card">
+      <h2>Protocolo</h2>
+      <ol class="steps" id="steps"><li data-s="rx0">Mira la Rx inicial y estima la longitud</li><li data-s="lima">Introduce la lima (≈ estimación − 1 mm)</li><li data-s="rx1">Toma la Rx de conductometría</li><li data-s="lt">Ajusta a 0.5–1 mm corta y fija la LT</li></ol>
+      </section>
+      <section class="card">
+      <h2>Mi progreso</h2>
+      <div class="read" id="stats">Sin intentos todavía.</div>
+      <ol class="steps" id="history"></ol>
+      </section>
+      </aside>
+      </main>
+      <footer>Endo3D Trainer v1.0 · Simulador educativo con mallas BodyParts3D calibradas al promedio clínico — verifica siempre en clínica. Mallas: BodyParts3D © The Database Center for Life Science, licencia CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html).</footer>
+      </div>
+
+      <p class="mt-4 mb-16 text-[11px] leading-[1.6] text-black/40 max-w-[70ch]">
+        Herramienta educativa: verifica siempre en clínica. Progreso guardado solo en tu navegador.
+      </p>
+    </div>
+
+  </div>
+
+  <script is:inline src="/simuladores/endodoncia/data/models.js" defer></script>
+  <script is:inline src="/simuladores/endodoncia/engine.js" defer></script>
+</BaseLayout>

@@ -9,6 +9,7 @@
   RewriteRule ^comparador/?$ /index.html#comparador [NE,L,R=302]
   RewriteRule ^ofertas/?$ /index.html#ofertas [NE,L,R=302]
   RewriteRule ^faq/?$ /index.html#faq [NE,L,R=302]
+  RewriteRule ^calculadora-dosis-pediatrica/?$ /calculadora-dosis-pediatrica.html [L]
 </IfModule>
 
 # Cache-Control

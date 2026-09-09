@@ -1,0 +1,685 @@
+{
+  "source": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/",
+  "archive": "isa_BP3D_4.0_obj_99.zip",
+  "archiveSha256": null,
+  "method": "HTTP byte ranges from official ZIP",
+  "archiveBytes": 142903898,
+  "downloaded": "2026-09-08T17:29:04.741Z",
+  "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International",
+  "entries": [
+    {
+      "id": 52734,
+      "name": "frontal bone",
+      "representation": "BP8209",
+      "files": [
+        "FJ3200"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52735,
+      "name": "occipital bone",
+      "representation": "BP9177",
+      "files": [
+        "FJ3309"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52736,
+      "name": "sphenoid bone",
+      "representation": "BP8498",
+      "files": [
+        "FJ3394"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52738,
+      "name": "right temporal bone",
+      "representation": "BP8875",
+      "files": [
+        "FJ3386"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52739,
+      "name": "left temporal bone",
+      "representation": "BP7991",
+      "files": [
+        "FJ3281"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52740,
+      "name": "ethmoid",
+      "representation": "BP8991",
+      "files": [
+        "FJ3199"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52892,
+      "name": "right zygomatic bone",
+      "representation": "BP8777",
+      "files": [
+        "FJ3392"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52893,
+      "name": "left zygomatic bone",
+      "representation": "BP8495",
+      "files": [
+        "FJ3287"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 53647,
+      "name": "right nasal bone",
+      "representation": "BP9060",
+      "files": [
+        "FJ3378"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 53648,
+      "name": "left nasal bone",
+      "representation": "BP8558",
+      "files": [
+        "FJ3272"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 53649,
+      "name": "right maxilla",
+      "representation": "BP8309",
+      "files": [
+        "FJ3375"
+      ],
+      "type": "maxilla",
+      "jaw": "skull"
+    },
+    {
+      "id": 53650,
+      "name": "left maxilla",
+      "representation": "BP9046",
+      "files": [
+        "FJ3269"
+      ],
+      "type": "maxilla",
+      "jaw": "skull"
+    },
+    {
+      "id": 52748,
+      "name": "mandible",
+      "representation": "BP8107",
+      "files": [
+        "FJ3289"
+      ],
+      "type": "mandible",
+      "jaw": "skull"
+    },
+    {
+      "id": 53655,
+      "name": "right palatine bone",
+      "representation": "BP8406",
+      "files": [
+        "FJ3379"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 53656,
+      "name": "left palatine bone",
+      "representation": "BP7930",
+      "files": [
+        "FJ3273"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52788,
+      "name": "right parietal bone",
+      "representation": "BP9057",
+      "files": [
+        "FJ3380"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 52789,
+      "name": "left parietal bone",
+      "representation": "BP9209",
+      "files": [
+        "FJ3274"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 9710,
+      "name": "vomer",
+      "representation": "BP8776",
+      "files": [
+        "FJ3395"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 54737,
+      "name": "right inferior nasal concha",
+      "representation": "BP8413",
+      "files": [
+        "FJ3369"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 54738,
+      "name": "left inferior nasal concha",
+      "representation": "BP9034",
+      "files": [
+        "FJ3263"
+      ],
+      "type": "skull",
+      "jaw": "skull"
+    },
+    {
+      "id": 55680,
+      "name": "right upper lateral secondary incisor tooth",
+      "representation": "BP7747",
+      "files": [
+        "FJ1280"
+      ],
+      "type": "incisivo",
+      "jaw": "sup"
+    },
+    {
+      "id": 55681,
+      "name": "right upper central secondary incisor tooth",
+      "representation": "BP7683",
+      "files": [
+        "FJ1279"
+      ],
+      "type": "incisivo",
+      "jaw": "sup"
+    },
+    {
+      "id": 55682,
+      "name": "left upper central secondary incisor tooth",
+      "representation": "BP5440",
+      "files": [
+        "FJ1265"
+      ],
+      "type": "incisivo",
+      "jaw": "sup"
+    },
+    {
+      "id": 55683,
+      "name": "left upper lateral secondary incisor tooth",
+      "representation": "BP5438",
+      "files": [
+        "FJ1266"
+      ],
+      "type": "incisivo",
+      "jaw": "sup"
+    },
+    {
+      "id": 55686,
+      "name": "right lower secondary canine tooth",
+      "representation": "BP5479",
+      "files": [
+        "FJ1274"
+      ],
+      "type": "canino",
+      "jaw": "inf"
+    },
+    {
+      "id": 55687,
+      "name": "left lower secondary canine tooth",
+      "representation": "BP5480",
+      "files": [
+        "FJ1260"
+      ],
+      "type": "canino",
+      "jaw": "inf"
+    },
+    {
+      "id": 55688,
+      "name": "right upper second secondary premolar tooth",
+      "representation": "BP7682",
+      "files": [
+        "FJ1278"
+      ],
+      "type": "premolar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55689,
+      "name": "right upper first secondary premolar tooth",
+      "representation": "BP7681",
+      "files": [
+        "FJ1277"
+      ],
+      "type": "premolar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55690,
+      "name": "left upper first secondary premolar tooth",
+      "representation": "BP5468",
+      "files": [
+        "FJ1262"
+      ],
+      "type": "premolar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55691,
+      "name": "left upper second secondary premolar tooth",
+      "representation": "BP5466",
+      "files": [
+        "FJ1264"
+      ],
+      "type": "premolar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55692,
+      "name": "left lower second secondary premolar tooth",
+      "representation": "BP5475",
+      "files": [
+        "FJ1257"
+      ],
+      "type": "premolar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55693,
+      "name": "left lower first secondary premolar tooth",
+      "representation": "BP5472",
+      "files": [
+        "FJ1255"
+      ],
+      "type": "premolar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55694,
+      "name": "right lower first secondary premolar tooth",
+      "representation": "BP5471",
+      "files": [
+        "FJ1269"
+      ],
+      "type": "premolar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55695,
+      "name": "right lower second secondary premolar tooth",
+      "representation": "BP5474",
+      "files": [
+        "FJ1271"
+      ],
+      "type": "premolar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55697,
+      "name": "right upper second secondary molar tooth",
+      "representation": "BP5452",
+      "files": [
+        "FJ1275"
+      ],
+      "type": "molar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55698,
+      "name": "right upper first secondary molar tooth",
+      "representation": "BP7680",
+      "files": [
+        "FJ1276"
+      ],
+      "type": "molar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55699,
+      "name": "left upper first secondary molar tooth",
+      "representation": "BP5455",
+      "files": [
+        "FJ1261"
+      ],
+      "type": "molar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55700,
+      "name": "left upper second secondary molar tooth",
+      "representation": "BP5453",
+      "files": [
+        "FJ1263"
+      ],
+      "type": "molar",
+      "jaw": "sup"
+    },
+    {
+      "id": 55703,
+      "name": "left lower second secondary molar tooth",
+      "representation": "BP5459",
+      "files": [
+        "FJ1256"
+      ],
+      "type": "molar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55704,
+      "name": "left lower first secondary molar tooth",
+      "representation": "BP5462",
+      "files": [
+        "FJ1254"
+      ],
+      "type": "molar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55705,
+      "name": "right lower first secondary molar tooth",
+      "representation": "BP5461",
+      "files": [
+        "FJ1268"
+      ],
+      "type": "molar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55706,
+      "name": "right lower second secondary molar tooth",
+      "representation": "BP5458",
+      "files": [
+        "FJ1270"
+      ],
+      "type": "molar",
+      "jaw": "inf"
+    },
+    {
+      "id": 55798,
+      "name": "right upper secondary canine tooth",
+      "representation": "BP7684",
+      "files": [
+        "FJ1281"
+      ],
+      "type": "canino",
+      "jaw": "sup"
+    },
+    {
+      "id": 55799,
+      "name": "left upper secondary canine tooth",
+      "representation": "BP5482",
+      "files": [
+        "FJ1267"
+      ],
+      "type": "canino",
+      "jaw": "sup"
+    },
+    {
+      "id": 57140,
+      "name": "right lower lateral secondary incisor tooth",
+      "representation": "BP5443",
+      "files": [
+        "FJ1273"
+      ],
+      "type": "incisivo",
+      "jaw": "inf"
+    },
+    {
+      "id": 57141,
+      "name": "left lower lateral secondary incisor tooth",
+      "representation": "BP5444",
+      "files": [
+        "FJ1259"
+      ],
+      "type": "incisivo",
+      "jaw": "inf"
+    },
+    {
+      "id": 57142,
+      "name": "right lower central secondary incisor tooth",
+      "representation": "BP5446",
+      "files": [
+        "FJ1272"
+      ],
+      "type": "incisivo",
+      "jaw": "inf"
+    },
+    {
+      "id": 57143,
+      "name": "left lower central secondary incisor tooth",
+      "representation": "BP5447",
+      "files": [
+        "FJ1258"
+      ],
+      "type": "incisivo",
+      "jaw": "inf"
+    }
+  ],
+  "files": [
+    {
+      "file": "FJ3200.obj",
+      "sha256": "48583dbbeab8ae243aa4c266b44ca5b26b9c4e1e79976819cfdf5dcb59ec5772"
+    },
+    {
+      "file": "FJ3309.obj",
+      "sha256": "c0262a08591e48504c8a53302525377e0c4ad1c165456475f3bb80aab6202d44"
+    },
+    {
+      "file": "FJ3394.obj",
+      "sha256": "127f537eb70e6ad4b036a535550ab7a681ce06dbdc1efda85956d910c54d6285"
+    },
+    {
+      "file": "FJ3386.obj",
+      "sha256": "b008c86a55b1e7743a56060b4d9cb8f8abcac71d83810f66fc50847181b7fa75"
+    },
+    {
+      "file": "FJ3281.obj",
+      "sha256": "0dd858a59e8f4f004871f55411f4048bd6a69e4ec55cf6daa08ae34a5dbd974a"
+    },
+    {
+      "file": "FJ3199.obj",
+      "sha256": "ffc2b3a343d531e72fdc70c0ef7f8c1c10c3fb84509f015585ad3b24eb403e21"
+    },
+    {
+      "file": "FJ3392.obj",
+      "sha256": "bda976acce1517ed5349e8a0ad8d71922c148b95bdde18381a5d808f690c3c0f"
+    },
+    {
+      "file": "FJ3287.obj",
+      "sha256": "eb4176b5641daa0f68da7190b1d3e3c26716cdb3b4337b2c8ecd39dfd47618a1"
+    },
+    {
+      "file": "FJ3378.obj",
+      "sha256": "933e8c8de3b4eaa2a4d784862388cac53da48309a29fd3ae04e9ac10da543c5f"
+    },
+    {
+      "file": "FJ3272.obj",
+      "sha256": "43a73088376ae4179e8edd2f5d296d5c573cd1078379a0e3e8eeb90920ba9dc5"
+    },
+    {
+      "file": "FJ3375.obj",
+      "sha256": "99fde288184e5d9ccb08ff5547fc1a693b2ef0d6a12a80e47b711f51bd3f7906"
+    },
+    {
+      "file": "FJ3269.obj",
+      "sha256": "ba97a37d471d6db65bca375a6413fd09e69e102017fb8a104d07255212d1b576"
+    },
+    {
+      "file": "FJ3289.obj",
+      "sha256": "c38102c34660e2b767a7b95a341380bf4a52c754c6235fcd322be5c7b8cb1745"
+    },
+    {
+      "file": "FJ3379.obj",
+      "sha256": "8f5817a92b519d8e1abf2e987a3987e64206b3d9071df2a8db520f74318462f3"
+    },
+    {
+      "file": "FJ3273.obj",
+      "sha256": "0524313ac30c3301754fc3ee37853e3d65bb5a2adeae4aee6ec87ac4b9f801d6"
+    },
+    {
+      "file": "FJ3380.obj",
+      "sha256": "b6874589f3ddcbeae7153c2d499c23d0083eb18e95d139759529c901384758c8"
+    },
+    {
+      "file": "FJ3274.obj",
+      "sha256": "45ab8d9b21c1854c9ea744137560020004e694eba3217a0a3fa0876d02207f65"
+    },
+    {
+      "file": "FJ3395.obj",
+      "sha256": "6eaf47a63ac9ca5f310bf43e136070a684a35c170b4d6e3dbdb8c03c300995e2"
+    },
+    {
+      "file": "FJ3369.obj",
+      "sha256": "147f3e2f7a195d49568d27415df783168785c251f23c3b1cebb5719570e37f86"
+    },
+    {
+      "file": "FJ3263.obj",
+      "sha256": "d13c06f022eefdd565eb38908546a4af63ff4cd204b2a2136934746a46c0f047"
+    },
+    {
+      "file": "FJ1280.obj",
+      "sha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e"
+    },
+    {
+      "file": "FJ1279.obj",
+      "sha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22"
+    },
+    {
+      "file": "FJ1265.obj",
+      "sha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328"
+    },
+    {
+      "file": "FJ1266.obj",
+      "sha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5"
+    },
+    {
+      "file": "FJ1274.obj",
+      "sha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907"
+    },
+    {
+      "file": "FJ1260.obj",
+      "sha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72"
+    },
+    {
+      "file": "FJ1278.obj",
+      "sha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829"
+    },
+    {
+      "file": "FJ1277.obj",
+      "sha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0"
+    },
+    {
+      "file": "FJ1262.obj",
+      "sha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18"
+    },
+    {
+      "file": "FJ1264.obj",
+      "sha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b"
+    },
+    {
+      "file": "FJ1257.obj",
+      "sha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7"
+    },
+    {
+      "file": "FJ1255.obj",
+      "sha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b"
+    },
+    {
+      "file": "FJ1269.obj",
+      "sha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f"
+    },
+    {
+      "file": "FJ1271.obj",
+      "sha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41"
+    },
+    {
+      "file": "FJ1275.obj",
+      "sha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416"
+    },
+    {
+      "file": "FJ1276.obj",
+      "sha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6"
+    },
+    {
+      "file": "FJ1261.obj",
+      "sha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728"
+    },
+    {
+      "file": "FJ1263.obj",
+      "sha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a"
+    },
+    {
+      "file": "FJ1256.obj",
+      "sha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec"
+    },
+    {
+      "file": "FJ1254.obj",
+      "sha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754"
+    },
+    {
+      "file": "FJ1268.obj",
+      "sha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda"
+    },
+    {
+      "file": "FJ1270.obj",
+      "sha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458"
+    },
+    {
+      "file": "FJ1281.obj",
+      "sha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c"
+    },
+    {
+      "file": "FJ1267.obj",
+      "sha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d"
+    },
+    {
+      "file": "FJ1273.obj",
+      "sha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869"
+    },
+    {
+      "file": "FJ1259.obj",
+      "sha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62"
+    },
+    {
+      "file": "FJ1272.obj",
+      "sha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b"
+    },
+    {
+      "file": "FJ1258.obj",
+      "sha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa"
+    }
+  ]
+}

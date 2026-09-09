@@ -1,0 +1,1167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Calculadora Visual de Dosis Pediátrica";
+const pageDesc = "Herramienta educativa e interactiva para comprender cálculos de dosificación pediátrica paso a paso.";
+const canonicalUrl = "https://odontoscore.com/guias/calculadora-dosis-pediatrica-visual.html";
+const jsonLd = null;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonicalUrl={canonicalUrl}
+  jsonLd={jsonLd}
+>
+<div class="shell">
+
+  <header class="calc-hero" style="margin-bottom:2.5rem;padding-top:1.5rem;">
+    <div class="hero-badge">TUTOR CLÍNICO · FARMACOMETRÍA PEDIÁTRICA</div>
+    <h1 style="font-size:clamp(2rem, 3.8vw, 2.75rem);color:#0F172A;line-height:1.2;margin:0.5rem 0 1.25rem;letter-spacing:-0.03em;">
+      Calculadora Visual de Dosis Pediátrica
+    </h1>
+    <p style="font-size:1.12rem;color:#475569;line-height:1.8;max-width:840px;margin:0 0 1.75rem;">
+      Sigue el razonamiento clínico completo paso a paso: desde el peso real del paciente hasta los miligramos por toma, la conversión a volumen en suspensión (mL), la distribución en 24 horas y la verificación estricta contra el límite de seguridad.
+    </p>
+
+    <!-- Ejemplo Clínico de Referencia (Diseño Editorial Limpio) -->
+    <div style="border-left:3px solid #0284C7;background:#F8FAFC;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:1.5rem 0 2rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+        <span style="font-size:0.75rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:#0284C7;background:#E0F2FE;padding:3px 10px;border-radius:999px;">CASO DE REFERENCIA</span>
+        <strong style="color:#0F172A;font-size:1.05rem;">Acetaminofén (Paracetamol) en Jarabe Pediátrico</strong>
+      </div>
+      <p style="margin:0;font-size:0.95rem;color:#475569;line-height:1.7;">
+        Rango terapéutico habitual: <strong>10 a 15 mg/kg por toma</strong> cada 4 a 6 horas.
+        Presentación comercial de clase: <strong>150 mg en 5 mL</strong> (concentración: 30 mg/mL).
+        Límite diario de seguridad preventiva del ejercicio: <strong>60 mg/kg/día</strong>.
+      </p>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="calculator">1. Calculadora Interactiva</button>
+    <button class="tab-btn" data-tab="tutorial">2. Explicación Paso a Paso</button>
+    <button class="tab-btn" data-tab="practice">3. Ejercicios Prácticos</button>
+  </div>
+
+  <!-- CALCULATOR -->
+  <section id="calculator" class="tab-page active">
+    <div class="section-title">
+      <h2>1. Datos que necesito</h2>
+      <p>Estos cuatro datos alimentan todo el cálculo.</p>
+    </div>
+
+    <!-- Banner Guía Dinámico Paso a Paso -->
+    <div id="stepGuideBanner" class="step-guide-banner">
+      <span class="guide-pulse-dot"></span>
+      <span id="guideBannerText">👉 PASO 1: Ingresa el peso del paciente o pulsa un botón de ejemplo para comenzar.</span>
+    </div>
+
+    <div class="grid-4">
+      <article class="card step-active" id="cardWeight">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="label">A · Paciente</div>
+          <div id="statusWeight"><div class="step-badge-pointer">👇 PASO 1 · Ingresa peso</div></div>
+        </div>
+        <h3>Peso</h3>
+        <div class="field-row">
+          <input id="weight" type="number" min="1" step="0.1" value="" placeholder="Ej. 12" />
+          <span class="unit">kg</span>
+        </div>
+        <div class="preset-row">
+          <button class="chip" data-weight="10">10 kg</button>
+          <button class="chip" data-weight="12">12 kg</button>
+          <button class="chip" data-weight="15">15 kg</button>
+          <button class="chip" data-weight="24">24 kg</button>
+        </div>
+        <div class="hint">La dosis pediátrica se calcula según el peso.</div>
+      </article>
+
+      <article class="card" id="cardDose">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="label">B · Dosis</div>
+          <div id="statusDose"><span style="font-size:0.74rem;color:var(--muted);font-weight:700;">Pendiente paso 1</span></div>
+        </div>
+        <h3>mg por kg</h3>
+        <div class="dose-choice">
+          <button class="dose-btn" data-dose="10"><small>MÍNIMA</small><strong>10 mg/kg</strong></button>
+          <button class="dose-btn" data-dose="15"><small>MÁXIMA</small><strong>15 mg/kg</strong></button>
+        </div>
+        <div class="inline-number">
+          <span class="label" style="min-width:72px">Manual</span>
+          <input id="doseFactor" type="number" min="1" max="50" step="0.1" value="" placeholder="Ej. 10" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-weight:800"/>
+          <span class="unit">mg/kg</span>
+        </div>
+        <div class="hint">Puedes usar los botones o introducir un valor para aprender.</div>
+      </article>
+
+      <article class="card" id="cardConc">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="label">C · Presentación</div>
+          <span class="badge-done">✓ Listo</span>
+        </div>
+        <h3>Concentración del frasco</h3>
+        <div class="field-row">
+          <input id="concMg" type="number" min="1" step="1" value="150" />
+          <span class="unit">mg</span>
+        </div>
+        <div class="field-row" style="margin-top:8px">
+          <input id="concMl" type="number" min="0.1" step="0.1" value="5" />
+          <span class="unit">mL</span>
+        </div>
+        <div class="hint">Concentración calculada: <strong id="mgPerMl">30 mg/mL</strong></div>
+      </article>
+
+      <article class="card" id="cardInterval">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="label">D · Frecuencia</div>
+          <div id="statusInterval"><span style="font-size:0.74rem;color:var(--muted);font-weight:700;">Pendiente paso 2</span></div>
+        </div>
+        <h3>Intervalo</h3>
+        <div class="dose-choice">
+          <button class="dose-btn" data-interval="4"><small>INTERVALO</small><strong>Cada 4 h</strong></button>
+          <button class="dose-btn" data-interval="6"><small>INTERVALO</small><strong>Cada 6 h</strong></button>
+        </div>
+        <div class="inline-number">
+          <span class="label" style="min-width:72px">Manual</span>
+          <input id="interval" type="number" min="1" max="24" step="1" value="" placeholder="Ej. 6" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-weight:800"/>
+          <span class="unit">h</span>
+        </div>
+        <div class="hint"><strong id="timesPerDay">—</strong> = 24 ÷ intervalo.</div>
+      </article>
+    </div>
+
+    <div class="section-title">
+      <h2>2. Sigue las flechas</h2>
+      <p>Nunca aparece un resultado sin mostrar de dónde sale.</p>
+    </div>
+
+    <div class="flow">
+      <article class="flow-card">
+        <div class="step">1</div>
+        <h3>mg por toma</h3>
+        <div class="math"><span id="mWeight">—</span> × <span id="mDose">—</span> = <span class="focus" id="mMgDose">—</span> mg</div>
+        <div class="answer" id="answerMg">Pendiente: ingresa peso y dosis</div>
+        <button class="explain-btn">¿De dónde sale?</button>
+        <div class="explain">“10 mg/kg” significa 10 miligramos por cada kilogramo de peso. Por eso multiplicamos el peso por la dosis elegida.</div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="flow-card">
+        <div class="step">2</div>
+        <h3>Convertir a mL</h3>
+        <div class="math">(<span id="mMgDose2">—</span> × <span id="mConcMl">5</span>) ÷ <span id="mConcMg">150</span> = <span class="focus" id="mVolume">—</span> mL</div>
+        <div class="answer" id="answerMl">Pendiente de datos</div>
+        <button class="explain-btn">¿De dónde sale?</button>
+        <div class="explain">
+          Usamos la presentación del frasco como una regla de tres: si cierta cantidad de mg está contenida en cierto volumen, calculamos qué volumen contiene la dosis que necesitamos.
+          <br><br>
+          <strong>Regla del profesor para este ejercicio:</strong> si el resultado tiene más de 1 decimal, se aproxima <strong>hacia arriba al siguiente décimo</strong>.
+          Ejemplo: 3.33 mL → 3.4 mL.
+        </div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="flow-card">
+        <div class="step">3</div>
+        <h3>Veces al día</h3>
+        <div class="math">24 ÷ <span id="mInterval">—</span> = <span class="focus" id="mTimes">—</span></div>
+        <div class="answer" id="answerTimes">Selecciona intervalo</div>
+        <button class="explain-btn">¿De dónde sale?</button>
+        <div class="explain">El día tiene 24 horas. Dividir 24 por el intervalo indica cuántas tomas caben matemáticamente en un día.</div>
+      </article>
+
+      <div class="arrow">→</div>
+
+      <article class="flow-card">
+        <div class="step">4</div>
+        <h3>Total diario</h3>
+        <div class="math"><span id="mDose2">—</span> × <span id="mTimes2">—</span> = <span class="focus" id="mDaily">—</span> mg/kg/día</div>
+        <div class="answer" id="answerDaily">Pendiente</div>
+        <button class="explain-btn">¿De dónde sale?</button>
+        <div class="explain">Multiplicamos la dosis por toma expresada en mg/kg por la cantidad de tomas que se administran durante 24 horas.</div>
+      </article>
+    </div>
+
+    <div class="bottom-grid">
+      <section class="timeline">
+        <div class="label">Reloj de 24 horas</div>
+        <h3 id="timelineTitle">Ingresa el intervalo de horas para ver las tomas</h3>
+        <div class="timeline-row" id="timelineTicks"></div>
+        <div class="time-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+        <div class="hint" id="timelineText">24 ÷ intervalo indica cuántas tomas caben matemáticamente en 24 horas.</div>
+      </section>
+
+      <section class="result-card">
+        <div class="label">Comprobación de seguridad educativa</div>
+        <h2>¿Cuánto recibe en todo el día?</h2>
+
+        <div style="margin:12px 0 14px;padding:14px;border-radius:14px;background:#eef4ff;border:1px solid #c9d8ff;">
+          <strong style="display:block;margin-bottom:6px;">¿Por qué usamos 60 mg/kg/día?</strong>
+          <div style="color:var(--muted);line-height:1.5;font-size:.92rem;">
+            En esta calculadora, <strong>60 mg/kg/día es un dato de referencia dado en la clase del profesor</strong>.
+            No se obtiene matemáticamente a partir del peso ni de la frecuencia.
+            Primero se conoce ese límite de referencia y luego se usa la matemática para comprobar que el esquema elegido no lo supere.
+            <br><br>
+            Por ejemplo: <strong>15 mg/kg × 4 tomas = 60 mg/kg/día</strong>. Esa multiplicación demuestra que el esquema llega al límite,
+            pero <strong>no crea el límite</strong>.
+          </div>
+        </div>
+        <div class="meter-wrap">
+          <div class="meter-label"><span id="meterLeft">— mg/kg/día</span><span>Límite: 60</span></div>
+          <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+        </div>
+        <div id="safetyBox" class="safety good">Configura los datos arriba para comprobar la seguridad.</div>
+      </section>
+    </div>
+
+    <section class="result-card" style="margin-top:18px">
+      <div class="label">Resultado final</div>
+      <h2>Resumen de la formulación educativa</h2>
+      <div class="result-main">
+        <div class="result-stat"><span>Peso</span><strong id="rWeight">—</strong></div>
+        <div class="result-stat"><span>Dosis seleccionada</span><strong id="rDose">—</strong></div>
+        <div class="result-stat"><span>mg por toma</span><strong id="rMg">—</strong></div>
+        <div class="result-stat"><span>Volumen</span><strong id="rMl">—</strong></div>
+        <div class="result-stat"><span>Frecuencia</span><strong id="rFreq">—</strong></div>
+        <div class="result-stat"><span>Veces al día</span><strong id="rTimes">—</strong></div>
+        <div class="result-stat"><span>Total diario</span><strong id="rDaily">—</strong></div>
+        <div class="result-stat"><span>Concentración</span><strong id="rConc">30 mg/mL</strong></div>
+        <div class="result-stat"><span>Estado</span><strong id="rState">Pendiente de datos</strong></div>
+      </div>
+    </section>
+
+    <section class="formula-panel">
+      <div class="section-title" style="margin-top:0">
+        <h2>Las 5 fórmulas que debes saber</h2>
+        <p>Son la columna vertebral de toda la aplicación.</p>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box"><div class="num">1</div><h4>Dosis por toma</h4><code>mg = peso × mg/kg</code><p>Calcula los miligramos que necesita el paciente en cada toma.</p></div>
+        <div class="formula-box"><div class="num">2</div><h4>Concentración</h4><code>mg/mL = mg ÷ mL</code><p>Indica cuánto medicamento contiene cada mililitro.</p></div>
+        <div class="formula-box"><div class="num">3</div><h4>Volumen</h4><code>mL = mg necesarios ÷ mg/mL</code><p>Convierte la dosis calculada en volumen administrable.</p></div>
+        <div class="formula-box"><div class="num">4</div><h4>Veces al día</h4><code>24 ÷ intervalo</code><p>Calcula cuántas tomas caben matemáticamente en 24 horas.</p></div>
+        <div class="formula-box"><div class="num">5</div><h4>Total diario</h4><code>mg/kg × tomas</code><p>Sirve para comprobar la exposición acumulada del día frente al límite de referencia dado en clase.</p></div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2>Comparación rápida</h2>
+      <p>Observa cómo cambian cantidad y frecuencia sin perder de vista el total diario.</p>
+    </div>
+
+    <div class="compare">
+      <article class="compare-card">
+        <div class="label">Mínimo vs máximo</div>
+        <h3>Rango por toma para <span id="cmpWeight">—</span></h3>
+        <div class="compare-line">Mínima: <strong><span id="cmpMinMg">—</span> mg → <span id="cmpMinMl">—</span> mL</strong></div>
+        <div class="compare-line">Máxima: <strong><span id="cmpMaxMg">—</span> mg → <span id="cmpMaxMl">—</span> mL</strong></div>
+        <div class="compare-line">Rango: <strong><span id="cmpRange">—</span></strong></div>
+        <div class="hint">Los volúmenes se muestran con la regla de clase: si aparecen más de 1 decimal, se aproxima hacia arriba al siguiente décimo.</div>
+      </article>
+      <article class="compare-card">
+        <div class="label">Frecuencia</div>
+        <h3>¿Qué pasa si cambio el intervalo?</h3>
+        <div class="compare-line">Cada 6 h → <strong>4 tomas/día</strong></div>
+        <div class="compare-line">Cada 4 h → <strong>6 tomas/día</strong></div>
+        <div class="compare-line">Regla: <strong>más tomas = mayor acumulación diaria</strong></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TUTORIAL -->
+  <section id="tutorial" class="tab-page">
+    <div class="section-title">
+      <h2>Modo paso a paso</h2>
+      <p>Recorre el razonamiento una pieza a la vez.</p>
+    </div>
+    <div class="tutorial">
+      <div class="tutorial-nav" id="tutorialNav"></div>
+      <div class="tutorial-stage" id="tutorialStage"></div>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section id="practice" class="tab-page">
+    <div class="section-title">
+      <h2>Modo práctica</h2>
+      <p>Resuelve un ejercicio y comprueba cada operación.</p>
+    </div>
+    <div class="practice-card">
+      <div class="label">Ejercicio aleatorio</div>
+      <h2 id="practiceTitle">Paciente pediátrico</h2>
+      <p id="practicePrompt"></p>
+      <div class="practice-grid">
+        <div class="question"><label>1. mg por toma</label><input id="qMg" type="number" step="0.01" placeholder="Ej. 180"></div>
+        <div class="question"><label>2. mL por toma</label><input id="qMl" type="number" step="0.01" placeholder="Ej. 6"></div>
+        <div class="question"><label>3. Tomas al día</label><input id="qTimes" type="number" step="1" placeholder="Ej. 4"></div>
+        <div class="question"><label>4. mg/kg/día</label><input id="qDaily" type="number" step="0.01" placeholder="Ej. 60"></div>
+      </div>
+      <div class="nav-row">
+        <button class="btn" id="newPractice">Nuevo ejercicio</button>
+        <button class="btn primary" id="checkPractice">Comprobar</button>
+      </div>
+      <div class="feedback" id="practiceFeedback"></div>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    <strong>Uso educativo.</strong> Esta aplicación enseña la lógica matemática de la dosificación usando los valores y límites del ejercicio de clase del profesor. No sustituye protocolos, ficha técnica, evaluación clínica, edad, comorbilidades ni criterio profesional.
+  </div>
+
+  <footer>Calculadora Visual de Dosis Pediátrica · aprendizaje interactivo</footer>
+</div>
+</BaseLayout>
+
+
+<script is:inline>
+
+(() => {
+  const DAILY_LIMIT = 60;
+  const MIN_DOSE = 10;
+  const MAX_DOSE = 15;
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => {
+    if (!Number.isFinite(n)) return "—";
+    return Math.round(n * 100) / 100;
+  };
+
+  // Regla educativa usada en clase:
+  // si el volumen calculado tiene más de 1 decimal, se aproxima SIEMPRE hacia arriba
+  // al siguiente décimo. Ej.: 3.33 -> 3.4 mL; 5.01 -> 5.1 mL.
+  const roundUpTenth = (n) => {
+    if (!Number.isFinite(n)) return NaN;
+    return Math.ceil((n - 1e-12) * 10) / 10;
+  };
+
+  const volumeDisplay = (raw) => {
+    const rounded = roundUpTenth(raw);
+    const differs = Math.abs(rounded - raw) > 0.000001;
+    return { raw, rounded, differs };
+  };
+
+  // Sin ninguno marcado por defecto
+  const state = {
+    weight: null,
+    dose: null,
+    concMg: 150,
+    concMl: 5,
+    interval: null
+  };
+
+  function syncState(){
+    const rawW = parseFloat($("weight").value);
+    state.weight = Number.isFinite(rawW) && rawW > 0 ? rawW : null;
+
+    const rawD = parseFloat($("doseFactor").value);
+    state.dose = Number.isFinite(rawD) && rawD > 0 ? rawD : null;
+
+    const rawMg = parseFloat($("concMg").value);
+    state.concMg = Number.isFinite(rawMg) && rawMg > 0 ? rawMg : 150;
+
+    const rawMl = parseFloat($("concMl").value);
+    state.concMl = Number.isFinite(rawMl) && rawMl > 0 ? rawMl : 5;
+
+    const rawI = parseFloat($("interval").value);
+    state.interval = Number.isFinite(rawI) && rawI > 0 ? rawI : null;
+  }
+
+  function updateStepGuidance(){
+    const hasWeight = state.weight !== null && state.weight > 0;
+    const hasDose = state.dose !== null && state.dose > 0;
+    const hasInterval = state.interval !== null && state.interval > 0;
+
+    // Determinar paso activo
+    let activeStep = 1;
+    if (!hasWeight) {
+      activeStep = 1;
+    } else if (!hasDose) {
+      activeStep = 2;
+    } else if (!hasInterval) {
+      activeStep = 3;
+    } else {
+      activeStep = 4; // Todo completo
+    }
+
+    // Actualizar Banner Superior
+    const banner = $("stepGuideBanner");
+    const bannerText = $("guideBannerText");
+    if (activeStep === 1) {
+      banner.className = "step-guide-banner";
+      bannerText.innerHTML = "👉 <strong>PASO 1:</strong> Ingresa el peso del paciente (ej. 12 kg) o pulsa un botón de ejemplo.";
+    } else if (activeStep === 2) {
+      banner.className = "step-guide-banner";
+      bannerText.innerHTML = "👉 <strong>PASO 2:</strong> Selecciona la dosis deseada: <strong>MÍNIMA 10 mg/kg</strong> o <strong>MÁXIMA 15 mg/kg</strong>.";
+    } else if (activeStep === 3) {
+      banner.className = "step-guide-banner";
+      bannerText.innerHTML = "👉 <strong>PASO 3:</strong> Selecciona el intervalo entre dosis (<strong>Cada 4 horas</strong> o <strong>Cada 6 horas</strong>).";
+    } else {
+      banner.className = "step-guide-banner completed";
+      bannerText.innerHTML = "🎉 <strong>¡Todos los datos listos!</strong> Sigue las flechas a continuación para ver el procedimiento matemático completo ↓";
+    }
+
+    // Resaltar tarjeta activa y badges
+    $("cardWeight").classList.toggle("step-active", activeStep === 1);
+    $("cardDose").classList.toggle("step-active", activeStep === 2);
+    $("cardInterval").classList.toggle("step-active", activeStep === 3);
+
+    // Badges en Card A
+    const statW = $("statusWeight");
+    if (hasWeight) {
+      statW.innerHTML = `<span class="badge-done">✓ ${fmt(state.weight)} kg</span>`;
+    } else {
+      statW.innerHTML = `<div class="step-badge-pointer">👇 PASO 1 · Ingresa peso</div>`;
+    }
+
+    // Badges en Card B
+    const statD = $("statusDose");
+    if (hasDose) {
+      statD.innerHTML = `<span class="badge-done">✓ ${fmt(state.dose)} mg/kg</span>`;
+    } else if (activeStep === 2) {
+      statD.innerHTML = `<div class="step-badge-pointer">👇 PASO 2 · Elige dosis</div>`;
+    } else {
+      statD.innerHTML = `<span style="font-size:0.74rem;color:var(--muted);font-weight:700;">Pendiente paso 1</span>`;
+    }
+
+    // Badges en Card D
+    const statI = $("statusInterval");
+    if (hasInterval) {
+      statI.innerHTML = `<span class="badge-done">✓ Cada ${fmt(state.interval)} h</span>`;
+    } else if (activeStep === 3) {
+      statI.innerHTML = `<div class="step-badge-pointer">👇 PASO 3 · Elige intervalo</div>`;
+    } else {
+      statI.innerHTML = `<span style="font-size:0.74rem;color:var(--muted);font-weight:700;">Pendiente paso 2</span>`;
+    }
+  }
+
+  function compute(){
+    syncState();
+    updateStepGuidance();
+
+    const mgPerMl = state.concMg / state.concMl;
+    $("mgPerMl").textContent = `${fmt(mgPerMl)} mg/mL`;
+    $("rConc").textContent = `${fmt(mgPerMl)} mg/mL`;
+
+    const hasWeight = state.weight !== null;
+    const hasDose = state.dose !== null;
+    const hasInterval = state.interval !== null;
+
+    // Actualizar botones seleccionados (ninguno activo si es null)
+    document.querySelectorAll("[data-weight]").forEach(btn=>{
+      btn.classList.toggle("active", hasWeight && parseFloat(btn.dataset.weight) === state.weight);
+    });
+    document.querySelectorAll("[data-dose]").forEach(btn=>{
+      btn.classList.toggle("active", hasDose && parseFloat(btn.dataset.dose) === state.dose);
+    });
+    document.querySelectorAll("[data-interval]").forEach(btn=>{
+      btn.classList.toggle("active", hasInterval && parseFloat(btn.dataset.interval) === state.interval);
+    });
+
+    // Comparador de Rango (si hay peso)
+    if (hasWeight) {
+      const minMg = state.weight * MIN_DOSE;
+      const maxMg = state.weight * MAX_DOSE;
+      const minMlRaw = minMg / mgPerMl;
+      const maxMlRaw = maxMg / mgPerMl;
+      const minMl = roundUpTenth(minMlRaw);
+      const maxMl = roundUpTenth(maxMlRaw);
+      $("cmpWeight").textContent = `${fmt(state.weight)} kg`;
+      $("cmpMinMg").textContent = fmt(minMg);
+      $("cmpMaxMg").textContent = fmt(maxMg);
+      $("cmpMinMl").textContent = fmt(minMl);
+      $("cmpMaxMl").textContent = fmt(maxMl);
+      $("cmpRange").textContent = `${fmt(minMl)}–${fmt(maxMl)} mL por toma`;
+    } else {
+      $("cmpWeight").textContent = "—";
+      $("cmpMinMg").textContent = "—";
+      $("cmpMaxMg").textContent = "—";
+      $("cmpMinMl").textContent = "—";
+      $("cmpMaxMl").textContent = "—";
+      $("cmpRange").textContent = "Ingresa el peso para calcular";
+    }
+
+    // Si faltan datos, mostrar estado pendiente claro
+    if (!hasWeight || !hasDose || !hasInterval) {
+      $("mWeight").textContent = hasWeight ? fmt(state.weight) : "—";
+      $("mDose").textContent = hasDose ? fmt(state.dose) : "—";
+      $("mMgDose").textContent = (hasWeight && hasDose) ? fmt(state.weight * state.dose) : "—";
+      $("mMgDose2").textContent = (hasWeight && hasDose) ? fmt(state.weight * state.dose) : "—";
+      $("mVolume").textContent = "—";
+      $("mInterval").textContent = hasInterval ? fmt(state.interval) : "—";
+      $("mTimes").textContent = hasInterval ? fmt(24 / state.interval) : "—";
+      $("mDose2").textContent = hasDose ? fmt(state.dose) : "—";
+      $("mTimes2").textContent = hasInterval ? fmt(24 / state.interval) : "—";
+      $("mDaily").textContent = "—";
+
+      $("answerMg").textContent = (hasWeight && hasDose) ? `${fmt(state.weight * state.dose)} mg por toma` : "Pendiente de datos";
+      $("answerMl").textContent = "Pendiente de datos";
+      $("answerTimes").textContent = hasInterval ? `${fmt(24 / state.interval)} tomas al día` : "Pendiente de intervalo";
+      $("answerDaily").textContent = "Pendiente de datos";
+
+      $("timesPerDay").textContent = hasInterval ? `${fmt(24 / state.interval)} tomas/día` : "—";
+      $("rWeight").textContent = hasWeight ? `${fmt(state.weight)} kg` : "—";
+      $("rDose").textContent = hasDose ? `${fmt(state.dose)} mg/kg` : "—";
+      $("rMg").textContent = (hasWeight && hasDose) ? `${fmt(state.weight * state.dose)} mg` : "—";
+      $("rMl").textContent = "—";
+      $("rFreq").textContent = hasInterval ? `Cada ${fmt(state.interval)} h` : "—";
+      $("rTimes").textContent = hasInterval ? fmt(24 / state.interval) : "—";
+      $("rDaily").textContent = "—";
+      $("rState").textContent = "Pendiente de completar datos";
+
+      $("meterFill").style.width = "0%";
+      $("meterLeft").textContent = "— mg/kg/día";
+      $("safetyBox").className = "safety good";
+      $("safetyBox").textContent = "Completa los datos en las tarjetas superiores para comprobar la seguridad.";
+      
+      renderTimeline(null, null);
+      renderTutorial(currentTutorialStep);
+      return;
+    }
+
+    // Todos los datos están completos: calcular normalmente
+    const mgDose = state.weight * state.dose;
+    const volumeRaw = mgDose / mgPerMl;
+    const volumeInfo = volumeDisplay(volumeRaw);
+    const volume = volumeInfo.rounded;
+    const times = 24 / state.interval;
+    const daily = state.dose * times;
+    const safe = daily <= DAILY_LIMIT + 1e-9;
+
+    $("timesPerDay").textContent = `${fmt(times)} tomas/día`;
+
+    $("mWeight").textContent = fmt(state.weight);
+    $("mDose").textContent = fmt(state.dose);
+    $("mMgDose").textContent = fmt(mgDose);
+    $("mMgDose2").textContent = fmt(mgDose);
+    $("mConcMl").textContent = fmt(state.concMl);
+    $("mConcMg").textContent = fmt(state.concMg);
+    $("mVolume").textContent = volumeInfo.differs ? `${fmt(volumeRaw)} → ${fmt(volume)}` : fmt(volume);
+    $("mInterval").textContent = fmt(state.interval);
+    $("mTimes").textContent = fmt(times);
+    $("mDose2").textContent = fmt(state.dose);
+    $("mTimes2").textContent = fmt(times);
+    $("mDaily").textContent = fmt(daily);
+
+    $("answerMg").textContent = `${fmt(mgDose)} mg por toma`;
+    $("answerMl").textContent = volumeInfo.differs
+      ? `${fmt(volume)} mL por toma (redondeado hacia arriba desde ${fmt(volumeRaw)} mL)`
+      : `${fmt(volume)} mL por toma`;
+    $("answerTimes").textContent = `${fmt(times)} tomas al día`;
+    $("answerDaily").textContent = `${fmt(daily)} mg/kg/día`;
+
+    $("rWeight").textContent = `${fmt(state.weight)} kg`;
+    $("rDose").textContent = `${fmt(state.dose)} mg/kg`;
+    $("rMg").textContent = `${fmt(mgDose)} mg`;
+    $("rMl").textContent = `${fmt(volume)} mL`;
+    $("rFreq").textContent = `Cada ${fmt(state.interval)} h`;
+    $("rTimes").textContent = fmt(times);
+    $("rDaily").textContent = `${fmt(daily)} mg/kg/día`;
+    $("rState").textContent = safe ? "Dentro del límite" : "Supera el límite";
+
+    const pct = Math.min(100, (daily / DAILY_LIMIT) * 100);
+    $("meterFill").style.width = `${pct}%`;
+    $("meterFill").classList.toggle("danger", !safe);
+    $("meterLeft").textContent = `${fmt(daily)} mg/kg/día`;
+
+    const box = $("safetyBox");
+    box.className = `safety ${safe ? "good" : "bad"}`;
+    if (safe){
+      box.innerHTML = `✅ Dentro del límite diario del ejercicio. <strong>${fmt(daily)} ≤ ${DAILY_LIMIT} mg/kg/día</strong>.`;
+    } else {
+      box.innerHTML = `⚠️ Este esquema supera el límite del ejercicio: <strong>${fmt(state.dose)} × ${fmt(times)} = ${fmt(daily)} mg/kg/día</strong>, que es mayor que ${DAILY_LIMIT}.`;
+    }
+
+    renderTimeline(times, state.interval);
+    renderTutorial(currentTutorialStep);
+  }
+
+  function renderTimeline(times, interval){
+    const wrap = $("timelineTicks");
+    wrap.innerHTML = "";
+    if (!times || !interval) {
+      $("timelineTitle").textContent = "Configura el intervalo para ver los horarios";
+      $("timelineText").textContent = "Al seleccionar Cada 4h o Cada 6h se iluminarán las marcas de 24 horas.";
+      for(let i=0;i<12;i++){
+        const el = document.createElement("div");
+        el.className = "tick";
+        wrap.appendChild(el);
+      }
+      return;
+    }
+    // 12 blocks = each 2h
+    for(let i=0;i<12;i++){
+      const el = document.createElement("div");
+      el.className = "tick";
+      const hour = i*2;
+      const tolerance = 0.001;
+      for(let t=0;t<24;t+=interval){
+        if(Math.abs(t-hour)<tolerance || (t > hour && t < hour+2)){
+          el.classList.add("active");
+          break;
+        }
+      }
+      wrap.appendChild(el);
+    }
+    $("timelineTitle").textContent = `Cada ${fmt(interval)} horas → ${fmt(times)} tomas al día`;
+    $("timelineText").textContent = `24 ÷ ${fmt(interval)} = ${fmt(times)}. La línea temporal representa matemáticamente cuántas tomas caben en 24 horas.`;
+  }
+
+  ["weight","doseFactor","concMg","concMl","interval"].forEach(id=>{
+    $(id).addEventListener("input", compute);
+  });
+
+  document.querySelectorAll("[data-weight]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      $("weight").value = btn.dataset.weight;
+      compute();
+    });
+  });
+
+  document.querySelectorAll("[data-dose]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      $("doseFactor").value = btn.dataset.dose;
+      compute();
+    });
+  });
+
+  document.querySelectorAll("[data-interval]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      $("interval").value = btn.dataset.interval;
+      compute();
+    });
+  });
+
+  document.querySelectorAll(".explain-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      btn.nextElementSibling.classList.toggle("open");
+    });
+  });
+
+  // tabs
+  document.querySelectorAll(".tab-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+      document.querySelectorAll(".tab-page").forEach(p=>p.classList.remove("active"));
+      btn.classList.add("active");
+      $(btn.dataset.tab).classList.add("active");
+    });
+  });
+
+  // Tutorial
+  const tutorialSteps = [
+    {
+      title:"1. Peso",
+      short:"Peso",
+      body:()=>{
+        const w = state.weight || 12;
+        return `
+        <div class="label">PASO 1</div>
+        <h2>Empieza por el peso del paciente</h2>
+        <div class="huge">${fmt(w)} kg</div>
+        <p>En pediatría, la dosis del ejercicio se expresa en <strong>mg por cada kg de peso</strong>. Sin este dato no puedes calcular los mg por toma.</p>
+        <div class="math">Dato de entrada: <span class="focus">${fmt(w)} kg</span></div>`;
+      }
+    },
+    {
+      title:"2. Dosis",
+      short:"Dosis",
+      body:()=>{
+        const w = state.weight || 12;
+        const d = state.dose || 10;
+        return `
+        <div class="label">PASO 2</div>
+        <h2>Elige el factor de dosis</h2>
+        <div class="huge">${fmt(d)} mg/kg</div>
+        <p>Ahora ya sabes cuántos miligramos corresponden por cada kilogramo.</p>
+        <div class="math">${fmt(w)} kg × ${fmt(d)} mg/kg = <span class="focus">${fmt(w*d)} mg</span></div>`;
+      }
+    },
+    {
+      title:"3. Volumen",
+      short:"mL",
+      body:()=>{
+        const w = state.weight || 12;
+        const d = state.dose || 10;
+        const mg = w * d;
+        const mgml = state.concMg / state.concMl;
+        const mlRaw = mg / mgml;
+        const ml = roundUpTenth(mlRaw);
+        const roundedNote = Math.abs(ml-mlRaw)>0.000001
+          ? `<p><strong>Redondeo de clase:</strong> ${fmt(mlRaw)} mL → ${fmt(ml)} mL, siempre hacia arriba al siguiente décimo.</p>`
+          : `<p>El resultado ya queda exacto a un decimal, así que no necesita ajuste.</p>`;
+        return `
+        <div class="label">PASO 3</div>
+        <h2>Convierte los mg a mL</h2>
+        <div class="huge">${fmt(ml)} mL</div>
+        <p>El frasco contiene <strong>${fmt(state.concMg)} mg en ${fmt(state.concMl)} mL</strong>, es decir, ${fmt(mgml)} mg/mL.</p>
+        <div class="math">${fmt(mg)} mg ÷ ${fmt(mgml)} mg/mL = <span class="focus">${fmt(mlRaw)} mL</span></div>
+        ${roundedNote}`;
+      }
+    },
+    {
+      title:"4. Frecuencia",
+      short:"Horas",
+      body:()=>{
+        const i = state.interval || 6;
+        const times = 24 / i;
+        return `
+        <div class="label">PASO 4</div>
+        <h2>Calcula cuántas tomas caben en 24 horas</h2>
+        <div class="huge">${fmt(times)} veces</div>
+        <p>La frecuencia clínica es un dato que se define previamente. La matemática solo traduce el intervalo en tomas por día.</p>
+        <div class="math">24 ÷ ${fmt(i)} h = <span class="focus">${fmt(times)} tomas/día</span></div>`;
+      }
+    },
+    {
+      title:"5. Total diario",
+      short:"Total",
+      body:()=>{
+        const d = state.dose || 10;
+        const i = state.interval || 6;
+        const times = 24 / i;
+        const daily = d * times;
+        return `
+        <div class="label">PASO 5</div>
+        <h2>Comprueba cuánto acumula en todo el día</h2>
+        <div class="huge">${fmt(daily)} mg/kg/día</div>
+        <p>Esta comprobación evita mirar únicamente la dosis individual sin considerar cuántas veces se repite.</p>
+        <div class="math">${fmt(d)} mg/kg × ${fmt(times)} tomas = <span class="focus">${fmt(daily)} mg/kg/día</span></div>`;
+      }
+    },
+    {
+      title:"6. ¿Por qué 60?",
+      short:"Límite",
+      body:()=>{
+        return `
+        <div class="label">PASO 6</div>
+        <h2>¿De dónde sale el límite de 60 mg/kg/día?</h2>
+        <div class="huge">60 mg/kg/día</div>
+        <p><strong>No sale de una fórmula.</strong> En esta aplicación es un <strong>dato de referencia dado por el profesor en el ejercicio de clase</strong>.</p>
+        <div class="math">Dato conocido: <span class="focus">límite diario = 60 mg/kg/día</span></div>
+        <p>Después usamos las fórmulas para comprobar el esquema. Por ejemplo: 15 mg/kg × 4 tomas = 60 mg/kg/día. Esa operación <strong>llega al límite</strong>, pero no es la que lo define.</p>`;
+      }
+    },
+    {
+      title:"7. Comprobar",
+      short:"Seguridad",
+      body:()=>{
+        const d = state.dose || 10;
+        const i = state.interval || 6;
+        const times = 24 / i;
+        const daily = d * times;
+        const safe = daily <= DAILY_LIMIT;
+        return `
+        <div class="label">PASO 7</div>
+        <h2>Compara contra el límite del ejercicio</h2>
+        <div class="huge" style="color:${safe?'var(--good)':'var(--danger)'}">${safe?'✓':'⚠'} ${fmt(daily)} / ${DAILY_LIMIT}</div>
+        <p>${safe
+          ? `El total calculado está dentro del límite diario educativo usado en este ejercicio.`
+          : `El total calculado supera el límite diario educativo usado en este ejercicio.`}</p>
+        <div class="math">${fmt(daily)} ${safe?'≤':'>'} ${DAILY_LIMIT} mg/kg/día</div>`;
+      }
+    }
+  ];
+
+  let currentTutorialStep = 0;
+
+  function renderTutorial(index){
+    currentTutorialStep = Math.max(0, Math.min(tutorialSteps.length-1, index));
+    const nav = $("tutorialNav");
+    if(!nav) return;
+    nav.innerHTML = "";
+    tutorialSteps.forEach((s,i)=>{
+      const b = document.createElement("button");
+      b.className = `tutorial-step ${i===currentTutorialStep?'active':''}`;
+      b.textContent = s.title;
+      b.addEventListener("click",()=>renderTutorial(i));
+      nav.appendChild(b);
+    });
+    const stage = $("tutorialStage");
+    stage.innerHTML = tutorialSteps[currentTutorialStep].body() + `
+      <div class="nav-row">
+        <button class="btn" id="prevTut" ${currentTutorialStep===0?'disabled':''}>← Anterior</button>
+        <button class="btn primary" id="nextTut" ${currentTutorialStep===tutorialSteps.length-1?'disabled':''}>Siguiente →</button>
+      </div>`;
+    const prev = $("prevTut"), next = $("nextTut");
+    if(prev) prev.addEventListener("click",()=>renderTutorial(currentTutorialStep-1));
+    if(next) next.addEventListener("click",()=>renderTutorial(currentTutorialStep+1));
+  }
+
+  // Practice
+  let practice = null;
+
+  function newPractice(){
+    const weights = [8,10,12,15,18,20,24,28];
+    const doses = [10,15];
+    const intervals = [4,6];
+    const w = weights[Math.floor(Math.random()*weights.length)];
+    const d = doses[Math.floor(Math.random()*doses.length)];
+    const i = intervals[Math.floor(Math.random()*intervals.length)];
+    const concMg=150, concMl=5;
+    const mg = w*d;
+    const mgml = concMg/concMl;
+    const mlRaw = mg/mgml;
+    const ml = roundUpTenth(mlRaw);
+    const times = 24/i;
+    const daily = d*times;
+    practice={w,d,i,concMg,concMl,mg,mlRaw,ml,times,daily};
+    $("practiceTitle").textContent = `Paciente de ${w} kg`;
+    $("practicePrompt").innerHTML =
+      `Acetaminofén <strong>${concMg} mg / ${concMl} mL</strong> · dosis seleccionada <strong>${d} mg/kg</strong> · intervalo <strong>cada ${i} horas</strong>.`;
+    ["qMg","qMl","qTimes","qDaily"].forEach(id=>$(id).value="");
+    $("practiceFeedback").classList.remove("show");
+  }
+
+  function closeEnough(a,b){ return Math.abs(a-b) <= 0.05; }
+
+  function checkPractice(){
+    if(!practice) return;
+    const aMg=parseFloat($("qMg").value);
+    const aMl=parseFloat($("qMl").value);
+    const aTimes=parseFloat($("qTimes").value);
+    const aDaily=parseFloat($("qDaily").value);
+    const ok1=closeEnough(aMg,practice.mg);
+    const ok2=closeEnough(aMl,practice.ml);
+    const ok3=closeEnough(aTimes,practice.times);
+    const ok4=closeEnough(aDaily,practice.daily);
+    const count=[ok1,ok2,ok3,ok4].filter(Boolean).length;
+    const safe=practice.daily<=DAILY_LIMIT;
+    const box=$("practiceFeedback");
+    box.innerHTML=`
+      <strong>${count}/4 respuestas correctas.</strong><br><br>
+      1) ${practice.w} × ${practice.d} = <strong>${fmt(practice.mg)} mg por toma</strong> ${ok1?'✅':'❌'}<br>
+      2) ${fmt(practice.mg)} ÷ ${fmt(practice.concMg/practice.concMl)} = <strong>${fmt(practice.mlRaw)} mL</strong>
+      ${Math.abs(practice.ml-practice.mlRaw)>0.000001 ? `→ redondeo hacia arriba = <strong>${fmt(practice.ml)} mL</strong>` : `→ <strong>${fmt(practice.ml)} mL</strong>`}
+      ${ok2?'✅':'❌'}<br>
+      3) 24 ÷ ${practice.i} = <strong>${fmt(practice.times)} tomas/día</strong> ${ok3?'✅':'❌'}<br>
+      4) ${practice.d} × ${fmt(practice.times)} = <strong>${fmt(practice.daily)} mg/kg/día</strong> ${ok4?'✅':'❌'}<br><br>
+      Estado educativo: <strong>${safe?'dentro':'por encima'} del límite de ${DAILY_LIMIT} mg/kg/día</strong>.
+    `;
+    box.classList.add("show");
+  }
+
+  $("newPractice").addEventListener("click",newPractice);
+  $("checkPractice").addEventListener("click",checkPractice);
+
+  newPractice();
+  renderTutorial(0);
+  compute();
+})();
+
+</script>
+
+<style is:global>
+:root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#667085;
+    --line:#dfe5ee;
+    --primary:#2563eb;
+    --primary-soft:#eaf1ff;
+    --good:#16803d;
+    --good-soft:#eaf8ef;
+    --warn:#b54708;
+    --warn-soft:#fff5e8;
+    --danger:#b42318;
+    --danger-soft:#fff0ef;
+    --shadow:0 12px 30px rgba(20, 35, 60, .08);
+    --radius:20px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at top left, #edf4ff 0, transparent 32rem),
+      linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);
+  }
+
+  button,input,select{font:inherit}
+  button{cursor:pointer}
+
+  .shell{max-width:1160px;margin:auto;padding:2.5rem 1.5rem}
+
+  .tabs{
+    display:flex;gap:2rem;border-bottom:1px solid #e2e8f0;margin:2rem 0 2.5rem;padding-bottom:0;
+  }
+  .tab-btn{
+    border:none;background:transparent;color:#64748b;
+    padding:0.75rem 0;font-weight:700;font-size:1rem;position:relative;cursor:pointer;
+    border-bottom:3px solid transparent;margin-bottom:-1px;transition:all 0.2s;
+  }
+  .tab-btn:hover{color:#0284c7}
+  .tab-btn.active{color:#0284c7;border-bottom-color:#0284c7;background:transparent}
+  .tab-page{display:none}
+  .tab-page.active{display:block}
+
+  /* Banner Guía de Pasos Editorial */
+  .step-guide-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: none;
+    border-left: 3px solid #2563eb;
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.25rem;
+    margin-bottom: 2.25rem;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: #1e3a8a;
+    transition: all 0.3s ease;
+  }
+  .step-guide-banner.completed {
+    border-left-color: #10b981;
+    color: #065f46;
+    background: #f0fdf4;
+  }
+  
+  .guide-pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2563eb;
+    animation: pulseDot 1.4s infinite;
+    flex-shrink: 0;
+  }
+  .step-guide-banner.completed .guide-pulse-dot {
+    background: #10b981;
+  }
+  @keyframes pulseDot {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    70% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  /* Indicador de paso activo sutil sin card pesada */
+  .card {
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .card.step-active {
+    position: relative;
+  }
+
+  .step-badge-pointer {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.76rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+
+  .badge-done {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #ecfdf5;
+    color: #059669;
+    font-size: 0.74rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+
+  /* Parámetros de cálculo: 4 columnas limpias */
+  .grid-4{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+    padding-bottom:2.5rem;
+    border-bottom:1px solid #e2e8f0;
+  }
+  .card h3{margin:0 0 12px;font-size:1.05rem;color:#0f172a}
+  .label{font-size:.78rem;color:#64748b;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .field-row{display:flex;align-items:center;gap:10px}
+  .field-row input{
+    width:100%;padding:11px 14px;border:1.5px solid #cbd5e1;border-radius:8px;background:#f8fafc;
+    font-size:1.12rem;font-weight:800;outline:none;color:#0f172a;transition:all .2s;
+  }
+  .field-row input:focus{border-color:#0284c7;background:#ffffff;box-shadow:0 0 0 3px rgba(2,132,199,0.12)}
+  .unit{font-weight:800;color:#64748b;font-size:0.95rem}
+  .hint{color:#64748b;font-size:.88rem;margin-top:10px;line-height:1.6}
+  .preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .chip{
+    border:1px solid #e2e8f0;background:#f8fafc;padding:5px 9px;border-radius:6px;font-weight:700;font-size:.8rem;color:#475569;cursor:pointer;transition:all 0.15s;
+  }
+  .chip:hover{background:#e2e8f0;color:#0f172a}
+  .chip.active{background:#0284c7;border-color:#0284c7;color:#ffffff}
+  .dose-choice{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px
+  }
+  .dose-btn{
+    border:1px solid #e2e8f0;background:#f8fafc;border-radius:8px;padding:10px;text-align:left;cursor:pointer;transition:all 0.2s;
+  }
+  .dose-btn strong{display:block;font-size:1.15rem;color:#0f172a}
+  .dose-btn small{color:#64748b;font-size:0.75rem;font-weight:700;letter-spacing:0.04em}
+  .dose-btn:hover{background:#f1f5f9}
+  .dose-btn.active{border-color:#0284c7;background:#e0f2fe}
+  .dose-btn.active strong{color:#0369a1}
+  .inline-number{
+    display:flex;gap:8px;align-items:center;margin-top:10px;
+  }
+
+  /* Proceso de cálculo secuencial */
+  .flow{
+    display:grid;
+    grid-template-columns:1fr 36px 1fr 36px 1fr 36px 1fr;
+    align-items:start;
+    margin:2.5rem 0;
+    padding-bottom:2.5rem;
+    border-bottom:1px solid #e2e8f0;
+  }
+  .flow-card{
+    background:transparent;border:none;border-radius:0;padding:0;box-shadow:none;
+  }
+  .flow-card .step{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:6px;
+    background:#0f172a;color:#fff;font-weight:800;font-size:0.8rem;margin-bottom:8px;
+  }
+  .flow-card h3{margin:0 0 10px;font-size:1rem;color:#0f172a}
+  .math{
+    font-size:1.15rem;font-weight:800;letter-spacing:-.02em;
+    padding:10px 12px;border-radius:6px;background:#f8fafc;border:none;border-left:3px solid #cbd5e1;color:#0f172a;
+  }
+  .math .focus{color:#0284c7}
+  .answer{margin-top:10px;font-weight:800;font-size:1.25rem;color:#0f172a}
+  .arrow{display:grid;place-items:center;font-size:1.5rem;color:#94a3b8;margin-top:36px}
+
+  .explain-btn{
+    margin-top:10px;border:0;background:transparent;color:#0284c7;font-weight:700;padding:0;font-size:0.88rem;cursor:pointer;
+  }
+  .explain-btn:hover{text-decoration:underline}
+  .explain{
+    display:none;margin-top:10px;padding:12px 14px;border-radius:6px;background:#f8fafc;border-left:2px solid #0284c7;color:#475569;line-height:1.65;font-size:.9rem
+  }
+  .explain.open{display:block}
+
+  /* Reloj y Seguridad */
+  .bottom-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.5rem;
+    padding-bottom:2.5rem;border-bottom:1px solid #e2e8f0;
+  }
+  .timeline{
+    border:none;border-radius:0;padding:0;background:transparent;
+  }
+  .timeline-row{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:16px}
+  .tick{height:30px;border-radius:6px;background:#e2e8f0;position:relative}
+  .tick.active{background:#bae6fd}
+  .tick.active::after{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:8px;height:8px;border-radius:50%;background:#0284c7;
+  }
+  .time-labels{display:flex;justify-content:space-between;color:#64748b;font-size:.78rem;margin-top:7px}
+
+  .meter-wrap{margin-top:14px}
+  .meter-label{display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;color:#0f172a}
+  .meter{height:14px;border-radius:999px;background:#e2e8f0;overflow:hidden;margin-top:8px}
+  .meter-fill{height:100%;width:0;background:linear-gradient(90deg,#16a34a,#22c55e);transition:width .25s ease}
+  .meter-fill.danger{background:linear-gradient(90deg,#f59e0b,#ef4444)}
+  .safety{
+    border-radius:6px;padding:14px 16px;margin-top:14px;font-weight:700;line-height:1.5;font-size:0.92rem;
+  }
+  .safety.good{background:#f0fdf4;color:#15803d;border-left:3px solid #16a34a}
+  .safety.bad{background:#fef2f2;color:#b91c1c;border-left:3px solid #dc2626}
+
+  /* Resumen de resultados */
+  .result-card{padding:2.5rem 0;border-bottom:1px solid #e2e8f0;background:transparent;border-radius:0;box-shadow:none}
+  .result-card h2{margin:0 0 16px;font-size:1.6rem;color:#0f172a}
+  .result-main{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:1.5rem;margin-top:1.5rem
+  }
+  .result-stat{padding:1.25rem 1.5rem;border-radius:6px;background:#f8fafc;border-left:3px solid #0284c7}
+  .result-stat span{display:block;color:#64748b;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px}
+  .result-stat strong{font-size:1.4rem;color:#0f172a}
+
+  /* Panel de fórmulas de referencia */
+  .formula-panel{padding:2.5rem 0;border-bottom:1px solid #e2e8f0;margin-top:0;background:transparent;border-radius:0;box-shadow:none}
+  .formula-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:2rem;margin-top:1.5rem}
+  .formula-box{border:none;border-radius:0;padding:0;background:transparent}
+  .formula-box .num{width:24px;height:24px;border-radius:6px;background:#e0f2fe;color:#0284c7;display:grid;place-items:center;font-weight:800;font-size:0.8rem}
+  .formula-box h4{margin:10px 0 6px;color:#0f172a;font-size:1.05rem}
+  .formula-box code{display:block;font-family:inherit;font-weight:800;color:#0284c7;font-size:0.92rem;background:#f8fafc;padding:6px 8px;border-radius:4px;margin-bottom:6px}
+  .formula-box p{margin:0;color:#64748b;font-size:.88rem;line-height:1.6}
+
+  /* Comparación */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem;padding-bottom:2.5rem;border-bottom:1px solid #e2e8f0}
+  .compare-card{border:none;border-radius:0;background:transparent;padding:0;box-shadow:none}
+  .compare-card h3{margin-top:0;font-size:1.2rem;color:#0f172a}
+  .compare-line{padding:10px 0;border-bottom:1px solid #f1f5f9;color:#334155}
+  .compare-line:last-child{border-bottom:0}
+  .compare-line strong{font-size:1.05rem;color:#0f172a}
+
+  .section-title{margin:2.5rem 0 1.25rem}
+  .section-title h2{margin:0 0 6px;font-size:1.55rem;color:#0f172a}
+  .section-title p{margin:0;color:#64748b;font-size:1rem;line-height:1.6}
+
+  /* Tutorial paso a paso */
+  .tutorial{
+    display:grid;grid-template-columns:240px 1fr;gap:2.5rem;margin-top:1.5rem;
+  }
+  .tutorial-nav{display:flex;flex-direction:column;gap:6px}
+  .tutorial-step{
+    border:none;background:#f8fafc;border-left:3px solid transparent;border-radius:0 6px 6px 0;padding:12px 14px;text-align:left;font-weight:700;color:#475569;cursor:pointer;transition:all .2s;
+  }
+  .tutorial-step:hover{background:#f1f5f9;color:#0f172a}
+  .tutorial-step.active{background:#f0f9ff;border-left-color:#0284c7;color:#0284c7}
+  .tutorial-stage{
+    background:transparent;border:none;border-left:3px solid #e2e8f0;border-radius:0;padding:0 0 0 2rem;min-height:300px;
+  }
+  .tutorial-stage h2{margin-top:0;color:#0f172a}
+  .tutorial-stage .huge{font-size:clamp(2.2rem,5vw,4.5rem);font-weight:900;letter-spacing:-.04em;color:#0284c7}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+  .btn{
+    border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:10px 16px;font-weight:700;color:#334155;cursor:pointer;transition:all 0.2s;
+  }
+  .btn:hover{background:#f8fafc}
+  .btn.primary{background:#0284c7;color:#fff;border-color:#0284c7}
+  .btn.primary:hover{background:#0369a1}
+  .btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}
+
+  /* Práctica */
+  .practice-card{
+    background:transparent;border:none;border-radius:0;padding:1.5rem 0;box-shadow:none;
+  }
+  .practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:1.5rem}
+  .question{
+    border:none;border-left:3px solid #cbd5e1;padding:0.5rem 0 0.5rem 1.25rem;background:transparent;
+  }
+  .question label{font-weight:700;display:block;margin-bottom:8px;color:#0f172a;font-size:0.95rem}
+  .question input{width:100%;padding:10px 12px;border:1.5px solid #cbd5e1;border-radius:6px;background:#f8fafc;font-weight:700;color:#0f172a}
+  .question input:focus{border-color:#0284c7;background:#ffffff;outline:none}
+  .feedback{margin-top:16px;padding:16px;border-radius:6px;background:#f8fafc;border-left:3px solid #0284c7;display:none;line-height:1.6}
+  .feedback.show{display:block}
+
+  .disclaimer{
+    margin:3rem 0 1rem;padding:1.25rem 1.5rem;border-radius:0 6px 6px 0;background:#fffbeb;border:none;border-left:3px solid #f59e0b;
+    color:#92400e;font-size:.9rem;line-height:1.7
+  }
+  footer{color:#94a3b8;font-size:.85rem;text-align:center;padding:2rem 0}
+
+  @media (max-width:1000px){
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .flow{grid-template-columns:1fr;gap:1.5rem}
+    .arrow{transform:rotate(90deg);margin:0 auto;height:24px}
+    .bottom-grid,.tutorial{grid-template-columns:1fr}
+    .tutorial-stage{border-left:none;border-top:3px solid #e2e8f0;padding:1.5rem 0 0}
+  }
+  @media (max-width:650px){
+    .shell{padding:1.25rem}
+    .tabs{gap:1rem;overflow-x:auto}
+    .grid-4,.compare,.practice-grid,.result-main,.formula-grid{grid-template-columns:1fr}
+  }
+</style>
