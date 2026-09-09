@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 
 const src = 'dist/calculadora-dosis-pediatrica.html';
 const destDir = 'dist/calculadora-dosis-pediatrica';
@@ -10,28 +11,66 @@ if (fs.existsSync(src)) {
   console.log('✓ Mirrored calculadora-dosis-pediatrica.html -> dist/calculadora-dosis-pediatrica/index.html');
 }
 
+function copyDir(from, to) {
+  fs.mkdirSync(to, { recursive: true });
+  for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+    const s = path.join(from, entry.name);
+    const d = path.join(to, entry.name);
+    if (entry.isDirectory()) copyDir(s, d);
+    else fs.copyFileSync(s, d);
+  }
+}
+
+function extractScripts(html) {
+  const out = [];
+  const re = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = re.exec(html))) {
+    out.push({ attrs: m[1] || '', body: m[2] || '' });
+  }
+  return out;
+}
+
 // ── Endo3D Trainer (modelox) → dist/simuladores/endodoncia/ ──
-// La página src/pages/guias/simulador-endodoncia-3d.astro integra el
-// simulador en nativo (sin iframe) y carga desde aquí:
-//   /simuladores/endodoncia/data/models.js  (mallas BodyParts3D)
-//   /simuladores/endodoncia/engine.js        (motor extraído de modelox)
-// modelox/endodoncia.html sigue siendo la única fuente del motor.
 const endoEngineSrc = 'modelox/endodoncia.html';
 const endoModelsSrc = 'modelox/data/models.js';
 const endoDestDir = 'dist/simuladores/endodoncia';
+const mpSrcDir = 'modelox/vendor/mediapipe';
 
 if (fs.existsSync(endoEngineSrc) && fs.existsSync(endoModelsSrc)) {
   const raw = fs.readFileSync(endoEngineSrc, 'utf8');
-  const start = raw.lastIndexOf('<script>');
-  const end = raw.lastIndexOf('</script>');
-  const engine = (start >= 0 && end > start) ? raw.slice(start + '<script>'.length, end) : '';
-  if (!engine.trimStart().startsWith('"use strict"') || engine.length < 50000) {
-    console.warn('! No se pudo extraer el motor del simulador: revisa modelox/endodoncia.html.');
-  } else {
-    fs.mkdirSync(endoDestDir + '/data', { recursive: true });
-    fs.writeFileSync(endoDestDir + '/engine.js', engine);
+  const scripts = extractScripts(raw);
+  const inline = scripts.filter((s) => !/\bsrc\s*=/.test(s.attrs));
+  const vision = inline.find((s) => s.body.includes('self.MPVision') && s.body.includes('HandLandmarker'));
+  const engine = [...inline].reverse().find((s) => s.body.trimStart().startsWith('"use strict"'));
+
+  fs.mkdirSync(endoDestDir + '/data', { recursive: true });
+
+  if (engine && engine.body.length >= 50000) {
+    fs.writeFileSync(endoDestDir + '/engine.js', engine.body);
     fs.copyFileSync(endoModelsSrc, endoDestDir + '/data/models.js');
-    console.log('✓ Simulador endodoncia -> dist/simuladores/endodoncia/ (engine.js + data/models.js)');
+    console.log('✓ Simulador endodoncia -> dist/simuladores/endodoncia/engine.js');
+  } else {
+    console.warn('! No se pudo extraer el motor del simulador: revisa modelox/endodoncia.html.');
+  }
+
+  if (vision && vision.body.length > 100000) {
+    fs.writeFileSync(endoDestDir + '/vision-engine.js', vision.body);
+    console.log('✓ MediaPipe vision-engine.js');
+  } else {
+    console.warn('! No se pudo extraer el motor de visión MediaPipe.');
+  }
+
+  if (fs.existsSync(mpSrcDir)) {
+    const mpDest = path.join(endoDestDir, 'vendor', 'mediapipe');
+    const wasmSrc = path.join(mpSrcDir, 'wasm');
+    if (fs.existsSync(wasmSrc)) copyDir(wasmSrc, path.join(mpDest, 'wasm'));
+    const task = path.join(mpSrcDir, 'hand_landmarker.task');
+    if (fs.existsSync(task)) {
+      fs.mkdirSync(mpDest, { recursive: true });
+      fs.copyFileSync(task, path.join(mpDest, 'hand_landmarker.task'));
+    }
+    console.log('✓ MediaPipe wasm + hand_landmarker.task');
   }
 } else {
   console.warn('! Falta modelox/endodoncia.html o modelox/data/models.js: simulador no publicado.');

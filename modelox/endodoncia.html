@@ -947,8 +947,7 @@ resetBtn.addEventListener("click",()=>{S.apexOffset=$("examMode").checked?(Math.
    S.py=clampPan(pinch.py+((q[0].y+q[1].y)/2-pinch.my)*ky);
    syncInputs();draw3D();return;
   }
-  if(!e.buttons){drag=null;const h=hitRuler(e);cv.style.cursor=(h&&h.dist<16)?"pointer":"grab";return;}
-  if(!drag)drag={x:e.clientX,y:e.clientY,rx:S.rx,ry:S.ry};
+  if(!drag){const h=hitRuler(e);cv.style.cursor=(h&&h.dist<16)?"pointer":"grab";return;}
   if(drag.pan){const p=toLocal(e);
    S.px=clampPan(S.px+p.x-drag.lx);S.py=clampPan(S.py+p.y-drag.ly);
    drag.lx=p.x;drag.ly=p.y;draw3D();return;}
@@ -1025,7 +1024,10 @@ function drawHands(lm){
  const video=$("cam"),W=(video&&video.videoWidth)||640,H=(video&&video.videoHeight)||480;
  if(cv.width!==W)cv.width=W;if(cv.height!==H)cv.height=H;
  const g=cv.getContext("2d");
- g.fillStyle="#000";g.fillRect(0,0,W,H);
+ g.fillStyle="#0B1220";g.fillRect(0,0,W,H);
+ if(video&&video.readyState>=2){
+  g.save();g.translate(W,0);g.scale(-1,1);g.drawImage(video,0,0,W,H);g.restore();
+ }
  if(!lm){
   tag(g,"buscando tu mano… acércala con buena luz",W/2,H/2-10,"rgba(255,255,255,.75)","15px system-ui","center");
   tag(g,"pulgar e índice forman la pinza",W/2,H/2+14,"rgba(255,255,255,.45)","12px system-ui","center");
@@ -1095,38 +1097,55 @@ function drawRail(r,d,F){
 async function startGestures(){
  if(G.on||G.busy)return;
  if(typeof navigator==="undefined"||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)
-  throw new Error("Este navegador no da acceso a la cámara (usa Chrome/Edge/Firefox reciente).");
+  throw new Error("Este navegador no da acceso a la cámara. Usa Chrome, Edge o Firefox reciente, con HTTPS.");
  const info=$("gestureInfo");
  try{
   G.busy=true;
+  if($("btnCam"))$("btnCam").disabled=true;
   $("liveZone").hidden=false;drawHands(null);
   $("stageHint").textContent="Cargando seguimiento de manos (solo la primera vez)...";
   info.textContent="Cargando seguimiento de manos (solo la primera vez)...";
-  if(window.__mpEngineErr)throw new Error(window.__mpEngineErr+" (reabre el archivo del proyecto)");
-  if(window.__mpWasmErr)throw new Error(window.__mpWasmErr+" (reabre el archivo del proyecto)");
-  if(!(self.MPVision&&self.MPVision.HandLandmarker))throw new Error("motor de manos no disponible");
-  if(typeof self.ModuleFactory!=="function")throw new Error("runtime wasm no disponible");
-  if(!self.MP_WASM_B64||!self.MP_MODEL_B64)throw new Error("el módulo de seguimiento de manos no está incluido en esta versión (faltan los binarios en vendor/mediapipe/); usa los controles manuales de profundidad");
-  info.textContent="Preparando modelo (unos segundos)...";
-  self.Module={wasmBinary:b64ToU8(self.MP_WASM_B64)};
-  const vision=await self.MPVision.FilesetResolver.forVisionTasks("vendor/mediapipe/wasm");
-  const landmarker=await self.MPVision.HandLandmarker.createFromOptions(vision,{
-   baseOptions:{modelAssetBuffer:b64ToU8(self.MP_MODEL_B64)},
-   runningMode:"VIDEO",numHands:1,
-   minHandDetectionConfidence:0.5,minHandPresenceConfidence:0.5,minTrackingConfidence:0.5});
+  if(window.__mpEngineErr)throw new Error(window.__mpEngineErr);
+  if(!(self.MPVision&&self.MPVision.HandLandmarker)){
+    await loadScript("/simuladores/endodoncia/vision-engine.js");
+  }
+  if(!(self.MPVision&&self.MPVision.HandLandmarker))throw new Error("No se pudo cargar el motor de manos. Recarga la página.");
+  info.textContent="Preparando modelo de manos...";
+  const wasmBase=new URL("/simuladores/endodoncia/vendor/mediapipe/wasm", location.origin).href;
+  const modelPath=new URL("/simuladores/endodoncia/vendor/mediapipe/hand_landmarker.task", location.origin).href;
+  const vision=await self.MPVision.FilesetResolver.forVisionTasks(wasmBase);
+  let landmarker;
+  try{
+    landmarker=await self.MPVision.HandLandmarker.createFromOptions(vision,{
+     baseOptions:{modelAssetPath:modelPath},
+     runningMode:"VIDEO",numHands:1,
+     minHandDetectionConfidence:0.5,minHandPresenceConfidence:0.5,minTrackingConfidence:0.5});
+  }catch(mpErr){
+    if(!self.MP_MODEL_B64){
+      try{await loadScript("/simuladores/endodoncia/vendor/mediapipe/model_bin.js");}catch(e){}
+    }
+    if(!self.MP_MODEL_B64) throw mpErr;
+    landmarker=await self.MPVision.HandLandmarker.createFromOptions(vision,{
+     baseOptions:{modelAssetBuffer:b64ToU8(self.MP_MODEL_B64)},
+     runningMode:"VIDEO",numHands:1,
+     minHandDetectionConfidence:0.5,minHandPresenceConfidence:0.5,minTrackingConfidence:0.5});
+  }
   info.textContent="Pidiendo permiso de cámara...";
-  const stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:640}},audio:false});
+  const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",width:{ideal:640},height:{ideal:480}},audio:false});
   const video=$("cam");
   video.srcObject=stream;
   await Promise.race([video.play().catch(()=>{}),
    new Promise((_,rej)=>setTimeout(()=>rej(new Error("la cámara no arrancó: revisa el permiso del navegador")),10000))]);
   G.landmarker=landmarker;G.stream=stream;G.on=true;G.ema=null;G.hold=0;G.frozen=false;G.spd=null;G.stillMs=0;G.lastD=null;G.busy=false;
-  info.textContent="Cámara activa: tu mano aparece abajo del diente 3D.";
+  if($("btnCam"))$("btnCam").disabled=true;
+  if($("btnCamOff"))$("btnCamOff").disabled=false;
+  info.textContent="Cámara activa: acerca la mano con buena luz. Pinza pulgar–índice = profundidad.";
   $("stageHint").textContent="Mueve la pinza y mira las bandas del riel.";
   try{$("stage").scrollIntoView({behavior:"smooth",block:"nearest"});}catch(e){}
   requestAnimationFrame(gestureTick);
  }catch(err){
   G.busy=false;stopGestures(true);
+  if($("btnCam"))$("btnCam").disabled=false;
   const msg="No se pudo iniciar: "+(err&&err.message?err.message:err);
   info.textContent=msg;
   $("liveZone").hidden=true;
@@ -1139,7 +1158,9 @@ function stopGestures(silent){
  G.stream=null;G.landmarker=null;G.ema=null;
  const v=$("cam");if(v){try{v.pause();}catch(e){}try{v.srcObject=null;}catch(e){}}
  const st=$("liveZone");if(st)st.hidden=true;
- if(!silent)$("gestureInfo").textContent="Cámara apagada.";
+ if($("btnCam"))$("btnCam").disabled=false;
+ if($("btnCamOff"))$("btnCamOff").disabled=true;
+ if(!silent)$("gestureInfo").textContent="Cámara apagada. Puedes seguir con el deslizador o volver a encenderla.";
 }
 function gestureTick(){
  if(!G.on)return;

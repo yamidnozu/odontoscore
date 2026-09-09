@@ -1,0 +1,449 @@
+/* Simulador 3D de endodoncia — alineado al design system clínico OdontoScore */
+
+.endo-app {
+  --endo-ink: var(--color-navy, #0F172A);
+  --endo-muted: var(--color-slate-light, #64748B);
+  --endo-line: var(--color-border, #E2E8F0);
+  --endo-card: var(--color-surface-card, #FFFFFF);
+  --endo-soft: var(--color-surface, #F1F5F9);
+  --endo-accent: var(--color-primary, #0284C7);
+  --endo-ok: var(--color-success, #059669);
+  --endo-warn: var(--color-warm, #D97706);
+  --endo-bad: var(--color-danger, #E11D48);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+.endo-app *,
+.endo-app *::before,
+.endo-app *::after { box-sizing: border-box; }
+
+.endo-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--endo-muted);
+  margin-bottom: 1.25rem;
+}
+.endo-crumb a { color: var(--endo-muted); }
+.endo-crumb a:hover { color: var(--endo-accent); }
+.endo-crumb span[aria-hidden] { opacity: 0.4; }
+
+.endo-hero { margin-bottom: 1.5rem; }
+.endo-hero h1 {
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+  color: var(--endo-ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0.45rem 0 0.85rem;
+}
+.endo-hero p {
+  font-size: 1.02rem;
+  color: var(--color-slate, #334155);
+  line-height: 1.7;
+  max-width: 68ch;
+  margin: 0;
+}
+
+.endo-callout {
+  border-left: 3px solid var(--endo-accent);
+  background: #F8FAFC;
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0 0;
+  max-width: 760px;
+}
+.endo-callout strong {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--endo-accent);
+  margin-bottom: 0.3rem;
+}
+.endo-callout span {
+  font-size: 0.92rem;
+  color: var(--color-slate, #334155);
+  line-height: 1.65;
+}
+
+.endo-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+}
+.endo-hero-links a {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.endo-protocol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 1.5rem 0 1.25rem;
+}
+.endo-protocol li {
+  list-style: none;
+  background: var(--endo-card);
+  border: 1px solid var(--endo-line);
+  border-radius: 10px;
+  padding: 0.7rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--endo-muted);
+  line-height: 1.4;
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(15, 23, 42, 0.04));
+}
+.endo-protocol b {
+  display: block;
+  color: var(--endo-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.endo-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.9fr);
+  gap: 1.1rem;
+  align-items: start;
+}
+
+.endo-card {
+  background: var(--endo-card);
+  border: 1px solid var(--endo-line);
+  border-radius: 12px;
+  padding: 1rem 1.05rem 1.1rem;
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(15, 23, 42, 0.04));
+}
+.endo-card + .endo-card { margin-top: 0.85rem; }
+.endo-card h2 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--endo-accent);
+  margin: 0 0 0.75rem;
+}
+
+.endo-side { min-width: 0; }
+.endo-viewport { padding: 0.85rem; }
+
+.endo-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.endo-app button {
+  appearance: none;
+  font-family: inherit;
+  font-weight: 650;
+  font-size: 0.82rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  background: var(--endo-accent);
+  color: #fff;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.endo-app button:hover { background: var(--color-primary-dark, #0369A1); }
+.endo-app button.ghost {
+  background: #fff;
+  color: var(--endo-ink);
+  border-color: var(--endo-line);
+}
+.endo-app button.ghost:hover { background: var(--endo-soft); }
+.endo-app button.mini {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+}
+.endo-app button.on,
+.endo-app button.ghost.on,
+.endo-app .seg button.on {
+  background: var(--endo-accent);
+  color: #fff;
+  border-color: var(--endo-accent);
+}
+.endo-app button:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+.endo-viewwrap {
+  position: relative;
+  background: #0B1220;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 520px;
+}
+.endo-app canvas#view3d {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0B1220;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+.endo-app canvas#view3d:active { cursor: grabbing; }
+
+.endo-orbit-hint {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(15, 23, 42, 0.78);
+  color: #E2E8F0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  transition: opacity 0.3s ease;
+}
+.endo-orbit-hint.is-hidden { opacity: 0; }
+
+.endo-hint {
+  font-size: 0.8rem;
+  color: var(--endo-muted);
+  line-height: 1.5;
+  margin: 0.65rem 0 0;
+}
+
+.endo-app label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--endo-muted);
+  margin: 0.65rem 0 0.3rem;
+}
+.endo-app select,
+.endo-app input[type="number"] {
+  width: 100%;
+  border: 1px solid var(--endo-line);
+  background: #fff;
+  color: var(--endo-ink);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.88rem;
+}
+.endo-app input[type="range"] {
+  width: 100%;
+  accent-color: var(--endo-accent);
+  height: 28px;
+}
+.endo-app .row {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+}
+.endo-app .row button { flex: 1; }
+.endo-app .stepper {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+.endo-app .stepper input { flex: 1; }
+.endo-app .read {
+  font-size: 0.86rem;
+  color: var(--color-slate, #334155);
+  margin: 0.4rem 0;
+}
+.endo-app .read b { font-variant-numeric: tabular-nums; color: var(--endo-ink); }
+
+.endo-app .badge {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.endo-app .b-corta { background: #FFFBEB; color: var(--endo-warn); }
+.endo-app .b-justa { background: var(--color-success-bg, #ECFDF5); color: var(--endo-ok); }
+.endo-app .b-larga { background: var(--color-danger-bg, #FFF1F2); color: var(--endo-bad); }
+.endo-app .big {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.7rem 0.5rem;
+  border-radius: 10px;
+  margin: 0.35rem 0 0.55rem;
+  background: var(--endo-soft);
+  color: var(--endo-ink);
+}
+.endo-app .big.b-corta { background: #FFFBEB; color: var(--endo-warn); }
+.endo-app .big.b-justa { background: var(--color-success-bg, #ECFDF5); color: var(--endo-ok); }
+.endo-app .big.b-larga { background: var(--color-danger-bg, #FFF1F2); color: var(--endo-bad); }
+
+.endo-app #apexBar {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--endo-soft);
+  margin-top: 0.45rem;
+  overflow: hidden;
+}
+.endo-app #apexFill {
+  height: 100%;
+  width: 0%;
+  background: var(--endo-warn);
+  transition: width 0.15s ease;
+}
+
+.endo-app .formula {
+  background: #F8FAFC;
+  border: 1px dashed var(--endo-line);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.84rem;
+  margin-top: 0.55rem;
+}
+.endo-app .exam {
+  border: 1px solid #FDE68A;
+  background: #FFFBEB;
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  color: #92400E;
+}
+.endo-app .warnbox {
+  border: 1px solid #FECDD3;
+  background: var(--color-danger-bg, #FFF1F2);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--endo-bad);
+}
+
+.endo-app ol.steps {
+  margin: 0.4rem 0 0 1.1rem;
+  padding: 0;
+  font-size: 0.84rem;
+  color: var(--endo-muted);
+}
+.endo-app ol.steps li { margin: 0.3rem 0; }
+.endo-app ol.steps li.done { color: var(--endo-ok); text-decoration: line-through; }
+
+.endo-app canvas#rx {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--endo-line);
+  border-radius: 10px;
+  background: #000;
+}
+
+.endo-app details {
+  margin-top: 0.7rem;
+  border: 1px solid var(--endo-line);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  background: #F8FAFC;
+}
+.endo-app summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--endo-ink);
+}
+.endo-app .presets {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.45rem;
+}
+.endo-app .presets button { width: auto; }
+
+.endo-cam-src {
+  position: absolute;
+  width: 640px;
+  height: 480px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.endo-cam-preview {
+  position: relative;
+  margin-top: 0.55rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0B1220;
+  aspect-ratio: 4 / 3;
+}
+.endo-app canvas#hands,
+.endo-app canvas#rail {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0B1220;
+  border-radius: 10px;
+}
+.endo-app canvas#rail {
+  margin-top: 0.5rem;
+  border: 1px solid var(--endo-line);
+}
+
+.endo-app #stageDepth {
+  font-size: 1.45rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0.45rem 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--endo-ink);
+}
+.endo-app .frozeBadge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  margin: 0.45rem 0;
+  background: var(--color-success-bg, #ECFDF5);
+  color: var(--endo-ok);
+}
+.endo-app #stageHint,
+.endo-app #gestureInfo {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-slate, #334155);
+}
+
+.endo-app .how { display: none; }
+.endo-app .ver { display: none; }
+
+.endo-note {
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--endo-muted);
+  line-height: 1.55;
+  max-width: 78ch;
+}
+
+@media (max-width: 1000px) {
+  .endo-board,
+  .endo-protocol { grid-template-columns: 1fr; }
+  .endo-viewwrap,
+  .endo-app canvas#view3d { min-height: 420px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .endo-app #apexFill,
+  .endo-orbit-hint { transition: none; }
+}
