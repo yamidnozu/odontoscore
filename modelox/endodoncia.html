@@ -93,7 +93,7 @@ canvas#rx{width:100%;border:1px solid var(--line);border-radius:12px;background:
 <div class="hint">El punto <b style="color:#ffb4a2">acceso</b> es la cavidad real: la lima entra por ahí, como en clínica; la línea brillante es el conducto. Ratón: arrastrar = girar · clic derecho o Mayús+arrastrar = mover · rueda = zoom · doble clic = centrar · clic en la regla = llevar la lima. Táctil: un dedo gira, pellizco = zoom.</div>
 </div>
 <div id="stage"><h3>Tu mano aquí, junto al diente</h3>
-<div class="hint">Control manual: deslizador, clic en la regla y botones ±0.1 / ±1 mm. El seguimiento por cámara no está incluido en esta versión.</div>
+<div class="hint">Control manual: deslizador, clic en la regla y botones ±0.1 / ±1 mm. La cámara usa seguimiento de manos en el navegador.</div>
 <video id="cam" width="320" height="240" playsinline muted hidden></video>
 <div class="read" id="gestureInfo">Seguimiento por cámara no disponible en esta versión: usa el deslizador y los botones de ajuste.</div>
 <div class="row"><button id="btnCam">Usar cámara y manos</button><button id="btnCamOff" class="ghost">Detener cámara</button></div>
@@ -1107,7 +1107,7 @@ async function startGestures(){
   info.textContent="Cargando seguimiento de manos (solo la primera vez)...";
   if(window.__mpEngineErr)throw new Error(window.__mpEngineErr);
   if(!(self.MPVision&&self.MPVision.HandLandmarker)){
-    await loadScript("/simuladores/endodoncia/vision-engine.js");
+    await loadScript("/simuladores/endodoncia/vision-engine.js?v=20260909cam");
   }
   if(!(self.MPVision&&self.MPVision.HandLandmarker))throw new Error("No se pudo cargar el motor de manos. Recarga la página.");
   info.textContent="Preparando modelo de manos...";

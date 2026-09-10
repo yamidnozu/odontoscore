@@ -38,6 +38,9 @@
   <FilesMatch "\.(css|js|webp|svg|png|jpg)$">
     Header set Cache-Control "max-age=2592000, public"
   </FilesMatch>
+  <FilesMatch "engine\.js$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 
   # Security headers
   Header set X-Content-Type-Options "nosniff"
