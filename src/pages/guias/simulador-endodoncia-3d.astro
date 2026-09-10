@@ -40,7 +40,7 @@ const jsonLd = [
   canonicalUrl={canonicalUrl}
   jsonLd={jsonLd}
 >
-  <link rel="stylesheet" href="/styles/simulador-endodoncia.css?v=20260909" />
+  <link rel="stylesheet" href="/styles/simulador-endodoncia.css?v=20260909cam2" />
 
   <div class="endo-app">
     <nav class="endo-crumb" aria-label="Ruta">
@@ -142,8 +142,8 @@ const jsonLd = [
         <section class="endo-card" id="stage">
           <h2>2 · Cámara y mano</h2>
           <p class="endo-hint">
-            Pulsa «Usar cámara». Coloca la mano frente a la webcam: la pinza pulgar–índice
-            mueve la lima. En la banda verde, mantén 1 s para congelar la medida.
+            Pulsa «Usar cámara» y acepta el permiso. Verás tu webcam al instante; el
+            modelo de manos tarda unos segundos. La pinza pulgar–índice mueve la lima.
           </p>
           <div class="read" id="gestureInfo">Cámara lista. El permiso se pide al iniciar.</div>
           <div class="row">
@@ -260,7 +260,6 @@ const jsonLd = [
       wrap.addEventListener('wheel', hide, { capture: true, passive: true });
     });
   </script>
-  <script is:inline src="/simuladores/endodoncia/vision-engine.js?v=20260909cam" defer></script>
-  <script is:inline src="/simuladores/endodoncia/data/models.js?v=20260909cam" defer></script>
-  <script is:inline src="/simuladores/endodoncia/engine.js?v=20260909cam" defer></script>
+  <script is:inline src="/simuladores/endodoncia/data/models.js?v=20260909cam2" defer></script>
+  <script is:inline src="/simuladores/endodoncia/engine.js?v=20260909cam2" defer></script>
 </BaseLayout>

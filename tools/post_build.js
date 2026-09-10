@@ -65,12 +65,16 @@ if (fs.existsSync(endoEngineSrc) && fs.existsSync(endoModelsSrc)) {
     const mpDest = path.join(endoDestDir, 'vendor', 'mediapipe');
     const wasmSrc = path.join(mpSrcDir, 'wasm');
     if (fs.existsSync(wasmSrc)) copyDir(wasmSrc, path.join(mpDest, 'wasm'));
+    fs.mkdirSync(mpDest, { recursive: true });
     const task = path.join(mpSrcDir, 'hand_landmarker.task');
     if (fs.existsSync(task)) {
-      fs.mkdirSync(mpDest, { recursive: true });
       fs.copyFileSync(task, path.join(mpDest, 'hand_landmarker.task'));
     }
-    console.log('✓ MediaPipe wasm + hand_landmarker.task');
+    const bundle = path.join(mpSrcDir, 'vision_bundle.js');
+    if (fs.existsSync(bundle)) {
+      fs.copyFileSync(bundle, path.join(mpDest, 'vision_bundle.js'));
+    }
+    console.log('✓ MediaPipe wasm + hand_landmarker.task + vision_bundle.js');
   }
 } else {
   console.warn('! Falta modelox/endodoncia.html o modelox/data/models.js: simulador no publicado.');
